@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Concept Vocabulary Review</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* One card per group; one row per concept inside it. */
+    .group { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; }
+    .group h2 { margin: 0 0 6px; font-size: 17px; }
+    .group h2 .muted { font-weight: 400; font-size: 14px; }
+    td code { font-size: 12px; color: var(--ink-2); }
+    .def { font-size: 14px; }
+    .syn { font-size: 13px; color: var(--ink-2); margin-top: 4px; }
+    .concept-note { font-size: 13px; color: var(--ink-2); margin-top: 4px; font-style: italic; }
+    /* Dot strip: filled = mentioned, hollow = not. Fill and outline differ, not just color. */
+    .dots circle.on { fill: var(--accent); stroke: var(--accent); }
+    .dots circle.off { fill: none; stroke: var(--axis); stroke-width: 1.2; }
+    /* UC: its own hue (orange vs the comparison schools' blue; the pair stays distinct
+       for common color-vision differences), set after the rules above so it wins. */
+    .dots circle.uc.on { fill: var(--area-2); stroke: var(--area-2); }
+    .dots circle.uc.off { fill: none; stroke: var(--area-2); stroke-width: 1.6; }
+    .dots line.divider { stroke: var(--axis); stroke-width: 1; }
+    .uc-key { color: var(--area-2); font-weight: 700; }
+    td.strip { white-space: nowrap; }
+    td.appears { font-size: 13px; min-width: 150px; }
+    .canon-line + .canon-line { margin-top: 2px; }
+    details.more summary { cursor: pointer; color: var(--accent); margin-top: 2px; }
+    details.where summary { cursor: pointer; color: var(--accent); font-size: 13px; }
+    .hit { margin: 8px 0 0; font-size: 13px; }
+    .hit-head { font-weight: 600; }
+    .hit p { margin: 2px 0 0; color: var(--ink-2); white-space: pre-line; }
+    .hit .flag { color: var(--ink-2); font-style: italic; }
+    mark { background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--ink); border-radius: 2px; padding: 0 1px; }
+    .summary { font-size: 14px; color: var(--ink-2); }
+    @media (max-width: 640px) { .hide-narrow { display: none; } }
+  </style>
+</head>
+<body>
+<main>
+  <nav>
+    <a href="index.html">4-year plan</a>
+    <a href="compare.html">Alignment</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="review.html">Canonical matches</a>
+    <a href="concepts_review.html" aria-current="page">Concept vocabulary</a>
+    <a href="concept_tags_review.html">Concept tags</a>
+  </nav>
+  <h1>Concept vocabulary</h1>
+  <p class="sub">The draft concepts in <code>data/reference/concepts.csv</code>, by group, for review before tagging.</p>
+
+  <div class="note">
+    <strong>What this shows.</strong> Each concept's name, definition (written for this
+    project), and synonyms (phrases that occur word for word in the in-scope
+    descriptions). The <em>dots</em> are the 16 schools: UC first (larger, orange), then the
+    comparison schools in a fixed order (hover a dot for the school and its matching courses): filled means the school has at
+    least one in-scope course whose title or description contains a synonym.
+    Within each group, concepts are sorted by how many schools mention them (most first).
+    <em>Appears in</em> lists the canonical courses those courses match, with the number of
+    schools for each.
+    <strong>These are rough phrase matches, not tags</strong>: a synonym can occur in
+    another sense ("functions" in a discrete-math course), and a concept can be stated in
+    other words. Tags are proposed by reading each description in step 17. In scope:
+    CS courses with the school's own catalog text (no generic descriptions, no slots).
+  </div>
+  <div class="note">
+    <strong>Truncated catalog text.</strong> Some descriptions are cut off in the school's
+    own catalog (e.g. UC's CS 2028C Data Structures ends at "Vectors, Lists, Stacks,
+    Queues, Sets,"). Such rows are marked below, and concepts they would mention don't
+    show up for them. To change a concept, edit <code>concepts.csv</code> and rerun
+    <code>src/preview_concepts.py</code>.
+  </div>
+
+  <div class="filters" id="filters">
+    <label>Group <select id="group"><option value="">All</option></select></label>
+    <label>Search <input type="search" id="q" placeholder="name, id, definition, or synonym"></label>
+    <label>Schools
+      <select id="reach">
+        <option value="">Any</option>
+        <option value="1">Only 1</option>
+        <option value="le3">3 or fewer</option>
+        <option value="ge8">8 or more</option>
+      </select>
+    </label>
+    <label>UC
+      <select id="uc"><option value="">Any</option><option value="yes">Mentioned at UC</option><option value="no">Not at UC</option></select>
+    </label>
+  </div>
+  <p class="summary" id="summary"></p>
+  <div id="groups"></div>
+</main>
+
+<div class="tooltip hidden" id="tooltip" role="tooltip"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="common.js"></script>
+<script src="concepts_review.js"></script>
+</body>
+</html>

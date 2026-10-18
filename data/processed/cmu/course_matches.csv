@@ -1,0 +1,35 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+21-120,calculus-1,covers,high,"Differential and integral calculus of one variable: limits, derivatives, and an introduction to integrals.",False,approved,Placement-dependent: the sample assumes credit for it (counts_toward_total = false).
+15-112,intro-programming,covers,high,A first programming course in Python for students without prior programming credit.,False,approved,Placement-dependent (counts_toward_total = false).
+07-128,cs-orientation,covers,high,A first-semester seminar that introduces incoming students to computer science at CMU and its research.,False,approved,
+07-131,programming-practicum,covers,high,"An optional mini-course on the 'tools of the trade' a computer scientist is expected to pick up (shells, version control, editors, debugging).",True,approved,Optional and not required for the major (counts_toward_total = false); partial because it is a 2-unit mini-course.
+15-122,intro-programming-2,covers,high,"The second programming course: imperative programming in C0/C, contracts and program correctness, after a first programming course.",True,approved,Partial because it also covers basic data structures.
+15-122,data-structures,covers,medium,"Introduces basic data structures (stacks, queues, hash tables, trees, heaps, graphs) alongside imperative programming.",True,approved,Partial: the main data structures course is 15-210.
+15-151,discrete-math,covers,high,"Logic, sets, induction, functions, and combinatorics as the mathematical foundations of computer science, with an emphasis on proofs.",False,approved,
+21-122,calculus-2,covers,high,"Techniques of integration, sequences and series, Taylor's theorem, and an introduction to differential equations.",False,approved,
+76-101,first-year-composition,covers,high,A first-year writing course on argument and genre-based writing.,False,approved,
+99-101,first-year-seminar,covers,medium,"A short online course for all new CMU students on collaboration, communication, information literacy, and intercultural skills.",False,approved,Not CS-specific; a university-wide first-year course.
+15-150,functional-programming,covers,new,"An introduction to programming in the functional model: inductive types, recursion, higher-order functions, and proofs of correctness by structural induction.",False,approved,New concept (CMU's required course has no counterpart in the list).
+15-213,computer-organization,covers,high,"A programmer's view of how systems execute programs: machine-level code, data representation, memory hierarchy, and linking.",True,approved,Partial: also covers systems topics (as with Northeastern's CS 3650).
+15-213,operating-systems,covers,medium,"Covers processes, virtual memory, system I/O, and concurrency from the programmer's side, as a foundation for later OS courses.",True,approved,Partial: the operating systems course itself (15-410) is a systems elective.
+21-259,calculus-3,covers,high,"Vectors, partial derivatives, multiple integrals, and vector calculus in three dimensions.",False,approved,
+SCS Major Intro Mini,cs-elective,covers,medium,"A 5-unit mini-course introducing another SCS major (computational biology, HCI, AI, or robotics).",True,approved,Partial: a short course; two can count as one SCS elective.
+Humanities and Arts Elective,gen-ed-elective,covers,high,"Humanities, social science, and fine arts breadth courses.",False,approved,
+15-210,data-structures,covers,high,"Design and analysis of data structures, with an emphasis on parallel and sequential versions.",True,approved,Partial because it is equally an algorithms course.
+15-210,algorithms,covers,high,"Design and analysis of parallel and sequential algorithms, beyond 15-122 and 15-150.",True,approved,Partial; the upper-level algorithms course is 15-451.
+21-241,linear-algebra,covers,high,"A first course in linear algebra for scientists and engineers, with some proofs.",False,approved,
+Science/Engineering Course,math-science-elective,covers,high,Courses from the colleges of science or engineering (36 units).,False,approved,
+Minor Requirement / Free Elective,free-elective,covers,medium,"Courses toward the required minor or concentration, or any CMU course.",False,approved,The required minor or concentration has no separate concept.
+15-251,theory-of-computation,covers,medium,"Theoretical ideas across automata, complexity, and computability, with proofs.",True,approved,"Partial: also covers discrete math, probability, and graph theory topics."
+15-251,discrete-math,covers,medium,"Combinatorics, graph theory, probability, and proofs applied to computer science.",True,approved,Partial: the main discrete math course is 15-151.
+CS Domains Elective,cs-elective,covers,high,"One upper-level CS course from areas not covered by the other constrained categories (graphics, security, software engineering, computational biology, ...).",False,approved,
+Probability Course,probability-statistics,covers,high,"Every option is a probability course (15-259, 21-325, 21-425, 36-218, or 36-225/226).",False,approved,
+15-451,algorithms,covers,high,"Design and analysis of algorithms: graph algorithms, data structures, lower bounds, and NP-completeness.",False,approved,
+CS Logic/Languages Elective,programming-languages,covers,medium,"The options are courses on programming language foundations, logic, and program verification.",True,approved,"Partial: some options (constructive logic, category theory) are logic rather than languages."
+Technical Communications Course,technical-writing,one_of,high,Options 76-270 (Writing for the Professions) and 07-300 (Research and Innovation in Computer Science) are technical and professional communication courses.,False,approved,
+Technical Communications Course,computing-ethics,one_of,medium,Option 17-200 (Ethics and Policy Issues in Computing).,False,approved,
+CS Software Systems Elective,operating-systems,one_of,medium,Options 15-410 (Operating System Design and Implementation) and 15-440 (Distributed Systems).,False,approved,"Other options: 15-411 (Compiler Design), 15-418 (Parallel Computer Architecture and Programming)."
+CS Software Systems Elective,computer-networks,one_of,high,Option 15-441 (Networking and the Internet).,False,approved,
+CS Software Systems Elective,databases,one_of,high,Option 15-445 (Database Systems).,False,approved,
+CS Artificial Intelligence Elective,artificial-intelligence,covers,high,"Every option is an AI course: machine learning, NLP, deep learning, computer vision, or robotics.",False,approved,
+SCS Elective,cs-elective,covers,high,Two upper-level electives from any SCS department.,False,approved,

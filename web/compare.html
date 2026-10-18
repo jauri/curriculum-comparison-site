@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Curriculum Alignment</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-specific layout for the alignment view (specs/06-alignment-view.md). The chart
+       and the detail panel sit side by side on wide screens; below 1100px the panel
+       moves under the chart. */
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    @media (min-width: 1100px) { .layout { grid-template-columns: minmax(0, 1fr) 320px; } }
+
+    /* The chart scrolls sideways inside its own box on narrow screens, never the page. */
+    .chart-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+    svg { display: block; font: 12px system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+    /* Semester bands: a faint rule between bands and a two-line label on the left. */
+    .band-rule { stroke: var(--grid); }
+    .band-label { fill: var(--ink-2); }
+    .band-label .sem { fill: var(--ink); font-weight: 600; }
+    .col-head { fill: var(--ink); font-weight: 600; font-size: 14px; }
+    .col-sub { fill: var(--muted); font-size: 12px; }
+
+    /* Course nodes: surface fill, thin border, 4px area stripe on the left (as in the
+       plan view). Slots are dashed. Text stays in ink colors, never the area color. */
+    .node { cursor: pointer; outline: none; }
+    .node .box { fill: var(--surface); stroke: var(--axis); stroke-width: 1; }
+    .node.slot .box { stroke-dasharray: 4 3; }
+    .node .code { fill: var(--ink); font-weight: 600; }
+    .node .title { fill: var(--ink-2); }
+    .node .generic { fill: var(--ink-2); font-size: 9px; font-weight: 600; letter-spacing: 0.04em; }
+    .node:focus-visible .box { stroke: var(--accent); stroke-width: 2; }
+    /* No counterpart on the other side: lighter, so matched courses stand out. */
+    .node.unmatched .box { fill: var(--page); }
+    .node.unmatched .stripe { opacity: 0.35; }
+    .node.unmatched .code, .node.unmatched .title { fill: var(--muted); }
+
+    /* Links: thin curves in the UC course's area color; dashed for partial matches,
+       dotted (round dots) for "possible" links through one option of a choice. Possible
+       comes after partial, so a link that is both is drawn dotted. */
+    .link { fill: none; stroke-width: 1.5; stroke-opacity: 0.55; }
+    .link.partial { stroke-dasharray: 5 4; }
+    .link.possible { stroke-dasharray: 0.5 4; stroke-linecap: round; stroke-width: 2; }
+    /* Wide invisible twin of each link, so the hover target is bigger than the line. */
+    .link-hit { fill: none; stroke: transparent; stroke-width: 10; cursor: pointer; }
+
+    /* Highlighting: while something is hovered or pinned, everything not related to it
+       fades. The highlighted links get full opacity and a thicker stroke. */
+    svg.focusing .node:not(.on) { opacity: 0.18; }
+    svg.focusing .link:not(.on) { stroke-opacity: 0.06; }
+    svg.focusing .link.on { stroke-opacity: 1; stroke-width: 2.5; }
+    .node.pinned .box { stroke: var(--ink); stroke-width: 2; }
+
+    .hidden { display: none; }
+
+    /* Detail panel for a clicked (pinned) course. Sticky so it stays in view while the
+       tall chart scrolls. */
+    aside {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 12px 14px; font-size: 14px; align-self: start;
+    }
+    @media (min-width: 1100px) { aside { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; } }
+    aside h3 { margin: 0 0 4px; font-size: 15px; }
+    aside h4 { margin: 12px 0 4px; font-size: 13px; color: var(--ink-2); }
+    aside p { margin: 0 0 8px; }
+    aside dl { display: grid; grid-template-columns: max-content 1fr; gap: 2px 10px; margin: 8px 0; font-size: 13px; }
+    aside dt { color: var(--ink-2); }
+    aside dd { margin: 0; }
+    aside ul { margin: 0; padding-left: 18px; font-size: 13px; }
+    .desc { white-space: pre-line; font-size: 13px; color: var(--ink-2); }
+
+    .filters label.area { display: inline-flex; align-items: center; gap: 6px; }
+    .filters label.area i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+    .legend .partial-key { width: 22px; height: 0; border-top: 2px dashed var(--ink-2); border-radius: 0; }
+    .legend .possible-key { width: 22px; height: 0; border-top: 2px dotted var(--ink-2); border-radius: 0; }
+    .legend .link-key { width: 22px; height: 0; border-top: 2px solid var(--ink-2); border-radius: 0; }
+    .legend .unmatched-key { background: var(--page); border: 1px solid var(--axis); }
+    .unmatched-list { font-size: 14px; color: var(--ink-2); }
+  </style>
+</head>
+<body>
+<main>
+  <nav>
+    <a href="index.html">4-year plan</a>
+    <a href="compare.html" aria-current="page">Alignment</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="review.html">Canonical matches</a>
+    <a href="concepts_review.html">Concept vocabulary</a>
+    <a href="concept_tags_review.html">Concept tags</a>
+  </nav>
+  <h1>Curriculum alignment</h1>
+  <p class="sub" id="subtitle">UC's required courses next to another school's, in normalized semester order.</p>
+
+  <div class="note">
+    <strong>How to read this.</strong> Each box is a required course or requirement slot,
+    placed in its semester of a 4-year plan (UC's 5-year co-op plan is normalized to 8
+    semesters; co-op work terms are left out). Box height is proportional to credits. A line
+    joins two courses that our reviewed matching assigns to the same canonical course (a
+    course may match more than one); dashed lines are partial matches, and dotted lines are
+    possible matches through one option of a choice (the student may take another). A line that slopes down means the other school takes that
+    course later than UC. Hover to highlight a course and its counterparts; click to pin it
+    and see details. Faded boxes have no counterpart at the other school.
+  </div>
+  <div class="note">
+    <strong>Generic descriptions</strong> are marked <span class="badge-generic">generic</span>.
+    They are typical descriptions of a course or requirement with that name, written for this
+    project, not the school's own catalog text.
+  </div>
+
+  <div class="filters" id="filters">
+    <label>Compare UC with <select id="school"></select></label>
+    <span id="area-filters" style="display:contents"></span>
+  </div>
+  <div class="legend" id="legend"></div>
+
+  <div class="layout">
+    <div class="chart-wrap"><svg id="chart" role="img" aria-labelledby="subtitle"></svg></div>
+    <aside id="detail" aria-live="polite">
+      <p class="muted">Click a course to pin it and see its description, canonical course,
+        and counterparts.</p>
+    </aside>
+  </div>
+
+  <h2>Courses without a counterpart</h2>
+  <div class="unmatched-list" id="unmatched"></div>
+
+  <h2>Alignment table</h2>
+  <p class="muted">One row per canonical course required at either school, with the
+    semesters where each school places it. Follows the subject filter.</p>
+  <div class="table-wrap"><table id="table"></table></div>
+</main>
+<div class="tooltip hidden" id="tooltip" role="tooltip"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="common.js"></script>
+<script src="compare.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+CS 18000,intro-programming,covers,high,Problem solving and object-oriented programming: the first CS course.,False,approved,
+MA 16100 or MA 16500 (Plane Analytic Geometry And Calculus I),calculus-1,covers,high,Both options are Calculus I.,False,approved,
+Written Communication,gen-ed-elective,covers,medium,"A written communication core course; as a slot it maps to gen-ed (as with OSU's, Berkeley's, and UIUC's writing slots).",False,approved,
+Free Elective,free-elective,covers,high,Any Purdue course.,False,approved,
+CS 18200,discrete-math,covers,high,"Logic and proofs, sets, functions, counting, graphs, and finite state machines.",False,approved,
+CS 24000,programming-practicum,covers,medium,"C programming in the UNIX environment: the development cycle, pointers, memory, and the preprocessor.",True,approved,Partial: a programming-language course as much as a tools course.
+MA 16200 or MA 16600 (Plane Analytic Geometry And Calculus II),calculus-2,covers,high,Both options are Calculus II.,False,approved,
+AI Working Competency,gen-ed-elective,covers,low,A university core requirement for working competency with AI tools.,False,approved,No AI-literacy concept exists; mapped to gen-ed for review.
+Language and Culture I,world-language,covers,medium,World language or approved culture courses (Wisconsin's language rows map here too).,False,approved,
+CS 25000,computer-organization,covers,high,Computer architecture from digital logic to processors and memory.,True,approved,Partial: begins with digital logic.
+CS 25000,digital-logic,covers,medium,"Transistors, gates, combinational circuits, clocks, and registers.",True,approved,Partial.
+CS 25100,data-structures,covers,high,"Lists, trees, heaps, hash tables, and graphs, with running time analysis.",True,approved,Partial because it also covers algorithms.
+CS 25100,algorithms,covers,medium,"Running time analysis, sorting, and graph algorithms.",True,approved,Partial: the algorithms course (CS 38100) is a track course.
+MA 26100 or MA 27101 (Multivariate Calculus),calculus-3,covers,high,Both options are multivariable calculus (MA 27101 is honors).,False,approved,
+Language and Culture II,world-language,covers,medium,Second world language or culture course.,False,approved,
+CS 25200,operating-systems,covers,medium,"Systems programming: processes, threads, address spaces, files, and concurrency.",True,approved,Partial: a systems programming course rather than OS design (as UIC's CS 361).
+MA 26500 or MA 35100 (Linear Algebra),linear-algebra,covers,high,Both options are linear algebra.,False,approved,
+Technical Writing and Presentation,oral-communication,covers,medium,Technical writing and technical presentation (COM 21700 suggested).,True,approved,Partial: half writing; the slot can't map to the technical-writing course concept without options.
+Language and Culture III,world-language,covers,medium,Third world language or culture course.,False,approved,
+"Science, Technology and Society",technology-and-society,covers,high,"Science, technology, and society core requirement.",False,approved,
+STAT 35000 or STAT 51100 (Introduction To Statistics),probability-statistics,covers,high,Both options are introductory statistics.,False,approved,
+CS Track Course,cs-elective,covers,high,Upper-level CS courses in the student's track (some required by the track).,False,approved,The tracks' own requirements are not modeled.
+General Education I,gen-ed-elective,covers,high,Humanities or social science general education.,False,approved,
+Great Issues in Science,technology-and-society,covers,medium,Great Issues in Science and Society: issues where science meets society.,False,approved,
+General Education II,gen-ed-elective,covers,high,Humanities or social science general education.,False,approved,
+General Education III,gen-ed-elective,covers,high,Humanities or social science general education.,False,approved,
+Lab Science I,lab-science,covers,high,A laboratory science course outside CS.,False,approved,
+Lab Science II,lab-science,covers,high,A second laboratory science course.,False,approved,

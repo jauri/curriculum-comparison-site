@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UC CS Plan</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-specific layout for the 8-semester grid. Years are blocks of two semester
+       columns; auto-fit wraps the year blocks onto new rows on narrow screens (down to
+       one year per row on a phone) instead of squeezing eight columns. */
+    .years { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .year { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+    .year h3 { margin: 0 0 8px; font-size: 14px; color: var(--ink-2); }
+    .sems { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .sem-head { font-size: 13px; margin-bottom: 6px; line-height: 1.3; }
+    .sem-head b { display: block; color: var(--ink); }
+    .sem-head span { color: var(--muted); display: block; }
+    .stack { display: flex; flex-direction: column; gap: 2px; } /* 2px gap between cards */
+
+    /* One course card. Height scales with credits (set inline by index.js). Area color
+       is only a 4px stripe on the left; text stays in ink colors for contrast. */
+    .card {
+      all: unset;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow: hidden;
+      padding: 3px 6px 3px 9px;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--stripe);
+      border-radius: 4px;
+      background: var(--surface);
+      font-size: 12px;
+      line-height: 1.25;
+      cursor: pointer;
+    }
+    .card:hover { background: var(--hover); }
+    .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .card.slot { border-style: dashed; border-left-style: solid; }
+    .card .code { font-weight: 600; display: flex; justify-content: space-between; gap: 4px; }
+    /* -webkit-box + line-clamp (set per card by index.js) ends long titles with "...". */
+    .card .title { color: var(--ink-2); display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+    .card .badge-generic { font-size: 10px; padding: 0 4px; line-height: 1.4; }
+
+    /* UC term -> normalized semester timeline. */
+    .timeline { display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0; }
+    .term { border: 1px solid var(--border); border-radius: 6px; padding: 4px 8px; font-size: 12px; background: var(--surface); line-height: 1.3; min-width: 84px; }
+    .term b { display: block; }
+    .term.coop { background: var(--coop); color: var(--ink-2); }
+
+    dialog { max-width: min(680px, calc(100vw - 32px)); border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--ink); padding: 20px; }
+    dialog::backdrop { background: rgba(0, 0, 0, 0.35); }
+    dialog h2 { margin-top: 0; }
+    dialog dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; font-size: 14px; margin: 12px 0; }
+    dialog dt { color: var(--ink-2); }
+    dialog dd { margin: 0; }
+    .desc { white-space: pre-line; } /* keep UC's one-topic-per-line lists */
+    dialog form { text-align: right; margin-top: 12px; }
+    dialog button { font: inherit; padding: 4px 14px; border-radius: 6px; border: 1px solid var(--border); background: var(--page); color: var(--ink); cursor: pointer; }
+  </style>
+</head>
+<body>
+<main>
+  <nav>
+    <a href="index.html" aria-current="page">4-year plan</a>
+    <a href="compare.html">Alignment</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="review.html">Canonical matches</a>
+    <a href="concepts_review.html">Concept vocabulary</a>
+    <a href="concept_tags_review.html">Concept tags</a>
+  </nav>
+  <h1>University of Cincinnati: Computer Science BS</h1>
+  <p class="sub">Class of 2031 (2026–27 catalog), Section I plan, shown as a 4-year, 8-semester equivalent.</p>
+
+  <div class="note">
+    <strong>How the 5-year co-op plan becomes 4 years.</strong> UC alternates academic
+    semesters with paid co-op work semesters. The 5 co-op terms are removed and the 8
+    academic terms are numbered 1–8 in order, including one academic summer. Fall and
+    Spring below are by position (odd = Fall), so they don't always match UC's calendar
+    season. For example, UC's Spring 2028 becomes Year 2 Fall. Each column shows the
+    original UC term under its heading.
+  </div>
+  <div class="note">
+    <strong>Generic descriptions</strong> are marked <span class="badge-generic">generic</span>.
+    They are typical descriptions of a course or requirement with that name, written for this
+    project, not UC's own catalog text. They are used for requirement slots (electives,
+    gen-ed, the science choice), where UC publishes no single course description.
+  </div>
+
+  <h2>Required courses by semester</h2>
+  <p class="muted">Card height is proportional to credits. Click a course for its description and match.</p>
+  <div class="legend" id="legend"></div>
+  <div class="years" id="years"></div>
+
+  <h2>Original UC terms → normalized semesters</h2>
+  <div class="timeline" id="timeline"></div>
+  <p class="muted" id="coop-list"></p>
+
+  <details>
+    <summary>Show all rows as a table</summary>
+    <div class="table-wrap"><table id="table"></table></div>
+  </details>
+
+  <dialog id="detail"></dialog>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="common.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

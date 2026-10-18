@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Concept Tag Review</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* One card per in-scope course; its text on top, its tags in a table below. */
+    .course { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin-bottom: 12px; }
+    .course h2 { margin: 0 0 4px; font-size: 16px; }
+    .course h2 .muted { font-weight: 400; font-size: 13px; }
+    .desc { margin: 4px 0 8px; font-size: 14px; color: var(--ink-2); white-space: pre-line; max-width: none; }
+    .flag { color: var(--ink-2); font-style: italic; font-size: 13px; }
+    /* Evidence highlights. The hovered tag's phrase gets a stronger fill and an outline,
+       so it is findable without relying on color alone. */
+    mark { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--ink); border-radius: 2px; padding: 0 1px; }
+    mark.active { background: color-mix(in srgb, var(--accent) 45%, transparent); outline: 1.5px solid var(--accent); }
+    td code { font-size: 12px; color: var(--ink-2); }
+    td.ev { font-style: italic; }
+    td.note { font-size: 13px; color: var(--ink-2); }
+    tr.tag:hover { background: color-mix(in srgb, var(--accent) 6%, transparent); }
+    /* Confidence: words, plus weight, so it doesn't depend on color. */
+    .conf-high { color: var(--ink-2); }
+    .conf-medium { color: var(--ink); font-weight: 600; }
+    .conf-low { color: var(--ink); font-weight: 700; text-decoration: underline; }
+    .none { font-size: 14px; color: var(--ink-2); font-style: italic; }
+    .summary { font-size: 14px; color: var(--ink-2); }
+    @media (max-width: 640px) { .hide-narrow { display: none; } }
+  </style>
+</head>
+<body>
+<main>
+  <nav>
+    <a href="index.html">4-year plan</a>
+    <a href="compare.html">Alignment</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="review.html">Canonical matches</a>
+    <a href="concepts_review.html">Concept vocabulary</a>
+    <a href="concept_tags_review.html" aria-current="page">Concept tags</a>
+  </nav>
+  <h1>Concept tags</h1>
+  <p class="sub">Proposed tags in <code>data/reference/&lt;school&gt;/concept_tags.csv</code>, one school at a time, for review.</p>
+
+  <div class="note">
+    <strong>What this shows.</strong> Each in-scope course (CS, named, the school's own
+    catalog text) with its description and the concepts it is tagged with. Every tag's
+    <em>evidence</em> is a phrase copied from the title or description; it is highlighted in
+    the text, and hovering a tag row outlines its phrase. A tag means the concept is
+    <strong>mentioned in the course's description</strong>, not that it is or isn't taught.
+    Confidence is <em>high</em> when the phrase names the concept directly, <em>medium</em>
+    when it takes a short step (e.g. "structured programming" for control structures), and
+    <em>low</em> when the mention is passing or uncertain. To change a tag, edit the CSV
+    (set <code>tag_status</code> to <code>approved</code> or <code>rejected</code>), run
+    <code>src/check_concepts.py</code>, then <code>src/preview_concepts.py</code>.
+  </div>
+
+  <div class="filters" id="filters">
+    <label>School <select id="school"></select></label>
+    <label>Confidence
+      <select id="conf">
+        <option value="">All</option>
+        <option value="ml">Medium or low</option>
+        <option value="low">Low only</option>
+      </select>
+    </label>
+    <label>Search <input type="search" id="q" placeholder="concept, course, or evidence"></label>
+  </div>
+  <p class="summary" id="summary"></p>
+  <div id="courses"></div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="common.js"></script>
+<script src="concept_tags_review.js"></script>
+</body>
+</html>

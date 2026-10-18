@@ -1,0 +1,26 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+ENGL 1101,first-year-composition,covers,high,"A first-year composition course on exposition, analysis, argument, and research.",False,approved,
+MATH 1551,calculus-1,covers,high,Differential calculus with the theory of limits (2 hours).,True,approved,Partial: a 2-hour course; integration is MATH 1552.
+HIST 2111 or HIST 2112 (Survey of U.S. History I),gen-ed-elective,covers,high,A U.S. history survey that meets Georgia's legislative history requirement.,False,approved,
+CS 1301,intro-programming,covers,high,Introduction to computing principles and programming practice.,False,approved,
+CS 1100,cs-orientation,covers,high,Small-group first-year discussions on foundational and topical subjects in computing.,False,approved,Named 'Freshman Leap' on the 2025-26 sheet and 'Pathways in Computing' in the 2026-27 catalog.
+APPH 1040 or APPH 1050 or APPH 1060 (Scientific Foundations of Health),gen-ed-elective,covers,medium,"A required 2-hour wellness course on health, physical activity, or well-being.",False,approved,Wellness has no separate concept; Penn State's health and wellness gen-ed maps here too.
+ENGL 1102,intermediate-composition,covers,high,"A second composition course beyond ENGL 1101, with more advanced research and interpretation.",False,approved,
+MATH 1552,calculus-2,covers,high,"Integral calculus: techniques of integration, improper integrals, and infinite series.",False,approved,
+Social Science Elective (US Constitution),gen-ed-elective,covers,high,A social science course; the sheet suggests a U.S. government course for Georgia's constitution requirement.,False,approved,
+Lab Science,lab-science,covers,high,"Three lab science courses, one of them PHYS 2211.",False,approved,
+CS 1331,intro-programming-2,covers,high,"Object-oriented programming (encapsulation, inheritance, polymorphism) after a first course.",False,approved,
+Social Science Elective,gen-ed-elective,covers,high,An approved social science course.,False,approved,
+MATH 1554,linear-algebra,covers,high,"Linear algebra: eigenvalues, linear systems, least squares, and diagonalization.",False,approved,
+CS 1332,data-structures,covers,high,Data structures and algorithms in object-oriented programming.,False,approved,
+CS 2050 or CS 2051 (Introduction to Discrete Mathematics for Computer Science),discrete-math,covers,high,Both options are discrete mathematics for CS (CS 2051 is the honors version).,False,approved,
+Ethics Course,computing-ethics,covers,high,"Every option is an ethics or social-issues-in-computing course (CS 3001, 4001, 4002, 4003, 4726, SLS 3110).",False,approved,
+MATH 2550,calculus-3,covers,high,"Functions of several variables, partial derivatives, and multiple integrals (2 hours, no vector calculus).",True,approved,Partial: a 2-hour course without vector calculus.
+CS 2110,computer-organization,covers,high,"Basic computer hardware, machine and assembly language, and C programming.",False,approved,
+CS 2340,software-engineering,covers,medium,"Object-oriented methods for large programs, with quality processes, debugging, and testing.",True,approved,Partial: mainly object-oriented design; GT's Junior Design carries the team project.
+Junior Design (Part 1),capstone-design,covers,high,The first semester of the required two-semester Junior Design capstone sequence.,False,approved,Slot mapped to a course concept by the SLOT_MAY_FILL_COURSE exception (as Michigan's capstone).
+Junior Design (Part 2),capstone-design,covers,high,The second semester of the Junior Design capstone sequence.,False,approved,Slot mapped to a course concept by the SLOT_MAY_FILL_COURSE exception.
+Humanities Elective,gen-ed-elective,covers,high,An approved humanities course.,False,approved,
+Probability & Statistics Option,probability-statistics,covers,high,"Every option is a probability or statistics course (MATH 3215, MATH 3670, ISYE 3770, ISYE 2027/2028).",False,approved,
+MATH 3012,discrete-math,covers,medium,"Applied combinatorics: counting, recurrences, and graph models.",True,approved,Partial: a second discrete-math course after CS 2050.
+Thread Course,cs-elective,covers,medium,"Courses required by or chosen from the student's two Threads, mostly upper-level CS.",False,approved,The threads' own requirements are not modeled.

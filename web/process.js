@@ -142,24 +142,58 @@ function setupExpandAll() {
 }
 
 // Activity overview (specs/09-process-view.md, "Activity overview"): one block per
-// day, with an Author lane and a Claude lane of half-hour cells. The counts come
+// day, with an Author lane and a Claude lane of half-hour cells. The numbers come
 // binned from the parser (data.activity); this only shades and lays them out.
 //
-// Each lane is shaded on its own scale: a cell's level (1-4) is ceil(4 * sqrt(n / max)),
-// where max is the busiest cell in that lane. The square root lifts small counts so a
-// single message still shows, while the busiest stretches stay darkest.
+// A toggle picks the measure:
+// - "count": entries and actions. Each lane is shaded on its own scale, since tool calls
+//   far outnumber messages: level (1-4) = ceil(4 * sqrt(n / max)), where max is the
+//   lane's busiest cell. The square root lifts small counts so one message still shows.
+// - "minutes": minutes of each half hour that were that side's turn. Minutes compare
+//   directly, so both lanes share one fixed scale: level = ceil(4 * minutes / 30).
+const OV_LANES = [
+  { key: "you", name: "Author", color: "var(--you)" },
+  { key: "claude", name: "Claude", color: "var(--claude)" },
+];
+
+// Text for each measure: the caption under the grid, the key's end labels, a cell's
+// value in the readout, and the default readout line (a total for the whole project).
+const OV_MODES = {
+  count: {
+    caption: "Each cell is half an hour (U.S. Eastern). Darker means more activity: the author's messages, and Claude's replies plus each action. Each lane has its own scale.",
+    key: "less → more",
+    value: (c, l) => `${c[l.key]}`,
+    // The half hours with any activity at all, from either lane.
+    total: (act, all) => {
+      const hours = (all.length * act.bin_minutes) / 60;
+      return `Active in ${all.length} half hours (about ${Math.round(hours)} hours) over ${act.days.length} days.`;
+    },
+  },
+  minutes: {
+    caption: (act) => `Each cell is half an hour (U.S. Eastern). Darker means more of it was that side's turn: the author reading and writing before each message, Claude working before each reply or action. Pauses over ${act.idle_cap_minutes} minutes count as ${act.idle_cap_minutes}. Both lanes share one scale.`,
+    key: "0 → 30 min",
+    value: (c, l) => `${Math.round(c[l.key + "_min"])} min`,
+    // Each lane's minutes summed over every cell, in hours to one decimal.
+    total: (act, all) => {
+      const h = (k) => (all.reduce((sum, c) => sum + c[k + "_min"], 0) / 60).toFixed(1);
+      return `Author about ${h("you")} hours, Claude about ${h("claude")} hours, over ${act.days.length} days.`;
+    },
+  },
+};
+
 function renderOverview(act) {
   const grid = document.getElementById("ov-grid");
   const readout = document.getElementById("ov-readout");
   const perDay = (24 * 60) / act.bin_minutes;
-  const lanes = [
-    { key: "you", name: "Author", color: "var(--you)" },
-    { key: "claude", name: "Claude", color: "var(--claude)" },
-  ];
-  // The busiest cell per lane, over all days (flatMap joins every day's cells).
+  // Every non-empty cell over all days (flatMap joins the days' cell lists).
   const all = act.days.flatMap((d) => d.cells);
-  const max = Object.fromEntries(lanes.map((l) => [l.key, Math.max(1, ...all.map((c) => c[l.key]))]));
-  const level = (n, key) => (n ? Math.ceil(4 * Math.sqrt(n / max[key])) : 0);
+  // The busiest cell per lane, for the count scale. Math.max(1, ...) guards an empty lane.
+  const max = Object.fromEntries(OV_LANES.map((l) => [l.key, Math.max(1, ...all.map((c) => c[l.key]))]));
+  const level = {
+    count: (c, l) => (c[l.key] ? Math.ceil(4 * Math.sqrt(c[l.key] / max[l.key])) : 0),
+    minutes: (c, l) => Math.min(4, Math.ceil((4 * c[l.key + "_min"]) / act.bin_minutes)),
+  };
+  let mode = "count";
 
   // Hour labels across the top, positioned as a share of the day's width.
   const ticks = [[0, "12a"], [6, "6a"], [12, "12p"], [18, "6p"]];
@@ -172,43 +206,55 @@ function renderOverview(act) {
     return `${h % 12 || 12}:${String(m).padStart(2, "0")} ${h < 12 ? "AM" : "PM"}`;
   };
 
+  // Lay out every cell once; shade() sets the levels for the current mode.
   act.days.forEach((d, di) => {
-    // Look up a day's cells by bin index; bins with no activity are absent from the data.
-    const byBin = new Map(d.cells.map((c) => [c.i, c]));
     html += `<div class="ov-day">${esc(d.label)}</div>`;
-    lanes.forEach((l) => {
+    OV_LANES.forEach((l, li) => {
       html += `<span class="ov-lane">${l.name}</span>`;
       for (let i = 0; i < perDay; i++) {
-        const c = byBin.get(i);
-        const lv = c ? level(c[l.key], l.key) : 0;
-        html += `<div class="ov-cell${lv ? ` on l${lv}` : ""}" style="--c:${l.color}" data-d="${di}" data-i="${i}"></div>`;
+        html += `<div class="ov-cell" style="--c:${l.color}" data-d="${di}" data-i="${i}" data-l="${li}"></div>`;
       }
     });
   });
   grid.innerHTML = html;
 
-  // The default readout: a rough total of working time, counted as the half hours with
-  // any activity at all (from either lane), so short breaks inside a session don't count.
-  const hours = (all.length * act.bin_minutes) / 60;
-  readout.textContent = `Active in ${all.length} half hours (about ${Math.round(hours)} hours) over ` +
-    `${act.days.length} days. Hover or tap a cell for its counts.`;
+  // Look up a cell's data from its position (bins with no activity are absent).
+  const cellData = (el) => act.days[+el.dataset.d].cells.find((x) => x.i === +el.dataset.i);
 
-  // One handler for the whole grid (event delegation): hovering a cell shows its counts
-  // in the readout below; clicking or tapping keeps it selected, with a link that jumps
-  // to the first entry in that half hour.
-  const show = (cell, select) => {
-    const d = act.days[+cell.dataset.d];
-    const i = +cell.dataset.i;
-    const c = d.cells.find((x) => x.i === i);
+  const showTotal = () => { readout.textContent = OV_MODES[mode].total(act, all) + " Hover or tap a cell for details."; };
+
+  // Shade every cell for the current mode, and update the caption and key to match.
+  function shade() {
+    grid.querySelectorAll(".ov-cell").forEach((el) => {
+      const c = cellData(el);
+      const lv = c ? level[mode](c, OV_LANES[+el.dataset.l]) : 0;
+      el.className = "ov-cell" + (c ? " on" : "") + (lv ? ` l${lv}` : "") + (el.classList.contains("sel") ? " sel" : "");
+    });
+    const m = OV_MODES[mode];
+    document.getElementById("ov-caption").textContent = typeof m.caption === "function" ? m.caption(act) : m.caption;
+    document.getElementById("ov-keys").innerHTML = OV_LANES.map((l) =>
+      `<span class="ov-key">${l.name}&nbsp;` + [1, 2, 3, 4].map((k) =>
+        `<i class="ov-cell l${k}" style="--c:${l.color}"></i>`).join("") + `</span>`).join(" ") + " " + m.key;
+  }
+
+  // Show one cell in the readout: its time, both lanes' values, and a jump link.
+  // "select" keeps it shown (a click or tap) until another cell is chosen.
+  const show = (el, select) => {
+    const d = act.days[+el.dataset.d];
+    const i = +el.dataset.i;
+    const c = cellData(el);
     const when = `${d.label}, ${clock(i * act.bin_minutes)}–${clock((i + 1) * act.bin_minutes)}`;
+    const vals = c ? OV_LANES.map((l) => `${l.name} ${OV_MODES[mode].value(c, l)}`).join(" · ") : "";
     readout.innerHTML = c
-      ? `${esc(when)} · Author ${c.you} · Claude ${c.claude} · <a href="#${esc(c.first)}">Jump to this point</a>`
+      ? `${esc(when)} · ${vals} · <a href="#${esc(c.first)}">Jump to this point</a>`
       : `${esc(when)} · no activity`;
     if (select) {
       grid.querySelectorAll(".sel").forEach((x) => x.classList.remove("sel"));
-      cell.classList.add("sel");
+      el.classList.add("sel");
     }
   };
+
+  // One handler for the whole grid (event delegation) instead of one per cell.
   grid.addEventListener("pointerover", (ev) => {
     if (ev.target.classList.contains("ov-cell") && !grid.querySelector(".sel")) show(ev.target, false);
   });
@@ -223,10 +269,17 @@ function renderOverview(act) {
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 
-  // The shade keys: less to more, one row of swatches per lane.
-  document.getElementById("ov-keys").innerHTML = lanes.map((l) =>
-    `<span class="ov-key">${l.name}&nbsp;` + [1, 2, 3, 4].map((k) =>
-      `<i class="ov-cell l${k}" style="--c:${l.color}"></i>`).join("") + `</span>`).join(" ") + " less → more";
+  // The measure toggle: re-shade, and refresh the readout for the selected cell (or the
+  // total, if none is selected) so its numbers match the new measure.
+  document.querySelectorAll('input[name="ov-mode"]').forEach((r) => r.addEventListener("change", () => {
+    mode = r.value;
+    shade();
+    const sel = grid.querySelector(".sel");
+    if (sel) show(sel, false); else showTotal();
+  }));
+
+  shade();
+  showTotal();
 }
 
 // Load the timeline, render it, and fill in the counts.

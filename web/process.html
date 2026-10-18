@@ -48,6 +48,13 @@
                font-size: 12px; color: var(--muted); }
     .ov-key { display: inline-flex; align-items: center; gap: 2px; }
     .ov-key i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+    /* The measure toggle: two radio buttons styled as a segmented control. */
+    .ov-toggle { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin-bottom: 8px; font-size: 13px; color: var(--ink-2); }
+    .ov-toggle label { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border: 1px solid var(--axis);
+                       border-radius: 999px; cursor: pointer; }
+    /* :has() styles the label whose radio is checked (supported in current browsers). */
+    .ov-toggle label:has(input:checked) { background: var(--ink); color: var(--page); border-color: var(--ink); }
+    .ov-toggle input { margin: 0; }
     .ov-readout { min-height: 1.4em; margin-top: 6px; font-size: 13px; color: var(--ink-2); }
     .ov-readout a { color: var(--accent); }
 
@@ -156,9 +163,14 @@
   <p class="sub" id="subtitle">The full working conversation between the project's author and Claude, an AI assistant, from the first idea to the current pages.</p>
 
   <section class="overview" aria-label="Activity by day and half hour">
+    <div class="ov-toggle" role="radiogroup" aria-label="Shade cells by">
+      <span>Shade by</span>
+      <label><input type="radio" name="ov-mode" value="count" checked> Amount of activity</label>
+      <label><input type="radio" name="ov-mode" value="minutes"> Minutes of activity</label>
+    </div>
     <div class="ov-grid" id="ov-grid"></div>
     <div class="ov-foot">
-      <span>Each cell is half an hour (U.S. Eastern). Darker means more activity: the author's messages, and Claude's replies plus each action. Each lane has its own scale.</span>
+      <span id="ov-caption"></span>
       <span id="ov-keys"></span>
     </div>
     <div class="ov-readout" id="ov-readout" aria-live="polite"></div>

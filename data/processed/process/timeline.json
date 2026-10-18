@@ -14,6 +14,7 @@
  },
  "activity": {
   "bin_minutes": 30,
+  "idle_cap_minutes": 10,
   "days": [
    {
     "date": "2026-10-16",
@@ -23,24 +24,32 @@
       "i": 33,
       "you": 2,
       "claude": 4,
+      "you_min": 2.3,
+      "claude_min": 0.4,
       "first": "u-0e7cfe34-145"
      },
      {
       "i": 34,
       "you": 7,
       "claude": 22,
+      "you_min": 15.2,
+      "claude_min": 1.7,
       "first": "u-b4698e22-932"
      },
      {
       "i": 35,
       "you": 11,
       "claude": 24,
+      "you_min": 13.8,
+      "claude_min": 4.0,
       "first": "u-3e7a4f72-4a6"
      },
      {
       "i": 47,
       "you": 2,
       "claude": 9,
+      "you_min": 13.9,
+      "claude_min": 1.0,
       "first": "u-5cf40345-e9d"
      }
     ]
@@ -53,156 +62,216 @@
       "i": 0,
       "you": 11,
       "claude": 81,
+      "you_min": 22.8,
+      "claude_min": 7.2,
       "first": "u-4fec1b6e-b0d"
      },
      {
       "i": 1,
       "you": 16,
       "claude": 81,
+      "you_min": 16.0,
+      "claude_min": 14.0,
       "first": "a-9c12716a-f17"
      },
      {
       "i": 2,
       "you": 13,
       "claude": 105,
+      "you_min": 16.7,
+      "claude_min": 13.3,
       "first": "u-bddb821f-d35"
      },
      {
       "i": 3,
       "you": 12,
       "claude": 143,
-      "first": "a-408fedd8-cbf"
+      "you_min": 8.6,
+      "claude_min": 21.4,
+      "first": "c-afa7f0f2-cab"
      },
      {
       "i": 4,
       "you": 18,
       "claude": 93,
+      "you_min": 20.0,
+      "claude_min": 10.0,
       "first": "a-2d869707-852"
      },
      {
       "i": 5,
       "you": 6,
       "claude": 75,
+      "you_min": 13.4,
+      "claude_min": 6.0,
       "first": "a-d585cba1-d8a"
      },
      {
       "i": 16,
-      "you": 6,
+      "you": 5,
       "claude": 40,
+      "you_min": 15.6,
+      "claude_min": 3.3,
       "first": "u-79681dde-738"
      },
      {
       "i": 17,
-      "you": 7,
+      "you": 8,
       "claude": 89,
-      "first": "c-be01f26f-ba0"
+      "you_min": 17.1,
+      "claude_min": 10.9,
+      "first": "u-4ff0df18-3a5-1"
      },
      {
       "i": 18,
       "you": 3,
       "claude": 78,
+      "you_min": 6.0,
+      "claude_min": 15.2,
       "first": "a-2dc3f539-c80"
      },
      {
       "i": 20,
       "you": 1,
       "claude": 6,
+      "you_min": 10.0,
+      "claude_min": 0.7,
       "first": "u-44bc077b-24c"
      },
      {
       "i": 21,
       "you": 4,
       "claude": 28,
+      "you_min": 13.7,
+      "claude_min": 3.7,
       "first": "u-d5f055a8-161"
      },
      {
       "i": 22,
       "you": 5,
       "claude": 209,
+      "you_min": 6.9,
+      "claude_min": 23.1,
       "first": "a-5b47e31e-52e"
      },
      {
       "i": 23,
-      "you": 1,
+      "you": 0,
       "claude": 33,
+      "you_min": 0.0,
+      "claude_min": 6.3,
       "first": "a-beb629c4-19d"
      },
      {
       "i": 24,
-      "you": 3,
+      "you": 4,
       "claude": 82,
-      "first": "a-eaa50584-d74"
+      "you_min": 18.0,
+      "claude_min": 10.0,
+      "first": "u-c36cd744-7ab-1"
      },
      {
       "i": 25,
       "you": 1,
       "claude": 3,
+      "you_min": 10.0,
+      "claude_min": 0.2,
       "first": "u-ed764064-a14"
      },
      {
       "i": 27,
       "you": 4,
       "claude": 74,
+      "you_min": 19.1,
+      "claude_min": 8.2,
       "first": "u-fd7e3f43-637"
      },
      {
       "i": 28,
       "you": 1,
       "claude": 132,
+      "you_min": 10.0,
+      "claude_min": 19.2,
       "first": "a-a061f2f8-dc6"
      },
      {
       "i": 29,
       "you": 0,
       "claude": 36,
+      "you_min": 0.0,
+      "claude_min": 6.4,
       "first": "a-82555c8b-742"
+     },
+     {
+      "i": 32,
+      "you": 0,
+      "claude": 0,
+      "you_min": 9.8,
+      "claude_min": 0.0,
+      "first": "u-56c61584-6c4"
      },
      {
       "i": 33,
       "you": 5,
       "claude": 29,
+      "you_min": 21.7,
+      "claude_min": 2.2,
       "first": "u-56c61584-6c4"
      },
      {
       "i": 34,
       "you": 7,
       "claude": 111,
+      "you_min": 16.6,
+      "claude_min": 13.4,
       "first": "u-bf63c855-1d5"
      },
      {
       "i": 35,
       "you": 6,
       "claude": 46,
+      "you_min": 17.5,
+      "claude_min": 6.1,
       "first": "u-000e0c64-d64"
      },
      {
       "i": 36,
       "you": 7,
       "claude": 91,
-      "first": "a-9096264e-79a"
+      "you_min": 22.2,
+      "claude_min": 7.5,
+      "first": "c-262d7d67-863"
      },
      {
       "i": 37,
-      "you": 10,
+      "you": 6,
       "claude": 45,
+      "you_min": 22.8,
+      "claude_min": 7.2,
       "first": "u-43811aa7-bd8"
      },
      {
       "i": 38,
-      "you": 7,
+      "you": 9,
       "claude": 54,
-      "first": "c-1405ffe8-911"
+      "you_min": 24.9,
+      "claude_min": 5.0,
+      "first": "u-a328bd95-d50-1"
      },
      {
       "i": 39,
-      "you": 11,
+      "you": 13,
       "claude": 70,
-      "first": "c-8bd800c2-561"
+      "you_min": 24.4,
+      "claude_min": 5.6,
+      "first": "u-25be269c-b47-1"
      },
      {
       "i": 40,
       "you": 4,
       "claude": 13,
+      "you_min": 8.5,
+      "claude_min": 1.0,
       "first": "u-68c08da3-a1d"
      }
     ]
@@ -213,63 +282,83 @@
     "cells": [
      {
       "i": 19,
-      "you": 2,
+      "you": 1,
       "claude": 4,
+      "you_min": 11.9,
+      "claude_min": 0.3,
       "first": "u-81c3a10d-1ba"
      },
      {
       "i": 20,
-      "you": 1,
+      "you": 2,
       "claude": 43,
-      "first": "a-463cc20f-510"
+      "you_min": 20.3,
+      "claude_min": 7.2,
+      "first": "u-b9445f81-864-1"
      },
      {
       "i": 21,
       "you": 2,
       "claude": 13,
+      "you_min": 5.7,
+      "claude_min": 1.9,
       "first": "u-1ecb61c3-5f8"
      },
      {
       "i": 25,
       "you": 3,
       "claude": 10,
+      "you_min": 13.1,
+      "claude_min": 7.7,
       "first": "u-5ddb6c88-5cd"
      },
      {
       "i": 26,
       "you": 2,
       "claude": 21,
+      "you_min": 0.3,
+      "claude_min": 5.8,
       "first": "a-e19d2207-49e"
      },
      {
       "i": 27,
       "you": 2,
       "claude": 9,
+      "you_min": 19.9,
+      "claude_min": 0.7,
       "first": "u-b102ecaf-5fb"
      },
      {
       "i": 28,
       "you": 1,
       "claude": 4,
+      "you_min": 8.7,
+      "claude_min": 0.3,
       "first": "u-e89b5c10-48b"
      },
      {
       "i": 29,
-      "you": 5,
+      "you": 1,
       "claude": 6,
+      "you_min": 14.0,
+      "claude_min": 0.8,
       "first": "u-6580a516-317"
      },
      {
       "i": 30,
-      "you": 8,
+      "you": 10,
       "claude": 75,
-      "first": "a-ba373d66-1eb"
+      "you_min": 19.3,
+      "claude_min": 10.7,
+      "first": "u-87ce4a7c-91d-1"
      },
      {
       "i": 31,
-      "you": 0,
+      "you": 2,
       "claude": 8,
-      "first": "a-15c4e0fd-c59"
+      "you_min": 0.1,
+      "claude_min": 0.7,
+      "first": "u-98439562-3d9-1"
      }
     ]
    }

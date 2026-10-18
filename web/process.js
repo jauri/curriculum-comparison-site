@@ -17,9 +17,34 @@ function md(s) {
   return DOMPurify.sanitize(marked.parse(s));
 }
 
-// Build one card's head line: "You · 10:42 PM" with the kind in its color.
-function head(who, label) {
-  return `<div class="head"><b>${who}</b> · ${esc(label)}</div>`;
+// Build one card's head line: "You · 10:42 PM" with the kind in its color, plus any
+// tags (the kind-of-input chips on the author's cards).
+function head(who, label, tags = "") {
+  return `<div class="head"><b>${who}</b> · ${esc(label)}${tags}</div>`;
+}
+
+// The CSS color token for a kind of input: "Working style" -> var(--k-working-style).
+function kindColor(kind) {
+  return `var(--k-${kind.toLowerCase().replace(/ /g, "-")})`;
+}
+
+// Plain-language names for the answer classes set by the parser (answer_class).
+const ANSWER_NAMES = {
+  recommended: "took Claude's recommendation",
+  other: "chose another option",
+  own: "wrote their own answer",
+  no_rec: "chose with no recommendation given",
+};
+
+// The kind-of-input tags for an author entry: the main kind, then a fainter second kind
+// if it has one. Answers to Claude's questions are all Decisions, tagged with how the
+// author chose. Other entries (declines, interruptions) get no tag.
+function kindTags(e) {
+  const tag = (k, extra = "", cls = "") =>
+    `<span class="kind-tag${cls}" style="--k:${kindColor(k)}">${esc(k)}${extra}</span>`;
+  if (e.sub === "answer") return tag("Decision", ` · ${ANSWER_NAMES[e.answers[0].class]}`);
+  if (!e.input) return "";
+  return tag(e.input) + (e.input2 ? tag(e.input2, "", " second") : "");
 }
 
 // A note the author attached in curation.csv, shown under the entry for the committee.
@@ -89,6 +114,9 @@ function renderItem(e, root) {
   // A row: a dot on the line plus a card on the entry's side (set by the row's class).
   const row = document.createElement("div");
   row.className = `row ${e.kind}`;
+  // What the filter matches on: the author's main kind of input, or "answer".
+  if (e.input) row.dataset.input = e.input;
+  if (e.sub === "answer") row.dataset.input = "answer";
   const card = document.createElement("div");
   card.className = "card";
   card.id = e.id;
@@ -106,7 +134,8 @@ function renderItem(e, root) {
     // A form with several questions is split into one card per question, each followed
     // by the author's answer, so number the parts ("Claude asks (2 of 4)").
     const part = e.of > 1 ? ` (${e.part} of ${e.of})` : "";
-    card.innerHTML = head(who + part, e.label) + `<div class="body clamped">${bodyHtml(e)}</div>` + noteHtml(e);
+    const tags = e.kind === "you" ? kindTags(e) : "";
+    card.innerHTML = head(who + part, e.label, tags) + `<div class="body clamped">${bodyHtml(e)}</div>` + noteHtml(e);
   }
 
   row.innerHTML = `<span class="dot" aria-hidden="true"></span>`;
@@ -310,6 +339,119 @@ function renderOverview(act) {
   shade();
 }
 
+// Kinds of input (specs/09-process-view.md): the author's typed messages by their main
+// kind, as totals and then per plan step, from data.inputs (counted by the parser).
+// Clicking a bar or segment filters the timeline to that kind, through the "Show" menu.
+function renderInputs(inp) {
+  const tip = document.getElementById("in-tip");
+  const box = document.querySelector(".inputs");
+  const typed = inp.kinds.reduce((sum, k) => sum + inp.totals[k], 0);
+
+  // A data-kind attribute on each bar segment carries its category for the handlers.
+  const seg = (k, n, width, title) =>
+    `<div class="seg" style="--k:${kindColor(k)};width:${width}%" data-kind="${esc(k)}" data-tip="${esc(title)}"></div>`;
+
+  // Totals, longest first. Color follows the kind (not the rank), so sorting is safe.
+  const order = [...inp.kinds].sort((a, b) => inp.totals[b] - inp.totals[a]);
+  const maxT = Math.max(...order.map((k) => inp.totals[k]));
+  document.getElementById("in-totals").innerHTML = order.map((k) => {
+    const n = inp.totals[k];
+    const pct = Math.round((100 * n) / typed);
+    return `<span class="lab">${esc(k)}</span>` +
+      `<div class="bar">${n ? seg(k, n, (100 * n) / maxT, `${k}: ${n} of ${typed} messages (${pct}%)`) : ""}</div>` +
+      `<span class="num">${n}</span>`;
+  }).join("");
+
+  // The answers to Claude's questions, as one sentence (all are Decisions).
+  const a = inp.answers;
+  const nA = Object.values(a).reduce((x, y) => x + y, 0);
+  document.getElementById("in-answers").textContent =
+    `${typed} typed messages. Separately, ${nA} answers to Claude's questions (all Decisions): ` +
+    `${a.recommended} ${ANSWER_NAMES.recommended}, ${a.other} ${ANSWER_NAMES.other}, ` +
+    `${a.own} ${ANSWER_NAMES.own}, and ${a.no_rec} ${ANSWER_NAMES.no_rec}.`;
+
+  // The legend for the per-step bars, in the fixed stacking order.
+  document.getElementById("in-legend").innerHTML =
+    inp.kinds.map((k) => `<span style="--k:${kindColor(k)}">${esc(k)}</span>`).join("");
+
+  // Per step: segments in the fixed order, lengths on one shared scale (the busiest
+  // step's total is the full width), so steps compare by volume as well as by mix.
+  const sum = (st) => inp.kinds.reduce((x, k) => x + st.kinds[k], 0);
+  const maxS = Math.max(...inp.steps.map(sum));
+  document.getElementById("in-steps").innerHTML = inp.steps.map((st) => {
+    const n = sum(st);
+    const name = st.step === "0" ? st.title : `${st.step} ${st.title}`;
+    const segs = inp.kinds.filter((k) => st.kinds[k]).map((k) =>
+      seg(k, st.kinds[k], (100 * st.kinds[k]) / maxS, `${name}: ${k} ${st.kinds[k]} of ${n}`)).join("");
+    return `<span class="lab" title="${esc(name)}">${esc(name)}</span><div class="bar">${segs}</div><span class="num">${n}</span>`;
+  }).join("");
+
+  const status = document.getElementById("in-status");
+  status.textContent = inp.reviewed === inp.rows
+    ? "Categories were proposed by Claude and reviewed by the author."
+    : `Categories are Claude's proposal; the author has reviewed ${inp.reviewed} of ${inp.rows}.`;
+  if (inp.unclassified) status.textContent += ` ${inp.unclassified} recent messages are not yet classified.`;
+
+  // Hover tooltips on segments, placed above the segment inside the section.
+  box.addEventListener("pointerover", (ev) => {
+    const el = ev.target.closest(".seg");
+    if (!el) { tip.hidden = true; return; }
+    tip.textContent = el.dataset.tip;
+    tip.hidden = false;
+    const r = el.getBoundingClientRect(), o = box.getBoundingClientRect();
+    const left = Math.min(Math.max(0, r.left - o.left + r.width / 2 - tip.offsetWidth / 2), o.width - tip.offsetWidth);
+    tip.style.left = `${left}px`;
+    tip.style.top = `${r.top - o.top - tip.offsetHeight - 6}px`;
+  });
+  box.addEventListener("pointerleave", () => { tip.hidden = true; });
+  // A click sets the timeline filter to that kind and scrolls to the controls.
+  box.addEventListener("click", (ev) => {
+    const el = ev.target.closest(".seg");
+    if (!el) return;
+    tip.hidden = true;
+    setFilter(el.dataset.kind);
+    document.querySelector(".controls").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
+// The timeline filter: "" shows everything; a kind shows only the author's messages with
+// that main kind ("answer" shows the answers to Claude's questions). While filtering,
+// each step marker stays above its matching messages so the reader can see where they
+// fall, but steps with no matches, session dividers, and commit lines are hidden.
+function setFilter(kind) {
+  const sel = document.getElementById("filter");
+  sel.value = kind;
+  let shown = 0;
+  let step = null, stepHasMatch = false; // the last step marker seen, and whether it has matches
+  const closeStep = () => { if (step) step.style.display = !kind || stepHasMatch ? "" : "none"; };
+  for (const el of document.getElementById("timeline").children) {
+    // display: contents rows can't use the hidden attribute reliably, so set the style.
+    if (el.classList.contains("row")) {
+      const match = !kind || el.dataset.input === kind;
+      el.style.display = match ? "" : "none";
+      if (match && kind) { shown++; stepHasMatch = true; }
+    } else if (el.classList.contains("step")) {
+      closeStep();
+      step = el;
+      stepHasMatch = false;
+    } else {
+      el.style.display = kind ? "none" : ""; // session and commit dividers
+    }
+  }
+  closeStep();
+  document.getElementById("filter-count").textContent = kind ? `${shown} shown` : "";
+  // Highlight the matching bar segments in the chart.
+  document.querySelectorAll(".inputs .seg").forEach((s) => s.classList.toggle("sel", !!kind && s.dataset.kind === kind));
+}
+
+// Fill the "Show" menu: everything, each kind of input, and the answers.
+function setupFilter(inp) {
+  const sel = document.getElementById("filter");
+  sel.innerHTML += inp.kinds.map((k) => `<option value="${esc(k)}">Author: ${esc(k)}</option>`).join("") +
+    `<option value="answer">Author: answers to Claude's questions</option>`;
+  sel.addEventListener("change", () => setFilter(sel.value));
+}
+
 // Load the timeline, render it, and fill in the counts.
 async function main() {
   const data = await (await fetch(DATA_DIR + "process/timeline.json")).json();
@@ -320,12 +462,14 @@ async function main() {
     `${c.actions} actions, and ${c.commits} commits.`;
 
   renderOverview(data.activity);
+  renderInputs(data.inputs);
 
   const root = document.getElementById("timeline");
   data.items.forEach((e) => renderItem(e, root));
   // Measure after everything is in the page, so overflow checks see the real layout.
   root.querySelectorAll(".body.clamped").forEach(addToggle);
   setupJump(data.items);
+  setupFilter(data.inputs);
   setupExpandAll();
 }
 

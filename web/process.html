@@ -21,6 +21,26 @@
       --act: var(--muted);
     }
 
+    /* One color per kind of input (the author's messages, "Kinds of input" in the spec).
+       Orange and blue are taken by Author and Claude, so the six hues are the palette's
+       other six slots, in an order that passes the dataviz validator's colorblind checks
+       in both modes: red reads as Correction and green as Decision. Workflow is the
+       procedural kind, so it gets the quiet neutral gray. Violet and red are new here,
+       so they get their dark-mode steps below; the rest follow style.css. */
+    :root {
+      --k-specification: var(--area-3);
+      --k-exploration: var(--area-4);
+      --k-clarification: var(--area-5);
+      --k-decision: var(--area-6);
+      --k-working-style: #6250d6;
+      --k-correction: #e34948;
+      --k-workflow: var(--muted);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --k-working-style: #9085e9; --k-correction: #e66767; }
+    }
+    :root[data-theme="dark"] { --k-working-style: #9085e9; --k-correction: #e66767; }
+
     .legend { display: flex; flex-wrap: wrap; gap: 16px; margin: 8px 0 16px; font-size: 14px; color: var(--ink-2); }
     .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%;
                            margin-right: 6px; vertical-align: -1px; background: var(--c); }
@@ -68,6 +88,33 @@
     .ov-tip b { color: var(--ink); font-weight: 600; }
     .ov-tip i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
     .ov-tip a { color: var(--accent); }
+
+    /* Section headings for the two summaries at the top. */
+    h2.sec { font-size: 15px; margin: 0 0 8px; color: var(--ink); }
+
+    /* Kinds of input: totals as horizontal bars, then one stacked bar per plan step.
+       Both are CSS grids of label, bar, count; bar lengths are set inline by process.js
+       as a percentage of the longest bar. Segments are separated by a 2px gap. */
+    .inputs { margin: 0 0 24px; padding-bottom: 20px; border-bottom: 1px solid var(--axis); position: relative; }
+    .in-grid { display: grid; grid-template-columns: minmax(96px, 200px) 1fr 32px; gap: 4px 8px; align-items: center;
+               font-size: 13px; max-width: 760px; } /* capped so bar lengths stay easy to compare */
+    .in-grid .lab { color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .in-grid .num { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+    .in-grid .bar { display: flex; gap: 2px; height: 14px; }
+    .in-grid .seg { height: 100%; background: var(--k); border-radius: 0; cursor: pointer; min-width: 2px; }
+    /* Only the bar's far end is rounded; its start sits flat on the baseline. */
+    .in-grid .bar .seg:last-child { border-radius: 0 4px 4px 0; }
+    .in-grid .seg:hover, .in-grid .seg.sel { outline: 2px solid var(--ink); outline-offset: 1px; }
+    .in-sub { font-size: 13px; color: var(--ink-2); margin: 16px 0 6px; font-weight: 600; }
+    .in-note { font-size: 12px; color: var(--muted); margin-top: 8px; }
+    .in-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink-2); margin-bottom: 6px; }
+    .in-legend span::before, .kind-tag::before { content: ""; display: inline-block; width: 8px; height: 8px;
+                                                 border-radius: 2px; margin-right: 5px; background: var(--k); }
+
+    /* The kind tag in an author card's head line: text in ink, a color square beside it. */
+    .kind-tag { display: inline-block; margin-left: 6px; padding: 0 6px; border: 1px solid var(--border);
+                border-radius: 999px; font-size: 11px; color: var(--ink-2); background: var(--page); }
+    .kind-tag.second { color: var(--muted); }
 
     .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 8px 0 24px; font-size: 14px; }
     .controls select, .controls button { font: inherit; padding: 4px 8px; border-radius: 6px;
@@ -174,6 +221,7 @@
   <p class="sub" id="subtitle">The full working conversation between the project's author and Claude, an AI assistant, from the first idea to the current pages.</p>
 
   <section class="overview" aria-label="Activity by day and half hour">
+    <h2 class="sec">When the work happened</h2>
     <div class="ov-toggle" role="radiogroup" aria-label="Shade cells by">
       <span>Shade by</span>
       <label><input type="radio" name="ov-mode" value="count" checked> Amount of activity</label>
@@ -185,6 +233,18 @@
       <span id="ov-keys"></span>
     </div>
     <div class="ov-tip" id="ov-tip" role="tooltip" hidden></div>
+  </section>
+
+  <section class="inputs" aria-label="Kinds of input">
+    <h2 class="sec">What the author's messages did</h2>
+    <div class="in-grid" id="in-totals"></div>
+    <div class="in-note" id="in-answers"></div>
+    <div class="in-sub">By plan step</div>
+    <div class="in-legend" id="in-legend"></div>
+    <div class="in-grid" id="in-steps"></div>
+    <div class="in-note">Each message has one main kind, counted here; some have a second kind, shown on its card.
+      Click a bar to show only those messages in the timeline below. <span id="in-status"></span></div>
+    <div class="ov-tip" id="in-tip" role="tooltip" hidden></div>
   </section>
 
   <div class="note">
@@ -207,6 +267,10 @@
 
   <div class="controls">
     <label>Jump to step <select id="jump"></select></label>
+    <label>Show <select id="filter" autocomplete="off"><option value="">Everything</option></select></label>
+    <!-- autocomplete="off" above stops the browser restoring the menu's old value on
+         reload, which would show a filter that isn't applied. -->
+    <span id="filter-count"></span>
     <button type="button" id="expand-all">Expand all messages</button>
   </div>
 

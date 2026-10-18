@@ -15,6 +15,8 @@
  "activity": {
   "bin_minutes": 30,
   "idle_cap_minutes": 5,
+  "break_minutes": 20,
+  "return_minutes": 2,
   "days": [
    {
     "date": "2026-10-16",
@@ -32,7 +34,7 @@
       "i": 34,
       "you": 7,
       "claude": 22,
-      "you_min": 10.2,
+      "you_min": 7.2,
       "claude_min": 1.7,
       "first": "u-b4698e22-932"
      },
@@ -48,7 +50,7 @@
       "i": 47,
       "you": 2,
       "claude": 9,
-      "you_min": 5.9,
+      "you_min": 2.9,
       "claude_min": 1.0,
       "first": "u-5cf40345-e9d"
      }
@@ -110,7 +112,7 @@
       "i": 16,
       "you": 5,
       "claude": 40,
-      "you_min": 10.6,
+      "you_min": 7.6,
       "claude_min": 3.3,
       "first": "u-79681dde-738"
      },
@@ -134,7 +136,7 @@
       "i": 20,
       "you": 1,
       "claude": 6,
-      "you_min": 5.0,
+      "you_min": 2.0,
       "claude_min": 0.7,
       "first": "u-44bc077b-24c"
      },
@@ -142,7 +144,7 @@
       "i": 21,
       "you": 4,
       "claude": 28,
-      "you_min": 8.7,
+      "you_min": 5.7,
       "claude_min": 3.7,
       "first": "u-d5f055a8-161"
      },
@@ -166,7 +168,7 @@
       "i": 24,
       "you": 4,
       "claude": 82,
-      "you_min": 12.6,
+      "you_min": 9.6,
       "claude_min": 10.0,
       "first": "u-c36cd744-7ab-1"
      },
@@ -174,7 +176,7 @@
       "i": 25,
       "you": 1,
       "claude": 3,
-      "you_min": 5.0,
+      "you_min": 2.0,
       "claude_min": 0.2,
       "first": "u-ed764064-a14"
      },
@@ -182,7 +184,7 @@
       "i": 27,
       "you": 4,
       "claude": 74,
-      "you_min": 10.0,
+      "you_min": 7.0,
       "claude_min": 8.2,
       "first": "u-fd7e3f43-637"
      },
@@ -206,7 +208,7 @@
       "i": 32,
       "you": 0,
       "claude": 0,
-      "you_min": 4.8,
+      "you_min": 1.8,
       "claude_min": 0.0,
       "first": "u-56c61584-6c4"
      },
@@ -284,7 +286,7 @@
       "i": 19,
       "you": 1,
       "claude": 4,
-      "you_min": 5.0,
+      "you_min": 2.0,
       "claude_min": 0.3,
       "first": "u-81c3a10d-1ba"
      },
@@ -308,7 +310,7 @@
       "i": 25,
       "you": 3,
       "claude": 10,
-      "you_min": 8.1,
+      "you_min": 5.1,
       "claude_min": 2.8,
       "first": "u-5ddb6c88-5cd"
      },
@@ -324,7 +326,7 @@
       "i": 27,
       "you": 2,
       "claude": 9,
-      "you_min": 10.0,
+      "you_min": 7.0,
       "claude_min": 0.7,
       "first": "u-b102ecaf-5fb"
      },
@@ -340,7 +342,7 @@
       "i": 29,
       "you": 1,
       "claude": 6,
-      "you_min": 5.9,
+      "you_min": 2.9,
       "claude_min": 0.8,
       "first": "u-6580a516-317"
      },

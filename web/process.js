@@ -170,7 +170,7 @@ const OV_MODES = {
     },
   },
   minutes: {
-    caption: (act) => `Each cell is half an hour (U.S. Eastern). Darker means more of it was that side's turn: the author reading and writing before each message, Claude working before each reply or action. Pauses over ${act.idle_cap_minutes} minutes count as ${act.idle_cap_minutes}. Both lanes share one scale.`,
+    caption: (act) => `Each cell is half an hour (U.S. Eastern). Darker means more of it was that side's turn: the author reading and writing before each message, Claude working before each reply or action. Pauses of ${act.idle_cap_minutes}–${act.break_minutes} minutes count as ${act.idle_cap_minutes}; longer ones are breaks, counting ${act.return_minutes} for the author (coming back to read and reply) and none for Claude. Both lanes share one scale.`,
     key: "0 → 30 min",
     value: (c, l) => `${Math.round(c[l.key + "_min"])} min`,
     // Each lane's minutes summed over every cell, in hours to one decimal.

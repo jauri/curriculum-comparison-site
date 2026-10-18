@@ -30,7 +30,8 @@
        its own scale, since Claude's tool calls far outnumber the author's messages.
        The four shades mix the lane's color into the card surface (color-mix), so they
        follow dark mode with the tokens. */
-    .overview { margin: 0 0 20px; }
+    /* A rule under the overview separates it from the reading notes and timeline below. */
+    .overview { margin: 0 0 24px; padding-bottom: 20px; border-bottom: 1px solid var(--axis); }
     .ov-grid { display: grid; grid-template-columns: 52px repeat(48, minmax(0, 1fr)); gap: 1px; align-items: center; }
     .ov-hours { position: relative; height: 16px; grid-column: 2 / -1; font-size: 11px; color: var(--muted); }
     .ov-hours span { position: absolute; transform: translateX(-50%); }

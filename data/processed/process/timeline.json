@@ -388,8 +388,8 @@
    "Exploration",
    "Clarification",
    "Decision",
-   "Working style",
    "Correction",
+   "Working style",
    "Workflow"
   ],
   "totals": {
@@ -397,8 +397,8 @@
    "Exploration": 11,
    "Clarification": 11,
    "Decision": 12,
-   "Working style": 5,
    "Correction": 6,
+   "Working style": 5,
    "Workflow": 38
   },
   "answers": {
@@ -420,8 +420,8 @@
      "Exploration": 2,
      "Clarification": 2,
      "Decision": 1,
-     "Working style": 1,
      "Correction": 0,
+     "Working style": 1,
      "Workflow": 2
     },
     "answers": {
@@ -440,8 +440,8 @@
      "Exploration": 0,
      "Clarification": 2,
      "Decision": 0,
-     "Working style": 1,
      "Correction": 0,
+     "Working style": 1,
      "Workflow": 2
     },
     "answers": {
@@ -460,8 +460,8 @@
      "Exploration": 1,
      "Clarification": 0,
      "Decision": 0,
-     "Working style": 1,
      "Correction": 0,
+     "Working style": 1,
      "Workflow": 2
     },
     "answers": {
@@ -480,8 +480,8 @@
      "Exploration": 0,
      "Clarification": 1,
      "Decision": 0,
-     "Working style": 1,
      "Correction": 0,
+     "Working style": 1,
      "Workflow": 2
     },
     "answers": {
@@ -500,8 +500,8 @@
      "Exploration": 0,
      "Clarification": 0,
      "Decision": 1,
-     "Working style": 0,
      "Correction": 0,
+     "Working style": 0,
      "Workflow": 1
     },
     "answers": {
@@ -520,8 +520,8 @@
      "Exploration": 0,
      "Clarification": 0,
      "Decision": 2,
-     "Working style": 0,
      "Correction": 1,
+     "Working style": 0,
      "Workflow": 1
     },
     "answers": {
@@ -540,8 +540,8 @@
      "Exploration": 0,
      "Clarification": 0,
      "Decision": 0,
-     "Working style": 0,
      "Correction": 0,
+     "Working style": 0,
      "Workflow": 0
     },
     "answers": {
@@ -560,8 +560,8 @@
      "Exploration": 0,
      "Clarification": 0,
      "Decision": 1,
-     "Working style": 0,
      "Correction": 0,
+     "Working style": 0,
      "Workflow": 1
     },
     "answers": {
@@ -580,8 +580,8 @@
      "Exploration": 0,
      "Clarification": 1,
      "Decision": 1,
-     "Working style": 0,
      "Correction": 0,
+     "Working style": 0,
      "Workflow": 1
     },
     "answers": {
@@ -600,8 +600,8 @@
      "Exploration": 0,
      "Clarification": 1,
      "Decision": 1,
-     "Working style": 1,
      "Correction": 0,
+     "Working style": 1,
      "Workflow": 2
     },
     "answers": {
@@ -620,8 +620,8 @@
      "Exploration": 0,
      "Clarification": 0,
      "Decision": 0,
-     "Working style": 0,
      "Correction": 0,
+     "Working style": 0,
      "Workflow": 0
     },
     "answers": {
@@ -640,8 +640,8 @@
      "Exploration": 0,
      "Clarification": 1,
      "Decision": 0,
-     "Working style": 0,
      "Correction": 1,
+     "Working style": 0,
      "Workflow": 0
     },
     "answers": {
@@ -660,8 +660,8 @@
      "Exploration": 0,
      "Clarification": 2,
      "Decision": 2,
-     "Working style": 0,
      "Correction": 0,
+     "Working style": 0,
      "Workflow": 10
     },
     "answers": {
@@ -680,8 +680,8 @@
      "Exploration": 2,
      "Clarification": 0,
      "Decision": 0,
-     "Working style": 0,
      "Correction": 2,
+     "Working style": 0,
      "Workflow": 3
     },
     "answers": {
@@ -700,8 +700,8 @@
      "Exploration": 1,
      "Clarification": 1,
      "Decision": 2,
-     "Working style": 0,
      "Correction": 0,
+     "Working style": 0,
      "Workflow": 3
     },
     "answers": {
@@ -720,8 +720,8 @@
      "Exploration": 0,
      "Clarification": 0,
      "Decision": 0,
-     "Working style": 0,
      "Correction": 1,
+     "Working style": 0,
      "Workflow": 2
     },
     "answers": {
@@ -740,8 +740,8 @@
      "Exploration": 4,
      "Clarification": 0,
      "Decision": 0,
-     "Working style": 0,
      "Correction": 0,
+     "Working style": 0,
      "Workflow": 2
     },
     "answers": {
@@ -760,8 +760,8 @@
      "Exploration": 1,
      "Clarification": 0,
      "Decision": 1,
-     "Working style": 0,
      "Correction": 1,
+     "Working style": 0,
      "Workflow": 4
     },
     "answers": {

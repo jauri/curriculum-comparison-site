@@ -22,24 +22,28 @@
     }
 
     /* One color per kind of input (the author's messages, "Kinds of input" in the spec).
-       Orange and blue are taken by Author and Claude, so the six hues are the palette's
-       other six slots, in an order that passes the dataviz validator's colorblind checks
-       in both modes: red reads as Correction and green as Decision. Workflow is the
-       procedural kind, so it gets the quiet neutral gray. Violet and red are new here,
-       so they get their dark-mode steps below; the rest follow style.css. */
+       Five hues from the palette for the content kinds, chosen at the user's request to
+       avoid two greens: blue Specification (the same blue as Claude's replies; the user
+       asked for blue, and labels and tags keep them apart), yellow Exploration, magenta
+       Clarification, green Decision, red Correction. They pass the dataviz validator's
+       neighbor checks in both modes. Violet was dropped because it is nearly
+       indistinguishable from blue under color blindness. The two process kinds are
+       grays told apart by lightness: Working style dark, Workflow (the most procedural)
+       light. Red and magenta are the weakest pair, so they are kept apart in the
+       stacking order where the data allows. */
     :root {
-      --k-specification: var(--area-3);
+      --k-specification: var(--area-1);
       --k-exploration: var(--area-4);
       --k-clarification: var(--area-5);
       --k-decision: var(--area-6);
-      --k-working-style: #6250d6;
       --k-correction: #e34948;
+      --k-working-style: var(--ink-2);
       --k-workflow: var(--muted);
     }
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) { --k-working-style: #9085e9; --k-correction: #e66767; }
+      :root:not([data-theme="light"]) { --k-correction: #e66767; }
     }
-    :root[data-theme="dark"] { --k-working-style: #9085e9; --k-correction: #e66767; }
+    :root[data-theme="dark"] { --k-correction: #e66767; }
 
     .legend { display: flex; flex-wrap: wrap; gap: 16px; margin: 8px 0 16px; font-size: 14px; color: var(--ink-2); }
     .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%;

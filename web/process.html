@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How This Was Made</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Claude's replies are Markdown; marked turns them into HTML and DOMPurify strips
+       anything unsafe from that HTML before it goes into the page. -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <style>
+    /* Page-specific styles for the process view (specs/09-process-view.md). */
+
+    /* One color per kind of entry. They reuse palette slots from style.css, so they
+       follow its dark-mode values: orange for the user, blue for Claude's replies, and
+       neutral gray for Claude's actions (the supporting detail, so the quietest). */
+    :root {
+      --you: var(--area-2);
+      --claude: var(--accent);
+      --act: var(--muted);
+    }
+
+    .legend { display: flex; flex-wrap: wrap; gap: 16px; margin: 8px 0 16px; font-size: 14px; color: var(--ink-2); }
+    .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+                           margin-right: 6px; vertical-align: -1px; background: var(--c); }
+
+    .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 8px 0 24px; font-size: 14px; }
+    .controls select, .controls button { font: inherit; padding: 4px 8px; border-radius: 6px;
+                                          border: 1px solid var(--axis); background: var(--surface); color: var(--ink); }
+
+    /* The timeline: a three-column grid (left cards, the center line, right cards). The
+       line itself is a pseudo-element running the full height of the container. */
+    .timeline { position: relative; display: grid; grid-template-columns: 1fr 28px 1fr; row-gap: 10px; }
+    .timeline::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px;
+                        margin-left: -1px; background: var(--axis); }
+
+    /* An entry occupies one grid row: its card in the left or right column and a dot on
+       the line. display: contents lets the row's children sit directly in the grid. */
+    .row { display: contents; }
+    .row > .dot { grid-column: 2; justify-self: center; width: 12px; height: 12px; margin-top: 14px;
+                  border-radius: 50%; background: var(--c); border: 2px solid var(--page); position: relative; z-index: 1; }
+    .row.you > .card { grid-column: 1; }
+    .row.claude > .card, .row.actions > .card { grid-column: 3; }
+    .row.you { --c: var(--you); }
+    .row.claude { --c: var(--claude); }
+    .row.actions { --c: var(--act); }
+    .row.actions > .dot { width: 8px; height: 8px; margin-top: 12px; }
+
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px;
+            min-width: 0; position: relative; }
+    /* The colored edge faces the line, so each card points at its own dot. */
+    .row.you > .card { border-right: 3px solid var(--c); }
+    .row.claude > .card { border-left: 3px solid var(--c); }
+    .row.actions > .card { border-left: 3px solid var(--c); background: transparent; font-size: 13px; color: var(--ink-2); }
+    .head { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+    .head b { color: var(--c); font-weight: 600; }
+
+    /* Message text: collapsed to about six lines, with a fade at the bottom, until the
+       reader expands it. The fade is a gradient overlay from transparent to the card. */
+    .body { overflow-wrap: anywhere; }
+    .body.clamped { max-height: 9em; overflow: hidden; position: relative; }
+    .body.clamped::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2.5em;
+                           background: linear-gradient(transparent, var(--surface)); }
+    .body p, .body ul, .body ol { margin: 0 0 8px; }
+    .body p:last-child { margin-bottom: 0; }
+    .body ul, .body ol { padding-left: 20px; }
+    .body pre { white-space: pre; overflow-x: auto; font-size: 12px; background: var(--hover); padding: 6px 8px; border-radius: 4px; }
+    .body code { font-size: 0.9em; }
+    .body h1, .body h2, .body h3 { font-size: 15px; margin: 8px 0 4px; }
+    .body table { border-collapse: collapse; font-size: 13px; display: block; overflow-x: auto; }
+    .body th, .body td { border: 1px solid var(--grid); padding: 2px 6px; text-align: left; }
+    .more { font: inherit; font-size: 12px; color: var(--accent); background: none; border: none; padding: 4px 0 0; cursor: pointer; }
+    .you-text { white-space: pre-wrap; }
+
+    /* Questions Claude asked with the multiple-choice tool, and the user's answers. */
+    .q { margin: 0 0 8px; }
+    .q .qtext { font-weight: 600; }
+    .q ol { margin: 4px 0 0; padding-left: 20px; }
+    .q li { margin-bottom: 2px; }
+    .q .desc { color: var(--ink-2); }
+    .answers dt { font-size: 12px; color: var(--muted); }
+    .answers dd { margin: 0 0 6px; font-weight: 600; }
+    .answers .anote { font-weight: 400; color: var(--ink-2); }
+    .note-c { margin-top: 6px; padding: 6px 8px; border-radius: 4px; background: var(--hover); font-size: 13px; }
+
+    /* Action cards: a one-line summary that opens to the list of calls. */
+    .actions summary { cursor: pointer; }
+    .actions ul { margin: 6px 0 0; padding-left: 18px; }
+    .actions li { overflow-wrap: anywhere; }
+    .actions li.rejected { text-decoration: line-through; color: var(--muted); }
+
+    /* Dividers span all three columns and hide the line behind them. */
+    .divider { grid-column: 1 / -1; position: relative; z-index: 1; text-align: center; }
+    .divider.session { margin-top: 28px; font-size: 13px; color: var(--ink-2); }
+    .divider.session span { background: var(--page); padding: 2px 12px; border: 1px solid var(--axis); border-radius: 999px; }
+    .divider.step { margin: 8px 0 4px; }
+    .divider.step span { display: inline-block; background: var(--ink); color: var(--page); font-weight: 600;
+                         padding: 4px 14px; border-radius: 6px; scroll-margin-top: 16px; }
+    .divider.commit { font-size: 12px; color: var(--muted); }
+    .divider.commit span { background: var(--page); padding: 0 8px; }
+    .divider.commit code { color: var(--ink-2); }
+
+    /* Phones: one column. The line moves to the left edge and every card sits to its
+       right; the kind stays visible through the color and the label in each head. */
+    @media (max-width: 640px) {
+      /* dense packing lets the author's dot (after its card in the DOM) fill the
+         empty first cell of the card's row instead of starting a new row. */
+      .timeline { grid-template-columns: 20px 1fr; grid-auto-flow: row dense; }
+      .timeline::before { left: 10px; }
+      .row > .dot { grid-column: 1; }
+      .row.you > .card, .row.claude > .card, .row.actions > .card { grid-column: 2; }
+      .row.you > .card { border-right: 1px solid var(--border); border-left: 3px solid var(--c); }
+      .divider { text-align: left; padding-left: 20px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <nav>
+    <a href="index.html">4-year plan</a>
+    <a href="compare.html">Alignment</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="review.html">Canonical matches</a>
+    <a href="concepts_review.html">Concept vocabulary</a>
+    <a href="concept_tags_review.html">Concept tags</a>
+    <a href="process.html" aria-current="page">Process</a>
+  </nav>
+  <h1>How this was made</h1>
+  <p class="sub" id="subtitle">The full working conversation between the project's author and Claude, an AI assistant, from the first idea to the current pages.</p>
+
+  <div class="note">
+    <strong>How to read this.</strong> Time runs down the page. The author's messages are on the
+    left; Claude's replies and the work it did between messages are on the right. A gray
+    <em>actions</em> card sums up everything Claude did before its next reply (fetching
+    catalog pages, writing scripts, running checks); open it for the full list. Where Claude
+    asked a multiple-choice question, the author's choice appears on the left. Black bands mark
+    where each step of the project plan began, and small lines mark each saved version (git
+    commit). Text is exactly as written; long messages open with <em>Show more</em>. Claude's
+    private reasoning and the raw output of its tools are not shown. Times are U.S. Eastern.
+    <span id="counts"></span>
+  </div>
+
+  <div class="legend">
+    <span style="--c: var(--you)">Author</span>
+    <span style="--c: var(--claude)">Claude's replies</span>
+    <span style="--c: var(--act)">Claude's actions</span>
+  </div>
+
+  <div class="controls">
+    <label>Jump to step <select id="jump"></select></label>
+    <button type="button" id="expand-all">Expand all messages</button>
+  </div>
+
+  <div class="timeline" id="timeline"></div>
+</main>
+<script src="common.js"></script>
+<script src="process.js"></script>
+</body>
+</html>

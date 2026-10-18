@@ -98,7 +98,7 @@ a { color: var(--accent); }
 .sub { color: var(--ink-2); margin-bottom: 16px; }
 .muted { color: var(--muted); }
 
-nav { display: flex; gap: 16px; margin-bottom: 16px; font-size: 14px; }
+nav { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 16px; font-size: 14px; }
 nav a[aria-current="page"] { color: var(--ink); font-weight: 600; text-decoration: none; }
 
 /* A boxed explanatory note (e.g. what "generic" means, how co-op was removed). */

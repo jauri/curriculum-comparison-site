@@ -25,6 +25,32 @@
     .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%;
                            margin-right: 6px; vertical-align: -1px; background: var(--c); }
 
+    /* Activity overview: one block per day, each with an Author lane and a Claude lane
+       of 48 half-hour cells. Darker cells mean more activity; each lane is shaded on
+       its own scale, since Claude's tool calls far outnumber the author's messages.
+       The four shades mix the lane's color into the card surface (color-mix), so they
+       follow dark mode with the tokens. */
+    .overview { margin: 0 0 20px; }
+    .ov-grid { display: grid; grid-template-columns: 52px repeat(48, minmax(0, 1fr)); gap: 1px; align-items: center; }
+    .ov-hours { position: relative; height: 16px; grid-column: 2 / -1; font-size: 11px; color: var(--muted); }
+    .ov-hours span { position: absolute; transform: translateX(-50%); }
+    .ov-hours span:first-child { transform: none; }
+    .ov-day { grid-column: 1 / -1; font-size: 12px; font-weight: 600; color: var(--ink-2); margin-top: 6px; }
+    .ov-lane { font-size: 11px; color: var(--muted); }
+    .ov-cell { height: 14px; border-radius: 2px; background: var(--hover); cursor: default; }
+    .ov-cell.on { cursor: pointer; }
+    .ov-cell.sel { outline: 2px solid var(--ink); outline-offset: 0; }
+    .ov-cell.l1 { background: color-mix(in srgb, var(--c) 25%, var(--surface)); }
+    .ov-cell.l2 { background: color-mix(in srgb, var(--c) 50%, var(--surface)); }
+    .ov-cell.l3 { background: color-mix(in srgb, var(--c) 75%, var(--surface)); }
+    .ov-cell.l4 { background: var(--c); }
+    .ov-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-top: 8px;
+               font-size: 12px; color: var(--muted); }
+    .ov-key { display: inline-flex; align-items: center; gap: 2px; }
+    .ov-key i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+    .ov-readout { min-height: 1.4em; margin-top: 6px; font-size: 13px; color: var(--ink-2); }
+    .ov-readout a { color: var(--accent); }
+
     .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 8px 0 24px; font-size: 14px; }
     .controls select, .controls button { font: inherit; padding: 4px 8px; border-radius: 6px;
                                           border: 1px solid var(--axis); background: var(--surface); color: var(--ink); }
@@ -128,6 +154,15 @@
   </nav>
   <h1>How this was made</h1>
   <p class="sub" id="subtitle">The full working conversation between the project's author and Claude, an AI assistant, from the first idea to the current pages.</p>
+
+  <section class="overview" aria-label="Activity by day and half hour">
+    <div class="ov-grid" id="ov-grid"></div>
+    <div class="ov-foot">
+      <span>Each cell is half an hour (U.S. Eastern). Darker means more activity: the author's messages, and Claude's replies plus each action. Each lane has its own scale.</span>
+      <span id="ov-keys"></span>
+    </div>
+    <div class="ov-readout" id="ov-readout" aria-live="polite"></div>
+  </section>
 
   <div class="note">
     <strong>How to read this.</strong> Time runs down the page. The author's messages are on the

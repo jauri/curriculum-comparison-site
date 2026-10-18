@@ -141,6 +141,94 @@ function setupExpandAll() {
   });
 }
 
+// Activity overview (specs/09-process-view.md, "Activity overview"): one block per
+// day, with an Author lane and a Claude lane of half-hour cells. The counts come
+// binned from the parser (data.activity); this only shades and lays them out.
+//
+// Each lane is shaded on its own scale: a cell's level (1-4) is ceil(4 * sqrt(n / max)),
+// where max is the busiest cell in that lane. The square root lifts small counts so a
+// single message still shows, while the busiest stretches stay darkest.
+function renderOverview(act) {
+  const grid = document.getElementById("ov-grid");
+  const readout = document.getElementById("ov-readout");
+  const perDay = (24 * 60) / act.bin_minutes;
+  const lanes = [
+    { key: "you", name: "Author", color: "var(--you)" },
+    { key: "claude", name: "Claude", color: "var(--claude)" },
+  ];
+  // The busiest cell per lane, over all days (flatMap joins every day's cells).
+  const all = act.days.flatMap((d) => d.cells);
+  const max = Object.fromEntries(lanes.map((l) => [l.key, Math.max(1, ...all.map((c) => c[l.key]))]));
+  const level = (n, key) => (n ? Math.ceil(4 * Math.sqrt(n / max[key])) : 0);
+
+  // Hour labels across the top, positioned as a share of the day's width.
+  const ticks = [[0, "12a"], [6, "6a"], [12, "12p"], [18, "6p"]];
+  let html = `<span></span><div class="ov-hours">` +
+    ticks.map(([h, t]) => `<span style="left:${(h / 24) * 100}%">${t}</span>`).join("") + `</div>`;
+
+  // Times for the readout: bin i of a day starts at i * bin_minutes after midnight.
+  const clock = (min) => {
+    const h = Math.floor(min / 60) % 24, m = min % 60;
+    return `${h % 12 || 12}:${String(m).padStart(2, "0")} ${h < 12 ? "AM" : "PM"}`;
+  };
+
+  act.days.forEach((d, di) => {
+    // Look up a day's cells by bin index; bins with no activity are absent from the data.
+    const byBin = new Map(d.cells.map((c) => [c.i, c]));
+    html += `<div class="ov-day">${esc(d.label)}</div>`;
+    lanes.forEach((l) => {
+      html += `<span class="ov-lane">${l.name}</span>`;
+      for (let i = 0; i < perDay; i++) {
+        const c = byBin.get(i);
+        const lv = c ? level(c[l.key], l.key) : 0;
+        html += `<div class="ov-cell${lv ? ` on l${lv}` : ""}" style="--c:${l.color}" data-d="${di}" data-i="${i}"></div>`;
+      }
+    });
+  });
+  grid.innerHTML = html;
+
+  // The default readout: a rough total of working time, counted as the half hours with
+  // any activity at all (from either lane), so short breaks inside a session don't count.
+  const hours = (all.length * act.bin_minutes) / 60;
+  readout.textContent = `Active in ${all.length} half hours (about ${Math.round(hours)} hours) over ` +
+    `${act.days.length} days. Hover or tap a cell for its counts.`;
+
+  // One handler for the whole grid (event delegation): hovering a cell shows its counts
+  // in the readout below; clicking or tapping keeps it selected, with a link that jumps
+  // to the first entry in that half hour.
+  const show = (cell, select) => {
+    const d = act.days[+cell.dataset.d];
+    const i = +cell.dataset.i;
+    const c = d.cells.find((x) => x.i === i);
+    const when = `${d.label}, ${clock(i * act.bin_minutes)}–${clock((i + 1) * act.bin_minutes)}`;
+    readout.innerHTML = c
+      ? `${esc(when)} · Author ${c.you} · Claude ${c.claude} · <a href="#${esc(c.first)}">Jump to this point</a>`
+      : `${esc(when)} · no activity`;
+    if (select) {
+      grid.querySelectorAll(".sel").forEach((x) => x.classList.remove("sel"));
+      cell.classList.add("sel");
+    }
+  };
+  grid.addEventListener("pointerover", (ev) => {
+    if (ev.target.classList.contains("ov-cell") && !grid.querySelector(".sel")) show(ev.target, false);
+  });
+  grid.addEventListener("click", (ev) => {
+    if (ev.target.classList.contains("ov-cell")) show(ev.target, true);
+  });
+  // The jump link scrolls smoothly instead of the browser's instant hash jump.
+  readout.addEventListener("click", (ev) => {
+    if (ev.target.tagName !== "A") return;
+    ev.preventDefault();
+    document.getElementById(ev.target.getAttribute("href").slice(1))
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+
+  // The shade keys: less to more, one row of swatches per lane.
+  document.getElementById("ov-keys").innerHTML = lanes.map((l) =>
+    `<span class="ov-key">${l.name}&nbsp;` + [1, 2, 3, 4].map((k) =>
+      `<i class="ov-cell l${k}" style="--c:${l.color}"></i>`).join("") + `</span>`).join(" ") + " less → more";
+}
+
 // Load the timeline, render it, and fill in the counts.
 async function main() {
   const data = await (await fetch(DATA_DIR + "process/timeline.json")).json();
@@ -149,6 +237,8 @@ async function main() {
     ` ${c.first} to ${c.last}: ${c.sessions} working sessions, ${c.you} messages from the author ` +
     `and ${c.answers} answers to Claude's questions, ${c.claude} replies and ${c.questions} questions from Claude, ` +
     `${c.actions} actions, and ${c.commits} commits.`;
+
+  renderOverview(data.activity);
 
   const root = document.getElementById("timeline");
   data.items.forEach((e) => renderItem(e, root));

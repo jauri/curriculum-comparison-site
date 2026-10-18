@@ -45,8 +45,8 @@
     .ov-cell.l2 { background: color-mix(in srgb, var(--c) 50%, var(--surface)); }
     .ov-cell.l3 { background: color-mix(in srgb, var(--c) 75%, var(--surface)); }
     .ov-cell.l4 { background: var(--c); }
-    .ov-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; margin-top: 8px;
-               font-size: 12px; color: var(--muted); }
+    /* The caption, then the color key on its own line below it. */
+    .ov-foot { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; font-size: 12px; color: var(--muted); }
     .ov-key { display: inline-flex; align-items: center; gap: 2px; }
     .ov-key i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
     /* The measure toggle: two radio buttons styled as a segmented control. */
@@ -56,8 +56,18 @@
     /* :has() styles the label whose radio is checked (supported in current browsers). */
     .ov-toggle label:has(input:checked) { background: var(--ink); color: var(--page); border-color: var(--ink); }
     .ov-toggle input { margin: 0; }
-    .ov-readout { min-height: 1.4em; margin-top: 6px; font-size: 13px; color: var(--ink-2); }
-    .ov-readout a { color: var(--accent); }
+    /* The cell tooltip, placed above the hovered cell by process.js. It ignores the
+       pointer while it follows hovering, and takes clicks once a cell is selected (a
+       click or tap), so its jump link can be used. */
+    .overview { position: relative; }
+    .ov-tip { position: absolute; z-index: 5; pointer-events: none; max-width: 260px; padding: 6px 10px;
+              background: var(--surface); border: 1px solid var(--axis); border-radius: 6px;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); font-size: 12px; color: var(--ink-2); line-height: 1.5; }
+    .ov-tip[hidden] { display: none; }
+    .ov-tip.pinned { pointer-events: auto; }
+    .ov-tip b { color: var(--ink); font-weight: 600; }
+    .ov-tip i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
+    .ov-tip a { color: var(--accent); }
 
     .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 8px 0 24px; font-size: 14px; }
     .controls select, .controls button { font: inherit; padding: 4px 8px; border-radius: 6px;
@@ -174,7 +184,7 @@
       <span id="ov-caption"></span>
       <span id="ov-keys"></span>
     </div>
-    <div class="ov-readout" id="ov-readout" aria-live="polite"></div>
+    <div class="ov-tip" id="ov-tip" role="tooltip" hidden></div>
   </section>
 
   <div class="note">

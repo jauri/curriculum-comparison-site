@@ -157,7 +157,7 @@ const OV_LANES = [
 ];
 
 // Text for each measure: the caption under the grid, the key's end labels, a cell's
-// value in the readout, and the default readout line (a total for the whole project).
+// value in the tooltip, and the total for the whole project (ending the caption).
 const OV_MODES = {
   count: {
     caption: "Each cell is half an hour (U.S. Eastern). Darker means more activity: the author's messages, and Claude's replies plus each action. Each lane has its own scale.",
@@ -183,7 +183,8 @@ const OV_MODES = {
 
 function renderOverview(act) {
   const grid = document.getElementById("ov-grid");
-  const readout = document.getElementById("ov-readout");
+  const tip = document.getElementById("ov-tip");
+  const box = document.querySelector(".overview"); // the tooltip is positioned inside it
   const perDay = (24 * 60) / act.bin_minutes;
   // Every non-empty cell over all days (flatMap joins the days' cell lists).
   const all = act.days.flatMap((d) => d.cells);
@@ -200,7 +201,7 @@ function renderOverview(act) {
   let html = `<span></span><div class="ov-hours">` +
     ticks.map(([h, t]) => `<span style="left:${(h / 24) * 100}%">${t}</span>`).join("") + `</div>`;
 
-  // Times for the readout: bin i of a day starts at i * bin_minutes after midnight.
+  // Times for the tooltip: bin i of a day starts at i * bin_minutes after midnight.
   const clock = (min) => {
     const h = Math.floor(min / 60) % 24, m = min % 60;
     return `${h % 12 || 12}:${String(m).padStart(2, "0")} ${h < 12 ? "AM" : "PM"}`;
@@ -221,7 +222,6 @@ function renderOverview(act) {
   // Look up a cell's data from its position (bins with no activity are absent).
   const cellData = (el) => act.days[+el.dataset.d].cells.find((x) => x.i === +el.dataset.i);
 
-  const showTotal = () => { readout.textContent = OV_MODES[mode].total(act, all) + " Hover or tap a cell for details."; };
 
   // Shade every cell for the current mode, and update the caption and key to match.
   function shade() {
@@ -231,55 +231,83 @@ function renderOverview(act) {
       el.className = "ov-cell" + (c ? " on" : "") + (lv ? ` l${lv}` : "") + (el.classList.contains("sel") ? " sel" : "");
     });
     const m = OV_MODES[mode];
-    document.getElementById("ov-caption").textContent = typeof m.caption === "function" ? m.caption(act) : m.caption;
+    // The caption ends with the project total for this measure.
+    document.getElementById("ov-caption").textContent =
+      (typeof m.caption === "function" ? m.caption(act) : m.caption) + " " + m.total(act, all);
     document.getElementById("ov-keys").innerHTML = OV_LANES.map((l) =>
       `<span class="ov-key">${l.name}&nbsp;` + [1, 2, 3, 4].map((k) =>
         `<i class="ov-cell l${k}" style="--c:${l.color}"></i>`).join("") + `</span>`).join(" ") + " " + m.key;
   }
 
-  // Show one cell in the readout: its time, both lanes' values, and a jump link.
-  // "select" keeps it shown (a click or tap) until another cell is chosen.
-  const show = (el, select) => {
+  // Show one cell's tooltip: its time, both lanes' values, and (for a busy cell) a link
+  // to the first entry in that half hour. "pin" (a click or tap) keeps it open and
+  // clickable until the reader picks another cell, clicks elsewhere, or presses Escape.
+  const show = (el, pin) => {
     const d = act.days[+el.dataset.d];
     const i = +el.dataset.i;
     const c = cellData(el);
     const when = `${d.label}, ${clock(i * act.bin_minutes)}–${clock((i + 1) * act.bin_minutes)}`;
-    const vals = c ? OV_LANES.map((l) => `${l.name} ${OV_MODES[mode].value(c, l)}`).join(" · ") : "";
-    readout.innerHTML = c
-      ? `${esc(when)} · ${vals} · <a href="#${esc(c.first)}">Jump to this point</a>`
-      : `${esc(when)} · no activity`;
-    if (select) {
-      grid.querySelectorAll(".sel").forEach((x) => x.classList.remove("sel"));
-      el.classList.add("sel");
-    }
-  };
+    const vals = OV_LANES.map((l) =>
+      `<div><i style="background:${l.color}"></i>${l.name}: ${OV_MODES[mode].value(c, l)}</div>`).join("");
+    // The link only appears once pinned: a hover tooltip can't be clicked anyway.
+    const link = pin ? `<div><a href="#${esc(c.first)}">Jump to this point</a></div>` : "";
+    tip.innerHTML = `<b>${esc(when)}</b>${vals}${link}`;
+    tip.hidden = false;
+    tip.classList.toggle("pinned", pin);
+    grid.querySelectorAll(".sel").forEach((x) => x.classList.remove("sel"));
+    if (pin) el.classList.add("sel");
 
-  // One handler for the whole grid (event delegation) instead of one per cell.
+    // Place it centered above the cell, in the overview's coordinates, kept inside the
+    // overview's width; if there's no room above (the top row), put it below instead.
+    const r = el.getBoundingClientRect(), o = box.getBoundingClientRect();
+    const w = tip.offsetWidth, h = tip.offsetHeight;
+    const left = Math.min(Math.max(0, r.left - o.left + r.width / 2 - w / 2), o.width - w);
+    let top = r.top - o.top - h - 6;
+    if (top < 0) top = r.bottom - o.top + 6;
+    tip.style.left = `${left}px`;
+    tip.style.top = `${top}px`;
+  };
+  const hide = () => {
+    tip.hidden = true;
+    tip.classList.remove("pinned");
+    grid.querySelectorAll(".sel").forEach((x) => x.classList.remove("sel"));
+  };
+  const pinned = () => tip.classList.contains("pinned");
+
+  // One handler for the whole grid (event delegation) instead of one per cell. Hover
+  // follows the pointer unless a cell is pinned; only cells with activity ("on") show a
+  // tooltip, and moving onto an empty cell or out of the grid hides an unpinned one.
   grid.addEventListener("pointerover", (ev) => {
-    if (ev.target.classList.contains("ov-cell") && !grid.querySelector(".sel")) show(ev.target, false);
+    if (pinned() || !ev.target.classList.contains("ov-cell")) return;
+    if (ev.target.classList.contains("on")) show(ev.target, false); else hide();
   });
+  grid.addEventListener("pointerleave", () => { if (!pinned()) hide(); });
   grid.addEventListener("click", (ev) => {
-    if (ev.target.classList.contains("ov-cell")) show(ev.target, true);
+    if (ev.target.classList.contains("on")) show(ev.target, true);
   });
+  // A click anywhere outside the grid and the tooltip closes a pinned tooltip.
+  document.addEventListener("click", (ev) => {
+    if (pinned() && !grid.contains(ev.target) && !tip.contains(ev.target)) hide();
+  });
+  document.addEventListener("keydown", (ev) => { if (ev.key === "Escape") hide(); });
   // The jump link scrolls smoothly instead of the browser's instant hash jump.
-  readout.addEventListener("click", (ev) => {
+  tip.addEventListener("click", (ev) => {
     if (ev.target.tagName !== "A") return;
     ev.preventDefault();
+    hide();
     document.getElementById(ev.target.getAttribute("href").slice(1))
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 
-  // The measure toggle: re-shade, and refresh the readout for the selected cell (or the
-  // total, if none is selected) so its numbers match the new measure.
+  // The measure toggle: re-shade (which also refreshes the caption's total) and close
+  // any open tooltip, whose numbers belong to the old measure.
   document.querySelectorAll('input[name="ov-mode"]').forEach((r) => r.addEventListener("change", () => {
     mode = r.value;
+    hide();
     shade();
-    const sel = grid.querySelector(".sel");
-    if (sel) show(sel, false); else showTotal();
   }));
 
   shade();
-  showTotal();
 }
 
 // Load the timeline, render it, and fill in the counts.

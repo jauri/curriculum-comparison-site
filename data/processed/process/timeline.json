@@ -1,16 +1,16 @@
 {
  "counts": {
-  "sessions": 16,
-  "you": 127,
-  "answers": 111,
-  "claude": 558,
-  "questions": 122,
-  "actions": 1604,
-  "cards": 152,
-  "commits": 32,
+  "sessions": 18,
+  "you": 135,
+  "answers": 116,
+  "claude": 582,
+  "questions": 127,
+  "actions": 1681,
+  "cards": 161,
+  "commits": 34,
   "hidden": 0,
   "first": "Oct 16, 2026",
-  "last": "Oct 18, 2026"
+  "last": "Oct 19, 2026"
  },
  "activity": {
   "bin_minutes": 30,
@@ -389,10 +389,40 @@
      {
       "i": 45,
       "you": 2,
-      "claude": 3,
+      "claude": 6,
       "you_min": 2.4,
-      "claude_min": 0.3,
+      "claude_min": 0.6,
       "first": "u-ef811526-9e1"
+     },
+     {
+      "i": 46,
+      "you": 0,
+      "claude": 0,
+      "you_min": 1.5,
+      "claude_min": 0.0,
+      "first": "u-f2291097-6e3"
+     },
+     {
+      "i": 47,
+      "you": 9,
+      "claude": 63,
+      "you_min": 18.6,
+      "claude_min": 7.7,
+      "first": "u-f2291097-6e3"
+     }
+    ]
+   },
+   {
+    "date": "2026-10-19",
+    "label": "Mon Oct 19",
+    "cells": [
+     {
+      "i": 0,
+      "you": 4,
+      "claude": 40,
+      "you_min": 13.1,
+      "claude_min": 3.2,
+      "first": "a-e9bce57e-a46"
      }
     ]
    }
@@ -418,12 +448,12 @@
    "Workflow": 38
   },
   "answers": {
-   "recommended": 85,
-   "other": 8,
+   "recommended": 89,
+   "other": 9,
    "own": 4,
    "no_rec": 14
   },
-  "unclassified": 7,
+  "unclassified": 15,
   "reviewed": 0,
   "rows": 120,
   "steps": [
@@ -781,8 +811,8 @@
      "Workflow": 4
     },
     "answers": {
-     "recommended": 15,
-     "other": 1,
+     "recommended": 19,
+     "other": 2,
      "own": 1,
      "no_rec": 0
     }
@@ -791,11 +821,11 @@
  },
  "tokens": {
   "totals": {
-   "replies": 1474,
-   "output": 1392868,
-   "cache_write": 4913458,
-   "input": 2950,
-   "cache_read": 239948069
+   "replies": 1543,
+   "output": 1456954,
+   "cache_write": 5181398,
+   "input": 3088,
+   "cache_read": 246784875
   },
   "steps": [
    {
@@ -972,11 +1002,11 @@
     "id": "p-21",
     "step": "21",
     "title": "Process page",
-    "replies": 201,
-    "output": 167449,
-    "cache_write": 809128,
-    "input": 402,
-    "cache_read": 21996706
+    "replies": 270,
+    "output": 231535,
+    "cache_write": 1077068,
+    "input": 540,
+    "cache_read": 28833512
    }
   ]
  },
@@ -21760,6 +21790,975 @@
    "text": "commit and publish",
    "iso": "2026-10-19T02:48:40.537000+00:00",
    "label": "10:48 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-4f172054-2ca",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Refresh process data and mark the work committed in PROGRESS.md",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Commit the token chart and publish the site with the process page",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 2 commands · committed · published the site",
+   "iso": "2026-10-19T02:48:46.995000+00:00",
+   "label": "10:48 PM",
+   "end_label": "10:48 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-62cda6f",
+   "hash": "62cda6f",
+   "text": "Process page: token usage per plan step",
+   "iso": "2026-10-18T22:48:53-04:00",
+   "label": "10:48 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-ab1aea3e-e60",
+   "text": "The token chart is committed (`62cda6f` on `step-13-schools`) and published on the public site with the process page.\n\nBefore committing, I re-collected the session logs and rebuilt the timeline, so the totals now include this conversation. I also updated `PROGRESS.md` to say the chart is committed and published, and took out its \"awaiting review\" note.\n\nGitHub Pages usually updates in a minute or two: https://jauri.github.io/curriculum-comparison-site/web/process.html. If your phone still shows the old page, reload it, since the browser may be using a cached copy.",
+   "iso": "2026-10-19T02:48:59.330000+00:00",
+   "label": "10:48 PM"
+  },
+  {
+   "kind": "session",
+   "id": "s-17",
+   "n": 17,
+   "label": "Sun Oct 18 · Session 17",
+   "iso": "2026-10-19T03:30:29.501000+00:00"
+  },
+  {
+   "kind": "you",
+   "id": "u-f2291097-6e3",
+   "text": "for the process view, let's put a title on the interaction log- complete interaction log- for example.  put this above 'how to read this'",
+   "iso": "2026-10-19T03:30:29.501000+00:00",
+   "label": "11:30 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-cb25b7f4-c4d",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Find 'how to read this' in web files",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Show context around the interaction log",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/process.html",
+     "kind": "edit"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check .sec styling and publish script",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check section and note spacing styles",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Publish the site to Pages",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read the publish script",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 6 commands · edited 1 file · published the site",
+   "iso": "2026-10-19T03:30:32.454000+00:00",
+   "label": "11:30 PM",
+   "end_label": "11:30 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-eeb3e4c5-d14",
+   "text": "Matching the existing section headings (`h2.sec`):",
+   "iso": "2026-10-19T03:30:39.980000+00:00",
+   "label": "11:30 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-00f31e4f-128",
+   "text": "Spacing works: the tokens section above already has a bottom margin and divider. Publishing so you can check it on your phone:",
+   "iso": "2026-10-19T03:30:50.494000+00:00",
+   "label": "11:30 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-9e5c0b4d-32b",
+   "text": "I added a \"Complete interaction log\" heading to `web/process.html`, directly above the \"How to read this\" note. It uses the same style as the other section headings on the page (\"When the work happened\" and so on). I didn't check it in a browser.\n\nIt isn't on your phone yet. The publish script leaves the process page off the public site until you've reviewed it, so running it changed nothing. To push the process page live, run `PUBLISH_PROCESS=1 ./publish_site.sh`. Otherwise open `web/process.html` locally to see the change. I haven't committed it.",
+   "iso": "2026-10-19T03:30:57.460000+00:00",
+   "label": "11:30 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-20a995c6-695",
+   "text": "make the titles a little bigger",
+   "iso": "2026-10-19T03:32:45.497000+00:00",
+   "label": "11:32 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-e63c6cdb-183",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Increase section title size",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check page title size",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 2 commands",
+   "iso": "2026-10-19T03:32:49.561000+00:00",
+   "label": "11:32 PM",
+   "end_label": "11:32 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-498dc8b1-32b",
+   "text": "I made the section titles on the process page bigger, from 15px to 18px, with a little more space below each one. That covers all four: \"When the work happened\", \"What the author's messages did\", \"How many tokens Claude used\" and \"Complete interaction log\". The page title stays bigger at 24px.\n\nI haven't committed this or looked at it in a browser. Like before, it won't show on the public site unless you publish with `PUBLISH_PROCESS=1`.",
+   "iso": "2026-10-19T03:32:57.953000+00:00",
+   "label": "11:32 PM"
+  },
+  {
+   "kind": "session",
+   "id": "s-18",
+   "n": 18,
+   "label": "Sun Oct 18 · Session 18",
+   "iso": "2026-10-19T03:37:26.860000+00:00"
+  },
+  {
+   "kind": "you",
+   "id": "u-6237c7d3-300",
+   "text": "commit and push",
+   "iso": "2026-10-19T03:37:26.860000+00:00",
+   "label": "11:37 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-529c3bb9-a18",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Check git state and the pending diff",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Commit the process page change and push",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Look for the site publish script",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Publish the web views to the public site",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 4 commands · committed · published the site",
+   "iso": "2026-10-19T03:37:30.224000+00:00",
+   "label": "11:37 PM",
+   "end_label": "11:37 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-a3cbf4a",
+   "hash": "a3cbf4a",
+   "text": "Process page: larger section headings, label the interaction log",
+   "iso": "2026-10-18T23:37:34-04:00",
+   "label": "11:37 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-bf09bdd1-008",
+   "text": "I committed and pushed the `web/process.html` change to `step-13-schools` as `a3cbf4a`. The \"Process page: token usage per plan step\" commit that hadn't been pushed yet went up with it.\n\nThe change makes the section headings bigger (15px to 18px) and adds a \"Complete interaction log\" heading above the timeline.\n\nI also ran `publish_site.sh`, and it said the site was already up to date, so the public page on GitHub Pages already shows this version.",
+   "iso": "2026-10-19T03:37:43.473000+00:00",
+   "label": "11:37 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-2274d8c6-8c5",
+   "text": "i want to make a new alignment view.  it should go in a separate tab after Alignment.  This version will have the same approach of lining up UC against a selected school, and showing connections between courses between the two programs.  but this time, i want to show the percent of concepts that are shared between the courses.  So if a course had concepts from two courses in the other program, split evenly, it would have a band drawn between the two spilt equally going to the two courses.  sizing is a bit of an issue.  ask me questions and write specs to describe it and explain what you would do and whether there are problems with this idea.",
+   "iso": "2026-10-19T03:45:52.664000+00:00",
+   "label": "11:45 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-3ad964bb-5a2",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Read alignment and concept specs, list web and processed files",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check project progress and concept tagging status",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Measure concept overlap between UC courses and other schools",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Measure concept overlap with the project virtualenv",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 4 commands",
+   "iso": "2026-10-19T03:45:57.150000+00:00",
+   "label": "11:45 PM",
+   "end_label": "11:46 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-4edd457a-648-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "How should a course's concepts be divided among bands when the same concept appears in more than one partner course?",
+     "header": "Split rule",
+     "multi": false,
+     "options": [
+      {
+       "label": "Per concept (Recommended)",
+       "description": "Each concept is 1/n of the course. A concept found in k partner courses is split k ways. Concepts found nowhere stay as an 'unshared' stub, so a band's width really is a percent of the course.",
+       "preview": "UC CS 2028C: 4 concepts {a,b,c,d}\nOSU X has a,b   OSU Y has b\n\n a -> X        25%\n b -> X, Y     12.5% + 12.5%\n c,d unshared  50%\n\n UC node   ┌──────┐\n           │██████│==== X (37.5%)\n           │▓▓▓  │---- Y (12.5%)\n           │░░░░░░│ unshared 50%\n           └──────┘"
+      },
+      {
+       "label": "By overlap count",
+       "description": "Band size is proportional to how many concepts each partner shares, and bands always fill the whole node. There is no unshared part, so a course sharing 1 of 9 concepts looks fully connected.",
+       "preview": "UC CS 2028C: 4 concepts {a,b,c,d}\nOSU X shares 2, OSU Y shares 1\n\n X: 2/3 = 67%\n Y: 1/3 = 33%\n (c,d not shown)\n\n UC node   ┌──────┐\n           │██████│==== X\n           │██████│\n           │▓▓▓▓▓▓│---- Y\n           └──────┘"
+      },
+      {
+       "label": "Full credit each",
+       "description": "Each partner gets its full share (2/4 for X, 1/4 for Y), even if that counts concept b twice. Bands can add up to more than 100% and overlap.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 4,
+   "iso": "2026-10-19T03:46:45.484000+00:00",
+   "label": "11:46 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-fee3d234-94f-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Split rule",
+     "answer": "Per concept (Recommended)",
+     "notes": "",
+     "class": "recommended"
+    }
+   ],
+   "text": "",
+   "iso": "2026-10-19T03:46:45.484000+00:00",
+   "label": "11:48 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-4edd457a-648-2",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "What should set a node's height?",
+     "header": "Node size",
+     "multi": false,
+     "options": [
+      {
+       "label": "Credits (Recommended)",
+       "description": "Same as the Alignment tab, so semesters line up and the two tabs look alike. Bands are percents of that height.",
+       "preview": ""
+      },
+      {
+       "label": "Concept count",
+       "description": "A 9-concept course is 9 times taller than a 1-concept course. This mostly measures how long the description is, not how big the course is, and semester bands won't match the Alignment tab.",
+       "preview": ""
+      },
+      {
+       "label": "Equal height",
+       "description": "Every course node is the same height and only the percentages matter. Semester bands still line up.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 2,
+   "of": 4,
+   "iso": "2026-10-19T03:46:45.484000+00:00",
+   "label": "11:46 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-fee3d234-94f-2",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Node size",
+     "answer": "Credits (Recommended)",
+     "notes": "",
+     "class": "recommended"
+    }
+   ],
+   "text": "",
+   "iso": "2026-10-19T03:46:45.484000+00:00",
+   "label": "11:48 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-4edd457a-648-3",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "A band joins two courses whose shares differ: 2 shared concepts might be 50% of UC's course and 20% of OSU's. How should a band's ends look?",
+     "header": "Band ends",
+     "multi": false,
+     "options": [
+      {
+       "label": "Tapered (Recommended)",
+       "description": "Each end is as wide as that course's share, so the band narrows or widens across the gap. Both percentages are honest, and the tooltip gives both.",
+       "preview": "UC (50%)            OSU (20%)\n┌────┐                ┌────┐\n│████│\\____            │    │\n│████│     \\__________│▓▓  │\n│████│ ____________/  │    │\n│    │/               │    │\n└────┘                └────┘"
+      },
+      {
+       "label": "UC side only",
+       "description": "Size bands from UC's percentages only, the same width at both ends. Simpler, but the other school's ends don't add up to anything meaningful.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 3,
+   "of": 4,
+   "iso": "2026-10-19T03:46:45.484000+00:00",
+   "label": "11:46 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-fee3d234-94f-3",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Band ends",
+     "answer": "Tapered (Recommended)",
+     "notes": "",
+     "class": "recommended"
+    }
+   ],
+   "text": "",
+   "iso": "2026-10-19T03:46:45.484000+00:00",
+   "label": "11:48 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-4edd457a-648-4",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "Courses without concept tags (math, science, writing, gen-ed, slots, generic descriptions): what should happen to them?",
+     "header": "Untagged",
+     "multi": false,
+     "options": [
+      {
+       "label": "Show as gray, no bands (Recommended)",
+       "description": "Keep them so the semester layout matches the Alignment tab. Mark them 'not assessed', and turn off non-CS areas by default with the same subject checkboxes.",
+       "preview": ""
+      },
+      {
+       "label": "Hide them",
+       "description": "Show only tagged CS courses. The view is cleaner, but semesters shrink and it no longer looks like the Alignment tab.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 4,
+   "of": 4,
+   "iso": "2026-10-19T03:46:45.484000+00:00",
+   "label": "11:46 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-fee3d234-94f-4",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Untagged",
+     "answer": "Show as gray, no bands (Recommended)",
+     "notes": "",
+     "class": "recommended"
+    }
+   ],
+   "text": "",
+   "iso": "2026-10-19T03:46:45.484000+00:00",
+   "label": "11:48 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-454626b1-df4",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Check page nav and concept groups",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote specs/10-concept-alignment-view.md",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Make tooltip examples generic and locate index entries",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add the new spec to CLAUDE.md, plan.md, and PROGRESS.md",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 3 commands · wrote 10-concept-alignment-view.md",
+   "iso": "2026-10-19T03:48:40.375000+00:00",
+   "label": "11:48 PM",
+   "end_label": "11:49 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-2af81af8-83b",
+   "text": "Now I'll add it to the spec index, the plan, and PROGRESS.md.",
+   "iso": "2026-10-19T03:49:28.814000+00:00",
+   "label": "11:49 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-e48b8459-46b",
+   "text": "I wrote the spec as `specs/10-concept-alignment-view.md` and added it to `CLAUDE.md`, `specs/plan.md` (as step 22) and `PROGRESS.md`, marked as awaiting your approval. Nothing is committed yet.\n\n**What I'd build, using your answers**\n\n- **Page:** a new \"Concept alignment\" tab right after Alignment. It uses the same layout: UC on the left, a school picker on the right, 8 semester bands that line up, and the subject checkboxes. Layout code both pages need moves into `common.js` so it isn't copied.\n- **Nodes:** height is credits. Each tagged course is split into one segment per band, plus a hatched \"not found at <school>\" segment at the bottom.\n- **Bands:** each concept counts as an equal fraction of its course. If a concept shows up in 2 of the other school's courses, its share is split between them. So a band's width really is the percent of the course's concepts that went there, and nothing is counted twice.\n- **Band ends:** each end is sized from its own course's percent, so the two ends can differ. For example, the same 2 shared concepts might be 50% of the UC course but 20% of the other one.\n- **Untagged courses** (non-CS, slots, generic descriptions) show in gray as \"not assessed\". Non-CS areas are off by default.\n- **Filters:**\n  - Checkboxes for the 16 concept groups. The percentages are recalculated over only the concepts that are shown.\n  - A slider that hides bands below a minimum share.\n- **Hover a band:** both percentages, and each shared concept with its evidence phrase.\n- **Click a course:** where each of its concepts went.\n\n**Problems with the idea**\n\n1. **Mostly unshared.** On average only 26% of a UC course's concepts appear anywhere at OSU (UIC 42%, CMU 28%, Georgia Tech 5%). The hatched \"not found\" segments will take up most of the view. That partly reflects how short the descriptions are, not just the courses.\n2. **Too little data for some schools.** Georgia Tech has 5 tagged courses and Berkeley 2. A thin view there means little evidence, not little overlap. The page would show each school's tagged-course count and warn when it's low.\n3. **Rough percentages.** A course with 1 tag is either 0% or 100%. Tooltips would show \"2 of 9 concepts\" next to every percent.\n4. **Weak concepts create false links.** Career preparation, orientation and language names can join two unrelated courses. The group filter helps; reviewing the tags fixes it properly.\n5. **The tags haven't been reviewed.** All of this rests on the proposed step 17 tags. I'd do that review before the committee sees this view.\n\n**What has to come first:** step 18's `all_concept_tags.json`, the one output from `build_concepts.py` that this page needs. I'd build that part first and leave the coverage table for later.\n\nOne choice I made without asking: bands are a single neutral color. Every tagged course is CS, so coloring by subject area would make them all the same anyway. If you want something else, say so. Once you approve the spec, I'll start with step 18's tag output.",
+   "iso": "2026-10-19T03:49:45.229000+00:00",
+   "label": "11:49 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-97d535ee-277",
+   "text": "let's try it even with the issues you pointed out.",
+   "iso": "2026-10-19T03:55:19.533000+00:00",
+   "label": "11:55 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-e9bce57e-a46",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Size up the files involved",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read shared Python helpers and the concept preview script",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read the shared JS and the alignment page HTML",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read the alignment view script",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check duplicate tagged course codes and concept groups",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/build_concepts.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run the concept checker, then build the tag table",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Look for helper name clashes in other pages",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Compare timeline's fitText and check for a global label",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Move three helpers out of compare.js and rename their calls",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Append the moved helpers to common.js and syntax-check",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Restore the original header comment in common.js",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote web/concept_compare.html",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check shared CSS tokens and legend styles",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote web/concept_compare.js",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Insert the Concept alignment nav link in every page",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check whether a local server is already running",
+     "kind": "command"
+    },
+    {
+     "tool": "ToolSearch",
+     "label": "ToolSearch",
+     "kind": "other"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_context_mcp",
+     "label": "Browser: tabs_context_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8000/web/concept_compare.html?school=osu",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__read_console_messages",
+     "label": "Browser: read_console_messages",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer scroll",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer hover",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer zoom",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer left_click",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer zoom",
+     "kind": "browser"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/concept_compare.js",
+     "kind": "edit"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/concept_compare.html",
+     "kind": "edit"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8000/web/concept_compare.html?school=gatech",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8000/web/compare.html?school=osu",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__read_console_messages",
+     "label": "Browser: read_console_messages",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Update spec and progress notes, then publish the site",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 15 commands · wrote build_concepts.py, concept_compare.html, concept_compare.js · edited 2 files · 17 browser steps · 1 other · published the site",
+   "iso": "2026-10-19T03:55:23.264000+00:00",
+   "label": "11:55 PM",
+   "end_label": "12:00 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-616e5a16-c2f",
+   "text": "Each tagged course appears once per school, so it's safe to join on (school, code). Next I'll write the Python step that turns the tags into a processed file.",
+   "iso": "2026-10-19T03:56:06.505000+00:00",
+   "label": "11:56 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b61c7170-0a7",
+   "text": "Now the shared JS helpers. I'll check for name clashes before moving `fitText`, `label` and `semText` into `common.js`.",
+   "iso": "2026-10-19T03:56:27.296000+00:00",
+   "label": "11:56 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-1009db4e-e41",
+   "text": "`timeline.js` has its own slightly different `fitText`, so I'll give the shared copies distinct names (`fitSvgText`, `rowLabel`) instead of shadowing it.",
+   "iso": "2026-10-19T03:56:40.391000+00:00",
+   "label": "11:56 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-05d73d4c-5dd",
+   "text": "Now the new page. HTML first. It reuses the Alignment tab's styles and adds bands, share bars, and the hatch pattern.",
+   "iso": "2026-10-19T03:56:57.448000+00:00",
+   "label": "11:56 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-7dcb7921-add",
+   "text": "Now the script.",
+   "iso": "2026-10-19T03:57:50.239000+00:00",
+   "label": "11:57 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-309f8d7e-150",
+   "text": "Next I'll add the nav link after \"Alignment\" on every page.",
+   "iso": "2026-10-19T03:59:29.462000+00:00",
+   "label": "11:59 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-9ef09b74-0e1",
+   "text": "Now let me serve it and check it in Chrome.",
+   "iso": "2026-10-19T03:59:34.547000+00:00",
+   "label": "11:59 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-a891fcd9-098",
+   "text": "It renders. Next I'll check the arithmetic in the page (every course's shares plus its unshared part should add up to 100%) for all 15 schools, then look at the chart.",
+   "iso": "2026-10-19T03:59:54.095000+00:00",
+   "label": "11:59 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-82859f3e-e2b",
+   "text": "Hovering works. I'll move the pointer away to see the resting view.",
+   "iso": "2026-10-19T04:00:06.113000+00:00",
+   "label": "12:00 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-8d0a4a73-d73",
+   "text": "The bands taper as intended, and the per-course percentages read clearly. Next I'll check the click panel.",
+   "iso": "2026-10-19T04:00:10.981000+00:00",
+   "label": "12:00 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-95c2308c-93b",
+   "text": "The Georgia Tech warning shows, and both tables fill. Next I'll check that the Alignment tab still works after the helper move.",
+   "iso": "2026-10-19T04:00:28.503000+00:00",
+   "label": "12:00 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-1ad2be5e-ab6",
+   "text": "The Concept alignment tab is built and on the public site, right after Alignment: https://jauri.github.io/curriculum-comparison-site/web/concept_compare.html (the update can take a minute or two to show). Nothing is committed yet.\n\n**What it shows**\n- Same layout as Alignment, but each course is joined to the other school's courses by bands for the concepts they share. The two ends of a band can be different widths, because each end is a share of its own course.\n- Each course box has a thin column on the side facing the bands. It has one piece per band and a hatched piece for concepts not found at the other school. The box label also gives the share, e.g. \"CS 2028C · 62.5% shared\".\n- Courses without concept tags show faded as \"not assessed\". Only Computer science is checked by default.\n- **Hover a band:** both percentages, \"n of N concepts\", and each shared concept with the matching phrase from both descriptions.\n- **Click a course:** a list of its concepts and which of the other school's courses each one went to, or \"not found\".\n- **Controls:**\n  - Concept-group checkboxes; percentages are recalculated over only the concepts shown.\n  - A slider to hide bands below a set share.\n  - The school picker shows each school's tagged-course count, and a warning appears when a school has fewer than 6.\n- Two tables under the chart: every band with its shares, and each course's concepts that aren't found at the other school.\n\n**Checks**\n- Every course's shares plus its \"not found\" part add up to 100% at all 15 schools.\n- UC's average share found matches the numbers I gave earlier: OSU 26%, UIC 42%, Georgia Tech 5%. Northeastern is highest at 52%.\n- I checked the page in Chrome with OSU and Georgia Tech, and the Alignment tab still works after I moved three shared helpers into `common.js`.\n\n**What you'll notice**\n- Most courses are mostly hatched, as expected.\n- Some missing links come from wording, not the courses themselves. For example, UC's Data Structures lists \"stacks and queues\", but no OSU description names them.\n\n**Other changes**\n- I built the first part of step 18, which this page needed: `src/build_concepts.py` writes `all_concept_tags` (894 tags, all still proposed) and `concepts.json`. The coverage table is still to do.\n- I updated the spec, `PROGRESS.md`, and the nav on every page.\n\nHave a look, and tell me what to change or say \"commit\" when you're happy with it.",
+   "iso": "2026-10-19T04:00:59.224000+00:00",
+   "label": "12:00 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-7a5f7e15-f2f",
+   "text": "where is this served",
+   "iso": "2026-10-19T04:02:38.858000+00:00",
+   "label": "12:02 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-3bc3645b-ffb",
+   "text": "It's served in two places:\n\n- **Public site, for your phone:** https://jauri.github.io/curriculum-comparison-site/web/concept_compare.html\n  GitHub Pages serves this from the `curriculum-comparison-site` repo, which `./publish_site.sh` updated. It can take a minute or two after publishing before the page appears.\n- **Locally:** http://localhost:8000/web/concept_compare.html\n  This comes from the `python -m http.server` that was already running from the project folder.\n\nOn either one you can also reach it from the \"Concept alignment\" link after \"Alignment\" in the nav. Add `?school=uic` (or any school id) to the address to open it with that school selected.",
+   "iso": "2026-10-19T04:02:42.477000+00:00",
+   "label": "12:02 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-552b6f74-2ab",
+   "text": "i'd like to better see which concepts overlap when hovering over the band.",
+   "iso": "2026-10-19T04:06:26.692000+00:00",
+   "label": "12:06 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-df8cb030-e9c-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "How should a band's shared concepts be shown when you hover it?",
+     "header": "Band hover",
+     "multi": false,
+     "options": [
+      {
+       "label": "Side-by-side tooltip (Recommended)",
+       "description": "The tooltip shows both courses' concept lists in two columns. Shared concepts are at the top, aligned on one row each and highlighted; the rest are listed below, faded. You see what overlaps and what doesn't.",
+       "preview": "UC CS 2028C  ↔  OSU CSE 2331\n62.5% → shared ← 44.4%\n\n UC (8 concepts)        OSU (9 concepts)\n█ Asymptotic analysis ══ Asymptotic analysis █\n   “complexity analysis”   “big-O”\n   split 2 ways\n█ Linked lists ═════════ Linked lists        █\n   “Linked-lists”          “linked lists”\n\n  Not shared:\n  Stacks and queues       Hash tables\n  Generics and templates  Graphs\n  OO programming          Sorting …"
+      },
+      {
+       "label": "Detail panel on hover",
+       "description": "Hovering a band fills the side panel (more room than a tooltip) with the shared concepts and both full descriptions, with each evidence phrase highlighted in the text. Clicking a band pins it there.",
+       "preview": "┌ Side panel ──────────────────┐\n│ UC CS 2028C ↔ OSU CSE 2331   │\n│ Shared (2):                    │\n│  ■ Asymptotic analysis         │\n│  ■ Linked lists                │\n│ UC description:                │\n│  ...Introduction to [complexity│\n│  analysis]. 5. [Linked-lists]: │\n│ OSU description:               │\n│  ...[big-O]... [linked lists]..│\n└────────────────────────────────┘"
+      },
+      {
+       "label": "Both",
+       "description": "The side-by-side tooltip while hovering, plus clicking a band to pin it in the side panel with the descriptions highlighted.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 1,
+   "iso": "2026-10-19T04:06:39.747000+00:00",
+   "label": "12:06 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-66cfa76d-6c7-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Band hover",
+     "answer": "Detail panel on hover",
+     "notes": "",
+     "class": "other"
+    }
+   ],
+   "text": "",
+   "iso": "2026-10-19T04:06:39.747000+00:00",
+   "label": "12:09 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-7ae56f04-5f3",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Find the pin and detail call sites",
+     "kind": "command"
+    },
+    {
+     "tool": "Read",
+     "label": "Read web/concept_compare.js",
+     "kind": "read"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add a band detail panel with highlighted evidence",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/concept_compare.html",
+     "kind": "edit"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_context_mcp",
+     "label": "Browser: tabs_context_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8000/web/concept_compare.html?school=osu",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/concept_compare.js",
+     "kind": "edit"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8000/web/concept_compare.html?school=osu",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Update spec and progress notes, then publish",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 3 commands · edited 2 files · read 1 file · 7 browser steps · published the site",
+   "iso": "2026-10-19T04:09:32.144000+00:00",
+   "label": "12:09 AM",
+   "end_label": "12:10 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-28fb1c73-a5d",
+   "text": "The regex escaped correctly. Next the styles: highlight, number badges, pinned band, and the wider hover edge.",
+   "iso": "2026-10-19T04:10:07.415000+00:00",
+   "label": "12:10 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-62b5d821-b91",
+   "text": "Every shared concept now shows its number in the highlighted text, across all bands at all 15 schools. Here's the pinned panel:",
+   "iso": "2026-10-19T04:10:38.271000+00:00",
+   "label": "12:10 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-8fcb8c86-df8",
+   "text": "Hovering a band now fills the side panel with what the two courses share. Clicking a band pins it there. The update is on the public site, and it's still uncommitted.\n\n**What the panel shows**\n- Both percentages, with counts (e.g. \"6.3% of the course (1 of 8 concepts)\").\n- The shared concepts, numbered, each with its group. If a concept also appears in other courses, it says how that share was split (e.g. \"UC's share split among 2 OSU courses\").\n- Both courses' titles and full descriptions, with the phrase behind each shared concept highlighted and marked with its number. That way you can see what each school's catalog actually says.\n\n**Other changes**\n- The band tooltip now shows only the two percentages, since the details are in the panel.\n- Thin bands have a wider invisible edge, so they're easier to hover.\n- A pinned band gets a dark outline.\n\nI checked every band at all 15 schools, and every shared concept's number appears in both courses' highlighted text.\n\nOnly the tagged phrase is highlighted. For example, UC Data Structures also says \"Big O notation, asymptotic behavior\", but only \"complexity analysis\" is marked because that's the tag's evidence. That's something to settle in the tag review.\n\nOn a phone, the panel sits under the chart, so tap a band to pin it, then scroll down to read it.",
+   "iso": "2026-10-19T04:10:53.792000+00:00",
+   "label": "12:10 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-516d7f9a-76c",
+   "text": "prepare to clear",
+   "iso": "2026-10-19T04:25:32.773000+00:00",
+   "label": "12:25 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-5971a4a7-938",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Find the PROGRESS.md sections to update",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read the rest of Next and the publish flag handling",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Reorder and update PROGRESS.md for the next session",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 3 commands · published the site",
+   "iso": "2026-10-19T04:25:38.448000+00:00",
+   "label": "12:25 AM",
+   "end_label": "12:25 AM"
   }
  ]
 }

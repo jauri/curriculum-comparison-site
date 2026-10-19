@@ -120,6 +120,21 @@
                 border-radius: 999px; font-size: 11px; color: var(--ink-2); background: var(--page); }
     .kind-tag.second { color: var(--muted); }
 
+    /* Token usage per plan step ("Token usage" in the spec): stacked bars on the same
+       grid as the kinds of input. All three segments are Claude's (the API counts only
+       Claude's calls), so they share its blue: full for output, a lighter mix for context
+       added, and neutral gray for the context re-read from the cache, which the toggle
+       adds. The bars don't filter the timeline, so they keep the default cursor. */
+    .tokens { margin: 0 0 24px; padding-bottom: 20px; border-bottom: 1px solid var(--axis); position: relative; }
+    .tokens .seg { cursor: default; }
+    /* A wider count column than the kinds of input: totals read like "1.6M". */
+    .tokens .in-grid { grid-template-columns: minmax(96px, 200px) 1fr 44px; }
+    :root {
+      --t-output: var(--claude);
+      --t-added: color-mix(in srgb, var(--claude) 45%, var(--surface));
+      --t-read: var(--muted);
+    }
+
     .controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 8px 0 24px; font-size: 14px; }
     .controls select, .controls button { font: inherit; padding: 4px 8px; border-radius: 6px;
                                           border: 1px solid var(--axis); background: var(--surface); color: var(--ink); }
@@ -249,6 +264,19 @@
     <div class="in-note">Each message has one main kind, counted here; some have a second kind, shown on its card.
       Click a bar to show only those messages in the timeline below. <span id="in-status"></span></div>
     <div class="ov-tip" id="in-tip" role="tooltip" hidden></div>
+  </section>
+
+  <section class="tokens" aria-label="Token usage by plan step">
+    <h2 class="sec">How many tokens Claude used</h2>
+    <div class="ov-toggle" role="radiogroup" aria-label="Tokens shown">
+      <span>Show</span>
+      <label><input type="radio" name="tk-mode" value="new" checked> Written and added</label>
+      <label><input type="radio" name="tk-mode" value="all"> Including re-read context</label>
+    </div>
+    <div class="in-legend" id="tk-legend"></div>
+    <div class="in-grid" id="tk-steps"></div>
+    <div class="in-note" id="tk-note"></div>
+    <div class="ov-tip" id="tk-tip" role="tooltip" hidden></div>
   </section>
 
   <div class="note">

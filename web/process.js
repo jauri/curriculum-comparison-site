@@ -414,6 +414,86 @@ function renderInputs(inp) {
   });
 }
 
+// Token usage (specs/09-process-view.md, "Token usage"): one stacked bar per plan step,
+// from data.tokens (summed per step by the parser from the logs' usage records).
+//
+// Three parts, in stacking order. "Context added" joins the API's uncached input and its
+// cache writes: both are new context sent to Claude, and uncached input is tiny (a few
+// thousand tokens in all) because Claude Code caches nearly everything. "Re-read" is the
+// cache reads: the whole conversation so far, read again on every reply. It is over 95%
+// of all tokens, so the toggle leaves it out by default; otherwise the other two would
+// be slivers. Bars share one scale per mode, so steps compare by volume.
+const TK_PARTS = [
+  { key: "output", name: "Written by Claude", color: "var(--t-output)", value: (s) => s.output },
+  { key: "added", name: "Context added", color: "var(--t-added)", value: (s) => s.input + s.cache_write },
+  { key: "read", name: "Context re-read", color: "var(--t-read)", value: (s) => s.cache_read },
+];
+
+// A token count in short form: 542K, 1.4M, 239M (toLocaleString for counts under 1,000).
+function tokenLabel(n) {
+  if (n >= 1e8) return `${Math.round(n / 1e6)}M`;
+  if (n >= 1e6) return `${(n / 1e6).toFixed(1)}M`;
+  if (n >= 1e3) return `${Math.round(n / 1e3)}K`;
+  return n.toLocaleString();
+}
+
+function renderTokens(tk) {
+  const tip = document.getElementById("tk-tip");
+  const box = document.querySelector(".tokens");
+  let mode = "new";
+
+  // The parts shown in a mode ("new" leaves out the re-read context).
+  const parts = () => TK_PARTS.filter((p) => mode === "all" || p.key !== "read");
+  const total = (s) => parts().reduce((x, p) => x + p.value(s), 0);
+
+  function draw() {
+    const shown = parts();
+    document.getElementById("tk-legend").innerHTML =
+      shown.map((p) => `<span style="--k:${p.color}">${p.name}</span>`).join("");
+    const max = Math.max(...tk.steps.map(total));
+    document.getElementById("tk-steps").innerHTML = tk.steps.map((s) => {
+      const name = s.step === "0" ? s.title : `${s.step} ${s.title}`;
+      // The tooltip gives every part, shown or not, plus how many replies the step took.
+      const tipText = `${name}: ${s.replies} replies · ` +
+        TK_PARTS.map((p) => `${p.name.toLowerCase()} ${p.value(s).toLocaleString()}`).join(" · ");
+      const segs = shown.filter((p) => p.value(s)).map((p) =>
+        `<div class="seg" style="--k:${p.color};width:${(100 * p.value(s)) / max}%" data-tip="${esc(tipText)}"></div>`).join("");
+      return `<span class="lab" title="${esc(name)}">${esc(name)}</span><div class="bar">${segs}</div>` +
+        `<span class="num">${tokenLabel(total(s))}</span>`;
+    }).join("");
+
+    const t = tk.totals;
+    const all = t.output + t.input + t.cache_write + t.cache_read;
+    document.getElementById("tk-note").textContent =
+      `Over ${t.replies.toLocaleString()} replies from Claude: ${tokenLabel(t.output)} tokens written ` +
+      `(text, tool calls, and its private reasoning), ${tokenLabel(t.input + t.cache_write)} of context added ` +
+      `(messages, files read, and tool results), and ${tokenLabel(t.cache_read)} of context re-read ` +
+      `(${Math.round((100 * t.cache_read) / all)}% of all tokens). Each reply re-reads the conversation so far ` +
+      `from a cache, so long sessions re-read the most. Counts come from the usage record of each API call ` +
+      `in the session logs; a token is about three quarters of a word.`;
+  }
+
+  // Hover tooltips, placed above the segment as in the kinds-of-input chart.
+  box.addEventListener("pointerover", (ev) => {
+    const el = ev.target.closest(".seg");
+    if (!el) { tip.hidden = true; return; }
+    tip.textContent = el.dataset.tip;
+    tip.hidden = false;
+    const r = el.getBoundingClientRect(), o = box.getBoundingClientRect();
+    const left = Math.min(Math.max(0, r.left - o.left + r.width / 2 - tip.offsetWidth / 2), o.width - tip.offsetWidth);
+    tip.style.left = `${left}px`;
+    tip.style.top = `${r.top - o.top - tip.offsetHeight - 6}px`;
+  });
+  box.addEventListener("pointerleave", () => { tip.hidden = true; });
+
+  document.querySelectorAll('input[name="tk-mode"]').forEach((r) => r.addEventListener("change", () => {
+    mode = r.value;
+    tip.hidden = true;
+    draw();
+  }));
+  draw();
+}
+
 // The timeline filter: "" shows everything; a kind shows only the author's messages with
 // that main kind ("answer" shows the answers to Claude's questions). While filtering,
 // each step marker stays above its matching messages so the reader can see where they
@@ -463,6 +543,7 @@ async function main() {
 
   renderOverview(data.activity);
   renderInputs(data.inputs);
+  renderTokens(data.tokens);
 
   const root = document.getElementById("timeline");
   data.items.forEach((e) => renderItem(e, root));

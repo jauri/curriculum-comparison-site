@@ -1,13 +1,13 @@
 {
  "counts": {
-  "sessions": 15,
-  "you": 123,
-  "answers": 110,
-  "claude": 550,
-  "questions": 121,
-  "actions": 1571,
-  "cards": 149,
-  "commits": 31,
+  "sessions": 16,
+  "you": 127,
+  "answers": 111,
+  "claude": 558,
+  "questions": 122,
+  "actions": 1604,
+  "cards": 152,
+  "commits": 32,
   "hidden": 0,
   "first": "Oct 16, 2026",
   "last": "Oct 18, 2026"
@@ -380,11 +380,19 @@
      },
      {
       "i": 40,
-      "you": 1,
-      "claude": 3,
-      "you_min": 2.0,
-      "claude_min": 0.2,
+      "you": 4,
+      "claude": 42,
+      "you_min": 6.6,
+      "claude_min": 3.4,
       "first": "u-cbd4b0c9-dca"
+     },
+     {
+      "i": 45,
+      "you": 2,
+      "claude": 3,
+      "you_min": 2.4,
+      "claude_min": 0.3,
+      "first": "u-ef811526-9e1"
      }
     ]
    }
@@ -410,12 +418,12 @@
    "Workflow": 38
   },
   "answers": {
-   "recommended": 84,
+   "recommended": 85,
    "other": 8,
    "own": 4,
    "no_rec": 14
   },
-  "unclassified": 3,
+  "unclassified": 7,
   "reviewed": 0,
   "rows": 120,
   "steps": [
@@ -773,11 +781,202 @@
      "Workflow": 4
     },
     "answers": {
-     "recommended": 14,
+     "recommended": 15,
      "other": 1,
      "own": 1,
      "no_rec": 0
     }
+   }
+  ]
+ },
+ "tokens": {
+  "totals": {
+   "replies": 1474,
+   "output": 1392868,
+   "cache_write": 4913458,
+   "input": 2950,
+   "cache_read": 239948069
+  },
+  "steps": [
+   {
+    "id": "p-0",
+    "step": "0",
+    "title": "Specs and plan",
+    "replies": 32,
+    "output": 30572,
+    "cache_write": 49513,
+    "input": 64,
+    "cache_read": 1911756
+   },
+   {
+    "id": "p-1",
+    "step": "1",
+    "title": "Project setup",
+    "replies": 13,
+    "output": 4883,
+    "cache_write": 37280,
+    "input": 26,
+    "cache_read": 560901
+   },
+   {
+    "id": "p-2",
+    "step": "2",
+    "title": "Collect UC sources",
+    "replies": 62,
+    "output": 45052,
+    "cache_write": 177843,
+    "input": 124,
+    "cache_read": 6103598
+   },
+   {
+    "id": "p-3-4",
+    "step": "3-4",
+    "title": "Parse and normalize the UC plan",
+    "replies": 26,
+    "output": 36601,
+    "cache_write": 86122,
+    "input": 52,
+    "cache_read": 1892294
+   },
+   {
+    "id": "p-5",
+    "step": "5",
+    "title": "Attach course descriptions",
+    "replies": 14,
+    "output": 21175,
+    "cache_write": 59724,
+    "input": 28,
+    "cache_read": 843272
+   },
+   {
+    "id": "p-6",
+    "step": "6",
+    "title": "Seed the canonical course list",
+    "replies": 7,
+    "output": 4353,
+    "cache_write": 2742,
+    "input": 14,
+    "cache_read": 637587
+   },
+   {
+    "id": "p-7",
+    "step": "7",
+    "title": "Write outputs",
+    "replies": 9,
+    "output": 15676,
+    "cache_write": 20502,
+    "input": 18,
+    "cache_read": 942408
+   },
+   {
+    "id": "p-8",
+    "step": "8",
+    "title": "First web views",
+    "replies": 22,
+    "output": 26935,
+    "cache_write": 171663,
+    "input": 44,
+    "cache_read": 3102698
+   },
+   {
+    "id": "p-9",
+    "step": "9",
+    "title": "Generalize the pipeline",
+    "replies": 28,
+    "output": 45927,
+    "cache_write": 113471,
+    "input": 56,
+    "cache_read": 2801094
+   },
+   {
+    "id": "p-10",
+    "step": "10",
+    "title": "Pilot: Ohio State and UIC",
+    "replies": 88,
+    "output": 102385,
+    "cache_write": 443407,
+    "input": 176,
+    "cache_read": 20188371
+   },
+   {
+    "id": "p-11",
+    "step": "11",
+    "title": "Spec the alignment view",
+    "replies": 27,
+    "output": 44428,
+    "cache_write": 74680,
+    "input": 54,
+    "cache_read": 9883537
+   },
+   {
+    "id": "p-12",
+    "step": "12",
+    "title": "Build the alignment view",
+    "replies": 11,
+    "output": 6789,
+    "cache_write": 11031,
+    "input": 22,
+    "cache_read": 4531284
+   },
+   {
+    "id": "p-13",
+    "step": "13",
+    "title": "Remaining schools",
+    "replies": 592,
+    "output": 542461,
+    "cache_write": 1579253,
+    "input": 1184,
+    "cache_read": 106844963
+   },
+   {
+    "id": "p-14-15",
+    "step": "14-15",
+    "title": "Combined table and timeline view",
+    "replies": 154,
+    "output": 131302,
+    "cache_write": 394824,
+    "input": 308,
+    "cache_read": 32092630
+   },
+   {
+    "id": "p-16",
+    "step": "16",
+    "title": "Concept vocabulary",
+    "replies": 95,
+    "output": 83105,
+    "cache_write": 332829,
+    "input": 190,
+    "cache_read": 14074742
+   },
+   {
+    "id": "p-15",
+    "step": "15",
+    "title": "Timeline view refinements",
+    "replies": 29,
+    "output": 14241,
+    "cache_write": 52402,
+    "input": 58,
+    "cache_read": 1930756
+   },
+   {
+    "id": "p-17",
+    "step": "17",
+    "title": "Concept tags and the public site",
+    "replies": 64,
+    "output": 69534,
+    "cache_write": 497044,
+    "input": 130,
+    "cache_read": 9609472
+   },
+   {
+    "id": "p-21",
+    "step": "21",
+    "title": "Process page",
+    "replies": 201,
+    "output": 167449,
+    "cache_write": 809128,
+    "input": 402,
+    "cache_read": 21996706
    }
   ]
  },
@@ -21211,12 +21410,356 @@
      "tool": "Bash",
      "label": "Refresh session logs and regenerate the process data",
      "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Regenerate the process data with the project's virtualenv",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check category totals and unclassified count",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Update progress notes and stage all changes",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Commit, push the branch, and publish the public site",
+     "kind": "command"
     }
    ],
-   "summary": "Ran 3 commands",
+   "summary": "Ran 7 commands · committed · published the site",
    "iso": "2026-10-19T00:15:15.065000+00:00",
    "label": "8:15 PM",
    "end_label": "8:15 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-d4ff93e4-7c6",
+   "text": "Updating PROGRESS.md for the next session, then I'll commit, push, and publish.",
+   "iso": "2026-10-19T00:15:34.231000+00:00",
+   "label": "8:15 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-302fae7",
+   "hash": "302fae7",
+   "text": "Process page: kinds of input (totals, per-step bars, card tags, filter)",
+   "iso": "2026-10-18T20:15:48-04:00",
+   "label": "8:15 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-745ade51-e20",
+   "text": "Everything is committed and pushed, and the public site is updated. You can clear whenever you like.\n\n- **Commit:** `302fae7`. It contains the kinds-of-input work, the color change, and a PROGRESS.md update for next session.\n- **Private repo:** pushed to `jauri/curriculum-comparison` on branch `step-13-schools`. That branch is still not merged into `main`.\n- **Public site:** published with the process page and newer session data included. It should be live in a minute or two at https://jauri.github.io/curriculum-comparison-site/web/process.html. Only `web/` and `data/processed/` go to the public repo.\n\nPROGRESS.md now lists what's left for the process page:\n- **Your review of the 120 proposed categories.** It includes the borderline ones I flagged (23, 41, 73, 72/74/96, 83). Reply with `number → category` or \"approve\".\n- **Three new messages since #120.** They aren't classified yet, and the page shows them as \"not yet classified\".",
+   "iso": "2026-10-19T00:15:56.327000+00:00",
+   "label": "8:15 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-03bfd341-591",
+   "text": "I'll have to check those later.",
+   "iso": "2026-10-19T00:16:23.421000+00:00",
+   "label": "8:16 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-a8271b1d-22b",
+   "text": "Sounds good. PROGRESS.md records the review as open, along with the flagged calls, so it'll be picked up next session. When you're ready, reply with `number → category` or \"approve\".",
+   "iso": "2026-10-19T00:16:25.975000+00:00",
+   "label": "8:16 PM"
+  },
+  {
+   "kind": "session",
+   "id": "s-16",
+   "n": 16,
+   "label": "Sun Oct 18 · Session 16",
+   "iso": "2026-10-19T00:17:54.365000+00:00"
+  },
+  {
+   "kind": "you",
+   "id": "u-5a6f1691-853",
+   "text": "I want to visualize my token usage somehow on this project specifically, and over time.  Is my token usage somehow saved and available as data to display in the process view as a Visualization.",
+   "iso": "2026-10-19T00:17:54.365000+00:00",
+   "label": "8:17 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-be5b71a6-f19",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Inspect session logs and process scripts for token data",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Tally token usage fields across session logs",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 2 commands",
+   "iso": "2026-10-19T00:17:59.757000+00:00",
+   "label": "8:17 PM",
+   "end_label": "8:18 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-a7ca81f8-462-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "How should token usage appear on the process page?",
+     "header": "Token view",
+     "multi": false,
+     "options": [
+      {
+       "label": "Over time, per step (Recommended)",
+       "description": "Stacked bars of output and cache-write tokens for each plan step, in the existing activity overview, with a toggle that adds cache reads. Shows which steps cost the most.",
+       "preview": "Tokens by step   [output+write | +cache reads]\nstep 1  ██▌\nstep 2  ████▊\nstep 3  ███\n...\nstep 21 ██████▍\n        ▇ output  ▇ cache write"
+      },
+      {
+       "label": "Cumulative line by date",
+       "description": "One running-total line per kind of token across all sessions on a log scale, so the small kinds stay visible next to cache reads.",
+       "preview": "tokens (log)\n 1e8 |            ___---- cache read\n 1e6 |     __---- cache write\n 1e5 |  _--- output\n     +------------------------\n      10-16    10-17    10-18"
+      },
+      {
+       "label": "Per-card annotation",
+       "description": "A small token count on each Claude card in the timeline, plus one row of totals at the top. No new chart.",
+       "preview": "┌ Claude · 14:02 ─────────── 3.1K out ┐\n│ Wrote parse_transcripts.py ...       │\n└──────────────────────────────────────┘"
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 1,
+   "iso": "2026-10-19T00:18:18.868000+00:00",
+   "label": "8:18 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-8d06f1de-c44-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Token view",
+     "answer": "Over time, per step (Recommended)",
+     "notes": "",
+     "class": "recommended"
+    }
+   ],
+   "text": "",
+   "iso": "2026-10-19T00:18:18.868000+00:00",
+   "label": "8:21 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-177f78bd-662",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Locate process page files and sizes",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read transcript parser and process view spec",
+     "kind": "command"
+    },
+    {
+     "tool": "Read",
+     "label": "Read src/parse_transcripts.py",
+     "kind": "read"
+    },
+    {
+     "tool": "Read",
+     "label": "Read specs/09-process-view.md",
+     "kind": "read"
+    },
+    {
+     "tool": "Read",
+     "label": "Read web/process.js",
+     "kind": "read"
+    },
+    {
+     "tool": "Read",
+     "label": "Read web/process.html",
+     "kind": "read"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check publishing rule, collector, and progress notes",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited src/parse_transcripts.py",
+     "kind": "edit"
+    },
+    {
+     "tool": "Bash",
+     "label": "Wire tokens into parser, refresh logs, rebuild timeline",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Rerun collector and parser with project virtualenv",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add token section markup and styles to process page",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/process.html",
+     "kind": "edit"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/process.js",
+     "kind": "edit"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/process.js",
+     "kind": "edit"
+    },
+    {
+     "tool": "Bash",
+     "label": "Start local web server and syntax-check the page script",
+     "kind": "command"
+    },
+    {
+     "tool": "ToolSearch",
+     "label": "ToolSearch",
+     "kind": "other"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_context_mcp",
+     "label": "Browser: tabs_context_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/process.html",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__find",
+     "label": "Browser: find",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer scroll_to",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer left_click",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer scroll",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited specs/09-process-view.md",
+     "kind": "edit"
+    }
+   ],
+   "summary": "Ran 7 commands · edited 4 files · read 4 files · 8 browser steps · 1 other · published the site",
+   "iso": "2026-10-19T00:21:04.534000+00:00",
+   "label": "8:21 PM",
+   "end_label": "8:23 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-dd52988d-9c8",
+   "text": "Building it now: I'm adding a token tally per plan step to the parser, and then a chart section on the process page.",
+   "iso": "2026-10-19T00:21:30.460000+00:00",
+   "label": "8:21 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-c3792dff-42b",
+   "text": "Now I'll check it in the browser.",
+   "iso": "2026-10-19T00:22:28.548000+00:00",
+   "label": "8:22 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-98d1e705-5a1",
+   "text": "Both views work. I'll add the rule to the spec.",
+   "iso": "2026-10-19T00:23:00.688000+00:00",
+   "label": "8:23 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-49724a45-587",
+   "text": "The process page now has a token chart, **\"How many tokens Claude used\"**. It sits under \"What the author's messages did\" and has one bar per plan step. I checked both toggle settings in Chrome on the local server, and the numbers match my earlier hand count.\n\n- **By default** it shows the tokens Claude wrote and the context added. Step 13 (Remaining schools) is the biggest at 2.1M, followed by 21 (this page) and 10 (Ohio State and UIC pilot).\n- **\"Including re-read context\"** adds the cache reads in gray. They're 97% of all tokens (239M), and Step 13 alone is 109M, because each reply re-reads that long conversation.\n- **Hovering a bar** shows that step's reply count and all the parts. A note under the chart gives the project totals.\n\nWhat changed:\n- **Parser:** `src/parse_transcripts.py` totals the token counts per step and writes them to `tokens` in `timeline.json`. I re-collected the logs, so the totals include today's sessions, this one so far.\n- **Page:** a new section in `web/process.html` and a `renderTokens` function in `web/process.js`.\n- **Spec:** a new \"Token usage\" section in `specs/09-process-view.md`.\n\nScreenshot: `/var/folders/z8/nvlzd3jn54b_msbvj4rmlx540000gn/T/claude-chrome-screenshots-cNZdyK/screenshot-1792369369744-0.jpg`\n\nNothing is committed or published yet. This page only goes to the public site with `PUBLISH_PROCESS=1 ./publish_site.sh`. Say \"commit\" and/or \"publish\" when you're happy with it, or tell me what to change.",
+   "iso": "2026-10-19T00:23:12.510000+00:00",
+   "label": "8:23 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-ef811526-9e1",
+   "text": "prepare to clear",
+   "iso": "2026-10-19T02:47:58.858000+00:00",
+   "label": "10:47 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-5cd4478c-c84",
+   "calls": [
+    {
+     "tool": "Read",
+     "label": "Read PROGRESS.md",
+     "kind": "read"
+    },
+    {
+     "tool": "Bash",
+     "label": "Record the token chart work and next steps in PROGRESS.md",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 1 command · read 1 file · published the site",
+   "iso": "2026-10-19T02:48:05.812000+00:00",
+   "label": "10:48 PM",
+   "end_label": "10:48 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b259c621-d20",
+   "text": "I've updated `PROGRESS.md`, so you can clear now. It records how the token chart works, the totals as of this build, and a new first item under Next telling the next session that this work is waiting for your review.\n\nNothing is committed or published yet. Six files have changes: `PROGRESS.md`, the spec, the parser, two web files, and `timeline.json`. They'll still be there after you clear. Next time, look at the chart and then say \"commit\" and/or \"publish\". Run the two process scripts with `.venv/bin/python` before publishing, because the system `python3` doesn't have pandas.",
+   "iso": "2026-10-19T02:48:18.473000+00:00",
+   "label": "10:48 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-3c78297a-c7c",
+   "text": "commit and publish",
+   "iso": "2026-10-19T02:48:40.537000+00:00",
+   "label": "10:48 PM"
   }
  ]
 }

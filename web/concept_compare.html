@@ -47,8 +47,22 @@
     :root { --band: #6b7fa3; }
     @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --band: #8fa3c8; } }
     :root[data-theme="dark"] { --band: #8fa3c8; }
-    .band { fill: var(--band); fill-opacity: 0.35; cursor: pointer; }
+    /* The transparent stroke widens each band's hover target (a transparent stroke still
+       counts for pointer events), so thin bands are easy to hover. */
+    .band { fill: var(--band); fill-opacity: 0.35; cursor: pointer; stroke: transparent; stroke-width: 6; }
     .band:hover { fill-opacity: 0.6; }
+    svg .band.pinned { fill-opacity: 0.8; stroke: var(--ink); stroke-width: 1; }
+
+    /* Band panel: numbered shared concepts, and the evidence phrases highlighted in both
+       descriptions with the same numbers. */
+    .shared-list { list-style: none; padding-left: 0 !important; }
+    .shared-list li { margin-bottom: 5px; }
+    .num { display: inline-block; min-width: 16px; margin-right: 6px; padding: 0 3px; border-radius: 3px;
+      background: var(--band); color: var(--surface); font-size: 11px; font-weight: 700; text-align: center; }
+    .split { font-size: 12px; margin-left: 25px; }
+    mark { background: color-mix(in srgb, var(--band) 35%, transparent); color: var(--ink); border-radius: 2px; padding: 0 1px; }
+    .num-sup { font-size: 10px; font-weight: 700; color: var(--ink-2); margin-left: 1px; }
+    .title-line { font-weight: 600; color: var(--ink); margin-bottom: 4px; }
 
     /* Highlighting: while something is hovered or pinned, unrelated nodes and bands fade. */
     svg.focusing .node:not(.on) { opacity: 0.18; }

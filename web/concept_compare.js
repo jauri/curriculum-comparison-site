@@ -293,9 +293,10 @@ function draw() {
   // Bands under the nodes. They start at the outer edge of each share bar.
   svg.append("g").selectAll("path").data(model.bands, (b) => b.id).join("path")
     .attr("class", "band").attr("d", (b) => bandPath(b, xL + NODE_W, xR))
-    .on("mouseenter", (event, b) => { focus(b); showTooltipBand(event, b, other); })
+    .on("mouseenter", (event, b) => { focus(b); showTooltipBand(event, b, other); renderDetail(b, other); })
     .on("mousemove", moveTooltip)
-    .on("mouseleave", () => { hideTooltip(); focus(pinnedNode()); });
+    .on("mouseleave", () => { hideTooltip(); focus(pinned()); renderDetail(pinned(), other); })
+    .on("click", (event, b) => { event.stopPropagation(); togglePin(b); });
 
   const nodeSel = svg.append("g").selectAll("g").data([...model.left, ...model.right], (n) => n.id).join("g")
     .attr("class", (n) => ["node", n.row.course_code ? "" : "slot", n.concepts.size ? "" : "untagged"].join(" "))
@@ -307,7 +308,7 @@ function draw() {
         : "not assessed"))
     .on("mouseenter", (event, n) => { focus(n); showTooltipNode(event, n, other); })
     .on("mousemove", moveTooltip)
-    .on("mouseleave", () => { hideTooltip(); focus(pinnedNode()); })
+    .on("mouseleave", () => { hideTooltip(); focus(pinned()); })
     .on("click", (event, n) => { event.stopPropagation(); togglePin(n); })
     .on("keydown", (event, n) => {
       if (event.key === "Enter" || event.key === " ") { event.preventDefault(); togglePin(n); }
@@ -358,16 +359,19 @@ function draw() {
   });
 
   svg.on("click", () => togglePin(null));
-  if (!pinnedNode()) state.pinnedId = null;
-  focus(pinnedNode());
-  renderDetail(pinnedNode(), other);
+  if (!pinned()) state.pinnedId = null;
+  focus(pinned());
+  renderDetail(pinned(), other);
   renderSparse(other);
   renderTables(other);
 }
 
-function pinnedNode() {
+// The pinned node or band in the current model, or null. Node ids look like "L3" and band
+// ids like "L3-R5", so one id field covers both. A band hidden by the slider or a filter
+// is no longer in the model, and draw() then unpins it.
+function pinned() {
   if (!state.pinnedId || !model) return null;
-  return [...model.left, ...model.right].find((n) => n.id === state.pinnedId) || null;
+  return [...model.left, ...model.right, ...model.bands].find((x) => x.id === state.pinnedId) || null;
 }
 
 // Highlight a node with its bands and partners, or a band with its two nodes; fade the
@@ -382,14 +386,16 @@ function focus(target) {
   }
   const svg = d3.select("#chart").classed("focusing", !!target);
   svg.selectAll(".node").classed("on", (n) => on.has(n.id)).classed("pinned", (n) => n.id === state.pinnedId);
-  svg.selectAll(".band").classed("on", (b) => on.has(b.id));
+  svg.selectAll(".band").classed("on", (b) => on.has(b.id)).classed("pinned", (b) => b.id === state.pinnedId);
 }
 
-function togglePin(n) {
-  state.pinnedId = n && n.id !== state.pinnedId ? n.id : null;
+// Pin or unpin a node or band (null unpins). Clicking the pinned one again, empty space,
+// or Escape unpins it.
+function togglePin(x) {
+  state.pinnedId = x && x.id !== state.pinnedId ? x.id : null;
   const other = data.schools.find((s) => s.school_id === state.school);
-  focus(pinnedNode());
-  renderDetail(pinnedNode(), other);
+  focus(pinned());
+  renderDetail(pinned(), other);
 }
 
 // "2 of 9 concepts" for one end of a band: the count goes next to every percentage, since
@@ -411,36 +417,30 @@ function showTooltipNode(event, n, other) {
   showTooltip(event, lines);
 }
 
-// A band's tooltip: both shares with their counts, then each shared concept with the
-// evidence phrase from both descriptions, and how many ways its share was split.
+// A band's tooltip: the two courses and both shares. The shared concepts and the
+// highlighted descriptions go in the side panel (renderBandDetail), which has more room.
 function showTooltipBand(event, b, other) {
   const u = b.source;
   const v = b.target;
-  const lines = [
+  showTooltip(event, [
     `UC ${rowLabel(u.row)} ↔ ${other.short_name} ${rowLabel(v.row)}`,
     `${pct(b.shareL)} of UC ${rowLabel(u.row)} · ${pct(b.shareR)} of ${other.short_name} ${rowLabel(v.row)}`,
-    `${b.shared.length} shared (UC course has ${u.concepts.size}, ${other.short_name} course has ${v.concepts.size})`,
-  ];
-  for (const c of b.shared) {
-    const kR = model.holdR.get(c).length;
-    const kL = model.holdL.get(c).length;
-    const split = [kR > 1 ? `UC share split ${kR} ways` : "", kL > 1 ? `${other.short_name} share split ${kL} ways` : ""]
-      .filter(Boolean).join("; ");
-    lines.push(`• ${u.concepts.get(c).name}: UC “${u.concepts.get(c).evidence}” · ` +
-      `${other.short_name} “${v.concepts.get(c).evidence}”${split ? ` (${split})` : ""}`);
-  }
-  showTooltip(event, lines);
+    `${b.shared.length} shared concept${b.shared.length === 1 ? "" : "s"}: see the side panel; click to pin`,
+  ]);
 }
 
 // The detail panel for a pinned node: facts, then every concept of the course with
-// where its share went (or "not found"), then the description.
+// where its share went (or "not found"), then the description. A band (hovered or
+// pinned) gets its own panel, renderBandDetail; a band is told apart by its .shared list.
 function renderDetail(n, other) {
   const panel = d3.select("#detail");
   panel.selectAll("*").remove();
   if (!n) {
-    panel.append("p").attr("class", "muted").text("Click a course to pin it and see where each of its concepts went.");
+    panel.append("p").attr("class", "muted")
+      .text("Click a course to see where each of its concepts went. Hover or click a band to see the concepts two courses share.");
     return;
   }
+  if (n.shared) { renderBandDetail(panel, n, other); return; }
   const r = n.row;
   const otherName = n.side === "L" ? other.short_name : "UC";
   const h = panel.append("h3").text(`${r.school.short_name} ${rowLabel(r)}`);
@@ -477,6 +477,93 @@ function renderDetail(n, other) {
   panel.append("h4").text(r.description_source === "generic"
     ? "Description (generic, written for this project)" : `Description (${r.school.short_name} catalog)`);
   panel.append("p").attr("class", "desc").text(r.description);
+}
+
+// The side panel for a band: both shares, the shared concepts (numbered), and both
+// courses' titles and full descriptions with every evidence phrase of a shared concept
+// highlighted and tagged with that concept's number, so each concept can be found in
+// both texts.
+function renderBandDetail(panel, b, other) {
+  const ends = [[b.source, "UC", b.shareL, model.holdR], [b.target, other.short_name, b.shareR, model.holdL]];
+  panel.append("h3").text(`UC ${rowLabel(b.source.row)} ↔ ${other.short_name} ${rowLabel(b.target.row)}`);
+  const dl = panel.append("dl");
+  for (const [n, name, share] of ends) {
+    dl.append("dt").text(`${name} ${rowLabel(n.row)}`);
+    dl.append("dd").text(`${pct(share)} of the course (${ofText(b.shared.length, n.concepts.size)})`);
+  }
+
+  // Shared concepts, numbered in name order; the numbers mark the highlights below.
+  const shared = [...b.shared].sort((x, y) => b.source.concepts.get(x).name.localeCompare(b.source.concepts.get(y).name));
+  const number = new Map(shared.map((c, i) => [c, i + 1]));
+  panel.append("h4").text(`Shared concepts (${shared.length})`);
+  const ul = panel.append("ul").attr("class", "shared-list");
+  for (const c of shared) {
+    const t = b.source.concepts.get(c);
+    const li = ul.append("li");
+    li.append("span").attr("class", "num").text(number.get(c));
+    li.append("b").text(t.name);
+    li.append("span").attr("class", "muted").text(` · ${t.group}`);
+    // How each side's share of this concept was split (k courses on the other side).
+    const kR = model.holdR.get(c).length;
+    const kL = model.holdL.get(c).length;
+    const split = [kR > 1 ? `UC's share split among ${kR} ${other.short_name} courses` : "",
+      kL > 1 ? `${other.short_name}'s share split among ${kL} UC courses` : ""].filter(Boolean).join("; ");
+    if (split) li.append("div").attr("class", "muted split").text(split);
+  }
+
+  // Each course's text with highlights. Evidence can come from the title or the
+  // description (tag.evidence_field), so both are shown.
+  for (const [n, name] of ends) {
+    const r = n.row;
+    panel.append("h4").text(`${name} ${rowLabel(r)} (${r.school.short_name} catalog)`);
+    // Every tag line of this row for a shared concept (a concept may have more than one
+    // evidence phrase), with its number.
+    const marks = (tagsByRow.get(rowKey(r)) || []).filter((t) => number.has(t.concept_id))
+      .map((t) => ({ field: t.evidence_field, phrase: t.evidence, num: number.get(t.concept_id), name: t.name }));
+    appendHighlighted(panel.append("p").attr("class", "desc title-line"), r.title, marks.filter((m) => m.field === "title"));
+    appendHighlighted(panel.append("p").attr("class", "desc"), r.description, marks.filter((m) => m.field === "description"));
+  }
+}
+
+// Append `text` to a D3 selection with each mark's phrase wrapped in <mark> and followed
+// by its concept number. Matching ignores case and treats any run of whitespace as one
+// space, the same normalization check_concepts.py uses for evidence. Text is added as
+// text nodes (never innerHTML), so nothing in the data is read as HTML.
+function appendHighlighted(sel, text, marks) {
+  // Find every match: [start, end, mark]. RegExp special characters in the phrase are
+  // escaped (the replace call), then each whitespace run becomes \s+.
+  const hits = [];
+  for (const m of marks) {
+    const src = m.phrase.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+");
+    const re = new RegExp(src, "gi"); // g: all matches, i: ignore case
+    let found;
+    while ((found = re.exec(text)) !== null) {
+      hits.push([found.index, found.index + found[0].length, m]);
+      if (found[0].length === 0) re.lastIndex++; // guard against an empty match looping forever
+    }
+  }
+  // Earliest first (the longer one first when two start together). A phrase that
+  // overlaps one already highlighted (e.g. "correctness" inside "program correctness")
+  // isn't highlighted again; its concept number is added to that highlight instead, so
+  // every shared concept still shows up in the text.
+  hits.sort((a, b) => a[0] - b[0] || b[1] - a[1]);
+  let pos = 0;
+  let last = null; // { mark, sup, nums } of the latest highlight
+  for (const [start, end, m] of hits) {
+    if (start < pos) {
+      if (!last.nums.includes(m.num)) {
+        last.nums.push(m.num);
+        last.sup.text(last.nums.join(","));
+        last.mark.attr("title", `${last.mark.attr("title")}; ${m.name}`);
+      }
+      continue;
+    }
+    sel.append("span").text(text.slice(pos, start));
+    const mark = sel.append("mark").attr("title", m.name).text(text.slice(start, end));
+    last = { mark, sup: sel.append("sup").attr("class", "num-sup").text(m.num), nums: [m.num] };
+    pos = end;
+  }
+  sel.append("span").text(text.slice(pos));
 }
 
 // Count the other school's tagged courses (with any tag, whatever the group filter) and

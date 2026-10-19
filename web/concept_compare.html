@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Concept Alignment</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-specific layout for the concept alignment view
+       (specs/10-concept-alignment-view.md). Same frame as compare.html: chart and detail
+       panel side by side on wide screens, panel under the chart below 1100px. */
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    @media (min-width: 1100px) { .layout { grid-template-columns: minmax(0, 1fr) 340px; } }
+
+    /* The chart scrolls sideways inside its own box on narrow screens, never the page. */
+    .chart-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+    svg { display: block; font: 12px system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+    .band-rule { stroke: var(--grid); }
+    .band-label { fill: var(--ink-2); }
+    .band-label .sem { fill: var(--ink); font-weight: 600; }
+    .col-head { fill: var(--ink); font-weight: 600; font-size: 14px; }
+    .col-sub { fill: var(--muted); font-size: 12px; }
+
+    /* Course nodes, as in compare.html. Rows with no concept tags ("not assessed") are
+       drawn faded with a gray stripe. */
+    .node { cursor: pointer; outline: none; }
+    .node .box { fill: var(--surface); stroke: var(--axis); stroke-width: 1; }
+    .node.slot .box { stroke-dasharray: 4 3; }
+    .node .code { fill: var(--ink); font-weight: 600; }
+    .node .title { fill: var(--ink-2); }
+    .node .generic { fill: var(--ink-2); font-size: 9px; font-weight: 600; letter-spacing: 0.04em; }
+    .node:focus-visible .box { stroke: var(--accent); stroke-width: 2; }
+    .node.untagged .box { fill: var(--page); }
+    .node.untagged .stripe { fill: var(--axis); }
+    .node.untagged .code, .node.untagged .title { fill: var(--muted); }
+
+    /* Share bar: a narrow column on the node's inner edge, split into one segment per
+       band plus a hatched "not found at the other school" segment at the bottom. */
+    .seg { fill: var(--band); }
+    .seg-unshared { fill: url(#hatch); }
+    .seg-frame { fill: none; stroke: var(--axis); stroke-width: 0.5; }
+    #hatch path { stroke: var(--muted); stroke-width: 1; }
+
+    /* Bands: tapered filled shapes between two share-bar segments. One neutral color
+       with partial opacity, so overlapping bands stay readable. */
+    :root { --band: #6b7fa3; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --band: #8fa3c8; } }
+    :root[data-theme="dark"] { --band: #8fa3c8; }
+    .band { fill: var(--band); fill-opacity: 0.35; cursor: pointer; }
+    .band:hover { fill-opacity: 0.6; }
+
+    /* Highlighting: while something is hovered or pinned, unrelated nodes and bands fade. */
+    svg.focusing .node:not(.on) { opacity: 0.18; }
+    svg.focusing .band:not(.on) { fill-opacity: 0.05; }
+    svg.focusing .band.on { fill-opacity: 0.7; }
+    .node.pinned .box { stroke: var(--ink); stroke-width: 2; }
+
+    .hidden { display: none; }
+
+    aside {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 12px 14px; font-size: 14px; align-self: start;
+    }
+    @media (min-width: 1100px) { aside { position: sticky; top: 12px; max-height: calc(100vh - 24px); overflow-y: auto; } }
+    aside h3 { margin: 0 0 4px; font-size: 15px; }
+    aside h4 { margin: 12px 0 4px; font-size: 13px; color: var(--ink-2); }
+    aside p { margin: 0 0 8px; }
+    aside dl { display: grid; grid-template-columns: max-content 1fr; gap: 2px 10px; margin: 8px 0; font-size: 13px; }
+    aside dt { color: var(--ink-2); }
+    aside dd { margin: 0; }
+    aside ul { margin: 0; padding-left: 18px; font-size: 13px; }
+    aside li { margin-bottom: 3px; }
+    .desc { white-space: pre-line; font-size: 13px; color: var(--ink-2); }
+
+    .filters label.area { display: inline-flex; align-items: center; gap: 6px; }
+    .filters label.area i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+    .groups { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; margin: 8px 0; }
+    .groups label { display: inline-flex; align-items: center; gap: 4px; }
+    .groups .group-all { font-weight: 600; }
+    .legend .band-key { background: var(--band); opacity: 0.5; }
+    .legend .unshared-key { background: repeating-linear-gradient(45deg, var(--muted) 0 1px, transparent 1px 4px); border: 1px solid var(--axis); }
+    .legend .untagged-key { background: var(--page); border: 1px solid var(--axis); }
+    .warn { border-left: 3px solid var(--accent); }
+    /* The picker's labels include a tagged-course count; never let it widen the page. */
+    #school { max-width: 100%; }
+    .filters label { max-width: 100%; }
+  </style>
+</head>
+<body>
+<main>
+  <nav>
+    <a href="index.html">4-year plan</a>
+    <a href="compare.html">Alignment</a>
+    <a href="concept_compare.html" aria-current="page">Concept alignment</a>
+    <a href="timeline.html">Timeline</a>
+    <a href="review.html">Canonical matches</a>
+    <a href="concepts_review.html">Concept vocabulary</a>
+    <a href="concept_tags_review.html">Concept tags</a>
+    <a href="process.html">Process</a>
+  </nav>
+  <h1>Concept alignment</h1>
+  <p class="sub" id="subtitle">UC's required courses next to another school's, joined by the concepts their
+    catalog descriptions share.</p>
+
+  <div class="note">
+    <strong>How to read this.</strong> Courses are placed as in the Alignment tab: by semester
+    of a 4-year plan, with box height proportional to credits. Each CS course's concepts (from
+    our tags of its catalog description) are split evenly among its concepts. A concept that
+    also appears in a course at the other school sends its share there as a band; if it appears
+    in two of the other school's courses, its share is split between them. The column on each
+    box's inner edge shows where the course's concepts went: one segment per band, and a hatched
+    segment for concepts found in none of the other school's courses. The two ends of a band can
+    differ in width, because each end is a share of its own course (two shared concepts may be
+    half of one course and a fifth of another).
+  </div>
+  <div class="note warn" id="caveat">
+    <strong>Mentioned, not taught.</strong> A concept counts only if a required course's
+    catalog description mentions it. Descriptions are short, so a concept that isn't mentioned
+    may still be taught. Only CS courses with the school's own description are tagged; other
+    rows are drawn faded as "not assessed".
+    <span id="proposed-note"></span>
+  </div>
+
+  <div class="filters" id="filters">
+    <label>Compare UC with <select id="school"></select></label>
+    <span id="area-filters" style="display:contents"></span>
+    <label>Hide bands under <input type="range" id="min-share" min="0" max="50" step="5" value="0">
+      <output id="min-share-out">0%</output></label>
+  </div>
+  <div class="groups" id="groups" aria-label="Concept groups"></div>
+  <div class="legend" id="legend"></div>
+  <p class="note warn hidden" id="sparse"></p>
+
+  <div class="layout">
+    <div class="chart-wrap"><svg id="chart" role="img" aria-labelledby="subtitle"></svg></div>
+    <aside id="detail" aria-live="polite">
+      <p class="muted">Click a course to pin it and see where each of its concepts went.</p>
+    </aside>
+  </div>
+
+  <h2>Shared concepts</h2>
+  <p class="muted">One row per band: the two courses, the concepts they share, and each
+    course's share. Follows the filters.</p>
+  <div class="table-wrap"><table id="table"></table></div>
+
+  <h2>Concepts not found at the other school</h2>
+  <p class="muted">For each tagged course, the share and list of its concepts that appear in
+    none of the other school's tagged courses.</p>
+  <div class="table-wrap"><table id="unshared"></table></div>
+</main>
+<div class="tooltip hidden" id="tooltip" role="tooltip"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="common.js"></script>
+<script src="concept_compare.js"></script>
+</body>
+</html>

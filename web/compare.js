@@ -170,28 +170,6 @@ function orderNodes(m) {
   }
 }
 
-// Shorten an SVG <text> element's content with "…" until it fits maxWidth. It measures
-// the rendered width with getComputedTextLength(), so the element must already be in
-// the page. Binary search over the length keeps it fast for long titles.
-function fitText(textEl, str, maxWidth) {
-  textEl.textContent = str;
-  if (textEl.getComputedTextLength() <= maxWidth) return;
-  let lo = 0;
-  let hi = str.length;
-  while (lo < hi) {
-    const mid = Math.ceil((lo + hi) / 2);
-    textEl.textContent = str.slice(0, mid).trimEnd() + "…";
-    if (textEl.getComputedTextLength() <= maxWidth) lo = mid;
-    else hi = mid - 1;
-  }
-  textEl.textContent = str.slice(0, lo).trimEnd() + "…";
-}
-
-// Short label for a row: its course code, or its title for slots (which have no code).
-function label(r) {
-  return r.course_code || r.title;
-}
-
 // The semesters of a row's all_of_group group (rows of its school sharing its
 // choice_group), e.g. [4, 5] for Berkeley's ELENG 66 / ELENG 64. Empty for other rows.
 function groupSems(r) {
@@ -205,11 +183,6 @@ function groupSems(r) {
 function groupText(r) {
   const sems = groupSems(r);
   return sems.length ? `${r.options.replaceAll("; ", " or ")}: one in each of semesters ${sems.join(" and ")}, in either order` : "";
-}
-
-// "Semester 3 · Year 2 Fall" for a row.
-function semText(r) {
-  return `Semester ${r.norm_semester} · Year ${r.norm_year} ${r.norm_term}`;
 }
 
 // Draw the whole chart for the current school: bands, links, and nodes. Called on load,
@@ -237,7 +210,7 @@ function draw() {
   for (const [x, s] of heads) {
     svg.append("text").attr("class", "col-head").attr("x", x).attr("y", 18).text(s.short_name);
     const sub = svg.append("text").attr("class", "col-sub").attr("x", x).attr("y", 34).node();
-    fitText(sub, `${s.institution}, ${s.program}`, NODE_W);
+    fitSvgText(sub, `${s.institution}, ${s.program}`, NODE_W);
   }
 
   // Semester bands: a rule at the top of each band and a two-line label in the gutter.
@@ -278,7 +251,7 @@ function draw() {
     .attr("transform", (n) => `translate(${n.side === "L" ? xL : xR},${n.y})`)
     .attr("tabindex", 0) // focusable with Tab
     .attr("role", "button")
-    .attr("aria-label", (n) => `${n.row.school.short_name} ${label(n.row)}: ${n.row.title}, ${semText(n.row)}, ` +
+    .attr("aria-label", (n) => `${n.row.school.short_name} ${rowLabel(n.row)}: ${n.row.title}, ${semText(n.row)}, ` +
       `${creditText(n.row)} credits, ${n.allLinks.length} counterpart${n.allLinks.length === 1 ? "" : "s"}`)
     .on("mouseenter", (event, n) => { focus(n); showTooltipNode(event, n, other); })
     .on("mousemove", moveTooltip)
@@ -303,11 +276,11 @@ function draw() {
     const twoLines = n.h >= TWO_LINE_PX;
     const y1 = twoLines ? 13 : n.h / 2 + 4; // +4 roughly centers 12px text on its baseline
     const first = r.course_code ? `${r.course_code} · ${creditText(r)} cr` : `${r.title}`;
-    fitText(g.append("text").attr("class", "code").attr("x", 10).attr("y", y1).node(), first, textW);
+    fitSvgText(g.append("text").attr("class", "code").attr("x", 10).attr("y", y1).node(), first, textW);
     if (generic) g.append("text").attr("class", "generic").attr("x", NODE_W - 6).attr("y", y1).attr("text-anchor", "end").text("GENERIC");
     if (twoLines) {
       const second = r.course_code ? r.title : `${creditText(r)} cr, student chooses`;
-      fitText(g.append("text").attr("class", "title").attr("x", 10).attr("y", 27).node(), second, NODE_W - 14);
+      fitSvgText(g.append("text").attr("class", "title").attr("x", 10).attr("y", 27).node(), second, NODE_W - 14);
     }
   });
 
@@ -358,7 +331,7 @@ function showTooltipNode(event, n, other) {
   const otherName = n.side === "L" ? other.short_name : "UC";
   const k = n.allLinks.length;
   showTooltip(event, [
-    `${r.school.short_name} ${label(r)}`,
+    `${r.school.short_name} ${rowLabel(r)}`,
     r.course_code ? r.title : `${creditText(r)} cr requirement slot`,
     `${semText(r)} · ${creditText(r)} cr${r.counts_toward_total ? "" : " (not counted in degree total)"}`,
     k ? `${k} counterpart${k === 1 ? "" : "s"} at ${otherName}` : `No counterpart at ${otherName}`,
@@ -369,7 +342,7 @@ function showTooltipLink(event, l, other) {
   const shift = l.target.sem - l.source.sem;
   const lines = [
     names.join(" + "),
-    `UC ${label(l.source.row)} (sem ${l.source.sem}) ↔ ${other.short_name} ${label(l.target.row)} (sem ${l.target.sem})`,
+    `UC ${rowLabel(l.source.row)} (sem ${l.source.sem}) ↔ ${other.short_name} ${rowLabel(l.target.row)} (sem ${l.target.sem})`,
     shift === 0 ? "Same semester" : `${other.short_name} is ${Math.abs(shift)} semester${Math.abs(shift) === 1 ? "" : "s"} ${shift > 0 ? "later" : "earlier"}`,
     (l.partial ? "Partial match" : "Full match") + (l.possible ? "; possible (a choice: the student may take another option)" : ""),
   ];
@@ -379,8 +352,8 @@ function showTooltipLink(event, l, other) {
     if (g) lines.push(`${n.row.school.short_name}: ${g}`);
   }
   showTooltip(event, lines, [
-    { heading: `UC ${label(l.source.row)}`, row: l.source.row },
-    { heading: `${other.short_name} ${label(l.target.row)}`, row: l.target.row },
+    { heading: `UC ${rowLabel(l.source.row)}`, row: l.source.row },
+    { heading: `${other.short_name} ${rowLabel(l.target.row)}`, row: l.target.row },
   ]);
 }
 
@@ -394,7 +367,7 @@ function renderDetail(n, other) {
     return;
   }
   const r = n.row;
-  const h = panel.append("h3").text(`${r.school.short_name} ${label(r)}`);
+  const h = panel.append("h3").text(`${r.school.short_name} ${rowLabel(r)}`);
   if (r.description_source === "generic") { h.append("span").text(" "); appendGenericBadge(h); }
   if (r.course_code) panel.append("p").text(r.title);
 
@@ -430,7 +403,7 @@ function renderDetail(n, other) {
       const hidden = state.areas.has(p.area.key) ? "" : ", hidden by the filter";
       // Name the shared concept(s) when a row has more than one, so it's clear which one links.
       const via = r.matches.length > 1 || p.row.matches.length > 1 ? `, via ${l.shared.map((s) => s.id).join(" + ")}` : "";
-      ul.append("li").text(`${label(p.row)}${p.row.course_code ? ` ${p.row.title}` : ""}: semester ${p.sem} (${when})` +
+      ul.append("li").text(`${rowLabel(p.row)}${p.row.course_code ? ` ${p.row.title}` : ""}: semester ${p.sem} (${when})` +
         (l.partial ? ", partial" : "") + (l.possible ? ", possible" : "") + via + hidden);
     }
   }
@@ -455,7 +428,7 @@ function renderUnmatched(other) {
   for (const [mine, theirs, ns] of sides) {
     const list = ns.filter((n) => !n.allLinks.length);
     box.append("p").text(`${mine} courses with no ${theirs} counterpart (${list.length}): ` +
-      (list.length ? list.map((n) => `${label(n.row)}${n.row.course_code ? ` ${n.row.title}` : ""}`).join("; ") : "none") + ".");
+      (list.length ? list.map((n) => `${rowLabel(n.row)}${n.row.course_code ? ` ${n.row.title}` : ""}`).join("; ") : "none") + ".");
   }
 }
 
@@ -474,7 +447,7 @@ function renderTable(other) {
   ids.sort((a, b) => (firstSem(left.get(a)) ?? 99) - (firstSem(left.get(b)) ?? 99) ||
     (firstSem(right.get(a)) ?? 99) - (firstSem(right.get(b)) ?? 99));
 
-  const rowsText = (es) => (es ? es.map((e) => `${label(e.n.row)} (sem ${e.sem}${e.m.match_role === "one_of" ? ", possible" : ""})`).join(", ") : "—");
+  const rowsText = (es) => (es ? es.map((e) => `${rowLabel(e.n.row)} (sem ${e.sem}${e.m.match_role === "one_of" ? ", possible" : ""})`).join(", ") : "—");
   const diff = (id) => {
     const a = firstSem(left.get(id));
     const b = firstSem(right.get(id));

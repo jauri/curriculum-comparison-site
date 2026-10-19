@@ -149,3 +149,34 @@ function moveTooltip(event) {
 function hideTooltip() {
   d3.select("#tooltip").classed("hidden", true);
 }
+
+// SVG text and row-label helpers shared by the alignment view and the concept alignment
+// view (moved here from compare.js for specs/10-concept-alignment-view.md). The timeline
+// keeps its own fitText, which also adds a hover title.
+// Shorten an SVG <text> element's content with "…" until it fits maxWidth. It measures
+// the rendered width with getComputedTextLength(), so the element must already be in
+// the page. Binary search over the length keeps it fast for long titles.
+function fitSvgText(textEl, str, maxWidth) {
+  textEl.textContent = str;
+  if (textEl.getComputedTextLength() <= maxWidth) return;
+  let lo = 0;
+  let hi = str.length;
+  while (lo < hi) {
+    const mid = Math.ceil((lo + hi) / 2);
+    textEl.textContent = str.slice(0, mid).trimEnd() + "…";
+    if (textEl.getComputedTextLength() <= maxWidth) lo = mid;
+    else hi = mid - 1;
+  }
+  textEl.textContent = str.slice(0, lo).trimEnd() + "…";
+}
+
+// Short label for a row: its course code, or its title for slots (which have no code).
+function rowLabel(r) {
+  return r.course_code || r.title;
+}
+
+// "Semester 3 · Year 2 Fall" for a row.
+function semText(r) {
+  return `Semester ${r.norm_semester} · Year ${r.norm_year} ${r.norm_term}`;
+}
+

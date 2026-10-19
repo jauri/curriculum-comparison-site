@@ -1,0 +1,1271 @@
+[
+ {
+  "concept_id": "variables-and-data-types",
+  "name": "Variables and data types",
+  "group": "Programming fundamentals",
+  "definition": "Storing values in variables and using a language's built-in and composite data types (numbers, text, records, structures).",
+  "synonyms": "using variables; data types; simple data types; basic and aggregate data types; structured data types; records; structures",
+  "first_seen": "University of Wisconsin-Madison / COMP SCI 200",
+  "notes": ""
+ },
+ {
+  "concept_id": "control-structures",
+  "name": "Control structures",
+  "group": "Programming fundamentals",
+  "definition": "Conditionals and loops that decide which statements run and how often.",
+  "synonyms": "control structures; conditionals; conditional and loop-based flow control; loops; the iterative approach",
+  "first_seen": "The Ohio State University / CSE 3341",
+  "notes": ""
+ },
+ {
+  "concept_id": "functions-and-procedures",
+  "name": "Functions and procedures",
+  "group": "Programming fundamentals",
+  "definition": "Defining and calling named, parameterized pieces of code (functions, methods, procedures, subroutines).",
+  "synonyms": "define and call functions; functions; procedures; subroutines",
+  "first_seen": "University of Wisconsin-Madison / COMP SCI 200",
+  "notes": "Mathematical \"functions\" (discrete math) are tagged sets-relations-functions instead."
+ },
+ {
+  "concept_id": "recursion",
+  "name": "Recursion",
+  "group": "Programming fundamentals",
+  "definition": "Functions or definitions that refer to themselves, solving a problem through smaller instances of the same problem.",
+  "synonyms": "recursion; recursive; recursive functions; recursive definitions; recursive algorithms",
+  "first_seen": "University of Illinois Chicago / CS 141",
+  "notes": ""
+ },
+ {
+  "concept_id": "arrays-and-strings",
+  "name": "Arrays and strings",
+  "group": "Programming fundamentals",
+  "definition": "Indexed sequences of values and text strings, and the basic operations on them.",
+  "synonyms": "arrays; array and string data structures; strings; array-based",
+  "first_seen": "University of Michigan / EECS 280",
+  "notes": ""
+ },
+ {
+  "concept_id": "file-io",
+  "name": "File input and output",
+  "group": "Programming fundamentals",
+  "definition": "Reading and writing files and other input/output streams from a program.",
+  "synonyms": "file I/O; files; file manipulation; reading/writing data and objects from/to files; data stored in files; file access; IO processing techniques; low-level I/O; standard I/O",
+  "first_seen": "University of Illinois Urbana-Champaign / CS 341",
+  "notes": "Operating-system file systems are a separate concept (file-systems)."
+ },
+ {
+  "concept_id": "exception-handling",
+  "name": "Exceptions and error handling",
+  "group": "Programming fundamentals",
+  "definition": "Detecting, signaling, and recovering from errors at run time.",
+  "synonyms": "exception handling; exceptions; handling exceptions; error handling",
+  "first_seen": "University of Wisconsin-Madison / COMP SCI 300",
+  "notes": ""
+ },
+ {
+  "concept_id": "pointers-and-dynamic-memory",
+  "name": "Pointers and dynamic memory",
+  "group": "Programming fundamentals",
+  "definition": "Addresses, pointers, and allocating and freeing memory at run time, including avoiding leaks.",
+  "synonyms": "pointers; dynamic memory; dynamic memory allocation; dynamic memory management; memory leaks; addresses",
+  "first_seen": "University of Cincinnati / CS 2028C",
+  "notes": "Operating-system memory management is a separate concept (os-memory-management)."
+ },
+ {
+  "concept_id": "modular-design",
+  "name": "Modularity and decomposition",
+  "group": "Programming fundamentals",
+  "definition": "Breaking a program into separate, independently understandable parts (top-down design, modules).",
+  "synonyms": "modularity; modular; modular design; decomposition; top-down design; top-down analysis; modules",
+  "first_seen": "University of Minnesota, Twin Cities / CSCI 1133",
+  "notes": ""
+ },
+ {
+  "concept_id": "c-language",
+  "name": "C",
+  "group": "Languages used",
+  "definition": "Programming in the C language.",
+  "synonyms": "C programming; programming in C; C programming language; C code; C development cycle; full C",
+  "first_seen": "The Ohio State University / CSE 2421",
+  "notes": "Languages are listed because the committee may ask which languages schools require."
+ },
+ {
+  "concept_id": "cpp-language",
+  "name": "C++",
+  "group": "Languages used",
+  "definition": "Programming in the C++ language.",
+  "synonyms": "C++",
+  "first_seen": "University of Cincinnati / CS 1021C",
+  "notes": ""
+ },
+ {
+  "concept_id": "java-language",
+  "name": "Java",
+  "group": "Languages used",
+  "definition": "Programming in the Java language.",
+  "synonyms": "Java",
+  "first_seen": "The Ohio State University / CSE 1223",
+  "notes": ""
+ },
+ {
+  "concept_id": "python-language",
+  "name": "Python",
+  "group": "Languages used",
+  "definition": "Programming in the Python language.",
+  "synonyms": "Python",
+  "first_seen": "University of Cincinnati / CS 2023",
+  "notes": ""
+ },
+ {
+  "concept_id": "object-oriented-programming",
+  "name": "Object-oriented programming",
+  "group": "Program design",
+  "definition": "Organizing programs around classes and objects that bundle data with the operations on it.",
+  "synonyms": "object-oriented programming; OO programming; object-oriented; classes and objects",
+  "first_seen": "University of Cincinnati / CS 1021C",
+  "notes": ""
+ },
+ {
+  "concept_id": "inheritance-and-polymorphism",
+  "name": "Inheritance and polymorphism",
+  "group": "Program design",
+  "definition": "Defining classes in terms of other classes and writing code that works across related types.",
+  "synonyms": "inheritance; polymorphism; subclasses",
+  "first_seen": "Northeastern University / CS 2100",
+  "notes": "Parametric polymorphism (generics) is tagged generics instead."
+ },
+ {
+  "concept_id": "encapsulation-and-interfaces",
+  "name": "Encapsulation and interfaces",
+  "group": "Program design",
+  "definition": "Hiding a component's internals behind a defined interface that clients program against.",
+  "synonyms": "encapsulation; interfaces; interface design; component interface design; client perspective",
+  "first_seen": "Texas A&M University / CSCE 120",
+  "notes": ""
+ },
+ {
+  "concept_id": "object-oriented-design",
+  "name": "Object-oriented design",
+  "group": "Program design",
+  "definition": "Deciding which classes a system needs and how they relate, before or while writing them.",
+  "synonyms": "object-oriented design; object-oriented software design; object-oriented approach",
+  "first_seen": "University of Illinois Chicago / CS 342",
+  "notes": ""
+ },
+ {
+  "concept_id": "design-patterns",
+  "name": "Design patterns",
+  "group": "Program design",
+  "definition": "Reusable, named solutions to recurring software design problems.",
+  "synonyms": "design patterns; common patterns; software design patterns",
+  "first_seen": "University of Illinois Chicago / CS 342",
+  "notes": ""
+ },
+ {
+  "concept_id": "generics",
+  "name": "Generics and templates",
+  "group": "Program design",
+  "definition": "Writing code once for many element types (templates, generics, parametric polymorphism).",
+  "synonyms": "generics; templates; templates/generics; generic interfaces; parametric polymorphism; generic operators",
+  "first_seen": "University of Cincinnati / CS 2028C",
+  "notes": ""
+ },
+ {
+  "concept_id": "specifications-and-contracts",
+  "name": "Specifications and contracts",
+  "group": "Program design",
+  "definition": "Stating precisely what a component must do (preconditions, postconditions, specifications) separately from how.",
+  "synonyms": "specification; specifications; design-by-contract; informal specification; mathematical modeling of software functionality",
+  "first_seen": "University of Cincinnati / CS 3093C",
+  "notes": ""
+ },
+ {
+  "concept_id": "gui-and-event-driven",
+  "name": "GUIs and event-driven programming",
+  "group": "Program design",
+  "definition": "Building graphical user interfaces and programs that respond to user and system events.",
+  "synonyms": "graphical user interface; graphical user interfaces (GUIs); GUI; event driven programming; event handling",
+  "first_seen": "University of Illinois Chicago / CS 342",
+  "notes": ""
+ },
+ {
+  "concept_id": "web-and-client-server",
+  "name": "Web and client-server applications",
+  "group": "Program design",
+  "definition": "Building applications split between clients and servers, including web applications.",
+  "synonyms": "web-based applications; web-based; client/server; server-side programming; net-centric computing",
+  "first_seen": "Carnegie Mellon University / 15-112",
+  "notes": ""
+ },
+ {
+  "concept_id": "code-quality",
+  "name": "Code quality and style",
+  "group": "Program design",
+  "definition": "Writing readable, maintainable code: consistent style, documentation, coding standards.",
+  "synonyms": "consistent style; meaningful documentation; coding standards; good programming habits; best practices; high-quality, maintainable code; clear, robust; documentation; clarity",
+  "first_seen": "University of Wisconsin-Madison / COMP SCI 200",
+  "notes": ""
+ },
+ {
+  "concept_id": "software-testing",
+  "name": "Software testing",
+  "group": "Software practice",
+  "definition": "Checking that code behaves as intended by writing and running tests.",
+  "synonyms": "testing; unit testing; test methods; ad hoc testing; effective testing; testing and evaluating software; quality assurance; quality processes",
+  "first_seen": "University of Cincinnati / CS 3093C",
+  "notes": ""
+ },
+ {
+  "concept_id": "test-driven-development",
+  "name": "Test-driven development",
+  "group": "Software practice",
+  "definition": "Writing tests before the code they check, and using them to drive the design.",
+  "synonyms": "test-driven development",
+  "first_seen": "Northeastern University / CS 2100",
+  "notes": ""
+ },
+ {
+  "concept_id": "debugging",
+  "name": "Debugging",
+  "group": "Software practice",
+  "definition": "Finding and fixing the causes of incorrect program behavior, including with debugging tools.",
+  "synonyms": "debugging; debugging tools; debugging techniques",
+  "first_seen": "University of Illinois Chicago / CS 211",
+  "notes": ""
+ },
+ {
+  "concept_id": "version-control",
+  "name": "Version control",
+  "group": "Software practice",
+  "definition": "Tracking and sharing changes to code with a version-control system.",
+  "synonyms": "version control; code management",
+  "first_seen": "Northeastern University / CS 2100",
+  "notes": ""
+ },
+ {
+  "concept_id": "development-tools",
+  "name": "Development tools and environments",
+  "group": "Software practice",
+  "definition": "The everyday tools of programming beyond the language itself: IDEs, build tools, documentation tools.",
+  "synonyms": "software development tools; development environments; tools of the trade; program development tools; make and make files; LaTeX; command line tools; software tools",
+  "first_seen": "University of Illinois Chicago / CS 211",
+  "notes": ""
+ },
+ {
+  "concept_id": "unix-and-shell",
+  "name": "Unix and shell scripting",
+  "group": "Software practice",
+  "definition": "Working in a Unix environment and automating tasks with shell scripts and Unix tools.",
+  "synonyms": "UNIX; Unix; shell programming; shell scripts; Unix tools; scripting languages",
+  "first_seen": "University of Cincinnati / CS 4029",
+  "notes": ""
+ },
+ {
+  "concept_id": "code-review-and-ci",
+  "name": "Code review and continuous integration",
+  "group": "Software practice",
+  "definition": "Team practices for checking and integrating changes: reviewing each other's code and building/testing automatically.",
+  "synonyms": "code review; continuous integration; code integration",
+  "first_seen": "University of Illinois Urbana-Champaign / CS 222",
+  "notes": ""
+ },
+ {
+  "concept_id": "software-process",
+  "name": "Software development process",
+  "group": "Software practice",
+  "definition": "The stages and models of building software over its life: requirements, design, implementation, testing, maintenance.",
+  "synonyms": "software lifecycle models; software development lifecycle; life-cycle; software engineering processes; software-engineering processes; maintenance; deployment",
+  "first_seen": "University of Cincinnati / CS 3093C",
+  "notes": ""
+ },
+ {
+  "concept_id": "requirements",
+  "name": "Requirements engineering",
+  "group": "Software practice",
+  "definition": "Finding out and writing down what a system must do, and for whom.",
+  "synonyms": "requirements analysis; requirement engineering; problem identification and definition",
+  "first_seen": "University of Cincinnati / CS 3093C",
+  "notes": ""
+ },
+ {
+  "concept_id": "project-management",
+  "name": "Software project management",
+  "group": "Software practice",
+  "definition": "Planning, scheduling, and managing risk in a software project.",
+  "synonyms": "project management; management process; risk management",
+  "first_seen": "University of Illinois Urbana-Champaign / CS 222",
+  "notes": ""
+ },
+ {
+  "concept_id": "team-projects",
+  "name": "Team projects",
+  "group": "Software practice",
+  "definition": "Students building software together in teams.",
+  "synonyms": "team projects; teamwork; team development; team-based software project; group project; problem solving in teams; collaborate",
+  "first_seen": "University of Cincinnati / CS 5001",
+  "notes": ""
+ },
+ {
+  "concept_id": "large-software-project",
+  "name": "Large software project",
+  "group": "Software practice",
+  "definition": "A sustained project substantially larger than a typical assignment, usually spanning weeks or the whole term.",
+  "synonyms": "large group project; large software project; large-scale projects; significant team software project; medium-sized applications; significant programming projects; significant product; programming project",
+  "first_seen": "University of Cincinnati / CS 3093C",
+  "notes": ""
+ },
+ {
+  "concept_id": "reusable-components",
+  "name": "Libraries and reusable components",
+  "group": "Software practice",
+  "definition": "Building software from existing libraries and components, and designing components for reuse.",
+  "synonyms": "libraries; standard libraries; software reuse; reusable software components; component-based software; open-source ecosystems; mathematical library routines",
+  "first_seen": "University of Cincinnati / CS 2023",
+  "notes": ""
+ },
+ {
+  "concept_id": "program-correctness",
+  "name": "Program and algorithm correctness",
+  "group": "Software practice",
+  "definition": "Arguing or proving that a program or algorithm does what its specification says (assertions, invariants, correctness proofs, formal methods).",
+  "synonyms": "correctness; correctness proofs; program correctness; assertions and invariants; invariants; formal methods; program verification; verification",
+  "first_seen": "University of Cincinnati / CS 4071",
+  "notes": ""
+ },
+ {
+  "concept_id": "problem-solving-heuristics",
+  "name": "Problem-solving heuristics",
+  "group": "Software practice",
+  "definition": "Explicit strategies for attacking unfamiliar problems (working backwards, simplifying, trying cases).",
+  "synonyms": "heuristics for solving problems; problem-solving techniques",
+  "first_seen": "Virginia Polytechnic Institute and State University / CS 2104",
+  "notes": "Kept because VT 2104 makes it a concrete practice; generic \"problem solving\" elsewhere is not tagged."
+ },
+ {
+  "concept_id": "abstract-data-types",
+  "name": "Abstract data types",
+  "group": "Data structures",
+  "definition": "Defining a data type by its operations rather than its representation, and implementing it behind that interface.",
+  "synonyms": "abstract data types; ADTs; data abstraction; data abstractions",
+  "first_seen": "University of Cincinnati / CS 2028C",
+  "notes": ""
+ },
+ {
+  "concept_id": "linked-lists",
+  "name": "Linked lists",
+  "group": "Data structures",
+  "definition": "Sequences built from nodes that point to the next node.",
+  "synonyms": "linked lists; linked-lists; linked data structures; linked node implementations",
+  "first_seen": "University of Minnesota, Twin Cities / CSCI 1933",
+  "notes": ""
+ },
+ {
+  "concept_id": "stacks-and-queues",
+  "name": "Stacks and queues",
+  "group": "Data structures",
+  "definition": "Last-in-first-out and first-in-first-out collections.",
+  "synonyms": "stacks; queues",
+  "first_seen": "University of Cincinnati / CS 2028C",
+  "notes": ""
+ },
+ {
+  "concept_id": "trees",
+  "name": "Trees",
+  "group": "Data structures",
+  "definition": "Hierarchical structures of nodes with children, including binary trees and tree traversal.",
+  "synonyms": "binary trees; trees; tree structures; hierarchical representations",
+  "first_seen": "University of Minnesota, Twin Cities / CSCI 1933",
+  "notes": "Graph-theory trees in discrete math are tagged graph-theory instead."
+ },
+ {
+  "concept_id": "search-trees",
+  "name": "Search trees and balanced trees",
+  "group": "Data structures",
+  "definition": "Trees ordered for fast lookup, and the balancing schemes that keep them shallow.",
+  "synonyms": "search trees; binary search trees; Binary Search Tree; balanced search trees; balanced trees; balanced binary search trees; Red-Black; splay",
+  "first_seen": "The Ohio State University / CSE 2231",
+  "notes": ""
+ },
+ {
+  "concept_id": "heaps-and-priority-queues",
+  "name": "Heaps and priority queues",
+  "group": "Data structures",
+  "definition": "Collections that always give back the smallest (or largest) item first, usually implemented as heaps.",
+  "synonyms": "heaps; priority queues; PriorityQueue(Heap); heapsort",
+  "first_seen": "University of Minnesota, Twin Cities / CSCI 4041",
+  "notes": ""
+ },
+ {
+  "concept_id": "hash-tables",
+  "name": "Hash tables",
+  "group": "Data structures",
+  "definition": "Storing and finding keys by hashing them into an array of buckets.",
+  "synonyms": "hash tables; hashing",
+  "first_seen": "University of Illinois Chicago / CS 251",
+  "notes": ""
+ },
+ {
+  "concept_id": "graph-representations",
+  "name": "Graph data structures",
+  "group": "Data structures",
+  "definition": "Representing graphs in a program, e.g. with adjacency lists or matrices.",
+  "synonyms": "graph data structures; graphs; adjacency lists and adjacency matrices; directed graphs",
+  "first_seen": "The Pennsylvania State University (University Park) / CMPSC 222",
+  "notes": "Graphs as mathematics are graph-theory; graph algorithms are graph-algorithms."
+ },
+ {
+  "concept_id": "asymptotic-analysis",
+  "name": "Asymptotic analysis",
+  "group": "Algorithms",
+  "definition": "Describing how an algorithm's running time or memory grows with input size (big-O and related notation).",
+  "synonyms": "asymptotic analysis; asymptotic notation; Big O notation; big-O; O-notation; complexity analysis; algorithm analysis; analysis of algorithms; running time analysis; runtime analysis; growth of functions; asymptotic growth analysis; space-time complexity; analysis of time and space requirements; analysis of computing time",
+  "first_seen": "The Ohio State University / CSE 2321",
+  "notes": ""
+ },
+ {
+  "concept_id": "recurrence-relations",
+  "name": "Recurrence relations",
+  "group": "Algorithms",
+  "definition": "Equations that define a sequence or running time in terms of smaller inputs, and solving them.",
+  "synonyms": "recurrence relations; recurrences; recursion/recurrences",
+  "first_seen": "University of Cincinnati / CS 4071",
+  "notes": ""
+ },
+ {
+  "concept_id": "sorting",
+  "name": "Sorting",
+  "group": "Algorithms",
+  "definition": "Algorithms that put items in order and their trade-offs.",
+  "synonyms": "sorting; sorting algorithms; sorting and selection; heapsort",
+  "first_seen": "The Ohio State University / CSE 2231",
+  "notes": ""
+ },
+ {
+  "concept_id": "searching",
+  "name": "Searching",
+  "group": "Algorithms",
+  "definition": "Algorithms for finding an item in a collection (e.g. linear and binary search).",
+  "synonyms": "searching; searching and sorting",
+  "first_seen": "University of Illinois Chicago / CS 251",
+  "notes": "Graph search is graph-algorithms; AI search is state-space-search."
+ },
+ {
+  "concept_id": "divide-and-conquer",
+  "name": "Divide and conquer",
+  "group": "Algorithms",
+  "definition": "Solving a problem by splitting it into smaller subproblems, solving them, and combining the results.",
+  "synonyms": "divide-and-conquer; divide and conquer",
+  "first_seen": "University of Cincinnati / CS 4071",
+  "notes": ""
+ },
+ {
+  "concept_id": "dynamic-programming",
+  "name": "Dynamic programming",
+  "group": "Algorithms",
+  "definition": "Solving problems by building up and reusing solutions to overlapping subproblems.",
+  "synonyms": "dynamic programming",
+  "first_seen": "University of Cincinnati / CS 4071",
+  "notes": ""
+ },
+ {
+  "concept_id": "greedy-algorithms",
+  "name": "Greedy algorithms",
+  "group": "Algorithms",
+  "definition": "Algorithms that build a solution by repeatedly taking the locally best choice.",
+  "synonyms": "greedy algorithms; greedy method",
+  "first_seen": "The University of Texas at Austin / C S 331",
+  "notes": ""
+ },
+ {
+  "concept_id": "graph-algorithms",
+  "name": "Graph algorithms",
+  "group": "Algorithms",
+  "definition": "Algorithms on graphs such as traversal (BFS/DFS), shortest paths, and minimum spanning trees.",
+  "synonyms": "graph algorithms; graph traversal; graph traversal algorithms; search on graphs; graph computations; single source shortest path; minimum cost spanning trees; minimum spanning tree; network algorithms; weighted graph algorithms",
+  "first_seen": "The Ohio State University / CSE 2331",
+  "notes": ""
+ },
+ {
+  "concept_id": "string-matching",
+  "name": "String matching",
+  "group": "Algorithms",
+  "definition": "Finding occurrences of a pattern in a text efficiently.",
+  "synonyms": "string matching; pattern matching; Boyer-Moore; KMP; Rabin-Karp",
+  "first_seen": "The Ohio State University / CSE 2331",
+  "notes": ""
+ },
+ {
+  "concept_id": "randomized-algorithms",
+  "name": "Randomized algorithms",
+  "group": "Algorithms",
+  "definition": "Algorithms that use random choices, and analyzing their expected behavior.",
+  "synonyms": "randomized algorithms; probabilistic analysis",
+  "first_seen": "The Ohio State University / CSE 2331",
+  "notes": ""
+ },
+ {
+  "concept_id": "parallel-algorithms",
+  "name": "Parallel algorithms",
+  "group": "Algorithms",
+  "definition": "Designing and analyzing algorithms whose steps can run at the same time.",
+  "synonyms": "parallel algorithms",
+  "first_seen": "Carnegie Mellon University / 15-210",
+  "notes": ""
+ },
+ {
+  "concept_id": "approximation-algorithms",
+  "name": "Approximation and intractability",
+  "group": "Algorithms",
+  "definition": "Coping with hard problems by finding provably near-optimal answers or other workarounds.",
+  "synonyms": "approximation algorithms; coping with intractability",
+  "first_seen": "The University of Texas at Austin / C S 331",
+  "notes": ""
+ },
+ {
+  "concept_id": "backtracking",
+  "name": "Backtracking",
+  "group": "Algorithms",
+  "definition": "Exploring a space of partial solutions and undoing choices that can't succeed.",
+  "synonyms": "backtracking",
+  "first_seen": "University of Illinois Chicago / CS 401",
+  "notes": ""
+ },
+ {
+  "concept_id": "lower-bounds",
+  "name": "Lower bounds",
+  "group": "Algorithms",
+  "definition": "Proving that no algorithm can solve a problem faster than some limit.",
+  "synonyms": "lower bound theory; lower bounds",
+  "first_seen": "University of Cincinnati / CS 4071",
+  "notes": ""
+ },
+ {
+  "concept_id": "finite-automata",
+  "name": "Finite automata and regular languages",
+  "group": "Theory of computation",
+  "definition": "Machines with finitely many states, and the regular languages and expressions they recognize.",
+  "synonyms": "finite state automata; finite automata; finite state machines; regular languages; regular sets; regular expressions; nondeterminism; nonregular languages; Moore machines and Mealy machines; finite-state transducers",
+  "first_seen": "University of Cincinnati / CS 5170",
+  "notes": ""
+ },
+ {
+  "concept_id": "context-free-languages",
+  "name": "Context-free grammars and pushdown automata",
+  "group": "Theory of computation",
+  "definition": "Grammars that generate nested structures, the pushdown automata that recognize them, and the Chomsky hierarchy.",
+  "synonyms": "context-free grammars; context-free languages; pushdown automata; push-down automata; noncontext-free languages; Chomsky hierarchy; grammars",
+  "first_seen": "University of Cincinnati / CS 5170",
+  "notes": ""
+ },
+ {
+  "concept_id": "turing-machines",
+  "name": "Turing machines",
+  "group": "Theory of computation",
+  "definition": "The standard formal model of a general-purpose computer.",
+  "synonyms": "Turing machines; Universal Turing Machines; Church-Turing thesis; models of computation",
+  "first_seen": "University of Cincinnati / CS 5170",
+  "notes": ""
+ },
+ {
+  "concept_id": "computability",
+  "name": "Computability and undecidability",
+  "group": "Theory of computation",
+  "definition": "Which problems no algorithm can solve, such as the halting problem.",
+  "synonyms": "computability; undecidability; decidability; decidable; undecidable; Halting theorem; limits of computation",
+  "first_seen": "University of Illinois Chicago / CS 301",
+  "notes": ""
+ },
+ {
+  "concept_id": "np-completeness",
+  "name": "NP-completeness and complexity classes",
+  "group": "Theory of computation",
+  "definition": "Classifying problems by the resources needed to solve them (P, NP, NP-complete) and reductions between them.",
+  "synonyms": "NP-completeness; NP-complete; NP-hardness; P and NP; P vs. NP; complexity theory; complexity-theoretic; computational complexity; reductions; hardness of problems; Polynomial time",
+  "first_seen": "The Ohio State University / CSE 2331",
+  "notes": ""
+ },
+ {
+  "concept_id": "propositional-logic",
+  "name": "Propositional logic",
+  "group": "Mathematical foundations",
+  "definition": "Logic of true/false statements joined by and, or, not, and implies; truth tables.",
+  "synonyms": "propositional logic; propositions; truth tables; Boolean logic",
+  "first_seen": "University of Cincinnati / CS 2071",
+  "notes": ""
+ },
+ {
+  "concept_id": "predicate-logic",
+  "name": "Predicate logic",
+  "group": "Mathematical foundations",
+  "definition": "Logic with predicates and quantifiers (for all, there exists), also called first-order logic.",
+  "synonyms": "predicate logic; first-order logic; predicates and quantifiers; First Order Predicate Calculus; FOPC",
+  "first_seen": "University of Wisconsin-Madison / COMP SCI 240",
+  "notes": ""
+ },
+ {
+  "concept_id": "proof-techniques",
+  "name": "Proof techniques",
+  "group": "Mathematical foundations",
+  "definition": "Methods of mathematical proof (direct, contradiction, cases) and writing rigorous arguments.",
+  "synonyms": "proofs; proof techniques; proof methods; mathematical proof; principles of proof; rigorous mathematical arguments",
+  "first_seen": "University of Cincinnati / CS 4071",
+  "notes": ""
+ },
+ {
+  "concept_id": "induction",
+  "name": "Mathematical induction",
+  "group": "Mathematical foundations",
+  "definition": "Proving statements for all natural numbers or all structures by a base case and an inductive step.",
+  "synonyms": "induction; mathematical induction; proof by induction; inductive proof; structural induction; inductive",
+  "first_seen": "University of Cincinnati / CS 2071",
+  "notes": ""
+ },
+ {
+  "concept_id": "sets-relations-functions",
+  "name": "Sets, relations, and functions",
+  "group": "Mathematical foundations",
+  "definition": "The basic objects of discrete math: sets, relations and their properties, and functions as mappings.",
+  "synonyms": "relations and functions; sets; relations; functions; equivalence relations; partial order; set theory; sequences; tuples",
+  "first_seen": "University of Cincinnati / CS 2071",
+  "notes": ""
+ },
+ {
+  "concept_id": "counting-and-combinatorics",
+  "name": "Counting and combinatorics",
+  "group": "Mathematical foundations",
+  "definition": "Counting the size of sets and arrangements (permutations, combinations).",
+  "synonyms": "counting; counting techniques; counting methods; combinatorics; elementary combinatorics; Fundamentals of counting",
+  "first_seen": "Northeastern University / CS 1800",
+  "notes": ""
+ },
+ {
+  "concept_id": "graph-theory",
+  "name": "Graph theory",
+  "group": "Mathematical foundations",
+  "definition": "Graphs and trees as mathematical objects, and their properties.",
+  "synonyms": "graph theory; graphs; trees; trees/graph fundamentals",
+  "first_seen": "University of Cincinnati / CS 2071",
+  "notes": ""
+ },
+ {
+  "concept_id": "boolean-algebra",
+  "name": "Boolean algebra",
+  "group": "Mathematical foundations",
+  "definition": "Algebra of true/false values, used in logic and in circuit design.",
+  "synonyms": "Boolean algebra; boolean algebra",
+  "first_seen": "University of Illinois Urbana-Champaign / CS 173",
+  "notes": ""
+ },
+ {
+  "concept_id": "number-theory",
+  "name": "Number theory and modular arithmetic",
+  "group": "Mathematical foundations",
+  "definition": "Integers, divisibility, and arithmetic modulo n.",
+  "synonyms": "modular arithmetic; GCDs; primality testing",
+  "first_seen": "University of California, Berkeley / COMPSCI 70",
+  "notes": ""
+ },
+ {
+  "concept_id": "game-theory",
+  "name": "Game theory",
+  "group": "Mathematical foundations",
+  "definition": "Mathematical models of strategic decisions among competing players.",
+  "synonyms": "game theory",
+  "first_seen": "Carnegie Mellon University / 15-251",
+  "notes": ""
+ },
+ {
+  "concept_id": "probability",
+  "name": "Probability",
+  "group": "Quantitative methods",
+  "definition": "Random events and variables, conditional probability, Bayes' theorem, and expectation.",
+  "synonyms": "probability; discrete probability; probability theory; conditional probability; Bayes theorem; random variables; expectation; independence; law of large numbers; Markov chains",
+  "first_seen": "University of Illinois Chicago / CS 151",
+  "notes": ""
+ },
+ {
+  "concept_id": "statistics",
+  "name": "Statistics",
+  "group": "Quantitative methods",
+  "definition": "Drawing conclusions from data: estimation, hypothesis testing, confidence intervals, regression.",
+  "synonyms": "statistics; descriptive statistics; hypothesis testing; confidence intervals; maximum likelihood estimation; sampling; standard error; linear regression",
+  "first_seen": "University of Cincinnati / CS 1100",
+  "notes": ""
+ },
+ {
+  "concept_id": "linear-algebra",
+  "name": "Linear algebra",
+  "group": "Quantitative methods",
+  "definition": "Vectors, matrices, linear systems, and eigenvalues, and computing with them.",
+  "synonyms": "linear algebra; matrices; linear transformations; vector spaces; eigenvalues; singular values; systems of linear equations; tensors; matrix methods",
+  "first_seen": "Northeastern University / DS 3000",
+  "notes": ""
+ },
+ {
+  "concept_id": "numerical-methods",
+  "name": "Numerical methods",
+  "group": "Quantitative methods",
+  "definition": "Computing approximate answers to continuous math problems with floating-point arithmetic.",
+  "synonyms": "numerical methods; floating-point computation; numerical solution; approximation of functions and integrals; numerical linear algebra",
+  "first_seen": "University of Illinois Urbana-Champaign / CS 357",
+  "notes": ""
+ },
+ {
+  "concept_id": "information-theory",
+  "name": "Information theory and coding",
+  "group": "Quantitative methods",
+  "definition": "Measuring information, compressing data, and codes that detect or correct errors.",
+  "synonyms": "information theory; data compression; error correcting codes",
+  "first_seen": "Northeastern University / CS 3000",
+  "notes": ""
+ },
+ {
+  "concept_id": "data-analysis",
+  "name": "Data analysis and visualization",
+  "group": "Data, AI, and databases",
+  "definition": "Exploring real datasets: summarizing, visualizing, and computing results from them.",
+  "synonyms": "data analysis; datasets; visualizing datasets; summarizing data; constructing graphs; data science; data science libraries",
+  "first_seen": "Northeastern University / CS 2000",
+  "notes": ""
+ },
+ {
+  "concept_id": "database-design",
+  "name": "Database design and the relational model",
+  "group": "Data, AI, and databases",
+  "definition": "Modeling data with entity-relationship diagrams and relational tables.",
+  "synonyms": "Entity Relationship model; relational data model; database design",
+  "first_seen": "University of Cincinnati / CS 4092",
+  "notes": ""
+ },
+ {
+  "concept_id": "database-queries",
+  "name": "Database queries",
+  "group": "Data, AI, and databases",
+  "definition": "Querying a database from a program or query language.",
+  "synonyms": "database queries",
+  "first_seen": "The Pennsylvania State University (University Park) / CMPSC 221",
+  "notes": ""
+ },
+ {
+  "concept_id": "database-storage-and-transactions",
+  "name": "Database storage, recovery, and concurrency",
+  "group": "Data, AI, and databases",
+  "definition": "How a database stores data physically and stays correct under failures and concurrent use.",
+  "synonyms": "physical storage techniques; reliability and recovery",
+  "first_seen": "University of Cincinnati / CS 4092",
+  "notes": ""
+ },
+ {
+  "concept_id": "state-space-search",
+  "name": "Search in AI",
+  "group": "Data, AI, and databases",
+  "definition": "Solving AI problems by searching a space of states, with uninformed and heuristic (e.g. A*) search.",
+  "synonyms": "search strategies; uninformed search; informed search; A* search; search spaces; heuristics; search-based",
+  "first_seen": "University of Cincinnati / CS 4033",
+  "notes": ""
+ },
+ {
+  "concept_id": "adversarial-search",
+  "name": "Game playing and adversarial search",
+  "group": "Data, AI, and databases",
+  "definition": "Choosing moves against an opponent, e.g. minimax with alpha-beta pruning.",
+  "synonyms": "game playing; game tree search; minimax; alpha-beta",
+  "first_seen": "University of Cincinnati / CS 4033",
+  "notes": ""
+ },
+ {
+  "concept_id": "constraint-satisfaction",
+  "name": "Constraint satisfaction",
+  "group": "Data, AI, and databases",
+  "definition": "Finding assignments to variables that satisfy a set of constraints.",
+  "synonyms": "constraint satisfaction",
+  "first_seen": "University of Cincinnati / CS 4033",
+  "notes": ""
+ },
+ {
+  "concept_id": "knowledge-representation",
+  "name": "Knowledge representation and reasoning",
+  "group": "Data, AI, and databases",
+  "definition": "Representing facts in a formal language and drawing conclusions from them by inference.",
+  "synonyms": "knowledge representation; inference rules; resolution",
+  "first_seen": "University of Cincinnati / CS 4033",
+  "notes": ""
+ },
+ {
+  "concept_id": "probabilistic-reasoning",
+  "name": "Reasoning under uncertainty",
+  "group": "Data, AI, and databases",
+  "definition": "Making inferences and decisions when facts are uncertain, using probability.",
+  "synonyms": "reasoning with uncertainty; probabilistic reasoning; Bayesian inference",
+  "first_seen": "University of Cincinnati / CS 4033",
+  "notes": ""
+ },
+ {
+  "concept_id": "planning-and-decision-making",
+  "name": "Planning and decision making",
+  "group": "Data, AI, and databases",
+  "definition": "Choosing sequences of actions to reach goals.",
+  "synonyms": "planning; decision making",
+  "first_seen": "Texas A&M University / CSCE 325",
+  "notes": ""
+ },
+ {
+  "concept_id": "machine-learning",
+  "name": "Machine learning",
+  "group": "Data, AI, and databases",
+  "definition": "Building models from data: supervised, unsupervised, and reinforcement learning.",
+  "synonyms": "machine learning; supervised; unsupervised; reinforcement learning; classification; decision trees; principal component analysis",
+  "first_seen": "University of Cincinnati / CS 4033",
+  "notes": ""
+ },
+ {
+  "concept_id": "deep-learning",
+  "name": "Deep learning and generative AI",
+  "group": "Data, AI, and databases",
+  "definition": "Neural networks with many layers, and models that generate text or images.",
+  "synonyms": "deep learning; generative AI",
+  "first_seen": "Texas A&M University / CSCE 325",
+  "notes": ""
+ },
+ {
+  "concept_id": "data-representation",
+  "name": "Data representation and computer arithmetic",
+  "group": "Computer architecture",
+  "definition": "How numbers, characters, and other data are encoded in bits, and arithmetic on those encodings.",
+  "synonyms": "data representation; binary and hexadecimal arithmetic; computer arithmetic; ones and twos complement; signed and unsigned; big-endian and little-endian; number representations; information representation; bits; bit-fields; layered data representation",
+  "first_seen": "The Ohio State University / CSE 2221",
+  "notes": ""
+ },
+ {
+  "concept_id": "logic-gates-and-combinational-circuits",
+  "name": "Logic gates and combinational circuits",
+  "group": "Computer architecture",
+  "definition": "Building circuits from logic gates whose outputs depend only on current inputs.",
+  "synonyms": "logic gates; logic gate; digital logic; logic design; combinational circuits; combinatorial circuits; combinational logic; transistors; arithmetic circuits; digital design",
+  "first_seen": "University of Illinois Chicago / CS 362",
+  "notes": ""
+ },
+ {
+  "concept_id": "sequential-circuits",
+  "name": "Sequential circuits",
+  "group": "Computer architecture",
+  "definition": "Circuits with memory (flip-flops, registers, clocks) whose outputs depend on past inputs.",
+  "synonyms": "sequential circuits; sequential logic; flip flops; registers; clocks",
+  "first_seen": "University of Illinois Chicago / CS 362",
+  "notes": ""
+ },
+ {
+  "concept_id": "assembly-language",
+  "name": "Assembly and machine language",
+  "group": "Computer architecture",
+  "definition": "Programming directly in a processor's instructions and their textual (assembly) form.",
+  "synonyms": "assembly language; machine language; machine-level programming; machine-level programs; assembler instructions; assembly-language programs; machine level; hex dumps",
+  "first_seen": "University of Cincinnati / CS 2011",
+  "notes": ""
+ },
+ {
+  "concept_id": "instruction-set-architecture",
+  "name": "Instruction set architecture",
+  "group": "Computer architecture",
+  "definition": "The instructions, formats, registers, and addressing modes a processor exposes to software.",
+  "synonyms": "instruction set architecture; instruction set architectures; instruction sets; addressing modes; addressing; instruction formats; RISC; RISC and CISC; stored-program concept; Von-Neumann",
+  "first_seen": "University of Minnesota, Twin Cities / CSCI 2021",
+  "notes": ""
+ },
+ {
+  "concept_id": "processor-design",
+  "name": "Processor design",
+  "group": "Computer architecture",
+  "definition": "How a CPU is built: datapath, control unit, and arithmetic-logic unit.",
+  "synonyms": "datapath; CPU design; control unit design; processor architecture; processor organization; arithmetic/logic units; arithmetic-logic units",
+  "first_seen": "University of Michigan / EECS 370",
+  "notes": ""
+ },
+ {
+  "concept_id": "pipelining",
+  "name": "Pipelining",
+  "group": "Computer architecture",
+  "definition": "Overlapping the stages of several instructions to speed up a processor, and the hazards this creates.",
+  "synonyms": "pipelining; instruction pipelines; hazards; out-of-order execution; instruction scheduling",
+  "first_seen": "University of Illinois Chicago / CS 261",
+  "notes": ""
+ },
+ {
+  "concept_id": "memory-hierarchy-and-caches",
+  "name": "Memory hierarchy and caches",
+  "group": "Computer architecture",
+  "definition": "Layers of faster, smaller memory (caches) in front of slower, larger memory, and their effect on performance.",
+  "synonyms": "memory hierarchy; caches; caching; memory caches; cache design; main memory design",
+  "first_seen": "University of Illinois Chicago / CS 261",
+  "notes": ""
+ },
+ {
+  "concept_id": "io-and-interrupts",
+  "name": "I/O and interrupts",
+  "group": "Computer architecture",
+  "definition": "How the processor communicates with devices: buses, polling, interrupts, and DMA.",
+  "synonyms": "input/output; I/O; I/O ports; interrupts; polling and interrupts; DMA; buses; device programming; device drivers; peripherals",
+  "first_seen": "Texas A&M University / CSCE 312",
+  "notes": ""
+ },
+ {
+  "concept_id": "hardware-parallelism",
+  "name": "Hardware parallelism",
+  "group": "Computer architecture",
+  "definition": "Hardware features that run work in parallel, beyond pipelining.",
+  "synonyms": "hardware primitives for parallelism; parallelism",
+  "first_seen": "University of Illinois Urbana-Champaign / CS 233",
+  "notes": ""
+ },
+ {
+  "concept_id": "performance-optimization",
+  "name": "Performance analysis and optimization",
+  "group": "Computer architecture",
+  "definition": "Measuring and improving how fast programs run, often using knowledge of the hardware.",
+  "synonyms": "performance optimization; performance; performance models; code optimization; performance measurements; performance evaluation; performance analysis; optimizations",
+  "first_seen": "University of Illinois Urbana-Champaign / CS 233",
+  "notes": ""
+ },
+ {
+  "concept_id": "compilation-and-linking",
+  "name": "Compiling, linking, and loading",
+  "group": "Computer architecture",
+  "definition": "How source code becomes an executable: compiling, assembling, linking, and loading.",
+  "synonyms": "compiling; linking; loaders/linkers; assemblers/linkers; separate compilation; loading and linking; object and executable files; symbol tables; edit-compile-run cycle",
+  "first_seen": "University of Wisconsin-Madison / COMP SCI 354",
+  "notes": ""
+ },
+ {
+  "concept_id": "processes",
+  "name": "Processes",
+  "group": "Operating systems",
+  "definition": "Running programs as processes, creating and controlling them, and switching between them.",
+  "synonyms": "processes; process control; context switching",
+  "first_seen": "University of Illinois Chicago / CS 361",
+  "notes": ""
+ },
+ {
+  "concept_id": "threads-and-concurrency",
+  "name": "Threads and concurrency",
+  "group": "Operating systems",
+  "definition": "Running several threads of control at once and writing concurrent programs.",
+  "synonyms": "threads; multi-threaded programming; multithreaded programs; concurrency; concurrent execution",
+  "first_seen": "University of Illinois Chicago / CS 361",
+  "notes": ""
+ },
+ {
+  "concept_id": "synchronization",
+  "name": "Synchronization and deadlock",
+  "group": "Operating systems",
+  "definition": "Coordinating concurrent threads or processes safely (locks, atomic operations) and avoiding deadlock.",
+  "synonyms": "synchronization; synchronizing; synchronized; process coordination; deadlock; concurrency control; atomic instructions",
+  "first_seen": "University of Illinois Chicago / CS 361",
+  "notes": ""
+ },
+ {
+  "concept_id": "cpu-scheduling",
+  "name": "CPU scheduling",
+  "group": "Operating systems",
+  "definition": "How an operating system decides which process or thread runs next.",
+  "synonyms": "CPU scheduling",
+  "first_seen": "The Ohio State University / CSE 2431",
+  "notes": ""
+ },
+ {
+  "concept_id": "os-memory-management",
+  "name": "Memory management",
+  "group": "Operating systems",
+  "definition": "How memory is allocated to programs, including heap allocation and garbage collection.",
+  "synonyms": "simple memory management; memory management; memory allocation; garbage collection; the heap",
+  "first_seen": "University of Illinois Urbana-Champaign / CS 341",
+  "notes": ""
+ },
+ {
+  "concept_id": "virtual-memory",
+  "name": "Virtual memory and address spaces",
+  "group": "Operating systems",
+  "definition": "Giving each program its own address space mapped onto physical memory, with page tables.",
+  "synonyms": "virtual memory; address spaces; address space; virtual address space; address translation; page tables; physical memory",
+  "first_seen": "University of Illinois Chicago / CS 361",
+  "notes": ""
+ },
+ {
+  "concept_id": "file-systems",
+  "name": "File systems",
+  "group": "Operating systems",
+  "definition": "How an operating system organizes and stores files and directories.",
+  "synonyms": "file systems; file system; file management; directories; descriptors and file pointers; UNIX file abstraction; file system organization and access methods",
+  "first_seen": "Northeastern University / CS 3650",
+  "notes": ""
+ },
+ {
+  "concept_id": "interprocess-communication",
+  "name": "Interprocess communication and signals",
+  "group": "Operating systems",
+  "definition": "Ways processes exchange data and notifications (pipes, signals, shared memory).",
+  "synonyms": "inter-process communication; interprocess communication; IPC; signals; asynchronous events; interrupts/signals",
+  "first_seen": "University of Cincinnati / CS 4029",
+  "notes": ""
+ },
+ {
+  "concept_id": "system-calls",
+  "name": "System calls and OS interfaces",
+  "group": "Operating systems",
+  "definition": "How programs request services from the operating system.",
+  "synonyms": "system calls; system call interfaces; operating system interfaces; OS application interface; POSIX",
+  "first_seen": "Northeastern University / CS 3650",
+  "notes": ""
+ },
+ {
+  "concept_id": "protection-and-isolation",
+  "name": "Protection and isolation",
+  "group": "Operating systems",
+  "definition": "Keeping programs from interfering with each other or the OS, through protection modes and access control.",
+  "synonyms": "protection; isolation; protection modes; access control; protection/isolation",
+  "first_seen": "University of Cincinnati / IT 2030C",
+  "notes": ""
+ },
+ {
+  "concept_id": "virtualization",
+  "name": "Virtualization",
+  "group": "Operating systems",
+  "definition": "Running multiple virtual machines or virtualized resources on one physical machine.",
+  "synonyms": "virtualization; virtualize; virtual machines",
+  "first_seen": "Virginia Polytechnic Institute and State University / CS 3214",
+  "notes": ""
+ },
+ {
+  "concept_id": "network-programming",
+  "name": "Network programming",
+  "group": "Networks and distributed systems",
+  "definition": "Writing programs that communicate over a network, e.g. with sockets.",
+  "synonyms": "network programming; socket network programming; socket programming; networking",
+  "first_seen": "University of Illinois Chicago / CS 361",
+  "notes": ""
+ },
+ {
+  "concept_id": "network-protocols",
+  "name": "Network protocols",
+  "group": "Networks and distributed systems",
+  "definition": "The rules by which computers communicate over networks (e.g. TCP/IP, DNS).",
+  "synonyms": "communication protocols; network protocols; DNS",
+  "first_seen": "University of Cincinnati / CS 4065",
+  "notes": ""
+ },
+ {
+  "concept_id": "distributed-systems",
+  "name": "Distributed systems",
+  "group": "Networks and distributed systems",
+  "definition": "Systems of cooperating computers, and remote procedure calls between them.",
+  "synonyms": "distributed systems; RPC",
+  "first_seen": "University of Illinois Urbana-Champaign / CS 341",
+  "notes": ""
+ },
+ {
+  "concept_id": "security-fundamentals",
+  "name": "Security fundamentals",
+  "group": "Security",
+  "definition": "Basic ideas of computer and information security: threats, protections, and secure, robust programs.",
+  "synonyms": "security; information security; security mechanisms; security concepts; secure",
+  "first_seen": "University of Cincinnati / IT 2030C",
+  "notes": ""
+ },
+ {
+  "concept_id": "cryptography",
+  "name": "Cryptography",
+  "group": "Security",
+  "definition": "Encrypting and authenticating data, and cryptographic protocols.",
+  "synonyms": "cryptography; cryptographic protocols",
+  "first_seen": "University of California, Berkeley / COMPSCI 70",
+  "notes": ""
+ },
+ {
+  "concept_id": "security-management",
+  "name": "Information assurance and incident response",
+  "group": "Security",
+  "definition": "Organizational side of security: protecting information assets, choosing protection levels, intrusion detection, and responding to incidents.",
+  "synonyms": "protecting information assets; levels of protection; security incidents; intrusion detection; administrative aspects; security and assurance",
+  "first_seen": "University of Cincinnati / IT 2030C",
+  "notes": ""
+ },
+ {
+  "concept_id": "programming-paradigms",
+  "name": "Programming paradigms",
+  "group": "Programming languages",
+  "definition": "Comparing major styles of programming (imperative, object-oriented, functional, logic, declarative).",
+  "synonyms": "programming paradigms; paradigms; programming language paradigms; imperative programming; declarative",
+  "first_seen": "University of California, Berkeley / COMPSCI 61A",
+  "notes": ""
+ },
+ {
+  "concept_id": "functional-programming",
+  "name": "Functional programming",
+  "group": "Programming languages",
+  "definition": "Programming with pure functions and values, avoiding mutable state.",
+  "synonyms": "functional programming; functional languages; functional model",
+  "first_seen": "The Ohio State University / CSE 3341",
+  "notes": ""
+ },
+ {
+  "concept_id": "logic-programming",
+  "name": "Logic programming",
+  "group": "Programming languages",
+  "definition": "Programming by stating facts and rules and letting the system search for answers.",
+  "synonyms": "logic-programming",
+  "first_seen": "University of Cincinnati / CS 3003",
+  "notes": ""
+ },
+ {
+  "concept_id": "higher-order-functions",
+  "name": "Higher-order functions",
+  "group": "Programming languages",
+  "definition": "Functions that take or return other functions (lambdas, closures).",
+  "synonyms": "higher-order functions; lambda functions; functions themselves as values",
+  "first_seen": "University of California, Berkeley / COMPSCI 61A",
+  "notes": ""
+ },
+ {
+  "concept_id": "type-systems",
+  "name": "Type systems",
+  "group": "Programming languages",
+  "definition": "How a language classifies values into types and checks programs against them.",
+  "synonyms": "type systems; statically typed; inductive types",
+  "first_seen": "University of Illinois Urbana-Champaign / CS 421",
+  "notes": ""
+ },
+ {
+  "concept_id": "syntax-and-semantics",
+  "name": "Syntax and semantics",
+  "group": "Programming languages",
+  "definition": "Formally describing what programs in a language look like and what they mean.",
+  "synonyms": "syntax and semantics; syntax; semantics; semantic analysis; static and runtime semantics",
+  "first_seen": "University of Illinois Chicago / CS 341",
+  "notes": ""
+ },
+ {
+  "concept_id": "parsing",
+  "name": "Parsing",
+  "group": "Programming languages",
+  "definition": "Turning program text into a structured form (lexing, parsing).",
+  "synonyms": "parsing; recursive descent parsing; lexing; language processing",
+  "first_seen": "The Ohio State University / CSE 3341",
+  "notes": ""
+ },
+ {
+  "concept_id": "compilers-and-interpreters",
+  "name": "Compilers and interpreters",
+  "group": "Programming languages",
+  "definition": "Building programs that translate or execute other programs.",
+  "synonyms": "compilers and interpreters; compilers; interpreters; code generation; intermediate code generation; syntax-directed translation; compilation",
+  "first_seen": "The Ohio State University / CSE 3341",
+  "notes": ""
+ },
+ {
+  "concept_id": "scope-and-runtime",
+  "name": "Scope, parameter passing, and run-time organization",
+  "group": "Programming languages",
+  "definition": "How names are bound, how arguments are passed, and how calls are organized at run time (the call stack).",
+  "synonyms": "scope; parameter passing; procedure instantiation; runtime systems; run-time behavior; call frames; the stack; evaluation strategies",
+  "first_seen": "University of Michigan / EECS 280",
+  "notes": ""
+ },
+ {
+  "concept_id": "ethical-reasoning",
+  "name": "Ethical principles and reasoning",
+  "group": "Ethics, society, and profession",
+  "definition": "Ethical theories and codes, and applying them to decisions in computing.",
+  "synonyms": "ethical principles; ethics; ethical decision-making; ethical issues; ethical challenges; ethical dilemmas; ethical topics",
+  "first_seen": "The Ohio State University / CSE 2501",
+  "notes": ""
+ },
+ {
+  "concept_id": "professional-responsibility",
+  "name": "Professional responsibility",
+  "group": "Ethics, society, and profession",
+  "definition": "The duties and conduct expected of computing professionals, including professional codes.",
+  "synonyms": "professional responsibility; professional conduct; responsibilities of computer professionals; professional ethics; professional codes; professional behavior; professional issues",
+  "first_seen": "Texas A&M University / CSCE 231",
+  "notes": ""
+ },
+ {
+  "concept_id": "privacy",
+  "name": "Privacy",
+  "group": "Ethics, society, and profession",
+  "definition": "Collection and use of personal data, surveillance, and privacy protection.",
+  "synonyms": "privacy; surveillance; data collection",
+  "first_seen": "University of Illinois Chicago / CS 377",
+  "notes": ""
+ },
+ {
+  "concept_id": "intellectual-property",
+  "name": "Intellectual property",
+  "group": "Ethics, society, and profession",
+  "definition": "Copyright, patents, licenses, and open-source software.",
+  "synonyms": "intellectual property; open-source software",
+  "first_seen": "University of Illinois Chicago / CS 377",
+  "notes": ""
+ },
+ {
+  "concept_id": "law-and-policy",
+  "name": "Computing law and policy",
+  "group": "Ethics, society, and profession",
+  "definition": "Laws and public policy that govern computing.",
+  "synonyms": "law and policy; legal",
+  "first_seen": "Texas A&M University / CSCE 231",
+  "notes": ""
+ },
+ {
+  "concept_id": "social-impact",
+  "name": "Social impact of computing",
+  "group": "Ethics, society, and profession",
+  "definition": "Effects of computing on society: fairness, inequality, free speech, social media, environment.",
+  "synonyms": "social impact; social issues; societal issues; societal implications; social media; economic inequality; fairness; freedom of speech; social justice; sustainable development; effects of computers on society; ethical and real-world consequences",
+  "first_seen": "Virginia Polytechnic Institute and State University / CS 3604",
+  "notes": ""
+ },
+ {
+  "concept_id": "history-of-computing",
+  "name": "History of computing",
+  "group": "Ethics, society, and profession",
+  "definition": "How computing and its technologies developed.",
+  "synonyms": "history of computing; computing history; historical perspectives; evolution of the Internet",
+  "first_seen": "Virginia Polytechnic Institute and State University / CS 3604",
+  "notes": ""
+ },
+ {
+  "concept_id": "technical-communication",
+  "name": "Technical communication",
+  "group": "Ethics, society, and profession",
+  "definition": "Writing and presenting technical material: reports, documentation, talks, demos.",
+  "synonyms": "technical writing; presentations; writing component; writing intensive; demos; speech organization; demonstration",
+  "first_seen": "University of Illinois Chicago / CS 277",
+  "notes": ""
+ },
+ {
+  "concept_id": "career-preparation",
+  "name": "Career preparation",
+  "group": "Ethics, society, and profession",
+  "definition": "Preparing for jobs: career paths, résumés, interviews, and co-op or internship processes.",
+  "synonyms": "career paths; careers; resumé; interviewing techniques; job interviews; portfolios; co-op",
+  "first_seen": "University of Illinois Chicago / CS 499",
+  "notes": ""
+ },
+ {
+  "concept_id": "computing-field-overview",
+  "name": "Overview of computing as a field",
+  "group": "Ethics, society, and profession",
+  "definition": "Surveys of what computer science covers, its research, and its application domains.",
+  "synonyms": "broad field of computing; application domains; cutting edge research; field and career; overview of the field; research and end products",
+  "first_seen": "Texas A&M University / CSCE 181",
+  "notes": ""
+ },
+ {
+  "concept_id": "academic-orientation",
+  "name": "Academic orientation",
+  "group": "Ethics, society, and profession",
+  "definition": "Introducing students to the degree program, its requirements, and campus resources.",
+  "synonyms": "program requirements; campus resources; student groups; academic and personal goal setting; academic and career planning; the program to be used for assessment purposes",
+  "first_seen": "University of Cincinnati / CS 1100",
+  "notes": ""
+ }
+]

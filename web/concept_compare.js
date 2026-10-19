@@ -467,7 +467,8 @@ function renderDetail(n, other) {
       const partners = hold.get(t.concept_id) || [];
       const li = ul.append("li");
       li.append("b").text(t.name);
-      li.append("span").text(` (${t.group}), “${t.evidence}”: `);
+      // All of the tag's evidence phrases, each quoted.
+      li.append("span").text(` (${t.group}), ${t.evidence_phrases.map((ph) => `“${ph}”`).join(", ")}: `);
       li.append("span").text(partners.length
         ? `${partners.map((p) => rowLabel(p.row)).join(", ")}` +
           (partners.length > 1 ? `, ${pct(1 / (n.concepts.size * partners.length))} each` : "")
@@ -516,10 +517,11 @@ function renderBandDetail(panel, b, other) {
   for (const [n, name] of ends) {
     const r = n.row;
     panel.append("h4").text(`${name} ${rowLabel(r)} (${r.school.short_name} catalog)`);
-    // Every tag line of this row for a shared concept (a concept may have more than one
-    // evidence phrase), with its number.
+    // Every evidence phrase of every tag line of this row for a shared concept, with
+    // the concept's number. flatMap turns each tag into one mark per phrase.
     const marks = (tagsByRow.get(rowKey(r)) || []).filter((t) => number.has(t.concept_id))
-      .map((t) => ({ field: t.evidence_field, phrase: t.evidence, num: number.get(t.concept_id), name: t.name }));
+      .flatMap((t) => t.evidence_phrases.map((phrase) =>
+        ({ field: t.evidence_field, phrase, num: number.get(t.concept_id), name: t.name })));
     appendHighlighted(panel.append("p").attr("class", "desc title-line"), r.title, marks.filter((m) => m.field === "title"));
     appendHighlighted(panel.append("p").attr("class", "desc"), r.description, marks.filter((m) => m.field === "description"));
   }
@@ -535,7 +537,9 @@ function appendHighlighted(sel, text, marks) {
   const hits = [];
   for (const m of marks) {
     const src = m.phrase.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+");
-    const re = new RegExp(src, "gi"); // g: all matches, i: ignore case
+    // Whole words only (no letter or digit touching either end), so "sets" does not
+    // light up inside "subsets"; the same rule as check_untagged.py.
+    const re = new RegExp(`(?<![a-z0-9])${src}(?![a-z0-9])`, "gi"); // g: all matches, i: ignore case
     let found;
     while ((found = re.exec(text)) !== null) {
       hits.push([found.index, found.index + found[0].length, m]);

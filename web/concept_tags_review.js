@@ -14,29 +14,79 @@ function escapeRegex(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-// Find every place a tag's evidence occurs in `text`: case-insensitive, and any run of
-// whitespace in the phrase matches any run in the text, the same rule check_concepts.py
-// uses (it lowercases and collapses whitespace). Returns [start, end) index pairs.
+// Find every place a phrase occurs in `text` as whole words: case-insensitive, and any
+// run of whitespace in the phrase matches any run in the text, the same rule
+// check_untagged.py uses. The lookbehind (?<![a-z0-9]) and lookahead (?![a-z0-9])
+// stop "sets" from matching inside "subsets" (with the i flag they cover capitals too).
+// Returns [start, end) index pairs.
 function spans(text, phrase) {
-  const re = new RegExp(escapeRegex(phrase.trim()).replace(/\s+/g, "\\s+"), "gi"); // g: all, i: any case
+  const body = escapeRegex(phrase.trim()).replace(/\s+/g, "\\s+");
+  const re = new RegExp(`(?<![a-z0-9])${body}(?![a-z0-9])`, "gi"); // g: all, i: any case
   return [...text.matchAll(re)].map((m) => [m.index, m.index + m[0].length]);
 }
 
-// Append `text` to a D3 selection with each tag's evidence wrapped in <mark>. Phrases of
-// different tags can overlap ("dynamic memory" inside "dynamic memory allocation"), so
-// the text is cut at every span boundary and each piece records which concepts cover
-// it (data-cids), letting a hovered tag light up exactly its own phrase.
-function appendHighlighted(sel, text, tags) {
+// Human-readable labels for the reasons in untagged_notes.csv (check_untagged.py), in
+// the order the "Text not tagged" list shows them: no-concept first, since those are
+// the candidates for new concepts.
+const REASONS = new Map([
+  ["no-concept", "No concept in the vocabulary"],
+  ["too-general", "Too general to tag"],
+  ["generic-aim", "Aim with no topic"],
+  ["course-label", "Names the course itself"],
+  ["prerequisite", "Prerequisite"],
+  ["framing", "Framing (audience, format, credit rules)"],
+]);
+
+// Append `text` to a D3 selection with every evidence phrase of each tag wrapped in
+// <mark>, and every phrase of an untagged note (optional `notes`) underlined with its
+// reason as a tooltip. Phrases of different tags can overlap ("dynamic memory" inside
+// "dynamic memory allocation"), so the text is cut at every span boundary and each
+// piece records which concepts cover it (data-cids), letting a hovered tag light up
+// exactly its own phrases. A piece covered by both a tag and a note shows as tagged.
+function appendHighlighted(sel, text, tags, notes = []) {
   const marks = []; // {start, end, cid}
-  for (const t of tags) for (const [s, e] of spans(text, t.evidence)) marks.push({ start: s, end: e, cid: t.concept_id });
+  for (const t of tags) {
+    for (const phrase of t.evidence_phrases) {
+      for (const [s, e] of spans(text, phrase)) marks.push({ start: s, end: e, cid: t.concept_id });
+    }
+  }
+  const noted = []; // {start, end, note}
+  for (const n of notes) for (const [s, e] of spans(text, n.phrase)) noted.push({ start: s, end: e, note: n });
   // Every position where some highlight starts or ends, plus the text's ends, in order.
-  const cuts = [...new Set([0, text.length, ...marks.flatMap((m) => [m.start, m.end])])].sort((a, b) => a - b);
+  const edges = [...marks, ...noted].flatMap((m) => [m.start, m.end]);
+  const cuts = [...new Set([0, text.length, ...edges])].sort((a, b) => a - b);
   for (let i = 0; i < cuts.length - 1; i++) {
     const [a, b] = [cuts[i], cuts[i + 1]];
     const cids = marks.filter((m) => m.start <= a && m.end >= b).map((m) => m.cid);
     const piece = text.slice(a, b);
-    if (cids.length) sel.append("mark").attr("data-cids", cids.join(" ")).text(piece);
-    else sel.append("span").text(piece);
+    if (cids.length) { sel.append("mark").attr("data-cids", cids.join(" ")).text(piece); continue; }
+    // .find returns the first note covering this piece, or undefined.
+    const n = noted.find((m) => m.start <= a && m.end >= b);
+    if (n) {
+      sel.append("span").attr("class", `noted reason-${n.note.reason}`)
+        .attr("title", `Not tagged: ${REASONS.get(n.note.reason) || n.note.reason}${n.note.notes ? ". " + n.note.notes : ""}`)
+        .text(piece);
+    } else sel.append("span").text(piece);
+  }
+}
+
+// Append a collapsed "Text not tagged" list to a course card: each untagged note's
+// phrase and why it isn't a concept, grouped by reason (REASONS order). <details> is
+// the browser's built-in disclosure widget, so it works without any script.
+function appendUntagged(card, notes, open) {
+  if (!notes.length) return;
+  const nc = notes.filter((n) => n.reason === "no-concept").length;
+  const det = card.append("details").attr("class", "untagged").property("open", open);
+  det.append("summary").text(`Text not tagged: ${notes.length} phrase${notes.length === 1 ? "" : "s"}` +
+    (nc ? ` (${nc} with no concept in the vocabulary)` : ""));
+  const ul = det.append("ul");
+  for (const [reason, label] of REASONS) {
+    for (const n of notes.filter((x) => x.reason === reason)) {
+      const li = ul.append("li");
+      li.append("span").attr("class", `reason reason-${reason}`).text(label);
+      li.append("span").attr("class", "ev").text(` “${n.phrase}”`);
+      if (n.notes) li.append("span").attr("class", "muted").text(` ${n.notes}`);
+    }
   }
 }
 
@@ -60,9 +110,10 @@ function currentFilters() {
 function tagPasses(t, row, f, conceptById) {
   if (f.conf === "ml" && t.tag_confidence === "high") return false;
   if (f.conf === "low" && t.tag_confidence !== "low") return false;
+  // "No concept in vocabulary" filters courses, not tags (see render), so every tag passes.
   if (f.q) {
     const c = conceptById.get(t.concept_id) || {};
-    const hay = [t.concept_id, c.name, c.group, t.evidence, t.notes, row.course_code, row.title].join(" ").toLowerCase();
+    const hay = [t.concept_id, c.name, c.group, t.evidence_phrases.join(" "), t.notes, row.course_code, row.title].join(" ").toLowerCase();
     if (!hay.includes(f.q)) return false;
   }
   return true;
@@ -84,12 +135,15 @@ function render(rows, conceptById, schoolName) {
   root.selectAll("*").remove();
   const schoolRows = rows.filter((r) => r.school_id === f.school);
   const filtering = f.conf || f.q;
+  const ncOnly = f.conf === "nc"; // show only courses with a "no concept in the vocabulary" note
   let nShown = 0;
 
   for (const row of schoolRows) {
     const real = row.tags.filter((t) => t.concept_id); // "no concept" lines have an empty id
     const shown = real.filter((t) => tagPasses(t, row, f, conceptById));
-    if (filtering && !shown.length) continue;
+    const notes = row.untagged_notes || [];
+    if (ncOnly && !notes.some((n) => n.reason === "no-concept")) continue;
+    if (filtering && !ncOnly && !shown.length) continue;
     nShown += shown.length;
 
     const card = root.append("section").attr("class", "course");
@@ -98,11 +152,13 @@ function render(rows, conceptById, schoolName) {
     appendHighlighted(h.append("span"), `${row.course_code}: ${row.title}`, real.filter((t) => t.evidence_field === "title"));
     h.append("span").attr("class", "muted").text(` · sem. ${row.norm_semester}`);
     if (isTruncated(row)) card.append("div").attr("class", "flag").text("Catalog text may be cut off at the source.");
-    appendHighlighted(card.append("p").attr("class", "desc"), row.description, real.filter((t) => t.evidence_field === "description"));
+    appendHighlighted(card.append("p").attr("class", "desc"), row.description,
+      real.filter((t) => t.evidence_field === "description"), notes);
 
     if (!real.length) {
       const why = row.tags.length ? row.tags[0].notes : "Not tagged yet.";
       card.append("div").attr("class", "none").text(`No concept: ${why}`);
+      appendUntagged(card, notes, ncOnly);
       continue;
     }
     const table = card.append("div").attr("class", "table-wrap").append("table");
@@ -118,13 +174,16 @@ function render(rows, conceptById, schoolName) {
       first.append("div").append("b").text(c.name);
       first.append("code").text(t.concept_id);
       tr.append("td").attr("class", "hide-narrow").text(c.group);
-      tr.append("td").attr("class", "ev").text(`"${t.evidence}"${t.evidence_field === "title" ? " (title)" : ""}`);
+      // Every evidence phrase, each quoted, separated by a middle dot.
+      tr.append("td").attr("class", "ev").text(t.evidence_phrases.map((ph) => `“${ph}”`).join(" · ") +
+        (t.evidence_field === "title" ? " (title)" : ""));
       tr.append("td").append("span").attr("class", `conf-${t.tag_confidence}`).text(t.tag_confidence);
       tr.append("td").text(t.tag_status);
       tr.append("td").attr("class", "hide-narrow note").text(t.notes);
     })
       .on("mouseenter", (event, t) => setActive(card, t.concept_id, true))
       .on("mouseleave", (event, t) => setActive(card, t.concept_id, false));
+    appendUntagged(card, notes, ncOnly);
   }
 
   // Counts for the whole school (not just what the filters show), by confidence and status.

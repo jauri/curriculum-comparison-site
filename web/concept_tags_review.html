@@ -26,6 +26,17 @@
     .conf-low { color: var(--ink); font-weight: 700; text-decoration: underline; }
     .none { font-size: 14px; color: var(--ink-2); font-style: italic; }
     .summary { font-size: 14px; color: var(--ink-2); }
+    /* Text judged not to be a concept (untagged_notes.csv): a dotted underline, so it
+       reads as "looked at" without competing with the tag highlights. No-concept text
+       gets a solid underline, since it marks a possible gap in the vocabulary. */
+    .noted { text-decoration: underline dotted var(--ink-2); text-underline-offset: 3px; }
+    .noted.reason-no-concept { text-decoration: underline solid var(--ink-2); text-decoration-thickness: 1.5px; }
+    details.untagged { margin-top: 8px; font-size: 13px; }
+    details.untagged summary { cursor: pointer; color: var(--ink-2); }
+    details.untagged ul { margin: 6px 0 0; padding-left: 18px; }
+    details.untagged li { margin: 2px 0; }
+    .reason { font-size: 12px; font-weight: 600; color: var(--ink-2); }
+    .reason-no-concept { color: var(--ink); }
     @media (max-width: 640px) { .hide-narrow { display: none; } }
   </style>
 </head>
@@ -50,20 +61,28 @@
     <em>evidence</em> is a phrase copied from the title or description; it is highlighted in
     the text, and hovering a tag row outlines its phrase. A tag means the concept is
     <strong>mentioned in the course's description</strong>, not that it is or isn't taught.
+    Every phrase that states a concept is listed and highlighted. Text that is
+    <span class="noted">underlined with dots</span> was looked at and judged not to be a
+    concept (a course label, framing, a prerequisite...); hover it for the reason, or open
+    "Text not tagged" under the course. A <span class="noted reason-no-concept">solid
+    underline</span> marks a topic the vocabulary has no concept for.
     Confidence is <em>high</em> when the phrase names the concept directly, <em>medium</em>
     when it takes a short step (e.g. "structured programming" for control structures), and
     <em>low</em> when the mention is passing or uncertain. To change a tag, edit the CSV
     (set <code>tag_status</code> to <code>approved</code> or <code>rejected</code>), run
-    <code>src/check_concepts.py</code>, then <code>src/preview_concepts.py</code>.
+    <code>src/check_concepts.py</code>, then <code>src/preview_concepts.py</code>. Reasons for
+    untagged text are in <code>untagged_notes.csv</code>, checked by
+    <code>src/check_untagged.py</code>.
   </div>
 
   <div class="filters" id="filters">
     <label>School <select id="school"></select></label>
-    <label>Confidence
+    <label>Show
       <select id="conf">
-        <option value="">All</option>
-        <option value="ml">Medium or low</option>
-        <option value="low">Low only</option>
+        <option value="">All tags</option>
+        <option value="ml">Medium or low confidence</option>
+        <option value="low">Low confidence only</option>
+        <option value="nc">Courses with text that has no concept</option>
       </select>
     </label>
     <label>Search <input type="search" id="q" placeholder="concept, course, or evidence"></label>

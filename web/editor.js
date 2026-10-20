@@ -9,6 +9,13 @@
 //      joining each UC course to its place in the draft, and a table of changes;
 //   3. the draft vs one school: the same two-axis view, linked by canonical course.
 //
+// Only CS-area courses can be edited (moved, removed, revised) or added; the rest of
+// UC's plan is fixed. Checks run on every change and warn (they don't block) when a
+// semester's credits are outside the limits, when a course comes before (or in the
+// same semester as) a prerequisite or is placed before the class standing it needs,
+// or when a draft from before the lock changed a non-CS course. Prerequisites come
+// from data/processed/uc/prerequisites.json (src/parse_uc_prereqs.py).
+//
 // Reads the same processed files as the other views (loadAllSchools in common.js). The
 // drafts themselves are the viewer's own work, not project data, so they live in the
 // browser's localStorage, with Export / Import as a JSON file to keep or move them. A
@@ -50,6 +57,13 @@ const DRAG_START_PX = 5;
 const TOUCH_HOLD_MS = 300;
 const TOUCH_SLOP_PX = 8;
 
+// Default credit limits per semester, for the checks. 12 is the usual full-time minimum;
+// 18 is a common cap before a credit overload needs approval. UC's own plan has 15-17
+// in every semester. The viewer can change both on the page (kept with the drafts).
+const DEFAULT_LIMITS = { min: 12, max: 18 };
+// The one subject area whose courses can be edited (the user's rule, 2026-10-20).
+const EDITABLE_AREA = "cs";
+
 // The course fields the editor can change, compared with UC's row to find revisions.
 const FIELD_LABEL = { code: "code", title: "title", credits: "credits", area: "subject area",
   canonical: "canonical course", description: "description" };
@@ -68,6 +82,8 @@ let canonById = null; // canonical_id -> canonical course
 const uc = { academic: [], coop: [], school: null };
 let semInfo = null;   // semester 1-8 -> UC's own year and term for it (labels, new rows)
 let baseByKey = null; // UC row key (keyOf) -> UC row
+let prereqByCode = null; // UC course code -> its prerequisites.json entry
+let issuesById = new Map(); // draft course id -> its check issues (set by renderEditor)
 // All drafts, and which one is open. drafts maps a draft id to
 // { id, name, created, updated, courses: [course, ...] }.
 let store = { drafts: {}, current: null };
@@ -152,6 +168,152 @@ function changesOf(c) {
 function isSlotCourse(c) {
   const b = c.base ? baseByKey.get(c.base) : null;
   return !c.code && !!b && !b.course_code;
+}
+
+// Can the user change this course? A UC course only if it is in the CS area; an added
+// course always (it is CS, since the area field is fixed). A course whose UC row is gone
+// (stale) counts as added.
+function isEditable(c) {
+  const b = c.base ? baseByKey.get(c.base) : null;
+  return b ? b.subject_area === EDITABLE_AREA : true;
+}
+
+// The viewer's credit limits, or the defaults when none were saved (or they are bad).
+function creditLimits() {
+  const l = store.limits;
+  return l && Number.isFinite(l.min) && Number.isFinite(l.max) && l.min <= l.max ? l : DEFAULT_LIMITS;
+}
+
+// ---------------------------------------------------------------------------------
+// Checks
+// ---------------------------------------------------------------------------------
+
+// Every problem in a draft, as a list of { kind, sem, ids, text }: kind is "credits",
+// "prereq", "standing", or "fixed"; sem is the semester it is about (or null); ids are
+// the draft courses to mark. The checks only warn: a committee may want to see a plan
+// that breaks a rule before deciding to change the rule.
+function checkDraft(d) {
+  const issues = [];
+  const lim = creditLimits();
+  const kept = d.courses.filter((c) => !c.removed);
+
+  // 1. Credits per semester, against the limits. A range (4-5) is over the cap if its
+  // top is, and under the minimum if its bottom is, so a warning is never missed.
+  for (let sem = 1; sem <= 8; sem++) {
+    const list = kept.filter((c) => c.sem === sem && countsToward(c));
+    const lo = d3.sum(list, (c) => c.credits_min);
+    const hi = d3.sum(list, (c) => c.credits_max);
+    const text = credText({ credits_min: lo, credits_max: hi });
+    if (hi > lim.max) issues.push({ kind: "credits", sem, ids: [], text: `Semester ${sem} has ${text} credits, over the ${lim.max}-credit limit.` });
+    if (lo < lim.min) issues.push({ kind: "credits", sem, ids: [], text: `Semester ${sem} has ${text} credits, under the ${lim.min}-credit full-time minimum.` });
+  }
+
+  // 2. Prerequisites and class standing (from UC's catalog). Where is each course code
+  // in the draft? A course is found by its UC code or its code in the draft, so a
+  // renamed course still satisfies its old code. A code may be held by several courses;
+  // the earliest placement counts.
+  const semOfCode = new Map();
+  for (const c of kept) {
+    const b = c.base ? baseByKey.get(c.base) : null;
+    for (const code of new Set([c.code, b?.course_code].filter(Boolean))) {
+      semOfCode.set(code, Math.min(semOfCode.get(code) ?? Infinity, c.sem));
+    }
+  }
+  for (const c of kept) {
+    const b = c.base ? baseByKey.get(c.base) : null;
+    const own = b?.course_code || c.code; // the requirement belongs to UC's course
+    const p = own ? prereqByCode.get(own) : null;
+    if (!p) continue;
+    const alts = p.plan_alternatives;
+    // Satisfied if every course of some alternative is placed in an earlier semester.
+    if (alts.length && !alts.some((a) => a.every((code) => (semOfCode.get(code) ?? Infinity) < c.sem))) {
+      // Explain every listed course that is not in an earlier semester (each once:
+      // new Set drops a code shared by two alternatives).
+      const late = [...new Set(alts.flat())].filter((code) => !((semOfCode.get(code) ?? Infinity) < c.sem));
+      const reasons = late.map((code) => {
+        const s = semOfCode.get(code);
+        return s === undefined ? `${code} is removed` : s === c.sem ? `${code} is in the same semester` : `${code} is in semester ${s}`;
+      });
+      issues.push({ kind: "prereq", sem: c.sem, ids: [c.id],
+        text: `${own} (semester ${c.sem}) needs ${alts.map((a) => a.join(" + ")).join(" or ")} first, but ${reasons.join(" and ")}.` });
+    }
+    if (p.min_sem && (c.sem < p.min_sem || c.sem > p.max_sem)) {
+      const range = p.max_sem < 8 ? `semesters ${p.min_sem}–${p.max_sem}` : `semester ${p.min_sem} or later`;
+      issues.push({ kind: "standing", sem: c.sem, ids: [c.id],
+        text: `${own} (semester ${c.sem}) is for ${p.standing} standing (${range}).` });
+    }
+  }
+
+  // 3. Non-CS courses changed in a draft made before they were fixed.
+  for (const c of d.courses) {
+    if (isEditable(c) && (c.base || c.area === EDITABLE_AREA)) continue;
+    const ch = changesOf(c);
+    if (!ch.added && !ch.removed && !ch.moved && !ch.fields.length) continue;
+    issues.push({ kind: "fixed", sem: c.removed ? null : c.sem, ids: [c.id],
+      text: `${c.code || c.title} is not a CS course, so it is fixed, but this draft changes it (${changePhrases(c).join("; ")}).` });
+  }
+  return issues;
+}
+
+// Does a draft course count toward the degree total (UC's flag; added courses do)?
+function countsToward(c) {
+  const b = c.base ? baseByKey.get(c.base) : null;
+  return b ? b.counts_toward_total !== false : true;
+}
+
+// Put every non-CS course back as UC has it (one Undo step): fields and semester, and
+// delete added non-CS courses. For drafts made before non-CS courses were fixed.
+function resetFixedCourses() {
+  commit((d) => {
+    d.courses = d.courses.filter((c) => c.base || c.area === EDITABLE_AREA);
+    for (const c of [...d.courses]) {
+      const b = c.base ? baseByKey.get(c.base) : null;
+      if (!b || b.subject_area === EDITABLE_AREA) continue;
+      Object.assign(c, { code: b.course_code, title: b.title, credits_min: b.credits_min, credits_max: b.credits_max,
+        area: b.subject_area, description: b.description, canonical: b.matches.map((m) => m.canonical_id) });
+      if (c.removed || c.sem !== b.norm_semester) moveInList(d.courses, c, String(b.norm_semester));
+    }
+  }, "Put the non-CS courses back as UC has them.");
+}
+
+// The Checks box above the semesters: the credit limits (editable) and the list of
+// problems, or a line saying there are none.
+function renderChecks(issues) {
+  const box = d3.select("#checks");
+  box.selectAll("*").remove();
+  const lim = creditLimits();
+  const head = box.append("div").attr("class", "checks-head");
+  head.append("b").text(issues.length ? `Checks: ${issues.length} problem${issues.length === 1 ? "" : "s"}` : "Checks: no problems");
+  const limits = head.append("span").attr("class", "limits");
+  limits.append("span").text("Credits per semester:");
+  for (const [k, label] of [["min", "min"], ["max", "max"]]) {
+    const l = limits.append("label");
+    l.append("span").text(label);
+    l.append("input").attr("type", "number").attr("min", 0).attr("max", 30).attr("step", 1)
+      .attr("aria-label", `${label}imum credits per semester`).property("value", lim[k])
+      .on("change", (event) => {
+        const v = Number(event.target.value);
+        const next = { ...creditLimits(), [k]: v };
+        if (!Number.isFinite(v) || v < 0 || next.min > next.max) { flash("The minimum must not be above the maximum."); renderEditor(); return; }
+        store.limits = next;
+        saveStore();
+        renderEditor();
+        flash("Credit limits saved in this browser.");
+      });
+  }
+  if (!issues.length) {
+    box.append("p").attr("class", "ok").text(`Every semester has ${lim.min}–${lim.max} credits, every course comes after ` +
+      "its prerequisites in UC's plan, and class standing fits.");
+    return;
+  }
+  const LABEL = { credits: "Credits", prereq: "Prerequisite", standing: "Standing", fixed: "Fixed course" };
+  const li = box.append("ul").selectAll("li").data(issues).join("li");
+  li.append("span").attr("class", "tag warn").text((x) => LABEL[x.kind]);
+  li.append("span").text((x) => ` ${x.text}`);
+  if (issues.some((x) => x.kind === "fixed")) {
+    box.append("button").attr("class", "btn").attr("type", "button").text("Put non-CS courses back as UC has them")
+      .on("click", resetFixedCourses);
+  }
 }
 
 // The registry-like entry the charts use for a draft's side.
@@ -512,6 +674,11 @@ const cardHeight = (c) => Math.max(MIN_CARD_PX, c.credits_max * CARD_PX_PER_CRED
 // UC's. Hidden subject areas are left out of the cards but not of the credit totals.
 function renderEditor() {
   const d = currentDraft();
+  const issues = checkDraft(d);
+  // Index the issues by course, so drawCards can mark the cards.
+  issuesById = new Map();
+  for (const x of issues) for (const id of x.ids) issuesById.set(id, [...(issuesById.get(id) || []), x]);
+  renderChecks(issues);
   const root = d3.select("#years");
   root.selectAll("*").remove();
   for (let year = 1; year <= 4; year++) {
@@ -527,7 +694,8 @@ function renderEditor() {
       head.append("span").text(`UC Year ${s.orig_year} ${s.orig_term}`);
       const now = sumText(mine);
       const before = sumText(uc.academic.filter((r) => r.norm_semester === sem));
-      const cr = head.append("span").text(`${now} credits`);
+      const off = issues.some((x) => x.kind === "credits" && x.sem === sem);
+      const cr = head.append("span").classed("over", off).text(`${now} credits${off ? " ⚠" : ""}`);
       if (now !== before) cr.append("span").attr("class", "delta").text(` (UC: ${before})`);
       // data-drop marks the element as a drop target; its value is the semester.
       const stack = col.append("div").attr("class", "stack").attr("data-drop", sem);
@@ -563,13 +731,17 @@ function renderEditor() {
 function drawCards(stack, courses, removedMode) {
   const cards = stack.selectAll("button.card").data(courses, (c) => c.id).join("button")
     .attr("type", "button")
-    .attr("class", (c) => `card${isSlotCourse(c) ? " slot" : ""}`)
+    .attr("class", (c) => `card${isSlotCourse(c) ? " slot" : ""}${isEditable(c) ? "" : " locked"}${issuesById.has(c.id) ? " warn" : ""}`)
     .attr("data-id", (c) => c.id)
     .style("--stripe", (c) => areaByKey(c.area).color)
     // min-height, not height, so a card with change tags can grow to fit them.
     .style("min-height", removedMode ? null : (c) => `${cardHeight(c)}px`)
-    .attr("title", (c) => `${c.code || "Slot"}: ${c.title} (${credText(c)} cr). Drag to move; click to edit.`)
-    .attr("aria-label", (c) => `${c.code || "Slot"} ${c.title}, ${credText(c)} credits${removedMode ? ", removed" : `, semester ${c.sem}`}. Press Enter to edit.`);
+    .attr("title", (c) => [`${c.code || "Slot"}: ${c.title} (${credText(c)} cr).`,
+      isEditable(c) ? "Drag to move; click to edit." : "Not a CS course: fixed. Click to view.",
+      ...(issuesById.get(c.id) || []).map((x) => `⚠ ${x.text}`)].join("\n"))
+    .attr("aria-label", (c) => `${c.code || "Slot"} ${c.title}, ${credText(c)} credits${removedMode ? ", removed" : `, semester ${c.sem}`}` +
+      `${isEditable(c) ? ". Press Enter to edit." : ", fixed. Press Enter to view."}` +
+      (issuesById.has(c.id) ? ` Warning: ${issuesById.get(c.id).map((x) => x.text).join(" ")}` : ""));
 
   cards.each(function (c) {
     const card = d3.select(this);
@@ -584,6 +756,9 @@ function drawCards(stack, courses, removedMode) {
     if (ch.moved) tags.push(["moved", `moved from S${b.norm_semester}`]);
     if (ch.fields.length) tags.push(["revised", "revised"]);
     if (ch.added || ch.fields.includes("description")) tags.push(["proposed", "proposed"]);
+    // One warning tag per kind of problem on this course ("⚠ prereq", "⚠ standing").
+    const WARN = { prereq: "⚠ prereq", standing: "⚠ standing", fixed: "⚠ fixed" };
+    for (const kind of new Set((issuesById.get(c.id) || []).map((x) => x.kind))) tags.push(["warn", WARN[kind]]);
     if (removedMode && b) {
       card.append("span").attr("class", "title").text(c.title);
       card.append("span").attr("class", "was").text(`Was: ${semLabel(b.norm_semester)}`);
@@ -622,6 +797,7 @@ function enableDrag(el, course) {
     if (suppressClick) { suppressClick = false; return; }
     openCourseDialog(course);
   });
+  if (!isEditable(course)) return; // fixed (non-CS) courses open on click but don't drag
   el.addEventListener("pointerdown", (e) => {
     if (e.button !== 0) return; // left button / touch contact only
     const x0 = e.clientX;
@@ -764,6 +940,8 @@ let editing = null; // the course being edited, or null when adding
 // canonical courses (alphabetical, with "none" first).
 function setupDialog() {
   d3.select("#f-area").selectAll("option").data(AREAS).join("option").attr("value", (a) => a.key).text((a) => a.label);
+  // The area is never edited: only CS courses can be changed, and added ones are CS.
+  document.getElementById("f-area").disabled = true;
   const sems = [...d3.range(1, 9).map((s) => [String(s), semLabel(s)]), ["removed", "Removed"]];
   d3.select("#f-sem").selectAll("option").data(sems).join("option").attr("value", (s) => s[0]).text((s) => s[1]);
   const dlg = document.getElementById("course-dialog");
@@ -808,13 +986,30 @@ function openCourseDialog(course) {
   f("f-code").value = course ? course.code : "";
   f("f-title").value = course ? course.title : "";
   f("f-credits").value = course ? credText(course).replace("–", "-") : "3";
-  f("f-area").value = course ? course.area : "cs";
+  f("f-area").value = course ? course.area : EDITABLE_AREA;
   f("f-sem").value = !course ? "1" : course.removed ? "removed" : String(course.sem);
   f("f-desc").value = course ? course.description : "";
   fillCanonOptions(course);
   f("f-error").textContent = "";
-  f("f-restore").classList.toggle("hidden", !b);
-  f("f-remove").classList.toggle("hidden", !course || course.removed);
+  // A fixed (non-CS) course opens read-only: every field disabled, no Save / Remove.
+  const locked = !!course && !isEditable(course);
+  for (const id of ["f-code", "f-title", "f-credits", "f-sem", "f-canon", "f-desc"]) f(id).disabled = locked;
+  f("f-save").classList.toggle("hidden", locked);
+  f("f-cancel").textContent = locked ? "Close" : "Cancel";
+  f("f-locked").classList.toggle("hidden", !locked);
+  f("f-restore").classList.toggle("hidden", !b || locked);
+  f("f-remove").classList.toggle("hidden", !course || course.removed || locked);
+
+  // Prerequisites from UC's catalog (a UC course only), and this course's warnings.
+  const p = b?.course_code ? prereqByCode.get(b.course_code) : null;
+  const need = [p?.plan_alternatives.length ? `needs ${p.plan_alternatives.map((a) => a.join(" + ")).join(" or ")} in an earlier semester` : "",
+    p?.standing ? `is for ${p.standing} standing` : ""].filter(Boolean);
+  f("f-prereq").textContent = !b ? "Added courses have no prerequisites to check."
+    : need.length ? `In UC's plan, this course ${need.join(" and ")} (from UC's catalog).`
+      : "No prerequisites within UC's plan (from UC's catalog).";
+  const warn = d3.select("#f-warn");
+  warn.selectAll("*").remove();
+  for (const x of (course && issuesById.get(course.id)) || []) warn.append("li").text(x.text);
   f("f-remove").textContent = b ? "Remove" : "Delete";
 
   // UC's original, for reference (a UC course only).
@@ -827,6 +1022,10 @@ function openCourseDialog(course) {
       .text(b.description_source === "generic" ? "Description (generic, written for this project) " : "Description (UC catalog)");
     if (b.description_source === "generic") appendGenericBadge(h);
     orig.append("p").attr("class", "desc").text(b.description);
+    if (p) {
+      orig.append("p").style("margin", "6px 0 2px").style("font-weight", "600").text("Prerequisites (UC catalog)");
+      orig.append("p").attr("class", "desc").text(p.text);
+    }
   }
   hideTooltip();
   f("course-dialog").showModal();
@@ -837,6 +1036,7 @@ function openCourseDialog(course) {
 // (and shows why) when a field is invalid.
 function saveCourseDialog() {
   const f = (id) => document.getElementById(id);
+  if (editing && !isEditable(editing)) return true; // read-only: nothing to save
   const title = f("f-title").value.trim();
   // Credits: one number, or a range "4-5" / "4–5". (\d+(?:\.\d+)?) is a whole or decimal
   // number; the second, optional group is the top of the range.
@@ -1414,11 +1614,13 @@ function renderVsTable(d, other, draftAll, schoolAll) {
 // Entry point
 // ---------------------------------------------------------------------------------
 
-// Load every school's table, pick out UC's rows, then open the last-used draft (or
+// Load every school's table and UC's prerequisites, pick out UC's rows, then open the last-used draft (or
 // make a first one, so the user can start dragging right away) and draw.
-loadAllSchools()
-  .then((loaded) => {
+// The prerequisites file is fetched alongside; Promise.all waits for both.
+Promise.all([loadAllSchools(), d3.json(DATA_DIR + "uc/prerequisites.json")])
+  .then(([loaded, prereqs]) => {
     data = loaded;
+    prereqByCode = new Map(prereqs.map((p) => [p.course_code, p]));
     canonById = new Map(data.canon.map((c) => [c.canonical_id, c]));
     const ucRows = data.rows.filter((r) => r.school.school_id === "uc");
     uc.academic = ucRows.filter((r) => r.norm_semester !== null);

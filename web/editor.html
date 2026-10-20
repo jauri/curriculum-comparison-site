@@ -73,6 +73,25 @@
     .tag.moved { color: var(--ink-2); border-style: dotted; }
     .tag.removed { color: var(--later); }
     .tag.proposed { color: var(--ink-2); border-style: dashed; }
+    .tag.warn { color: var(--later); }
+
+    /* Checks: a fixed (non-CS) card can't be dragged, so it gets the plain cursor and the
+       page background; a card with a problem gets a warning-colored border. */
+    .card.locked { cursor: default; background: var(--page); }
+    .card.locked:hover { background: var(--page); }
+    .card.warn { border-color: var(--later); border-left-color: var(--stripe); }
+    .sem-head span.over { color: var(--later); font-weight: 600; }
+    .checks { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 0 0 16px; font-size: 13px; }
+    .checks-head { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; justify-content: space-between; }
+    .checks-head b { font-size: 14px; }
+    .checks .limits { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; color: var(--ink-2); }
+    .checks .limits label { display: inline-flex; gap: 4px; align-items: center; }
+    .checks .limits input { width: 4em; font: inherit; color: var(--ink); background: var(--page); border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px; }
+    .checks ul { margin: 8px 0; padding-left: 0; list-style: none; }
+    .checks li { margin: 3px 0; }
+    .checks .ok { margin: 6px 0 0; color: var(--ink-2); }
+    .dlg-note { font-size: 13px; color: var(--ink-2); margin: 8px 0 0; }
+    .dlg-warn { font-size: 13px; color: var(--later); margin: 4px 0 0; padding-left: 18px; }
 
     /* Removed area: a wrapping row of cards under the semesters. */
     .removed-box { margin-top: 16px; background: var(--surface); border: 1px dashed var(--axis); border-radius: 8px; padding: 12px; }
@@ -197,6 +216,16 @@
     use <em>Add a course</em> for a new one. Every change is saved in this browser right
     away; use <em>Export</em> to keep a copy or move your drafts to another device. The
     draft covers UC's 8 academic semesters; co-op work terms are not editable.
+    Only <strong>CS courses</strong> can be moved, removed, or revised, and added
+    courses are CS courses; math, science, engineering, writing, and general education
+    stay as UC has them (click one to view it).
+  </div>
+  <div class="note">
+    <strong>Checks.</strong> The editor warns (but doesn't stop you) when a semester's
+    credits fall outside the limits you set, when a course comes before or in the same
+    semester as a prerequisite (or its prerequisite is removed), or when a course is
+    placed before the class standing it requires. Prerequisites are read from UC's
+    catalog; only those within UC's own plan can be checked, and added courses have none.
   </div>
   <div class="note">
     <strong>Descriptions.</strong> Text you write in the editor is marked
@@ -225,6 +254,7 @@
 
   <h2>1. Edit the draft</h2>
   <p class="muted" id="draft-summary"></p>
+  <div class="checks" id="checks" aria-live="polite"></div>
   <div class="years" id="years"></div>
   <div class="removed-box">
     <h3>Removed</h3>
@@ -284,6 +314,9 @@
       <label for="f-desc" class="full">Description</label>
       <textarea id="f-desc" class="full"></textarea>
     </div>
+    <p class="dlg-note hidden" id="f-locked">This is not a CS course, so it is fixed in every draft.</p>
+    <p class="dlg-note" id="f-prereq"></p>
+    <ul class="dlg-warn" id="f-warn"></ul>
     <p class="form-error" id="f-error" role="alert"></p>
     <details class="orig" id="f-orig"></details>
     <div class="dialog-buttons">

@@ -98,7 +98,7 @@
   <div class="note">
     <strong>How to read this.</strong> Each box is a required course or requirement slot,
     placed in its semester of a 4-year plan (UC's 5-year co-op plan is normalized to 8
-    semesters; co-op work terms are left out). Box height is proportional to credits. A line
+    semesters; co-op work terms are left out unless <em>Show co-op terms</em> is on). Box height is proportional to credits. A line
     joins two courses that our reviewed matching assigns to the same canonical course (a
     course may match more than one); dashed lines are partial matches, and dotted lines are
     possible matches through one option of a choice (the student may take another). A line that slopes down means the other school takes that
@@ -111,8 +111,17 @@
     project, not the school's own catalog text.
   </div>
 
+  <div class="note">
+    <strong>Co-op terms.</strong> With <em>Show co-op terms</em> on, each school's co-op work
+    terms appear in their place between academic semesters (shaded rows), and a school with no
+    co-op term at that point gets an empty "No co-op term" box, so semester 3 is still across
+    from semester 3. Each side is then labeled with its own school's terms: UC's semester 3 is
+    its Year 2 Spring, while a school without co-op takes semester 3 in Year 2 Fall.
+  </div>
+
   <div class="filters" id="filters">
     <label>Compare UC with <select id="school"></select></label>
+    <label><input type="checkbox" id="coop"> Show co-op terms</label>
     <span id="area-filters" style="display:contents"></span>
   </div>
   <div class="legend" id="legend"></div>

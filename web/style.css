@@ -171,3 +171,11 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .tooltip .tip-head { margin-top: 6px; font-weight: 600; color: var(--ink); font-size: 11px; }
 .tooltip .tip-desc { margin: 2px 0 0; color: var(--ink-2); font-size: 12px; max-width: none; }
 .tooltip .badge-generic { font-size: 9px; padding: 0 4px; }
+
+/* Co-op terms in the alignment views (common.js, drawSlotBands): a shaded band behind
+   each co-op slot, co-op boxes in the co-op color, and a dashed empty box where a school
+   has no co-op term at that point. */
+.coop-band { fill: var(--coop); opacity: 0.35; }
+svg .node.coop .box { fill: var(--coop); } /* svg raises specificity over the pages' faded styles */
+.coop-empty { fill: none; stroke: var(--axis); stroke-dasharray: 4 3; }
+.coop-empty-text { fill: var(--muted); font-size: 11px; font-style: italic; }

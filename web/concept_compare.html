@@ -119,7 +119,8 @@
 
   <div class="note">
     <strong>How to read this.</strong> Courses are placed as in the Alignment tab: by semester
-    of a 4-year plan, with box height proportional to credits. Each CS course's concepts (from
+    of a 4-year plan, with box height proportional to credits (and, with <em>Show co-op
+    terms</em> on, each school's co-op work terms in their place between semesters). Each CS course's concepts (from
     our tags of its catalog description) are split evenly among its concepts. A concept that
     also appears in a course at the other school sends its share there as a band; if it appears
     in two of the other school's courses, its share is split between them. The column on each
@@ -136,8 +137,17 @@
     <span id="proposed-note"></span>
   </div>
 
+  <div class="note">
+    <strong>Co-op terms.</strong> With <em>Show co-op terms</em> on, each school's co-op work
+    terms appear in their place between academic semesters (shaded rows), and a school with no
+    co-op term at that point gets an empty "No co-op term" box, so semester 3 is still across
+    from semester 3. Each side is then labeled with its own school's terms: UC's semester 3 is
+    its Year 2 Spring, while a school without co-op takes semester 3 in Year 2 Fall.
+  </div>
+
   <div class="filters" id="filters">
     <label>Compare UC with <select id="school"></select></label>
+    <label><input type="checkbox" id="coop"> Show co-op terms</label>
     <span id="area-filters" style="display:contents"></span>
     <label>Hide bands under <input type="range" id="min-share" min="0" max="50" step="5" value="0">
       <output id="min-share-out">0%</output></label>

@@ -175,8 +175,149 @@ function rowLabel(r) {
   return r.course_code || r.title;
 }
 
-// "Semester 3 · Year 2 Fall" for a row.
+// "Semester 3 · Year 2 Fall" for a row. A co-op row has no normalized semester, so it
+// gets its plan placement instead ("Co-op term · Year 2 Fall").
 function semText(r) {
+  if (r.norm_semester === null) return `Co-op term · Year ${r.orig_year} ${r.orig_term}`;
   return `Semester ${r.norm_semester} · Year ${r.norm_year} ${r.norm_term}`;
 }
 
+
+// Co-op terms in the alignment views (compare.js and concept_compare.js). With the
+// "Show co-op terms" toggle off, both views show the 8 normalized semesters, as before.
+// With it on, each school's co-op work terms are drawn in their real place between
+// academic semesters, and a school with no co-op term at that point gets an empty slot,
+// so semester k still lines up across the two sides. Spec: 06-alignment-view.md, "Co-op terms".
+
+// Order of terms within one plan year (the plans' orig_term values), used to put co-op
+// terms in chronological order among the academic ones.
+const TERM_ORDER = ["Fall", "Spring", "Summer", "Summer 1", "Summer 2"];
+// One sortable number per term: plan year first, then the term's place in the year.
+const termRank = (r) => r.orig_year * 10 + TERM_ORDER.indexOf(r.orig_term);
+// "Year 2 Spring", a row's original placement in its school's plan.
+const origTermText = (r) => `Year ${r.orig_year} ${r.orig_term}`;
+// Co-op rows are 0 credits, so they get a fixed height that fits two lines of text.
+const COOP_NODE_PX = 34;
+// Label gutter width on each side with co-op terms on: wide enough for "Year 2 Summer 1".
+const COOP_LABEL_W = 118;
+
+// Where each of one school's co-op rows goes: Map(row -> {gap, i}), where gap is the
+// number of normalized semesters finished before the co-op term (the highest
+// norm_semester among academic rows earlier in the plan) and i numbers the co-op terms
+// in the same gap (Northeastern's Spring + Summer 1 co-op is two terms in one gap).
+// The gap uses norm_semester, not the term index, so half-term pairs (03-processing.md,
+// rule 6) count once.
+function coopGaps(rows) {
+  const academic = rows.filter((r) => r.norm_semester !== null);
+  const coops = rows.filter((r) => r.is_coop).sort((a, b) => termRank(a) - termRank(b));
+  const out = new Map();
+  const used = new Map(); // gap -> co-op terms already placed in it
+  for (const c of coops) {
+    // d3.max returns undefined when no academic term comes first; ?? makes that gap 0.
+    const gap = d3.max(academic.filter((a) => termRank(a) < termRank(c)), (a) => a.norm_semester) ?? 0;
+    const i = used.get(gap) || 0;
+    used.set(gap, i + 1);
+    out.set(c, { gap, i });
+  }
+  return out;
+}
+
+// The vertical slots of an alignment view: semesters 1-8, plus (when withCoop) co-op
+// slots after semester k, as many as the side with more co-op terms there needs.
+// Returns { slots, slotOf }: slots is the top-to-bottom list of
+// {kind: "sem", sem} or {kind: "coop", gap, i}, and slotOf(row) is a row's slot index,
+// or null for a row that is not drawn (a co-op row when withCoop is off).
+function termSlots(leftRows, rightRows, withCoop) {
+  const gaps = new Map([...(withCoop ? coopGaps(leftRows) : []), ...(withCoop ? coopGaps(rightRows) : [])]);
+  // Co-op slots needed after each semester: the larger of the two sides' counts.
+  const need = d3.rollup([...gaps.values()], (v) => d3.max(v, (g) => g.i + 1), (g) => g.gap);
+  const slots = [];
+  const index = new Map(); // "s3" or "c3.0" -> slot index
+  for (let k = 0; k <= 8; k++) {
+    if (k > 0) { index.set(`s${k}`, slots.length); slots.push({ kind: "sem", sem: k }); }
+    for (let i = 0; i < (need.get(k) || 0); i++) {
+      index.set(`c${k}.${i}`, slots.length);
+      slots.push({ kind: "coop", gap: k, i });
+    }
+  }
+  const slotOf = (r) => {
+    if (r.norm_semester !== null) return index.get(`s${r.norm_semester}`);
+    const g = gaps.get(r);
+    return g ? index.get(`c${g.gap}.${g.i}`) : null;
+  };
+  return { slots, slotOf };
+}
+
+// Draw the slot bands of an alignment view: a rule at the top of each slot, a shaded
+// background behind co-op slots, the slot labels, and a dashed "No co-op term" box where
+// one side has no co-op term in a co-op slot.
+// - Co-op toggle off: one label per semester in the left gutter, the normalized
+//   "Semester 3 / Year 2 Fall", as the views always had.
+// - Co-op toggle on: each side gets its own gutter (UC left, the other school right),
+//   labeled with that school's own term ("Semester 3 / Year 2 Spring" at UC, "Year 2 Fall"
+//   at a school without co-op), since the same row can be a different term at each.
+// m holds slots, bandTop, bandH, withCoop, and the drawn nodes by side and slot
+// (m.bySlot.L / .R, Maps from slot index to nodes); rowsL / rowsR are both schools'
+// rows, so a semester is labeled even when the subject filter hides all its courses.
+function drawSlotBands(svg, m, { width, xL, xR, nodeW, rowsL, rowsR }) {
+  const g = svg.append("g");
+  m.slots.forEach((s, i) => {
+    const y = m.bandTop[i];
+    if (s.kind === "coop") {
+      g.append("rect").attr("class", "coop-band").attr("x", 0).attr("width", width).attr("y", y).attr("height", m.bandH[i]);
+    }
+    g.append("line").attr("class", "band-rule").attr("x1", 0).attr("x2", width).attr("y1", y).attr("y2", y);
+  });
+
+  // A two-or-more-line label: a bold first line, then the others, each fitted to its
+  // gutter (the space between the chart edge and the nodes, less 8px of margin at each
+  // end). <tspan> supports getComputedTextLength, so fitSvgText works on each line.
+  const gutterW = (anchor) => (anchor === "start" ? xL : width - xR - nodeW) - 16;
+  const label = (x, y, anchor, head, lines) => {
+    const t = g.append("text").attr("class", "band-label").attr("x", x).attr("y", y + 18).attr("text-anchor", anchor);
+    fitSvgText(t.append("tspan").attr("class", "sem").node(), head, gutterW(anchor));
+    for (const line of lines) fitSvgText(t.append("tspan").attr("x", x).attr("dy", 15).node(), line, gutterW(anchor));
+  };
+  if (!m.withCoop) {
+    m.slots.forEach((s, i) => label(8, m.bandTop[i], "start", `Semester ${s.sem}`,
+      // Year and Fall/Spring follow from k by the normalization rule (03-processing.md).
+      [`Year ${Math.ceil(s.sem / 2)} ${s.sem % 2 ? "Fall" : "Spring"}`]));
+    return;
+  }
+
+  const gapsL = coopGaps(rowsL);
+  const gapsR = coopGaps(rowsR);
+  const sides = [["L", rowsL, gapsL, 8, "start", xL], ["R", rowsR, gapsR, width - 8, "end", xR]];
+  m.slots.forEach((s, i) => {
+    const y = m.bandTop[i];
+    for (const [side, rows, gaps, x, anchor, xNode] of sides) {
+      if (s.kind === "sem") {
+        // The school's own term(s) for this semester, in plan order without repeats:
+        // usually one, two for a pair of half-terms (e.g. Northeastern's summers).
+        const terms = [...new Set(rows.filter((r) => r.norm_semester === s.sem)
+          .sort((a, b) => termRank(a) - termRank(b)).map(origTermText))];
+        label(x, y, anchor, `Semester ${s.sem}`, terms);
+        continue;
+      }
+      // [...gaps] lists [row, {gap, i}] pairs; find() picks this slot's co-op row, if any.
+      const hit = [...gaps].find(([, p]) => p.gap === s.gap && p.i === s.i);
+      if (hit) {
+        label(x, y, anchor, "Co-op", [origTermText(hit[0])]);
+      } else {
+        // No co-op term here at this school: an empty, dashed placeholder box.
+        const boxY = y + (m.bandH[i] - COOP_NODE_PX) / 2;
+        g.append("rect").attr("class", "coop-empty").attr("x", xNode).attr("y", boxY)
+          .attr("width", nodeW).attr("height", COOP_NODE_PX).attr("rx", 4);
+        g.append("text").attr("class", "coop-empty-text").attr("x", xNode + nodeW / 2).attr("y", boxY + COOP_NODE_PX / 2 + 4)
+          .attr("text-anchor", "middle").text("No co-op term");
+      }
+    }
+  });
+}
+
+// Read the co-op toggle from the URL (?coop=1) and keep the URL in step with the page
+// state, so a view with co-op terms on can be shared or bookmarked like ?school=osu.
+const coopFromUrl = () => new URLSearchParams(location.search).get("coop") === "1";
+function writeViewUrl(state) {
+  history.replaceState(null, "", `?school=${state.school}${state.coop ? "&coop=1" : ""}`);
+}

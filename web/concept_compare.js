@@ -31,7 +31,8 @@ const SPARSE_COURSES = 6; // warn when the other school has fewer tagged courses
 
 // Page state that survives redraws. Only the CS area is on by default, since only CS
 // courses are tagged (the spec's "Nodes"); every concept group is on.
-const state = { school: null, areas: new Set(["cs"]), groups: null, minShare: 0, pinnedId: null };
+// coop: whether co-op work terms are drawn in their place (the "Show co-op terms" toggle).
+const state = { school: null, areas: new Set(["cs"]), groups: null, minShare: 0, pinnedId: null, coop: false };
 let data = null; // { schools, canon, rows } from loadAllSchools()
 let tagsByRow = null; // Map("<school_id>|<course_code>" -> [tag, ...])
 let groups = null; // the concept groups, in concepts.csv order
@@ -61,6 +62,7 @@ function conceptsOf(r) {
 // Why a row has no concepts to show, for its tooltip and the detail panel. The order
 // follows the scope rule in specs/08-concepts.md (named CS course, official description).
 function untaggedReason(r) {
+  if (r.is_coop) return "a co-op work term, not a course";
   if (!r.course_code) return "a requirement slot, which has no fixed content";
   if (r.subject_area !== "cs") return "not a CS course (only CS courses are tagged)";
   if (r.description_source === "generic") return "its description is generic (written for this project), so it is not evidence";
@@ -68,8 +70,10 @@ function untaggedReason(r) {
   return "its description names no concept in the vocabulary";
 }
 
-// Node height for one row: proportional to credits, never below MIN_NODE_PX (as in compare.js).
+// Node height for one row: proportional to credits, never below MIN_NODE_PX (as in
+// compare.js). Co-op rows (0 credits) get the fixed COOP_NODE_PX.
 function nodeHeight(r) {
+  if (r.is_coop) return COOP_NODE_PX;
   return Math.max(MIN_NODE_PX, r.credits_max * PX_PER_CREDIT);
 }
 
@@ -87,11 +91,15 @@ function nodeHeight(r) {
 // Shares are computed over ALL placed rows, before the subject filter, so hiding an area
 // never changes a percentage (only CS rows have tags, so in practice this only matters
 // when CS itself is unchecked). The filter and the slider then choose what is drawn.
+//
+// With the co-op toggle on, co-op rows are nodes too, in the co-op slots between
+// semesters (termSlots in common.js). They have no tags, so no shares change.
 function buildModel(ucRows, otherRows) {
+  const { slots, slotOf } = termSlots(ucRows, otherRows, state.coop);
   const nodes = (rows, side) => rows
-    .filter((r) => r.norm_semester !== null)
+    .filter((r) => slotOf(r) !== null && slotOf(r) !== undefined)
     .map((r, i) => ({
-      id: `${side}${i}`, side, row: r, sem: r.norm_semester, h: nodeHeight(r), area: areaOf(r),
+      id: `${side}${i}`, side, row: r, sem: r.norm_semester, slot: slotOf(r), h: nodeHeight(r), area: areaOf(r),
       concepts: conceptsOf(r), allBands: [],
     }));
   let left = nodes(ucRows, "L");
@@ -143,7 +151,8 @@ function buildModel(ucRows, otherRows) {
   // Apply the subject filter, then the minimum-share slider. A band is kept if both ends
   // are shown and its larger end reaches the threshold. n.bands drives drawing,
   // highlighting, and ordering; n.allBands keeps the full split for the share bar.
-  const shown = (n) => state.areas.has(n.area.key);
+  // Co-op terms follow the co-op toggle only, not the subject filter.
+  const shown = (n) => n.row.is_coop || state.areas.has(n.area.key);
   left = left.filter(shown);
   right = right.filter(shown);
   const bands = allBands.filter((b) => shown(b.source) && shown(b.target) &&
@@ -151,21 +160,22 @@ function buildModel(ucRows, otherRows) {
   const bandSet = new Set(bands);
   for (const n of [...left, ...right]) n.bands = n.allBands.filter((b) => bandSet.has(b));
 
-  // Semester bands, as in compare.js: band k is as tall as the taller side's stack, so
-  // semester k lines up across the two sides.
-  const sems = d3.range(1, 9);
-  const stackHeight = (ns, k) => d3.sum(ns.filter((n) => n.sem === k), (n) => n.h + NODE_GAP);
-  const bandH = sems.map((k) => Math.max(stackHeight(left, k), stackHeight(right, k)) + 2 * BAND_PAD);
+  // Slot bands, as in compare.js: band k is as tall as the taller side's stack, so
+  // semester k lines up across the two sides; a co-op slot fits at least one co-op box.
+  const stackHeight = (ns, k) => d3.sum(ns.filter((n) => n.slot === k), (n) => n.h + NODE_GAP);
+  const bandH = slots.map((s, k) => Math.max(stackHeight(left, k), stackHeight(right, k),
+    s.kind === "coop" ? COOP_NODE_PX : 0) + 2 * BAND_PAD);
   const bandTop = [0, ...d3.cumsum(bandH)].map((y) => y + HEAD_H);
-  const groupsBySem = { L: d3.group(left, (n) => n.sem), R: d3.group(right, (n) => n.sem) };
-  return { left, right, bands, sems, bandH, bandTop, groupsBySem, height: bandTop[8] + 8, holdL, holdR };
+  const groupsBySem = { L: d3.group(left, (n) => n.slot), R: d3.group(right, (n) => n.slot) };
+  return { left, right, bands, slots, bandH, bandTop, groupsBySem, bySlot: groupsBySem, withCoop: state.coop,
+    height: bandTop[slots.length] + 8, holdL, holdR };
 }
 
 // Stack each semester's nodes from the top of its band in their current order.
 function placeNodes(m) {
   for (const side of ["L", "R"]) {
     for (const [k, ns] of m.groupsBySem[side]) {
-      let y = m.bandTop[k - 1] + BAND_PAD;
+      let y = m.bandTop[k] + BAND_PAD;
       for (const n of ns) { n.y = y; y += n.h + NODE_GAP; }
     }
   }
@@ -258,10 +268,14 @@ function draw() {
   orderNodes(model);
   placeSegments(model);
 
+  // With co-op terms on, the other school gets its own label gutter on the right.
   const wrap = document.querySelector(".chart-wrap");
-  const width = Math.max(wrap.clientWidth, LABEL_W + 2 * NODE_W + MIN_LINK_W + RIGHT_PAD);
-  const xL = LABEL_W;
-  const xR = width - NODE_W - RIGHT_PAD;
+  // Co-op labels ("Year 2 Summer 1") need wider gutters than the normalized ones.
+  const leftGutter = state.coop ? COOP_LABEL_W : LABEL_W;
+  const rightGutter = state.coop ? COOP_LABEL_W : RIGHT_PAD;
+  const width = Math.max(wrap.clientWidth, leftGutter + 2 * NODE_W + MIN_LINK_W + rightGutter);
+  const xL = leftGutter;
+  const xR = width - NODE_W - rightGutter;
 
   const svg = d3.select("#chart").attr("width", width).attr("height", model.height)
     .attr("viewBox", `0 0 ${width} ${model.height}`);
@@ -281,14 +295,8 @@ function draw() {
       `${s.institution}, ${s.program}`, NODE_W);
   }
 
-  const bandG = svg.append("g");
-  model.sems.forEach((k, i) => {
-    const y = model.bandTop[i];
-    bandG.append("line").attr("class", "band-rule").attr("x1", 0).attr("x2", width).attr("y1", y).attr("y2", y);
-    const t = bandG.append("text").attr("class", "band-label").attr("x", 8).attr("y", y + 18);
-    t.append("tspan").attr("class", "sem").text(`Semester ${k}`);
-    t.append("tspan").attr("x", 8).attr("dy", 15).text(`Year ${Math.ceil(k / 2)} ${k % 2 ? "Fall" : "Spring"}`);
-  });
+  // Semester (and co-op) bands: rules, labels, and empty co-op placeholders (common.js).
+  drawSlotBands(svg, model, { width, xL, xR, nodeW: NODE_W, rowsL: ucRows, rowsR: otherRows });
 
   // Bands under the nodes. They start at the outer edge of each share bar.
   svg.append("g").selectAll("path").data(model.bands, (b) => b.id).join("path")
@@ -299,7 +307,9 @@ function draw() {
     .on("click", (event, b) => { event.stopPropagation(); togglePin(b); });
 
   const nodeSel = svg.append("g").selectAll("g").data([...model.left, ...model.right], (n) => n.id).join("g")
-    .attr("class", (n) => ["node", n.row.course_code ? "" : "slot", n.concepts.size ? "" : "untagged"].join(" "))
+    // Co-op terms get their own style instead of the faded "not assessed" one.
+    .attr("class", (n) => (n.row.is_coop ? "node coop"
+      : ["node", n.row.course_code ? "" : "slot", n.concepts.size ? "" : "untagged"].join(" ")))
     .attr("transform", (n) => `translate(${n.side === "L" ? xL : xR},${n.y})`)
     .attr("tabindex", 0)
     .attr("role", "button")
@@ -353,7 +363,8 @@ function draw() {
         .attr("y", y1).attr("text-anchor", "end").text("GENERIC");
     }
     if (twoLines) {
-      const second = r.course_code ? r.title : `${creditText(r)} cr, student chooses`;
+      const second = r.is_coop ? `${r.course_code ? `${r.title} · ` : "Work term · "}${origTermText(r)}`
+        : r.course_code ? r.title : `${creditText(r)} cr, student chooses`;
       fitSvgText(g.append("text").attr("class", "title").attr("x", x0).attr("y", 27).node(), second, NODE_W - BAR_W - 20);
     }
   });
@@ -632,7 +643,17 @@ function setupControls() {
   d3.select("#school").on("change", (event) => {
     state.school = event.target.value;
     state.pinnedId = null; // node ids belong to one comparison
-    history.replaceState(null, "", `?school=${state.school}`);
+    writeViewUrl(state);
+    draw();
+  });
+
+  // The co-op toggle (off by default, or from ?coop=1). Node ids depend on which rows
+  // are drawn, so switching it unpins.
+  state.coop = coopFromUrl();
+  d3.select("#coop").property("checked", state.coop).on("change", (event) => {
+    state.coop = event.target.checked;
+    state.pinnedId = null;
+    writeViewUrl(state);
     draw();
   });
 

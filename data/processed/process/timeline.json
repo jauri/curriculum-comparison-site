@@ -1,12 +1,12 @@
 {
  "counts": {
   "sessions": 27,
-  "you": 166,
+  "you": 167,
   "answers": 119,
-  "claude": 700,
+  "claude": 703,
   "questions": 132,
-  "actions": 2016,
-  "cards": 193,
+  "actions": 2037,
+  "cards": 194,
   "commits": 42,
   "hidden": 0,
   "first": "Oct 16, 2026",
@@ -528,10 +528,10 @@
      },
      {
       "i": 24,
-      "you": 1,
-      "claude": 42,
-      "you_min": 5.0,
-      "claude_min": 5.0,
+      "you": 2,
+      "claude": 66,
+      "you_min": 7.5,
+      "claude_min": 7.2,
       "first": "u-e1a7d73e-5e2"
      }
     ]
@@ -563,7 +563,7 @@
    "own": 5,
    "no_rec": 14
   },
-  "unclassified": 46,
+  "unclassified": 47,
   "reviewed": 0,
   "rows": 120,
   "steps": [
@@ -931,11 +931,11 @@
  },
  "tokens": {
   "totals": {
-   "replies": 1864,
-   "output": 1786811,
-   "cache_write": 7413316,
-   "input": 3732,
-   "cache_read": 284349972
+   "replies": 1881,
+   "output": 1800519,
+   "cache_write": 7458339,
+   "input": 3766,
+   "cache_read": 287045597
   },
   "steps": [
    {
@@ -1112,11 +1112,11 @@
     "id": "p-21",
     "step": "21",
     "title": "Process page",
-    "replies": 591,
-    "output": 561392,
-    "cache_write": 3308986,
-    "input": 1184,
-    "cache_read": 66398609
+    "replies": 608,
+    "output": 575100,
+    "cache_write": 3354009,
+    "input": 1218,
+    "cache_read": 69094234
    }
   ]
  },
@@ -26229,9 +26229,14 @@
      "tool": "Bash",
      "label": "python3 - <<'EOF'",
      "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": ".venv/bin/python src/collect_process.py >/dev/null && .venv/bin/python src/parse_transcripts.py | ta",
+     "kind": "command"
     }
    ],
-   "summary": "Ran 21 commands · wrote parse_uc_prereqs.py · 13 browser steps · 2 other · published the site",
+   "summary": "Ran 22 commands · wrote parse_uc_prereqs.py · 13 browser steps · 2 other · published the site",
    "iso": "2026-10-20T16:09:06.616000+00:00",
    "label": "12:09 PM",
    "end_label": "12:14 PM"
@@ -26270,6 +26275,144 @@
    "text": "Browser tests pass with no console errors, and your saved drafts are back as they were. Next I'm closing the test tab and updating the spec and progress notes.",
    "iso": "2026-10-20T16:13:44.964000+00:00",
    "label": "12:13 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-ef8b285a-9d4",
+   "text": "The editor now checks drafts for credit and prerequisite problems, and only CS courses can be changed. Your saved \"Draft 1\" has no problems. It's published at https://jauri.github.io/curriculum-comparison-site/web/editor.html but not committed. I tested it in Chrome on a throwaway draft, deleted that afterwards, and saw no console errors.\n\n**Only CS courses can be edited.** Math, science, engineering, writing and gen-ed cards can't be dragged, and clicking one opens it read-only. New courses are always CS, so the subject-area field is locked. \"CS\" means the CS subject area, so IT 2030C and the CS/directed elective slots can be edited too. If a draft made before this change edited a non-CS course, it gets a warning and a button that puts those courses back as UC has them (Undo reverses it).\n\n**Checks.** A Checks box above the semesters lists every problem. It warns but doesn't stop the change, so a committee can still look at a plan that breaks a rule.\n- **Credits:** a semester under 12 or over 18 credits. These are my defaults (UC's plan has 15–17 in every semester), and you can change both numbers on the page.\n- **Prerequisites:** a course in the same semester as, or before, one of its prerequisites, or whose prerequisite has been removed. For example: \"CS 3003 (semester 4) needs CS 2028C first, but CS 2028C is in semester 5.\"\n- **Class standing:** courses UC's catalog limits by year, for example CS 2023 needs Sophomore standing, which I read as semester 3 or later.\n- Courses with a problem get a red border and a tag (⚠ prereq, ⚠ standing). A semester outside the limits gets a ⚠ next to its credit total. The course dialog shows the course's prerequisites and any warnings.\n\n**Where the prerequisites come from:** a new script, `src/parse_uc_prereqs.py`, reads UC's catalog prerequisite text and writes `data/processed/uc/prerequisites.csv` and `.json`. The rules it uses to read the text are written in the script; a few are worth checking:\n- The catalog has no parentheses, so I read \"A, B, or C\" as (A and B) or C.\n- Only prerequisites that are themselves in UC's plan can be checked. Other courses, like EECE 2080C, are ignored.\n- If a placement test can replace the prerequisite courses, there's nothing to check. That's why ENED 1021 and MATH 1061 can sit in semester 1.\n- The script stops if UC's own plan fails any check. It passes.\n\n**Gaps:**\n- CS 3093C, CS 4029 and IT 2030C have no prerequisite text in the saved catalog pages, so nothing is checked for them.\n- Courses you add have no prerequisites.\n\nThe spec (`specs/11-editor-view.md`), `CLAUDE.md` and `PROGRESS.md` are updated. Say \"commit\" when you're happy with it, or tell me what to change.",
+   "iso": "2026-10-20T16:14:16.218000+00:00",
+   "label": "12:14 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-6b4a581c-e24",
+   "text": "in the editor, can we toggle on/off the coops.  Also show the proper year/semester,.",
+   "iso": "2026-10-20T16:16:48.557000+00:00",
+   "label": "12:16 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-4b3235c0-3d7",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "grep -n -i \"coop\\|co-op\" web/index.js web/index.html web/common.js web/compare.js | head -80",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "sed -n 55,125p web/index.js; sed -n 140,330p web/index.js | grep -n \"\" | sed -n 1,200p | head -0; se",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": ".venv/bin/python -c \"",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "sed -n 1095,1250p web/editor.js; grep -n \"coop\" web/compare.js | head -40; grep -n \"coop\" web/style.",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "sed -n 8,40p web/index.html; sed -n 140,165p web/index.js",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "sed -n 1250,1420p web/editor.js; sed -n 1490,1560p web/editor.js; sed -n 30,60p web/compare.js; sed",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "sed -n 640,700p web/editor.js; grep -n \"history.replaceState\\|state.pins = { ov: null, vs: null }\" w",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "sed -n 700,712p web/editor.js",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "python3 - <<'EOF'",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "python3 - <<'EOF'",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/editor.html?coop=1",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__read_console_messages",
+     "label": "Browser: read_console_messages",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    }
+   ],
+   "summary": "Ran 10 commands · 10 browser steps",
+   "iso": "2026-10-20T16:16:52.233000+00:00",
+   "label": "12:16 PM",
+   "end_label": "12:18 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-daa31d43-2d3",
+   "text": "Adding the co-op switch to the editor, matching the Course Plans layout (UC's 5 real years with co-op terms in their place). Checking how the two comparison charts handle co-op rows first.",
+   "iso": "2026-10-20T16:17:21.399000+00:00",
+   "label": "12:17 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b25d0d29-ab0",
+   "text": "Now testing in the browser (backing up and restoring your saved drafts as before).",
+   "iso": "2026-10-20T16:18:24.549000+00:00",
+   "label": "12:18 PM"
   }
  ]
 }

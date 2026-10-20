@@ -73,8 +73,9 @@ const FIELD_LABEL = { code: "code", title: "title", credits: "credits", area: "s
 // ---------------------------------------------------------------------------------
 
 // areas: checked subject areas (shared by all sections); school: section 3's school;
-// pins: the pinned node key in each chart (survives redraws).
-const state = { areas: new Set(AREAS.map((a) => a.key)), school: null, pins: { ov: null, vs: null } };
+// pins: the pinned node key in each chart (survives redraws); coop: whether UC's co-op
+// work terms are shown (all three sections), as on the Course Plans page.
+const state = { areas: new Set(AREAS.map((a) => a.key)), school: null, pins: { ov: null, vs: null }, coop: false };
 let data = null;      // { schools, canon, rows } from loadAllSchools()
 let canonById = null; // canonical_id -> canonical course
 // UC's rows: academic (the editable 8 semesters) and co-op (kept only so the charts'
@@ -587,6 +588,18 @@ function setupControls() {
   });
   d3.select("#btn-add").on("click", () => openCourseDialog(null));
 
+  // The co-op switch (common.js reads ?coop=1). Node ids in the charts depend on which
+  // rows are drawn, so switching unpins both charts.
+  state.coop = coopFromUrl();
+  d3.select("#coop-on-label").text(`All terms, with co-op (${d3.max(uc.coop, (r) => r.orig_year)} years)`);
+  d3.selectAll("input[name=coop]").property("checked", function () { return this.value === (state.coop ? "1" : "0"); })
+    .on("change", (event) => {
+      state.coop = event.target.value === "1";
+      state.pins = { ov: null, vs: null };
+      writeViewUrl(state);
+      renderAll();
+    });
+
   // One checkbox per subject area, shared by all three sections.
   const boxes = d3.select("#area-filters").selectAll("label").data(AREAS).join("label").attr("class", "area");
   boxes.append("input").attr("type", "checkbox").property("checked", true)
@@ -607,7 +620,7 @@ function setupControls() {
   d3.select("#school").on("change", (event) => {
     state.school = event.target.value;
     state.pins.vs = null;
-    history.replaceState(null, "", `?school=${state.school}`);
+    writeViewUrl(state); // ?school=osu, plus &coop=1 when co-op terms are shown
     renderVsSchool();
   });
 
@@ -669,9 +682,32 @@ const shownCourse = (c) => state.areas.has(c.area);
 // Card height in the editor (as on Course Plans). Range rows use the top of the range.
 const cardHeight = (c) => Math.max(MIN_CARD_PX, c.credits_max * CARD_PX_PER_CREDIT);
 
+// The editor's year blocks and their columns, for the co-op switch, as on Course Plans:
+//   - off: Years 1-4 of the normalized plan, two semesters each (UC's own year and term
+//     under each semester);
+//   - on: UC's own plan years (1-5) and terms in calendar order, with the co-op work
+//     terms in their place. Each academic term is still one of the 8 semesters (the
+//     draft's unit), so a column is { sem } or { coop: row }.
+// Returns [{ label, cols: [{ sem } | { coop }] }].
+function editorColumns() {
+  if (!state.coop) {
+    return d3.range(1, 5).map((y) => ({ label: `Year ${y}`, cols: [{ sem: 2 * y - 1 }, { sem: 2 * y }] }));
+  }
+  // One entry per UC term: its semester, or its co-op row. termRank (common.js) sorts
+  // by plan year, then Fall, Spring, Summer.
+  const terms = [
+    ...d3.range(1, 9).map((sem) => ({ sem, rank: termRank(semInfo.get(sem)), year: semInfo.get(sem).orig_year })),
+    ...uc.coop.map((r) => ({ coop: r, rank: termRank(r), year: r.orig_year })),
+  ].sort((a, b) => a.rank - b.rank);
+  // d3.groups keeps first-seen order, which is plan order after the sort.
+  return d3.groups(terms, (t) => t.year).map(([year, cols]) => ({ label: `Year ${year}`, cols }));
+}
+
 // Draw the year blocks with their semester columns, the Removed area, and the summary
 // line. Each column shows the draft's credits for that semester and, when different,
 // UC's. Hidden subject areas are left out of the cards but not of the credit totals.
+// With co-op terms shown, a co-op column holds UC's co-op card, which is fixed (not a
+// drop target, not draggable).
 function renderEditor() {
   const d = currentDraft();
   const issues = checkDraft(d);
@@ -679,19 +715,34 @@ function renderEditor() {
   issuesById = new Map();
   for (const x of issues) for (const id of x.ids) issuesById.set(id, [...(issuesById.get(id) || []), x]);
   renderChecks(issues);
-  const root = d3.select("#years");
+  const root = d3.select("#years").classed("all-terms", state.coop);
   root.selectAll("*").remove();
-  for (let year = 1; year <= 4; year++) {
+  for (const year of editorColumns()) {
     const block = root.append("section").attr("class", "year");
-    block.append("h3").text(`Year ${year}`);
+    // Column count, read by the .all-terms CSS to size the block (as on Course Plans).
+    block.style("--cols", year.cols.length);
+    block.append("h3").text(year.label);
     const sems = block.append("div").attr("class", "sems");
-    for (const sem of [2 * year - 1, 2 * year]) {
+    for (const colData of year.cols) {
       const col = sems.append("div");
-      const mine = d.courses.filter((c) => !c.removed && c.sem === sem);
       const head = col.append("div").attr("class", "sem-head");
-      head.append("b").text(`Semester ${sem}`);
+      if (colData.coop) {
+        const r = colData.coop;
+        head.append("b").text(r.orig_term);
+        head.append("span").text("Co-op work term");
+        const card = col.append("div").attr("class", "stack").append("div").attr("class", "card coop")
+          .attr("title", `${r.course_code}: ${r.title}. Co-op terms are fixed.`);
+        card.append("span").attr("class", "code").text(r.course_code);
+        card.append("span").attr("class", "title").text(r.title);
+        continue;
+      }
+      const sem = colData.sem;
+      const mine = d.courses.filter((c) => !c.removed && c.sem === sem);
       const s = semInfo.get(sem);
-      head.append("span").text(`UC Year ${s.orig_year} ${s.orig_term}`);
+      // Co-op view: UC's term is the heading and the semester number is the subline;
+      // the 4-year view is the other way around.
+      head.append("b").text(state.coop ? s.orig_term : `Semester ${sem}`);
+      head.append("span").text(state.coop ? `Semester ${sem}` : `UC Year ${s.orig_year} ${s.orig_term}`);
       const now = sumText(mine);
       const before = sumText(uc.academic.filter((r) => r.norm_semester === sem));
       const off = issues.some((x) => x.kind === "credits" && x.sem === sem);
@@ -1090,19 +1141,20 @@ function saveCourseDialog() {
 //   fade(node) -> true to draw the node lighter
 //   tipNode / tipLink(event, x), detail(node) -> panel contents
 
-// Node height for one row (co-op rows are not drawn here).
-const nodeHeight = (r) => Math.max(MIN_NODE_PX, r.credits_max * PX_PER_CREDIT);
+// Node height for one row. Co-op rows (0 credits) get the fixed COOP_NODE_PX (common.js).
+const nodeHeight = (r) => (r.is_coop ? COOP_NODE_PX : Math.max(MIN_NODE_PX, r.credits_max * PX_PER_CREDIT));
 
 // A key that finds the same node again after a redraw (node ids are positional): the
 // side, school, and the course id (draft) or row key (UC and other schools).
 const nodeKey = (n) => `${n.side}:${n.row.school.school_id}:${n.row._course ? n.row._course.id : keyOf(n.row)}`;
 
-// Build the graph: nodes for the placed rows (co-op terms are off, so termSlots gives
-// the 8 semesters), links from cfg.linkFn over every pair, then the subject filter
+// Build the graph: nodes for the placed rows (termSlots gives the 8 semesters, plus
+// co-op slots when the co-op switch is on), links from cfg.linkFn over every pair
+// (co-op rows never link: they aren't courses), then the subject filter
 // (links are found among all rows first, so a course whose only counterpart is hidden
 // still counts as matched), band heights, and the within-band order.
 function buildModel(leftRows, rightRows, cfg) {
-  const { slots, slotOf } = termSlots(leftRows, rightRows, false);
+  const { slots, slotOf } = termSlots(leftRows, rightRows, state.coop);
   const nodes = (rows, side) => rows.filter((r) => slotOf(r) !== null && slotOf(r) !== undefined)
     .map((r, i) => ({ id: `${side}${i}`, side, row: r, sem: r.norm_semester, slot: slotOf(r), h: nodeHeight(r),
       area: areaOf(r), allLinks: [] }));
@@ -1111,7 +1163,7 @@ function buildModel(leftRows, rightRows, cfg) {
   const allLinks = [];
   for (const u of left) {
     for (const v of right) {
-      const props = cfg.linkFn(u.row, v.row);
+      const props = u.row.is_coop || v.row.is_coop ? null : cfg.linkFn(u.row, v.row);
       if (!props) continue;
       const link = { ...props, id: `${u.id}-${v.id}`, source: u, target: v };
       allLinks.push(link);
@@ -1119,20 +1171,32 @@ function buildModel(leftRows, rightRows, cfg) {
       v.allLinks.push(link);
     }
   }
-  const shown = (n) => state.areas.has(n.area.key);
+  // Co-op terms follow the co-op switch only, not the subject filter.
+  const shown = (n) => n.row.is_coop || state.areas.has(n.area.key);
   left = left.filter(shown);
   right = right.filter(shown);
   const links = allLinks.filter((l) => shown(l.source) && shown(l.target));
   for (const n of [...left, ...right]) n.links = n.allLinks.filter((l) => links.includes(l));
 
   const stackHeight = (ns, k) => d3.sum(ns.filter((n) => n.slot === k), (n) => n.h + NODE_GAP);
-  const bandH = slots.map((s, k) => Math.max(stackHeight(left, k), stackHeight(right, k), MIN_NODE_PX) + 2 * BAND_PAD);
+  // A co-op slot is at least one co-op box tall, so the "No co-op term" box fits.
+  const bandH = slots.map((s, k) => Math.max(stackHeight(left, k), stackHeight(right, k),
+    s.kind === "coop" ? COOP_NODE_PX : MIN_NODE_PX) + 2 * BAND_PAD);
   // d3.cumsum gives running totals; prepending 0 turns them into each band's top.
   const bandTop = [0, ...d3.cumsum(bandH)].map((y) => y + HEAD_H);
   const bands = { L: d3.group(left, (n) => n.slot), R: d3.group(right, (n) => n.slot) };
-  const m = { left, right, links, slots, bandH, bandTop, bands, bySlot: bands, withCoop: false, height: bandTop[slots.length] + 8 };
+  const m = { left, right, links, slots, bandH, bandTop, bands, bySlot: bands, withCoop: state.coop, height: bandTop[slots.length] + 8 };
   orderNodes(m);
   return m;
+}
+
+// A node's tag from the chart's config; co-op nodes have none (they can't change).
+const tagFor = (cfg, n) => (n.row.is_coop ? null : cfg.tagOf(n));
+
+// The tooltip for a co-op node, the same in both charts.
+function tipCoop(event, n) {
+  const r = n.row;
+  showTooltip(event, [`${r.school.short_name} ${rowLabel(r)}`, r.title, `Co-op work term · ${origTermText(r)}`]);
 }
 
 // Stack each band's nodes from its top, in their current order.
@@ -1212,13 +1276,15 @@ function drawChart(cfg, leftRows, rightRows) {
     .on("mouseleave", () => { hideTooltip(); focusChart(cfg.id, pinnedNode(cfg.id)); });
 
   const nodeSel = svg.append("g").selectAll("g").data([...model.left, ...model.right], (n) => n.id).join("g")
-    .attr("class", (n) => ["node", n.row.course_code || n.row._course ? "" : "slot", cfg.fade(n) ? "unmatched" : ""].join(" "))
+    // Co-op nodes are shaded (the .node.coop style in style.css) and never faded or tagged.
+    .attr("class", (n) => n.row.is_coop ? "node coop"
+      : ["node", n.row.course_code || n.row._course ? "" : "slot", cfg.fade(n) ? "unmatched" : ""].join(" "))
     .attr("transform", (n) => `translate(${n.side === "L" ? xL : xR},${n.y})`)
     .attr("tabindex", 0)
     .attr("role", "button")
-    .attr("aria-label", (n) => `${n.row.school.short_name} ${rowLabel(n.row)}: ${n.row.title}, semester ${n.sem}, ` +
-      `${creditText(n.row)} credits${cfg.tagOf(n) ? `, ${cfg.tagOf(n).text}` : ""}`)
-    .on("mouseenter", (event, n) => { focusChart(cfg.id, n); cfg.tipNode(event, n); })
+    .attr("aria-label", (n) => `${n.row.school.short_name} ${rowLabel(n.row)}: ${n.row.title}, ${semText(n.row)}, ` +
+      `${creditText(n.row)} credits${tagFor(cfg, n) ? `, ${tagFor(cfg, n).text}` : ""}`)
+    .on("mouseenter", (event, n) => { focusChart(cfg.id, n); (n.row.is_coop ? tipCoop : cfg.tipNode)(event, n); })
     .on("mousemove", moveTooltip)
     .on("mouseleave", () => { hideTooltip(); focusChart(cfg.id, pinnedNode(cfg.id)); })
     .on("click", (event, n) => { event.stopPropagation(); togglePin(cfg.id, n); })
@@ -1232,7 +1298,7 @@ function drawChart(cfg, leftRows, rightRows) {
   nodeSel.each(function (n) {
     const g = d3.select(this);
     const r = n.row;
-    const tag = cfg.tagOf(n);
+    const tag = tagFor(cfg, n);
     const tagW = tag ? 7 * tag.text.length + 10 : 0; // rough width of the small caps tag
     const twoLines = n.h >= TWO_LINE_PX;
     const y1 = twoLines ? 13 : n.h / 2 + 4;
@@ -1240,7 +1306,8 @@ function drawChart(cfg, leftRows, rightRows) {
     fitSvgText(g.append("text").attr("class", "code").attr("x", 10).attr("y", y1).node(), first, NODE_W - 14 - tagW);
     if (tag) g.append("text").attr("class", `ntag ${tag.cls}`).attr("x", NODE_W - 6).attr("y", y1).attr("text-anchor", "end").text(tag.text);
     if (twoLines) {
-      const second = r.course_code ? r.title : `${creditText(r)} cr${r._course && !r._course.base ? "" : ", student chooses"}`;
+      const second = r.is_coop ? `${r.title} · ${origTermText(r)}`
+        : r.course_code ? r.title : `${creditText(r)} cr${r._course && !r._course.base ? "" : ", student chooses"}`;
       fitSvgText(g.append("text").attr("class", "title").attr("x", 10).attr("y", 27).node(), second, NODE_W - 14);
     }
   });
@@ -1288,7 +1355,8 @@ function renderDetailPanel(id) {
     panel.append("p").attr("class", "muted").text("Click a course to pin it and see its details.");
     return;
   }
-  charts[id].cfg.detail(panel, n);
+  if (n.row.is_coop) detailBasics(panel, n); // co-op terms: just the facts
+  else charts[id].cfg.detail(panel, n);
 }
 
 // Common parts of a detail panel: heading, title, facts, and the description with its

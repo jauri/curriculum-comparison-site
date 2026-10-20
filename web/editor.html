@@ -31,6 +31,26 @@
     .year { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
     .year h3 { margin: 0 0 8px; font-size: 14px; color: var(--ink-2); }
     .sems { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    /* With co-op terms shown (as on Course Plans), years have two or three terms, so the
+       blocks are a wrapping flex row, each block's starting width set by its column count
+       (--cols, set by editor.js), and term columns wrap at 130px on a phone. */
+    .years.all-terms { display: flex; flex-wrap: wrap; }
+    .years.all-terms .year { flex: 1 1 calc(var(--cols) * 150px); min-width: 0; }
+    .years.all-terms .sems { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+    /* A co-op work term card: shaded like the co-op bands, fixed (no grab cursor). */
+    .card.coop { background: var(--coop); color: var(--ink-2); cursor: default; min-height: 47px; }
+    .card.coop:hover { background: var(--coop); }
+
+    /* The co-op switch: two radio buttons styled as one segmented control (as on Course
+       Plans). The inputs stay in the page, visually hidden, so it works from the keyboard. */
+    .switch { display: inline-flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; margin: 0; padding: 0; }
+    .switch legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .switch input { position: absolute; opacity: 0; pointer-events: none; }
+    .switch label { padding: 4px 10px; cursor: pointer; background: var(--surface); }
+    .switch label + label { border-left: 1px solid var(--border); }
+    .switch input:checked + span { font-weight: 600; }
+    .switch label:has(input:checked) { background: var(--hover); box-shadow: inset 0 -2px 0 var(--accent); }
+    .switch label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: -2px; }
     .sem-head { font-size: 13px; margin-bottom: 6px; line-height: 1.3; }
     .sem-head b { display: block; color: var(--ink); }
     .sem-head span { color: var(--muted); display: block; }
@@ -215,7 +235,9 @@
     then drag). Click a course to change its title, description, credits, or semester, and
     use <em>Add a course</em> for a new one. Every change is saved in this browser right
     away; use <em>Export</em> to keep a copy or move your drafts to another device. The
-    draft covers UC's 8 academic semesters; co-op work terms are not editable.
+    draft covers UC's 8 academic semesters; co-op work terms are not editable. Switch to
+    <em>All terms, with co-op</em> to see UC's real 5-year calendar, with each semester
+    under its own year and term and the co-op terms in between (all three sections).
     Only <strong>CS courses</strong> can be moved, removed, or revised, and added
     courses are CS courses; math, science, engineering, writing, and general education
     stay as UC has them (click one to view it).
@@ -247,6 +269,13 @@
     <span class="status-msg" id="status-msg" role="status"></span>
   </div>
 
+  <div class="filters">
+    <fieldset class="switch" id="coop-switch">
+      <legend>Terms shown</legend>
+      <label><input type="radio" name="coop" value="0"><span>Academic semesters (4 years)</span></label>
+      <label><input type="radio" name="coop" value="1"><span id="coop-on-label">All terms, with co-op</span></label>
+    </fieldset>
+  </div>
   <div class="filters">
     <span class="muted">Show:</span>
     <span id="area-filters" style="display:contents"></span>

@@ -99,6 +99,25 @@ function drawHeading(school, rows) {
   d3.select("#school-facts").text(`${school.college} · ${total} credits · ${courses} courses and requirement slots`);
 }
 
+// Fill the sentence in the "Generic descriptions" note that counts the chosen school's
+// computer science rows with a generic description, split into requirement slots (no
+// course code, e.g. "CS electives") and named courses, which are listed by code since
+// they are rare (2026-10-20: only Virginia Tech's CS 4944).
+function drawGenericCount(school, rows) {
+  const cs = rows.filter((r) => !r.is_coop && areaOf(r).key === "cs");
+  const generic = cs.filter((r) => r.description_source === "generic");
+  const named = generic.filter((r) => r.course_code).map((r) => r.course_code);
+  const slots = generic.length - named.length;
+  const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
+  let detail = "";
+  if (generic.length > 0 && named.length === 0) detail = slots === 1 ? ", a requirement slot" : ", all requirement slots";
+  else if (named.length > 0 && slots === 0) detail = `, all named courses (${named.join(", ")})`;
+  else if (named.length > 0) detail = `: ${plural(slots, "requirement slot")} and ${plural(named.length, "named course")} (${named.join(", ")})`;
+  d3.select("#generic-count").text(
+    `At ${school.short_name}, ${generic.length} of ${cs.length} computer science courses and slots ` +
+    `use a generic description${detail}.`);
+}
+
 // Draw the legend: one entry per subject area the school's plan uses, with its credits
 // there (the summary of how the plan divides its credits), plus keys for dashed slot
 // cards and, when shown, co-op work terms. Co-op terms are 0 credits, so they don't
@@ -263,6 +282,7 @@ function draw() {
   d3.selectAll("input[name=coop]").property("checked", function () { return this.value === (allTerms ? "1" : "0"); });
 
   drawHeading(school, rows);
+  drawGenericCount(school, rows);
   drawLegend(rows, allTerms);
   drawGrid(planColumns(rows, allTerms), (r) => showDetail(r, coopSchool, allTerms), allTerms);
   drawTable(rows, coopSchool, allTerms);

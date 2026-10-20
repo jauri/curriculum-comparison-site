@@ -324,6 +324,7 @@ function renderOverview(act) {
     if (ev.target.tagName !== "A") return;
     ev.preventDefault();
     hide();
+    maximizeSection("section.log"); // the target is in the log, which may be minimized
     document.getElementById(ev.target.getAttribute("href").slice(1))
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
   });
@@ -410,6 +411,7 @@ function renderInputs(inp) {
     if (!el) return;
     tip.hidden = true;
     setFilter(el.dataset.kind);
+    maximizeSection("section.log"); // the filtered timeline is in the log
     document.querySelector(".controls").scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
@@ -563,6 +565,74 @@ async function main() {
   setupJump(data.items);
   setupFilter(data.inputs);
   setupExpandAll();
+  // Last, so the "Show more" measuring above sees every section open (a minimized
+  // section has no height, so its long messages would look short).
+  setupSections();
+}
+
+// ---- Minimize / maximize sections -----------------------------------------------
+//
+// Each <section> with an h2.sec heading can be minimized to just its heading. The
+// heading's text is wrapped in a button (so it works from the keyboard and tells screen
+// readers its state through aria-expanded), and everything after the heading is moved
+// into one .sec-body wrapper that the `hidden` attribute hides. (Hiding the children one
+// by one would also un-hide the hover tooltips, which use `hidden` themselves.) Which sections are minimized is remembered in this
+// browser (localStorage), as a convenience; the page works the same without it.
+
+const SEC_KEY = "process-page.minimized.v1";
+
+// Read / write the set of minimized sections (by their aria-label). Storage can be
+// blocked (private windows), so every access is in try/catch.
+function loadMinimized() {
+  try { return new Set(JSON.parse(localStorage.getItem(SEC_KEY) || "[]")); } catch (e) { return new Set(); }
+}
+function saveMinimized(set) {
+  try { localStorage.setItem(SEC_KEY, JSON.stringify([...set])); } catch (e) { /* not remembered; fine */ }
+}
+
+// Minimize (open = false) or maximize one section: hide or show its body, and update
+// the button. `remember` is false while restoring saved state.
+function setSection(sec, open, remember = true) {
+  sec.classList.toggle("minimized", !open);
+  sec.querySelector(":scope > .sec-body").hidden = !open;
+  const btn = sec.querySelector(".sec-toggle");
+  btn.setAttribute("aria-expanded", String(open));
+  btn.querySelector(".hint").textContent = open ? "Minimize" : "Maximize";
+  if (!remember) return;
+  const set = loadMinimized();
+  if (open) set.delete(sec.getAttribute("aria-label")); else set.add(sec.getAttribute("aria-label"));
+  saveMinimized(set);
+}
+
+// Open a minimized section (used before scrolling to something inside it).
+function maximizeSection(sel) {
+  const sec = document.querySelector(sel);
+  if (sec && sec.classList.contains("minimized")) setSection(sec, true);
+}
+
+// Turn each section heading into a toggle, restore the saved state, and wire up the
+// "Minimize all / Maximize all" buttons.
+function setupSections() {
+  const sections = [...document.querySelectorAll("main > section")].filter((sec) => sec.querySelector(":scope > h2.sec"));
+  const saved = loadMinimized();
+  for (const sec of sections) {
+    const h2 = sec.querySelector(":scope > h2.sec");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "sec-toggle";
+    btn.innerHTML = `<span class="chev" aria-hidden="true">▾</span><span>${esc(h2.textContent)}</span><span class="hint"></span>`;
+    h2.replaceChildren(btn); // the heading keeps its level; the button holds its text
+    const body = document.createElement("div");
+    body.className = "sec-body";
+    body.id = `${sec.className.split(" ")[0]}-body`;
+    btn.setAttribute("aria-controls", body.id);
+    body.append(...[...sec.children].filter((el) => el !== h2)); // moves them, keeping order and listeners
+    sec.append(body);
+    btn.addEventListener("click", () => setSection(sec, sec.classList.contains("minimized")));
+    setSection(sec, !saved.has(sec.getAttribute("aria-label")), false);
+  }
+  document.getElementById("sec-min-all").addEventListener("click", () => sections.forEach((sec) => setSection(sec, false)));
+  document.getElementById("sec-max-all").addEventListener("click", () => sections.forEach((sec) => setSection(sec, true)));
 }
 
 main();

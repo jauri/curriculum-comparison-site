@@ -108,6 +108,23 @@
 
     /* Section headings for the two summaries at the top. */
     h2.sec { font-size: 18px; margin: 0 0 10px; color: var(--ink); }
+    /* Minimize / maximize: each section heading holds a full-width button (process.js)
+       with a chevron and a hint; a minimized section shows only its heading. */
+    h2.sec .sec-toggle {
+      all: unset; box-sizing: border-box; display: flex; align-items: baseline; gap: 8px; width: 100%; cursor: pointer;
+      border-radius: 4px;
+    }
+    h2.sec .sec-toggle:hover .chev, h2.sec .sec-toggle:hover .hint { color: var(--ink); }
+    h2.sec .sec-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    h2.sec .chev { display: inline-block; width: 1em; color: var(--ink-2); transition: transform 0.15s; }
+    h2.sec .sec-toggle[aria-expanded="false"] .chev { transform: rotate(-90deg); }
+    h2.sec .hint { margin-left: auto; font-size: 13px; font-weight: 400; color: var(--muted); }
+    section.minimized > h2.sec { margin-bottom: 0; }
+    .sec-all { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+    .sec-all button { font: inherit; font-size: 13px; padding: 4px 10px; border-radius: 6px; cursor: pointer;
+      border: 1px solid var(--border); background: var(--surface); color: var(--ink); }
+    .sec-all button:hover { background: var(--hover); }
+    .log { margin: 0 0 24px; }
 
     /* Kinds of input: totals as horizontal bars, then one stacked bar per plan step.
        Both are CSS grids of label, bar, count; bar lengths are set inline by process.js
@@ -253,6 +270,12 @@
   </nav>
   <h1>How this was made</h1>
   <p class="sub" id="subtitle">The full working conversation between the project's author and Claude, an AI assistant, from the first idea to the current pages.</p>
+  <!-- Section controls: process.js turns each section heading into a minimize /
+       maximize button; these two act on every section at once. -->
+  <div class="sec-all">
+    <button type="button" id="sec-min-all">Minimize all sections</button>
+    <button type="button" id="sec-max-all">Maximize all sections</button>
+  </div>
 
   <!-- Roles: what the author and Claude each did, as a course project's contribution
        statement would put it. Hand-written from PROGRESS.md and the specs (each point
@@ -365,6 +388,7 @@
     <div class="ov-tip" id="tk-tip" role="tooltip" hidden></div>
   </section>
 
+  <section class="log" aria-label="Complete interaction log">
   <h2 class="sec">Complete interaction log</h2>
 
   <div class="note">
@@ -395,6 +419,7 @@
   </div>
 
   <div class="timeline" id="timeline"></div>
+  </section>
 </main>
 <script src="common.js"></script>
 <script src="process.js"></script>

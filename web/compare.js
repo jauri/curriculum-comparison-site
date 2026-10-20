@@ -17,10 +17,8 @@ const MIN_NODE_PX = 18;
 const NODE_GAP = 2; // the 2px surface gap between adjacent boxes
 const BAND_PAD = 10; // empty space at the top and bottom of each semester band
 const HEAD_H = 46; // room for the two column headings
-const LABEL_W = 96; // left gutter for the semester labels
 const NODE_W = 230;
 const MIN_LINK_W = 150; // narrowest middle area for the link curves
-const RIGHT_PAD = 8;
 const TWO_LINE_PX = 30; // nodes at least this tall get a second text line
 const ORDER_PASSES = 6; // barycenter passes (see orderNodes)
 
@@ -209,11 +207,10 @@ function draw() {
 
   // Width follows the container, but never so narrow that the links get squeezed; the
   // wrapper scrolls sideways on a phone instead.
-  // With co-op terms on, the other school gets its own label gutter on the right.
   const wrap = document.querySelector(".chart-wrap");
-  // Co-op labels ("Year 2 Summer 1") need wider gutters than the normalized ones.
-  const leftGutter = state.coop ? COOP_LABEL_W : LABEL_W;
-  const rightGutter = state.coop ? COOP_LABEL_W : RIGHT_PAD;
+  // Both sides always get a label gutter with the school's own terms (drawSlotBands).
+  const leftGutter = COOP_LABEL_W;
+  const rightGutter = COOP_LABEL_W;
   const width = Math.max(wrap.clientWidth, leftGutter + 2 * NODE_W + MIN_LINK_W + rightGutter);
   const xL = leftGutter;
   const xR = width - NODE_W - rightGutter;

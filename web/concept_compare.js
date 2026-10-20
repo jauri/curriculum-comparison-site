@@ -19,11 +19,9 @@ const MIN_NODE_PX = 18;
 const NODE_GAP = 2;
 const BAND_PAD = 10;
 const HEAD_H = 46;
-const LABEL_W = 96;
 const NODE_W = 230;
 const BAR_W = 8; // the share bar on each node's inner edge
 const MIN_LINK_W = 160;
-const RIGHT_PAD = 8;
 const TWO_LINE_PX = 30;
 const ORDER_PASSES = 6;
 const MIN_BAND_PX = 1.5; // thinner bands are drawn this thick so they stay visible
@@ -268,11 +266,10 @@ function draw() {
   orderNodes(model);
   placeSegments(model);
 
-  // With co-op terms on, the other school gets its own label gutter on the right.
   const wrap = document.querySelector(".chart-wrap");
-  // Co-op labels ("Year 2 Summer 1") need wider gutters than the normalized ones.
-  const leftGutter = state.coop ? COOP_LABEL_W : LABEL_W;
-  const rightGutter = state.coop ? COOP_LABEL_W : RIGHT_PAD;
+  // Both sides always get a label gutter with the school's own terms (drawSlotBands).
+  const leftGutter = COOP_LABEL_W;
+  const rightGutter = COOP_LABEL_W;
   const width = Math.max(wrap.clientWidth, leftGutter + 2 * NODE_W + MIN_LINK_W + rightGutter);
   const xL = leftGutter;
   const xR = width - NODE_W - rightGutter;

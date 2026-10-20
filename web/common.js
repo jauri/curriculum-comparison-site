@@ -198,7 +198,7 @@ const termRank = (r) => r.orig_year * 10 + TERM_ORDER.indexOf(r.orig_term);
 const origTermText = (r) => `Year ${r.orig_year} ${r.orig_term}`;
 // Co-op rows are 0 credits, so they get a fixed height that fits two lines of text.
 const COOP_NODE_PX = 34;
-// Label gutter width on each side with co-op terms on: wide enough for "Year 2 Summer 1".
+// Label gutter width on each side (with or without co-op terms): wide enough for "Year 2 Summer 1".
 const COOP_LABEL_W = 118;
 
 // Where each of one school's co-op rows goes: Map(row -> {gap, i}), where gap is the
@@ -251,11 +251,12 @@ function termSlots(leftRows, rightRows, withCoop) {
 // Draw the slot bands of an alignment view: a rule at the top of each slot, a shaded
 // background behind co-op slots, the slot labels, and a dashed "No co-op term" box where
 // one side has no co-op term in a co-op slot.
-// - Co-op toggle off: one label per semester in the left gutter, the normalized
-//   "Semester 3 / Year 2 Fall", as the views always had.
-// - Co-op toggle on: each side gets its own gutter (UC left, the other school right),
-//   labeled with that school's own term ("Semester 3 / Year 2 Spring" at UC, "Year 2 Fall"
-//   at a school without co-op), since the same row can be a different term at each.
+// Each side gets its own gutter (UC left, the other school right), labeled with that
+// school's own term ("Semester 3 / Year 2 Spring" at UC, "Year 2 Fall" at a school
+// without co-op), since the same row can be a different term at each. This holds with the
+// co-op toggle off too (the user's choice, 2026-10-20), so UC's real term is always shown
+// and a later-than-expected year doesn't look like a data error. With co-op terms hidden,
+// a semester that comes right after a co-op term gets a third line, "after co-op".
 // m holds slots, bandTop, bandH, withCoop, and the drawn nodes by side and slot
 // (m.bySlot.L / .R, Maps from slot index to nodes); rowsL / rowsR are both schools'
 // rows, so a semester is labeled even when the subject filter hides all its courses.
@@ -278,12 +279,6 @@ function drawSlotBands(svg, m, { width, xL, xR, nodeW, rowsL, rowsR }) {
     fitSvgText(t.append("tspan").attr("class", "sem").node(), head, gutterW(anchor));
     for (const line of lines) fitSvgText(t.append("tspan").attr("x", x).attr("dy", 15).node(), line, gutterW(anchor));
   };
-  if (!m.withCoop) {
-    m.slots.forEach((s, i) => label(8, m.bandTop[i], "start", `Semester ${s.sem}`,
-      // Year and Fall/Spring follow from k by the normalization rule (03-processing.md).
-      [`Year ${Math.ceil(s.sem / 2)} ${s.sem % 2 ? "Fall" : "Spring"}`]));
-    return;
-  }
 
   const gapsL = coopGaps(rowsL);
   const gapsR = coopGaps(rowsR);
@@ -296,7 +291,10 @@ function drawSlotBands(svg, m, { width, xL, xR, nodeW, rowsL, rowsR }) {
         // usually one, two for a pair of half-terms (e.g. Northeastern's summers).
         const terms = [...new Set(rows.filter((r) => r.norm_semester === s.sem)
           .sort((a, b) => termRank(a) - termRank(b)).map(origTermText))];
-        label(x, y, anchor, `Semester ${s.sem}`, terms);
+        // Co-op terms hidden: say when a co-op term comes just before this semester (a
+        // co-op gap k sits after semester k, so semester s follows gap s - 1).
+        const afterCoop = !m.withCoop && s.sem > 1 && [...gaps.values()].some((p) => p.gap === s.sem - 1);
+        label(x, y, anchor, `Semester ${s.sem}`, afterCoop ? [...terms, "after co-op"] : terms);
         continue;
       }
       // [...gaps] lists [row, {gap, i}] pairs; find() picks this slot's co-op row, if any.

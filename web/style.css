@@ -30,6 +30,8 @@
   --area-5: #e87ba4; /* Writing */
   --area-6: #008300; /* General education */
   --coop: #e1e0d9;
+  --earlier: #1a7f37; /* UC takes the course earlier (alignment table) */
+  --later: #c4302b;   /* UC takes the course later */
 }
 
 /* Dark tokens: the same hues stepped for a dark surface (not an automatic inversion). */
@@ -53,6 +55,8 @@
     --area-5: #d55181;
     --area-6: #008300;
     --coop: #383835;
+    --earlier: #3fb950;
+    --later: #f0605a;
   }
 }
 :root[data-theme="dark"] {
@@ -74,6 +78,8 @@
   --area-5: #d55181;
   --area-6: #008300;
   --coop: #383835;
+  --earlier: #3fb950;
+  --later: #f0605a;
 }
 
 * { box-sizing: border-box; }

@@ -31,6 +31,7 @@ const state = { school: null, areas: new Set(AREAS.map((a) => a.key)), pinnedId:
 let data = null; // { schools, canon, rows } once loaded
 let canonById = null;
 let model = null; // the current layout, built by buildModel()
+let prevalence = null; // share of other schools requiring each canonical course (buildPrevalence)
 
 // Node height for one row: proportional to credits (the top of a range, as in the plan
 // view), never below MIN_NODE_PX. Co-op rows (0 credits) get the fixed COOP_NODE_PX.
@@ -438,22 +439,77 @@ function renderDetail(n, other) {
   }
 }
 
-// List the shown courses that have no counterpart, for each side.
+// The shown courses that have no counterpart, as two tables: UC's courses with no match
+// at the other school, and the other school's with no match at UC. One row per course,
+// in semester order (the model's band order).
 function renderUnmatched(other) {
   const box = d3.select("#unmatched");
   box.selectAll("*").remove();
   const sides = [["UC", other.short_name, model.left], [other.short_name, "UC", model.right]];
   for (const [mine, theirs, ns] of sides) {
-    const list = ns.filter((n) => !n.allLinks.length);
-    box.append("p").text(`${mine} courses with no ${theirs} counterpart (${list.length}): ` +
-      (list.length ? list.map((n) => `${rowLabel(n.row)}${n.row.course_code ? ` ${n.row.title}` : ""}`).join("; ") : "none") + ".");
+    // Sort by slot (band), then by position within the band, so the table reads top to bottom like the chart.
+    const list = ns.filter((n) => !n.allLinks.length).sort((a, b) => a.slot - b.slot || a.y - b.y);
+    const col = box.append("div");
+    col.append("h3").text(`${mine} courses with no ${theirs} counterpart (${list.length})`);
+    if (!list.length) { col.append("p").attr("class", "muted").text("None."); continue; }
+    const table = col.append("div").attr("class", "table-wrap").append("table");
+    table.append("thead").append("tr").selectAll("th").data(["Course", "Title", "Placement", "Credits"])
+      .join("th").attr("class", (h) => (h === "Credits" ? "num" : null)).text((h) => h);
+    const tr = table.append("tbody").selectAll("tr").data(list).join("tr");
+    // The area swatch repeats the chart's stripe color; the code next to it is the label.
+    const code = tr.append("td").attr("class", "course");
+    code.append("i").attr("class", "swatch").style("background", (n) => n.area.color).attr("title", (n) => n.area.label);
+    code.append("span").text((n) => rowLabel(n.row));
+    tr.append("td").text((n) => (n.row.course_code ? n.row.title : "Requirement slot (student chooses)"));
+    tr.append("td").text((n) => placeText(n));
+    tr.append("td").attr("class", "num").text((n) => creditText(n.row));
   }
+}
+
+// How many of the other schools (every school but UC) require each canonical course,
+// counted over all their rows, whatever the subject filter. A school counts as
+// "required" if any of its rows matches the course outright, and as "option" if its only
+// matches are one_of (one option of a choice the student may skip). Built once at load.
+// Returns { total, byId: Map(canonical_id -> { req, opt }) }.
+function buildPrevalence() {
+  const others = data.schools.filter((s) => s.school_id !== "uc");
+  const byId = new Map();
+  for (const s of others) {
+    // For this school: canonical_id -> true if some match is not one_of.
+    const firm = new Map();
+    for (const r of data.rows.filter((x) => x.school.school_id === s.school_id)) {
+      for (const m of r.matches) firm.set(m.canonical_id, firm.get(m.canonical_id) || m.match_role !== "one_of");
+    }
+    for (const [id, isReq] of firm) {
+      if (!byId.has(id)) byId.set(id, { req: 0, opt: 0 });
+      byId.get(id)[isReq ? "req" : "opt"]++;
+    }
+  }
+  return { total: others.length, byId };
+}
+
+// The status of one canonical course, UC against the other school, from each side's
+// first semester. Symbols (the user's choice): green up arrow = UC earlier, red down
+// arrow = UC later, black x = UC doesn't require it, another symbol (blue diamond) =
+// only UC requires it. hasL/hasR say whether the side has the course at all; a side may
+// have it only in a co-op term, which has no semester number.
+function statusOf(hasL, hasR, a, b, other) {
+  if (!hasL) return { cls: "absent", sym: "✕", text: `UC doesn't require; ${other.short_name} does` };
+  if (!hasR) return { cls: "uc-only", sym: "◆", text: `Only UC requires` };
+  if (a === null || b === null) return { cls: "coop", sym: "–", text: "In a co-op term (no semester to compare)" };
+  if (a === b) return { cls: "same", sym: "=", text: "Same semester" };
+  const d = Math.abs(b - a);
+  const n = `${d} semester${d === 1 ? "" : "s"}`;
+  return a < b ? { cls: "earlier", sym: "▲", text: `UC ${n} earlier` }
+    : { cls: "later", sym: "▼", text: `UC ${n} later` };
 }
 
 // The accessible companion table: one row per canonical course shown at either school,
 // with each side's rows and semesters and the difference in first semester. The model
 // holds only rows in checked areas, so the table follows the filter. A school row with
 // several canonical courses appears under each; "possible" marks a one_of match.
+// Columns: canonical course, the share of other schools requiring it (bar), the status
+// symbol (next to the name, so differences are easy to scan), UC's rows, the other school's rows.
 function renderTable(other) {
   // Map(canonical_id -> [{n, m}]) for one side: every (node, match) pair.
   const byCanon = (ns) => d3.group(ns.flatMap((n) => n.row.matches.map((m) => ({ n, m, sem: n.sem }))), (e) => e.m.canonical_id);
@@ -467,25 +523,56 @@ function renderTable(other) {
     (firstSem(right.get(a)) ?? 99) - (firstSem(right.get(b)) ?? 99));
 
   const rowsText = (es) => (es ? es.map((e) => `${rowLabel(e.n.row)} (${placeText(e.n)}${e.m.match_role === "one_of" ? ", possible" : ""})`).join(", ") : "—");
-  const diff = (id) => {
-    const a = firstSem(left.get(id));
-    const b = firstSem(right.get(id));
-    if (a === null && b === null) return "co-op terms at both";
-    if (a === null) return `${other.short_name} only`;
-    if (b === null) return "UC only";
-    return b === a ? "same" : `${b > a ? "+" : "−"}${Math.abs(b - a)} (${b > a ? "later" : "earlier"})`;
-  };
-  const cols = [
-    ["Canonical course", (id) => (canonById.get(id) || { name: id }).name],
-    ["UC", (id) => rowsText(left.get(id))],
-    [other.short_name, (id) => rowsText(right.get(id))],
-    [`${other.short_name} vs UC (first semester)`, diff],
-  ];
+
+  // Key for the status symbols, above the table.
+  const key = d3.select("#table-key");
+  key.selectAll("*").remove();
+  const keys = [["earlier", "▲", "UC earlier"], ["later", "▼", "UC later"], ["same", "=", "Same semester"],
+    ["absent", "✕", `UC doesn't require (${other.short_name} does)`], ["uc-only", "◆", "Only UC requires"]];
+  for (const [cls, sym, text] of keys) {
+    const k = key.append("span").attr("class", `status ${cls}`);
+    k.append("b").attr("aria-hidden", "true").text(sym);
+    k.append("span").text(text);
+  }
+  const kb = key.append("span").attr("class", "prev");
+  kb.append("span").attr("class", "bar").call((bar) => {
+    bar.append("span").attr("class", "req").style("width", "60%");
+    bar.append("span").attr("class", "opt").style("width", "20%");
+  });
+  kb.append("span").text(`Share of the ${prevalence.total} other schools that require it (light: one option of a choice)`);
+
   const table = d3.select("#table");
   table.selectAll("*").remove();
-  table.append("thead").append("tr").selectAll("th").data(cols).join("th").text((c) => c[0]);
-  table.append("tbody").selectAll("tr").data(ids).join("tr")
-    .selectAll("td").data((id) => cols.map((c) => c[1](id))).join("td").text((v) => v);
+  const heads = ["Canonical course", "Other schools requiring it", `UC vs ${other.short_name} (first semester)`, "UC", other.short_name];
+  table.append("thead").append("tr").selectAll("th").data(heads).join("th").text((h) => h);
+  const tr = table.append("tbody").selectAll("tr").data(ids).join("tr");
+
+  tr.append("td").text((id) => (canonById.get(id) || { name: id }).name);
+
+  // Share bar: widths are percentages of the 64px track, so the two segments add up.
+  const prev = tr.append("td").append("span").attr("class", "prev")
+    .attr("title", (id) => {
+      const p = prevalence.byId.get(id) || { req: 0, opt: 0 };
+      return `Required at ${p.req} of ${prevalence.total} other schools` + (p.opt ? `; one option of a choice at ${p.opt} more` : "");
+    });
+  const bar = prev.append("span").attr("class", "bar").attr("aria-hidden", "true");
+  bar.append("span").attr("class", "req").style("width", (id) => `${100 * (prevalence.byId.get(id)?.req || 0) / prevalence.total}%`);
+  bar.append("span").attr("class", "opt").style("width", (id) => `${100 * (prevalence.byId.get(id)?.opt || 0) / prevalence.total}%`);
+  prev.append("span").text((id) => {
+    const p = prevalence.byId.get(id) || { req: 0, opt: 0 };
+    return `${p.req}/${prevalence.total}` + (p.opt ? ` (+${p.opt})` : "");
+  });
+
+  // Status: a colored symbol plus the same meaning in words.
+  tr.append("td").each(function (id) {
+    const s = statusOf(left.has(id), right.has(id), firstSem(left.get(id)), firstSem(right.get(id)), other);
+    const cell = d3.select(this).append("span").attr("class", `status ${s.cls}`);
+    cell.append("b").attr("aria-hidden", "true").text(s.sym);
+    cell.append("span").text(s.text);
+  });
+
+  tr.append("td").text((id) => rowsText(left.get(id)));
+  tr.append("td").text((id) => rowsText(right.get(id)));
 }
 
 // Build the controls: the school picker (every built school except UC) and one checkbox
@@ -547,6 +634,7 @@ loadAllSchools()
   .then((loaded) => {
     data = loaded;
     canonById = new Map(data.canon.map((c) => [c.canonical_id, c]));
+    prevalence = buildPrevalence();
     setupControls();
     draw();
   })

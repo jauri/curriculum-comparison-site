@@ -541,6 +541,17 @@ async function main() {
     `and ${c.answers} answers to Claude's questions, ${c.claude} replies and ${c.questions} questions from Claude, ` +
     `${c.actions} actions, and ${c.commits} commits.`;
 
+  // The count lines under each role card ("Who did what"). The answer classes come from
+  // the parser's rule (did the author pick the option Claude marked as recommended?).
+  const a = data.inputs.answers;
+  document.getElementById("role-author").textContent =
+    `${c.you} messages typed; ${c.answers} answers to Claude's questions: ` +
+    `${a.recommended} took Claude's recommendation, ${a.other} chose another option, ` +
+    `${a.own} wrote their own answer, and ${a.no_rec} chose where Claude made no recommendation.`;
+  document.getElementById("role-claude").textContent =
+    `${c.claude} replies, ${c.questions} questions, ${c.actions} actions ` +
+    `(tool calls: fetching pages, reading and editing files, running scripts), and ${c.commits} commits.`;
+
   renderOverview(data.activity);
   renderInputs(data.inputs);
   renderTokens(data.tokens);

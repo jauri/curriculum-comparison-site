@@ -1,13 +1,13 @@
 {
  "counts": {
-  "sessions": 21,
-  "you": 148,
-  "answers": 118,
-  "claude": 646,
-  "questions": 131,
-  "actions": 1853,
-  "cards": 175,
-  "commits": 36,
+  "sessions": 24,
+  "you": 160,
+  "answers": 119,
+  "claude": 671,
+  "questions": 132,
+  "actions": 1923,
+  "cards": 187,
+  "commits": 39,
   "hidden": 0,
   "first": "Oct 16, 2026",
   "last": "Oct 20, 2026"
@@ -497,10 +497,26 @@
      {
       "i": 20,
       "you": 5,
-      "claude": 121,
-      "you_min": 16.8,
-      "claude_min": 11.4,
+      "claude": 125,
+      "you_min": 18.4,
+      "claude_min": 11.6,
       "first": "u-6465ce58-382"
+     },
+     {
+      "i": 21,
+      "you": 9,
+      "claude": 38,
+      "you_min": 21.7,
+      "claude_min": 3.1,
+      "first": "u-925d2bc0-bfc"
+     },
+     {
+      "i": 22,
+      "you": 4,
+      "claude": 54,
+      "you_min": 16.2,
+      "claude_min": 4.9,
+      "first": "a-bd84be54-299"
      }
     ]
    }
@@ -528,10 +544,10 @@
   "answers": {
    "recommended": 91,
    "other": 9,
-   "own": 4,
+   "own": 5,
    "no_rec": 14
   },
-  "unclassified": 28,
+  "unclassified": 40,
   "reviewed": 0,
   "rows": 120,
   "steps": [
@@ -891,7 +907,7 @@
     "answers": {
      "recommended": 21,
      "other": 2,
-     "own": 1,
+     "own": 2,
      "no_rec": 0
     }
    }
@@ -899,11 +915,11 @@
  },
  "tokens": {
   "totals": {
-   "replies": 1714,
-   "output": 1631066,
-   "cache_write": 6518614,
-   "input": 3432,
-   "cache_read": 269787956
+   "replies": 1785,
+   "output": 1675934,
+   "cache_write": 6783191,
+   "input": 3574,
+   "cache_read": 275493447
   },
   "steps": [
    {
@@ -1080,11 +1096,11 @@
     "id": "p-21",
     "step": "21",
     "title": "Process page",
-    "replies": 441,
-    "output": 405647,
-    "cache_write": 2414284,
-    "input": 884,
-    "cache_read": 51836593
+    "replies": 512,
+    "output": 450515,
+    "cache_write": 2678861,
+    "input": 1026,
+    "cache_read": 57542084
    }
   ]
  },
@@ -24560,9 +24576,19 @@
      "tool": "Bash",
      "label": "Update page notes, spec 06, and PROGRESS.md",
      "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Refresh process data and publish the site",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
     }
    ],
-   "summary": "Ran 7 commands · 7 browser steps",
+   "summary": "Ran 8 commands · 8 browser steps · published the site",
    "iso": "2026-10-20T14:27:02.481000+00:00",
    "label": "10:27 AM",
    "end_label": "10:28 AM"
@@ -24594,6 +24620,825 @@
    "text": "The page works, but the school ID I guessed was wrong, so it fell back to OSU. Retrying with Northeastern's real ID to check its right-side \"after co-op\" labels.",
    "iso": "2026-10-20T14:27:49.728000+00:00",
    "label": "10:27 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-30d53407-e1b",
+   "text": "Spec 10 already points to spec 06 for the co-op rules, so it needs no change. Publishing.",
+   "iso": "2026-10-20T14:28:12.026000+00:00",
+   "label": "10:28 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-4dfa6d65-8d6",
+   "text": "Both alignment tabs now label each side with its own school's semester and year, whether co-op terms are shown or hidden. UC's real year and term always appear in the left column. I checked both tabs in Chrome, and the update is published to the public site (it may take a minute or two to appear).\n\nWith co-op terms hidden, UC vs OSU now reads:\n\n| | UC (left) | OSU (right) |\n|---|---|---|\n| Semester 3 | Year 2 Spring · after co-op | Year 2 Autumn |\n| Semester 4 | Year 3 Fall · after co-op | Year 2 Spring |\n| Semester 7 | Year 5 Fall · after co-op | Year 4 Autumn |\n| Semester 8 | Year 5 Spring | Year 4 Spring |\n\n- **\"after co-op\" line:** I added this, beyond what you asked for. When co-op terms are hidden, it marks a semester that comes right after a co-op work term, which explains why UC's years run later. It also appears on Northeastern's side, before its semesters 5 and 7. It's easy to drop if you'd rather not have it.\n- **Note text:** I updated the co-op note above both charts, the spec (`specs/06-alignment-view.md`) and `PROGRESS.md`.\n\nNothing is committed yet. Say \"commit\" when you're happy with this and the table changes.",
+   "iso": "2026-10-20T14:28:21.847000+00:00",
+   "label": "10:28 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-925d2bc0-bfc",
+   "text": "commit and push",
+   "iso": "2026-10-20T14:30:24.035000+00:00",
+   "label": "10:30 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-36c3d43d-cec",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Check branch and working tree state",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find uncommitted-status notes in PROGRESS",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Mark the changes as committed in PROGRESS",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Commit all changes and push the branch",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 4 commands · committed",
+   "iso": "2026-10-20T14:30:27.770000+00:00",
+   "label": "10:30 AM",
+   "end_label": "10:30 AM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-5534cf4",
+   "hash": "5534cf4",
+   "text": "Course-level alignment: status symbols, share bar, per-school term labels",
+   "iso": "2026-10-20T10:30:44-04:00",
+   "label": "10:30 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-8049689c-d43",
+   "text": "Committed and pushed as `5534cf4` on `step-13-schools` to the private repo (`jauri/curriculum-comparison`). Nothing is left uncommitted.\n\n- **What's in it:** today's changes (the tab rename, the table symbols, the share bar, the no-counterpart tables and the per-school term labels), plus the co-op toggle from the earlier session. That toggle was still waiting for your look, but \"commit\" covered it. I updated `PROGRESS.md` to match.\n- **Branch:** this is still not merged into `main`.\n- **Public site:** already up to date from the last publish.\n\nOne question from the co-op toggle work is still open: should the pages' script links get version tags? Browsers sometimes keep serving an old script after an update, which happened during my checks today.",
+   "iso": "2026-10-20T14:30:49.012000+00:00",
+   "label": "10:30 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-95da1b16-34e",
+   "text": "i think the toggle is the version i want to keep, so no need for version tags, this should be kept",
+   "iso": "2026-10-20T14:33:06.846000+00:00",
+   "label": "10:33 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-b5c4d2c3-cd8",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Record the decision in PROGRESS",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 1 command",
+   "iso": "2026-10-20T14:33:12.385000+00:00",
+   "label": "10:33 AM",
+   "end_label": "10:33 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-65a7051f-171",
+   "text": "I've recorded your decision in `PROGRESS.md`: the co-op toggle is the version to keep, and the pages won't get version tags. The one catch: after an update, your browser may keep showing the old version of a page. A hard reload (Cmd+Shift+R) fixes it.\n\nThat's the only change since the last push, and it isn't committed yet. Do you want me to commit and push it, or leave it for the next commit?",
+   "iso": "2026-10-20T14:33:14.939000+00:00",
+   "label": "10:33 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-83e36b11-ea6",
+   "text": "commit and push",
+   "iso": "2026-10-20T14:33:37.395000+00:00",
+   "label": "10:33 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-e94b0ee0-66f",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Commit PROGRESS update and push",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 1 command · committed",
+   "iso": "2026-10-20T14:33:40.949000+00:00",
+   "label": "10:33 AM",
+   "end_label": "10:33 AM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-e3f9175",
+   "hash": "e3f9175",
+   "text": "PROGRESS: keep the co-op toggle, no script version tags",
+   "iso": "2026-10-20T10:33:41-04:00",
+   "label": "10:33 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-1d6d0bb2-6b1",
+   "text": "Committed and pushed as `e3f9175` on `step-13-schools`. Everything is now saved and pushed.",
+   "iso": "2026-10-20T14:33:43.418000+00:00",
+   "label": "10:33 AM"
+  },
+  {
+   "kind": "session",
+   "id": "s-22",
+   "n": 22,
+   "label": "Tue Oct 20 · Session 22",
+   "iso": "2026-10-20T14:35:32.796000+00:00"
+  },
+  {
+   "kind": "you",
+   "id": "u-ecc946e5-b5c",
+   "text": "can you explain the 'not found' column in the alignment view' concepts not found at other schools tab?",
+   "iso": "2026-10-20T14:35:32.796000+00:00",
+   "label": "10:35 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-e6dd4e38-875",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Search for \"not found\" in views, specs, scripts",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read the not-found table code and spec",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read how missing concepts are computed",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read conceptsOf to see group filtering",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 4 commands",
+   "iso": "2026-10-20T14:35:35.379000+00:00",
+   "label": "10:35 AM",
+   "end_label": "10:35 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b40cbdff-3ff",
+   "text": "On the Concept Alignment tab, the **\"Not found\"** column in the \"Concepts not found at the other school\" table is the share of a course's concepts that **none of the other school's required courses is tagged with**.\n\n**How it's computed** (`web/concept_compare.js:141-146`):\n\n- Each tagged course has a set of concepts. Only concepts in the groups you have checked count (`conceptsOf`, line 52).\n- A concept counts as \"not found\" if no placed course on the other side has it. That includes courses hidden by the subject filter.\n- **Not found = missing concepts ÷ all of the course's concepts.** The cell shows both forms, e.g. `25% (3 of 12)`.\n- The last column lists those missing concepts by name.\n\n**What's in the table:**\n\n- Courses from both sides appear: UC courses missing concepts at the chosen school, and that school's courses missing concepts at UC.\n- A course appears only if it is tagged, currently shown, and has at least one missing concept.\n\n**Link to the chart:** this number is the hatched segment at the bottom of each course bar. A course's band shares plus its \"not found\" part always add up to 100% (spec 10, \"Bands\"). For example, if a course is 40% shared with one partner, 35% with another, and 25% not found, the table shows 25%.\n\n**Caveats for interpreting it:**\n\n- \"Not found\" means \"not found in the tags,\" not \"not taught.\" Tags come from the catalog description text. If the other school covers a topic but its course description doesn't mention it, the topic shows up as not found. This is the same limit the view's warning about thinly tagged schools points out.\n- Only required courses in the plan count. Topics covered by electives or slots aren't tagged, so they don't count as found.\n- Unchecking concept groups shrinks the denominator, so the percentages change. The subject-area filter doesn't change them.",
+   "iso": "2026-10-20T14:35:50.767000+00:00",
+   "label": "10:35 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-b9ddfbb4-339",
+   "text": "i don't understand the shared concepts table,  it shows so few concepts.  why is that?",
+   "iso": "2026-10-20T14:42:46.437000+00:00",
+   "label": "10:42 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-53afeb5b-6d8",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Read band filter and slider defaults",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Inspect concept tags table",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Summarize tags per course and school",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Compute shared concepts and bands per school",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Compare tags of UC and OSU data structures courses",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 5 commands",
+   "iso": "2026-10-20T14:42:49.649000+00:00",
+   "label": "10:42 AM",
+   "end_label": "10:43 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-10c7e046-902",
+   "text": "The table is short for two reasons. Each row is a single pair of courses, and the tags behind it are few and narrow, so few concepts match. I checked the tag data to confirm.\n\n**What one row is.** Each row is one band in the chart: a UC course paired with one course at the other school that has at least one concept tag in common. The \"Shared concepts\" column lists only the overlap between those two courses. The minimum-share slider starts at 0, so it isn't hiding any rows.\n\n**Why the overlap is small:**\n\n1. **Courses have few tags.** UC's 17 tagged CS courses average about 4 concepts each, and several have only 1–3. The tags come from catalog descriptions, and short descriptions produce few tags.\n2. **The vocabulary is fine-grained.** There are about 140 concepts, so related topics often get different tags. For example, UC CS 2028C Data Structures and OSU CSE 2331 (Data Structures and Algorithms) have 9 tags each:\n   - **UC:** abstract data types, arrays, asymptotic analysis, generics, linked lists, pointers, stacks/queues, …\n   - **OSU:** hash tables, search trees, sorting, graph algorithms, NP-completeness, …\n\n   The only tag they share is asymptotic analysis. OSU teaches linked lists in a different course, CSE 2231, so that concept becomes a separate one-concept band.\n3. **Shared concepts get split across pairs.** Each concept appears in the row for every pair of courses that has it, so no single row collects many.\n\n**The numbers across schools.** A row averages 1.4–2.5 shared concepts, and the most in any row is 3–7. Overall, the other schools have between 3 (Georgia Tech, with only 5 tagged courses) and 35 (UIC) of UC's 63 distinct concepts.\n\nSo the table is accurate. It's thin because there's little evidence to match on, which doesn't mean the curricula are very different. Two changes could make it more useful:\n\n- **Match at the concept-group level.** For example, count \"Data structures\" as shared even when the specific concepts differ. Overlap would look much larger, but the comparison would be coarser.\n- **Add a per-course rollup.** One row per UC course would list every concept found anywhere at the other school, alongside the existing \"not found\" table.\n\nDo you want to try either of these?",
+   "iso": "2026-10-20T14:43:16.545000+00:00",
+   "label": "10:43 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-184d14ad-8a8",
+   "text": "i think something is wrong wth concept capture if we are documenting so few in each course description.  here's what i think we could do: take a course like UC CS 1021C. Here are the concepts I think should be identified within it (and synonyms so differently worded course descriptions can match on concepts).  1) structured programming  2) object-oriented programming 3. algorithm design, 4. problem-solving. 5. C++ .    For an OSU example: CSE 3341  : 1. Formal languages and grammars; 2. recursive descent parsing;  3. data types, 4. expressions,  5. control structures1, 6. parameter passing; 7. compilers  8. interpreters; 9. memory management; 10. functional programming principles.   what needs to change to match this approach and what might go wrong if we do this",
+   "iso": "2026-10-20T14:49:26.256000+00:00",
+   "label": "10:49 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-db698f32-c2a",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Show current tags and descriptions for both example courses",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read concept spec and progress notes on tagging",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check untagged notes and concept usage for the two courses",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Count untagged-note reasons across schools",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 4 commands",
+   "iso": "2026-10-20T14:49:30.551000+00:00",
+   "label": "10:49 AM",
+   "end_label": "10:49 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-0063c139-da9",
+   "text": "I checked the current tags for both courses. For these two courses, the tagging already does most of what you describe, so short tags don't explain the thin table.\n\n**What's tagged now** (each tag has synonyms in `concepts.csv`):\n\n| Your concept | Current tag |\n|---|---|\n| **UC CS 1021C** | |\n| structured programming | `control-structures` (the \"structured programming\" wording is folded into it) |\n| object-oriented programming | `object-oriented-programming` |\n| algorithm design | not tagged: noted as `no-concept`, because the vocabulary has no general \"algorithm design\" concept |\n| problem-solving | not tagged: excluded on purpose as a `generic-aim` (spec 08) |\n| C++ | `cpp-language` |\n| **OSU CSE 3341** | |\n| formal languages and grammars | `context-free-languages` |\n| recursive descent parsing | `parsing` |\n| data types | `variables-and-data-types` |\n| expressions | not tagged: noted as `too-general` |\n| control structures | `control-structures` |\n| parameter passing | `scope-and-runtime` |\n| compilers, interpreters | `compilers-and-interpreters` (one concept for both) |\n| memory management | `os-memory-management` |\n| functional programming | `functional-programming` |\n\nOSU CSE 3341 already has 8 tags covering 9 of your 10 items, and UC CS 1021C has 3 of 5. The gaps come from deliberate rules, not missed text. Across all 16 schools, the untagged-text notes total 435: 238 are framing (format, audience, credit rules), 94 are whole-course labels like \"data structures\", and only 50 name a concrete topic the vocabulary lacks.\n\n**Why the \"Shared\" table is still thin:**\n- **Descriptions are short.** UC CS 1021C's description is 27 words, so at most about 5 concepts are possible.\n- **Topics land in different courses.** OSU 3341's concepts do exist at UC, but spread across courses: compilers and functional programming are in CS 3003, grammars in CS 5170. Each pair becomes its own small band.\n- **Some concepts have no partner at all.** For example, parsing appears at only 3 schools, and none of them is UC.\n\n**What would change to follow your approach:**\n1. **Allow generic aims and broad topics as concepts:** \"problem-solving\", \"algorithm design\", \"expressions\". This changes the granularity rule in spec 08.\n2. **Add concepts for the 50 `no-concept` notes.** This is the queue of topics the vocabulary is missing.\n3. **Rely more on synonyms for matching.** These already exist, so the gain is mainly in adding new ones.\n4. **Re-tag and re-review.** All 16 schools need re-checking against the new vocabulary; there are 923 tags, all still unreviewed.\n\n**What might go wrong:**\n- **Generic tags inflate overlap without telling you anything.** Nearly every intro course says \"problem solving\". The bands would get thicker, but they'd say \"both schools teach programming\", which the course-level Alignment tab already shows.\n- **Whole-course labels duplicate the canonical-course match.** Tagging \"data structures\" as a concept just repeats what the Alignment tab already matches.\n- **Splitting concepts finer reduces matches.** Your list separates compilers from interpreters. A school that says only \"interpreters\" would then no longer match UC's \"compilers\". Finer tags mean more tags per course but fewer shared ones.\n- **Synonyms cause false matches.** For example, \"data types\" vs \"abstract data types\", or \"memory management\" in an OS course vs in a programming-languages course (OSU 3341's is tagged `os-memory-management`, which is arguably wrong already).\n- **The real limit is description length.** If UC's description doesn't say \"recursion\", no rule change will find it there.\n\nMy recommendation: do step 2 (add the missing concepts), and add generic aims only as a separate \"broad\" tier that the view leaves out of the shares by default. Then try it on UC plus one school before re-tagging all 16.",
+   "iso": "2026-10-20T14:50:05.716000+00:00",
+   "label": "10:50 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-06a605b6-7a7-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "How do you want to proceed with concept capture?",
+     "header": "Next step",
+     "multi": false,
+     "options": [
+      {
+       "label": "Pilot on UC + OSU (Recommended)",
+       "description": "Add concepts from the no-concept queue plus a separate 'broad' tier (problem-solving, algorithm design), re-tag only UC and OSU, and compare the Shared table before and after.",
+       "preview": ""
+      },
+      {
+       "label": "Adopt fully, all schools",
+       "description": "Change the spec 08 granularity rules and re-tag all 16 schools now.",
+       "preview": ""
+      },
+      {
+       "label": "Only fill vocabulary gaps",
+       "description": "Keep the generic-aim rule; just add concepts for the 50 no-concept notes.",
+       "preview": ""
+      },
+      {
+       "label": "Rethink matching instead",
+       "description": "Keep the tags as they are; change how the view matches (e.g., group-level matching or a per-course rollup).",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 1,
+   "iso": "2026-10-20T14:50:08.552000+00:00",
+   "label": "10:50 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-9daedca2-3c0-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Next step",
+     "answer": "[User did not answer this question — they sent a message instead. Treat that message as their response; do not re-ask.]",
+     "notes": "",
+     "class": "own"
+    }
+   ],
+   "text": "",
+   "iso": "2026-10-20T14:50:08.552000+00:00",
+   "label": "10:51 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-af59bd66-1c4",
+   "text": "Got it. Tell me what you'd like to do next.",
+   "iso": "2026-10-20T14:51:55.944000+00:00",
+   "label": "10:51 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-e9f8181d-c35",
+   "text": "ok, i guess we skip this change.  keep it as it is.",
+   "iso": "2026-10-20T14:51:56.008000+00:00",
+   "label": "10:51 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-44623f0c-1a2",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Find where to record the decision in progress notes",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read the last section before Next",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited PROGRESS.md",
+     "kind": "edit"
+    }
+   ],
+   "summary": "Ran 2 commands · edited 1 file",
+   "iso": "2026-10-20T14:51:58.912000+00:00",
+   "label": "10:51 AM",
+   "end_label": "10:52 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-193bd839-c1c",
+   "text": "I'll record the decision in PROGRESS.md so it isn't raised again.",
+   "iso": "2026-10-20T14:52:02.145000+00:00",
+   "label": "10:52 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-317bbc34-b7a",
+   "text": "OK, concept tagging stays as it is. I added a short note to PROGRESS.md saying you decided to keep the current rules, so the question won't come up again in later sessions. It also records the explanation of why the \"Shared concepts\" table is thin. Nothing else changed, and I haven't committed the note.",
+   "iso": "2026-10-20T14:52:08.294000+00:00",
+   "label": "10:52 AM"
+  },
+  {
+   "kind": "session",
+   "id": "s-23",
+   "n": 23,
+   "label": "Tue Oct 20 · Session 23",
+   "iso": "2026-10-20T14:59:14.008000+00:00"
+  },
+  {
+   "kind": "you",
+   "id": "u-5b8e81cf-7e6",
+   "text": "let's revise the 4-year plan panel.  I would like to make this more of a summary of the 4 year-plans of different schools.   UC should show first.   There should be a place to select a particular school in a drop down.  We For UC and other coop schools, there should be a toggle which indicates - show only academic semesters, fit into a 4-year timeframe or show all semesters including coop in a 5 year timeframe.  For other schools this would not be needed.   Remove the specific years, and instead keep it general.  Don't say how 5 year coop plan becomes 4 years, I think this would confuse people.   remove the panel showing uc terms -> normalized semesters.",
+   "iso": "2026-10-20T14:59:14.008000+00:00",
+   "label": "10:59 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-bd84be54-299",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "ls web && grep -ril \"4-year plan\\|four-year\\|normalized semester\" web | head; tail -60 PROGRESS.md;",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "git diff PROGRESS.md; cat web/index.html; wc -l web/index.js; ls data/processed/*/ | head -50",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "cat web/index.js; cat web/common.js | head -200; wc -l web/common.js",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "grep -n -i \"coop\\|co-op\" web/compare.js web/compare.html | head -60; cat data/reference/schools.csv;",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "sed -n 200,321p web/common.js; sed -n 560,640p web/compare.js; grep -n \"select\\|<label\\|controls\" we",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": ".venv/bin/python -c \"",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": ".venv/bin/python -c \"",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "sed -n 140,175p specs/04-outputs.md; sed -n 140,160p web/style.css; grep -n \"coop-note\\|\\.note\\b\\|\\.",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": ".venv/bin/python - <<'EOF'",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "sed -i '' 's|<h1>Degree plans</h1>|<h1>4-year plans</h1>|' web/index.html && grep -l '>4-year plan</",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote web/index.js",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "sed -i '' 's|// one line of title (8 + 3 x 15 = 53, rounded down so two text lines show).|// one lin",
+     "kind": "command"
+    },
+    {
+     "tool": "ToolSearch",
+     "label": "ToolSearch",
+     "kind": "other"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/index.html?v=1",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer key",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer left_click",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": ".venv/bin/python - <<'EOF'",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer key",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer scroll",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": ".venv/bin/python - <<'EOF'",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 13 commands · wrote index.js · 14 browser steps · 1 other · published the site",
+   "iso": "2026-10-20T14:59:17.806000+00:00",
+   "label": "10:59 AM",
+   "end_label": "11:02 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-d20102ff-340",
+   "text": "I've read the current page and data. Now I'm rewriting `web/index.html` and `web/index.js` as a plan viewer for every school.",
+   "iso": "2026-10-20T15:00:10.721000+00:00",
+   "label": "11:00 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-abe3abfb-976",
+   "text": "The page is rewritten; now I'm checking it in the browser.",
+   "iso": "2026-10-20T15:01:51.475000+00:00",
+   "label": "11:01 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-053be776-6ff",
+   "text": "Chrome is showing the cached script. Hard-reloading.",
+   "iso": "2026-10-20T15:01:59.716000+00:00",
+   "label": "11:01 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-a3844b88-8a7",
+   "text": "Academic view works and the area credits sum to UC's 124–126. Checking the co-op view.",
+   "iso": "2026-10-20T15:02:03.633000+00:00",
+   "label": "11:02 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-2abb8ddb-a87",
+   "text": "The full-width year rows make the 5-year view very tall. I'll let year blocks sit side by side, sized by how many terms each has.",
+   "iso": "2026-10-20T15:02:13.134000+00:00",
+   "label": "11:02 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b7e1f886-850",
+   "text": "Looks good. Checking Northeastern, a non-co-op school, and the dialog via script.",
+   "iso": "2026-10-20T15:02:25.156000+00:00",
+   "label": "11:02 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-2c7f99eb-20a",
+   "text": "Northeastern (135) and OSU (126) credit sums match the registry. Checking the dialog and a phone-width layout.",
+   "iso": "2026-10-20T15:02:35.216000+00:00",
+   "label": "11:02 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-99964e2b-eaa",
+   "text": "I've revised the 4-year plan page and published it to the public site: https://jauri.github.io/curriculum-comparison-site/web/index.html. I haven't committed it; say \"commit\" when you're happy with it. Since your phone may have the old version cached, hard-reload if you still see it.\n\nI checked it in the browser on the Mac for UC, Northeastern, OSU and CMU, but haven't looked at it at phone width yet.\n\n**What changed**\n- **School drop-down**, with UC first. It covers every school that has data, and the chosen school is kept in the URL (`?school=neu`).\n- **Summary heading** for the chosen school: program, college, total credits and number of courses.\n- **Credits per subject area** are now shown in the legend (e.g. \"Computer science · 73 cr\"). For UC, Northeastern and OSU these add up to the school's stated total.\n- **Co-op switch**, shown only for co-op schools (UC and Northeastern):\n  - *Academic semesters (4 years)*: Years 1–4, Semesters 1–8.\n  - *All terms, with co-op*: the school's own years and terms, with co-op terms as grey cards. UC shows 5 years. Northeastern shows 4, because its co-op terms fall within its 4 years (in Spring and Summer 1), so its label says \"(4 years)\".\n- **Labels are general.** Semester headings say \"Semester 3\" with no season, and the all-terms view says \"Year 2 Spring\". All calendar years are gone, including \"Class of 2031\".\n\n**What I removed**\n- The note on how the 5-year co-op plan becomes 4 years.\n- The panel mapping UC terms to normalized semesters.\n\n**Other changes**\n- The nav link now reads \"4-year plans\" on every page.\n- The generic-description note now says \"the school's own catalog text\" instead of UC's.\n- I added the new page behavior to `specs/04-outputs.md` and logged this change in `PROGRESS.md`.\n\nOne thing I left alone: the small hover hint on the \"generic\" badge still says \"not UC's own catalog text\", including on other schools' courses. It's shared code used by every page, so it's a one-word fix in `common.js` if you want it.",
+   "iso": "2026-10-20T15:03:00.100000+00:00",
+   "label": "11:03 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-81ee5206-ea0",
+   "text": "in the 4 year plan page, can you add to generic descriptions card a mention of how many CS courses had to use generic descriptions.",
+   "iso": "2026-10-20T15:10:29.205000+00:00",
+   "label": "11:10 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-a9991246-91f",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": ".venv/bin/python -c \"",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": ".venv/bin/python - <<'EOF'",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": ".venv/bin/python - <<'EOF'",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 3 commands · published the site",
+   "iso": "2026-10-20T15:10:33.912000+00:00",
+   "label": "11:10 AM",
+   "end_label": "11:10 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-1961f10e-ab8",
+   "text": "In every school, nearly all generic CS descriptions belong to requirement slots (CS electives); Virginia Tech's CS 4944 is the only named course among them. I'll write the sentence so it says that.",
+   "iso": "2026-10-20T15:10:37.896000+00:00",
+   "label": "11:10 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-a1e25749-0be",
+   "text": "The Generic descriptions card now ends with a sentence counting the chosen school's computer science courses that use a generic description, and it updates when you pick another school. For UC it reads:\n\n> At UC, 4 of 21 computer science courses and slots use a generic description, all requirement slots.\n\nAt every school, almost all of these are requirement slots like \"CS electives\", which have no single catalog description. The only named course with a generic description is Virginia Tech's CS 4944, and the sentence names it.\n\nI tested the sentence logic with sample data but didn't look at the page in the browser this time. It's published to the site (hard-reload on your phone), and still not committed.",
+   "iso": "2026-10-20T15:10:54.710000+00:00",
+   "label": "11:10 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-0b2450be-de0",
+   "text": "great.  prepare to clear",
+   "iso": "2026-10-20T15:18:45.632000+00:00",
+   "label": "11:18 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-00537aa2-8f4",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "grep -n \"^## Next\" -A4 PROGRESS.md && git status --short",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited PROGRESS.md",
+     "kind": "edit"
+    }
+   ],
+   "summary": "Ran 1 command · edited 1 file",
+   "iso": "2026-10-20T15:18:48.842000+00:00",
+   "label": "11:18 AM",
+   "end_label": "11:18 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-e80f443f-876",
+   "text": "You're ready to clear. I updated `PROGRESS.md` so the next session picks up from here.\n\nThese changes are published to the site but not committed:\n- `web/index.html` and `web/index.js` (the plan page)\n- the \"4-year plans\" nav label on the other seven pages\n- `specs/04-outputs.md`\n- `PROGRESS.md`, which also still holds the uncommitted note on the concept tagging question\n\nTwo things are still open:\n- I haven't checked the page at phone width.\n- The \"generic\" badge's hover text in `common.js` still says \"not UC's own catalog text\" on every school's courses. It's a one-word fix if you want it.\n\nSay \"commit\" now if you want these committed before clearing.",
+   "iso": "2026-10-20T15:18:55.708000+00:00",
+   "label": "11:18 AM"
+  },
+  {
+   "kind": "you",
+   "id": "u-1465a91b-231",
+   "text": "commit and push",
+   "iso": "2026-10-20T15:22:44.091000+00:00",
+   "label": "11:22 AM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-2abc636",
+   "hash": "2abc636",
+   "text": "4-year plans page: every school, co-op switch, generic CS count",
+   "iso": "2026-10-20T11:22:50-04:00",
+   "label": "11:22 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-a28b2a06-89e",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "sed -i '' 's|- \\*\\*4-year plans page revision (2026-10-20): published, not committed.\\*\\* The user s",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 1 command · committed",
+   "iso": "2026-10-20T15:22:50.440000+00:00",
+   "label": "11:22 AM",
+   "end_label": "11:22 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-ba96c09c-dd6",
+   "text": "The page changes are committed as `2abc636` on `step-13-schools` and pushed to the private repo, and the working tree is clean. The commit also includes the concept tagging note that was waiting in `PROGRESS.md`. Before committing, I changed `PROGRESS.md` to record the page work as committed and pushed. The public site already had these changes from the earlier publish.\n\nTwo things are still open for next time: checking the page at phone width, and the \"generic\" hover text that still says UC's. You're ready to clear.",
+   "iso": "2026-10-20T15:22:56.693000+00:00",
+   "label": "11:22 AM"
+  },
+  {
+   "kind": "session",
+   "id": "s-24",
+   "n": 24,
+   "label": "Tue Oct 20 · Session 24",
+   "iso": "2026-10-20T15:25:18.070000+00:00"
+  },
+  {
+   "kind": "you",
+   "id": "u-d839b656-e98",
+   "text": "to the progress page, can you add a section describing What I did, What Claude did.  So, give a description of my role in the project- what did I specify about the project, what decisions did I make- and your role- what did you do on the project.  The same way people may document different roles on projects for courses.",
+   "iso": "2026-10-20T15:25:18.070000+00:00",
+   "label": "11:25 AM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-0bedaefc-460",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "cd .; ls web specs; gr",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "cd .; cat web/process.",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "cd .; wc -c PROGRESS.m",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "cd .; cat PROGRESS.md",
+     "kind": "command"
+    },
+    {
+     "tool": "Read",
+     "label": "Read ~/.claude/projects/(this project) project)/1425a8f9-70df-4622-897e-6ddd67f42b60/tool-results/btckts851.txt",
+     "kind": "read"
+    },
+    {
+     "tool": "Bash",
+     "label": "cd .; .venv/bin/python",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/process.html",
+     "kind": "edit"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/process.html",
+     "kind": "edit"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/process.js",
+     "kind": "edit"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited web/process.js",
+     "kind": "edit"
+    },
+    {
+     "tool": "Bash",
+     "label": "cd .; .venv/bin/python",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 6 commands · edited 2 files · read 1 file · published the site",
+   "iso": "2026-10-20T15:25:20.881000+00:00",
+   "label": "11:25 AM",
+   "end_label": "11:26 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-d0933aab-8e4",
+   "text": "Reading the progress log and process page to draft an Author / Claude roles section — now checking the page's data.",
+   "iso": "2026-10-20T15:25:36.051000+00:00",
+   "label": "11:25 AM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-0e87a500-edd",
+   "text": "Writing the section now: two side-by-side cards (Author / Claude) under the page title, with live counts from the data.",
+   "iso": "2026-10-20T15:25:56.444000+00:00",
+   "label": "11:25 AM"
   }
  ]
 }

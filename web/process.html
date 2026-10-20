@@ -93,6 +93,19 @@
     .ov-tip i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
     .ov-tip a { color: var(--accent); }
 
+    /* Roles ("Who did what"): two cards side by side, the author's and Claude's, each
+       with its kind's color on the left edge, as in the timeline. auto-fit + minmax
+       drops them to one column when there isn't room for two 300px cards (phones). */
+    .roles { margin: 0 0 24px; padding-bottom: 20px; border-bottom: 1px solid var(--axis); }
+    .roles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+    .role { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--c);
+            border-radius: 8px; padding: 10px 14px; font-size: 14px; }
+    .role h3 { margin: 0 0 6px; font-size: 15px; color: var(--c); }
+    .role ul { margin: 0; padding-left: 18px; }
+    .role li { margin-bottom: 6px; }
+    .role li b { color: var(--ink); }
+    .role .role-count { margin: 8px 0 0; font-size: 12px; color: var(--muted); }
+
     /* Section headings for the two summaries at the top. */
     h2.sec { font-size: 18px; margin: 0 0 10px; color: var(--ink); }
 
@@ -228,7 +241,7 @@
 <body>
 <main>
   <nav>
-    <a href="index.html">4-year plan</a>
+    <a href="index.html">4-year plans</a>
     <a href="compare.html">Course-level alignment</a>
     <a href="concept_compare.html">Concept alignment</a>
     <a href="timeline.html">Timeline</a>
@@ -239,6 +252,77 @@
   </nav>
   <h1>How this was made</h1>
   <p class="sub" id="subtitle">The full working conversation between the project's author and Claude, an AI assistant, from the first idea to the current pages.</p>
+
+  <!-- Roles: what the author and Claude each did, as a course project's contribution
+       statement would put it. Hand-written from PROGRESS.md and the specs (each point
+       traces to a decision or step recorded there); only the count lines come from the
+       data, filled in by process.js. -->
+  <section class="roles" aria-label="Who did what">
+    <h2 class="sec">Who did what</h2>
+    <div class="roles-grid">
+      <div class="role" style="--c: var(--you)">
+        <h3>The author</h3>
+        <ul>
+          <li><b>Set the question and its scope:</b> compare the University of Cincinnati's
+            5-year co-op CS degree with peer programs, normalized to four academic years,
+            for a faculty audience.</li>
+          <li><b>Set the ground rules:</b> the catalog year; official course descriptions
+            only from the universities' own catalogs, with any generic text labeled; every
+            source list approved before downloading; Python for the data and JavaScript for
+            the pages; code commented for students.</li>
+          <li><b>Chose what to compare:</b> the comparison schools and the replacements when
+            a school had no semester-by-semester plan, the pilot schools, and the order of
+            the batches.</li>
+          <li><b>Made the method decisions:</b> one parser per school; that a choice offered
+            only for timing must still count as the required courses (which changed how
+            courses are matched); a concept vocabulary built bottom-up from the
+            descriptions, for CS courses only; recording every phrase that supports a
+            concept tag; and keeping the tagging rules rather than tagging every phrase.</li>
+          <li><b>Proposed the views</b> (course alignment, the per-course timeline, concept
+            alignment, the plan summaries, and this page) and chose among Claude's design
+            options for each: layouts, toggles, colors, and how activity is measured.</li>
+          <li><b>Reviewed and approved</b> the canonical course list and every school's
+            course matches, the generic descriptions, the concept vocabulary, the specs, and
+            each page in a browser and on a phone.</li>
+          <li><b>Corrected and narrowed:</b> flagged the first matching approach as wrong,
+            had added features removed when they went beyond the degree plans, and rejected
+            a ranking of messages that would have counted clarifying questions against the
+            author.</li>
+          <li><b>Directed the work:</b> when to commit, publish, pause, or move on, and how
+            Claude should ask questions.</li>
+        </ul>
+        <p class="role-count" id="role-author"></p>
+      </div>
+      <div class="role" style="--c: var(--claude)">
+        <h3>Claude</h3>
+        <ul>
+          <li><b>Turned requests into specs and a plan:</b> wrote the specification files and
+            the step-by-step plan from the author's answers, and asked a multiple-choice
+            question, usually with a recommendation, at each decision.</li>
+          <li><b>Found and collected the sources:</b> located each school's degree plan and
+            course descriptions (web pages, PDF, Word, and Excel files), downloaded them with
+            a record of each file's address, date, and checksum, and saved pages through the
+            author's browser where a site blocked scripts, rather than disguising them.</li>
+          <li><b>Wrote all the code:</b> the Python pipeline (collecting, a parser per
+            school, the 4-year normalization, descriptions, matching checks, validation) and
+            the JavaScript pages.</li>
+          <li><b>Drafted the judgment calls for review:</b> the canonical course list and
+            every match with a rationale and confidence, the generic descriptions, the
+            concept vocabulary and tags with their evidence phrases, and the step markers
+            and message categories on this page.</li>
+          <li><b>Made smaller choices without asking</b> and listed each one in the progress
+            log for the author's review.</li>
+          <li><b>Checked its own work:</b> validation scripts tested by planting errors,
+            pages checked in Chrome, and source problems reported (catalog typos, credit
+            totals that don't add up, a UC description cut off in the catalog).</li>
+          <li><b>Kept the record:</b> the progress log, spec updates, commits, and publishing
+            the site.</li>
+        </ul>
+        <p class="role-count" id="role-claude"></p>
+      </div>
+    </div>
+    <div class="in-note">Written by Claude from the project's progress log and specs.</div>
+  </section>
 
   <section class="overview" aria-label="Activity by day and half hour">
     <h2 class="sec">When the work happened</h2>

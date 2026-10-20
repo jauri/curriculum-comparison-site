@@ -328,8 +328,8 @@ function draftSchool(d) {
 // (so the labels match UC's). A course keeps its UC row's reviewed matches unless the
 // user picked another canonical course; a user's pick is labeled "chosen in this
 // draft". A description changed in the editor is labeled "proposed" (not UC's text).
-// UC's co-op rows are added unchanged; they are not drawn (co-op terms are off) but let
-// the semester labels say "after co-op", as on the alignment views.
+// UC's co-op rows are added unchanged: they are drawn when the co-op switch is on, and
+// otherwise let the semester labels say "after co-op", as on the alignment views.
 function draftRows(d) {
   const school = draftSchool(d);
   const rows = d.courses.filter((c) => !c.removed).map((c) => {
@@ -541,7 +541,6 @@ function importDrafts(file) {
 // Wire up the toolbar buttons, the subject filter, the school picker, and keyboard
 // shortcuts. Called once after loading.
 function setupControls() {
-  d3.select("#draft-pick").on("change", (event) => { openDraft(event.target.value); renderAll(); flash("Opened."); });
   // Rename on change (Enter or leaving the field). An empty name is put back; a name
   // used by another draft gets a number.
   d3.select("#draft-name").on("change", (event) => {
@@ -549,14 +548,30 @@ function setupControls() {
     const name = event.target.value.trim();
     if (name) { d.name = uniqueName(name, d.id); d.updated = new Date().toISOString(); saveStore(); }
     renderAll();
-    flash(name ? "Renamed." : "A draft needs a name.");
+    flash(name ? "Renamed." : "A version needs a name.");
   });
-  d3.select("#btn-new").on("click", () => { createDraft("Draft"); renderAll(); flash("New draft, copied from UC's current plan."); });
-  d3.select("#btn-dup").on("click", () => {
-    const d = currentDraft();
-    createDraft(`${d.name} copy`, d.courses);
+  d3.select("#btn-new").on("click", () => { createDraft("Draft"); renderAll(); flash("New version, copied from UC's current plan."); });
+  // "Save as new version": an inline name field (no browser prompt() dialog). Saving
+  // copies the open version under the new name and opens the copy, so the version you
+  // were in stays exactly as it was when you saved.
+  const saveForm = d3.select("#save-as-form");
+  d3.select("#btn-save-as").on("click", () => {
+    saveForm.classed("hidden", false);
+    const input = document.getElementById("save-as-name");
+    input.value = uniqueName(`${currentDraft().name} v2`);
+    input.focus();
+    input.select();
+  });
+  d3.select("#save-as-cancel").on("click", () => saveForm.classed("hidden", true));
+  saveForm.on("submit", (event) => {
+    event.preventDefault(); // stay on the page (a form submit would reload it)
+    const name = document.getElementById("save-as-name").value.trim();
+    if (!name) return;
+    const from = currentDraft();
+    const d = createDraft(name, from.courses);
+    saveForm.classed("hidden", true);
     renderAll();
-    flash("Duplicated.");
+    flash(`Saved "${d.name}" and switched to it. "${from.name}" is kept as it was.`);
   });
   // Delete takes two clicks: the first turns the button into "Confirm delete" for a few
   // seconds (no browser confirm() dialog). The last draft is replaced by a fresh copy of UC.
@@ -591,7 +606,9 @@ function setupControls() {
   // The co-op switch (common.js reads ?coop=1). Node ids in the charts depend on which
   // rows are drawn, so switching unpins both charts.
   state.coop = coopFromUrl();
-  d3.select("#coop-on-label").text(`All terms, with co-op (${d3.max(uc.coop, (r) => r.orig_year)} years)`);
+  // The plan's length in years counts every UC row (its last academic year, Year 5, has
+  // no co-op term, so the co-op rows alone would say 4).
+  d3.select("#coop-on-label").text(`All terms, with co-op (${d3.max([...uc.academic, ...uc.coop], (r) => r.orig_year)} years)`);
   d3.selectAll("input[name=coop]").property("checked", function () { return this.value === (state.coop ? "1" : "0"); })
     .on("change", (event) => {
       state.coop = event.target.value === "1";
@@ -653,12 +670,48 @@ function setupControls() {
   window.addEventListener("resize", () => { clearTimeout(timer); timer = setTimeout(() => { renderOldNew(); renderVsSchool(); }, 150); });
 }
 
-// Refresh the toolbar for the open draft: picker options, name, and button states.
+// How many courses of a draft differ from UC (added, removed, moved, or revised).
+const changedCount = (d) => d.courses.filter((c) => {
+  const ch = changesOf(c);
+  return ch.added || ch.removed || ch.moved || ch.fields.length;
+}).length;
+
+// Refresh the Versions panel and the toolbar: one card per version (name, when it was
+// last saved, how many courses changed, how many problems the checks find), the open
+// one highlighted; then the name field and the Undo / Redo states. Cards are in the
+// order the versions were made, so they don't jump around while you edit.
 function renderToolbar() {
   const d = currentDraft();
-  const list = d3.sort(Object.values(store.drafts), (x) => x.name.toLowerCase());
-  d3.select("#draft-pick").selectAll("option").data(list, (x) => x.id).join("option")
-    .attr("value", (x) => x.id).text((x) => x.name).property("selected", (x) => x.id === d.id);
+  const list = d3.sort(Object.values(store.drafts), (x) => x.created || "", (x) => x.name.toLowerCase());
+  // Saved today: the time only; earlier: the date only.
+  const savedText = (iso) => {
+    if (!iso) return "";
+    const t = new Date(iso);
+    return t.toDateString() === new Date().toDateString()
+      ? t.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" })
+      : t.toLocaleDateString([], { month: "short", day: "numeric" });
+  };
+  const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
+  const cards = d3.select("#version-list").selectAll("button.version").data(list, (x) => x.id).join("button")
+    .attr("type", "button")
+    .attr("class", (x) => `version${x.id === d.id ? " open" : ""}`)
+    .attr("aria-current", (x) => (x.id === d.id ? "true" : null))
+    .on("click", (event, x) => {
+      if (x.id === store.current) return;
+      openDraft(x.id);
+      renderAll();
+      flash(`Switched to "${x.name}".`);
+    });
+  cards.selectAll("*").remove();
+  cards.each(function (x) {
+    const card = d3.select(this);
+    const problems = checkDraft(x).length;
+    card.append("b").attr("title", x.name).text(x.name);
+    if (x.id === d.id) card.append("span").attr("class", "open-mark").text("Open now: edits save here");
+    card.append("span").text(`Saved ${savedText(x.updated)}`);
+    const line = card.append("span").text(`${plural(changedCount(x), "change")} from UC · `);
+    line.append("span").attr("class", problems ? "warn-count" : null).text(problems ? `${plural(problems, "problem")} ⚠` : "no problems");
+  });
   d3.select("#draft-name").property("value", d.name);
   d3.select("#btn-undo").property("disabled", !undoStack.length);
   d3.select("#btn-redo").property("disabled", !redoStack.length);
@@ -763,10 +816,10 @@ function renderEditor() {
 
   // Summary: credits, and how many courses differ from UC.
   const kept = d.courses.filter((c) => !c.removed);
-  const changed = d.courses.filter((c) => { const ch = changesOf(c); return ch.added || ch.removed || ch.moved || ch.fields.length; });
+  const nChanged = changedCount(d);
   const when = d.updated ? new Date(d.updated).toLocaleString() : "";
   d3.select("#draft-summary").text(`"${d.name}": ${sumText(kept)} credits in ${kept.length} courses and slots ` +
-    `(UC today: ${sumText(uc.academic)} in ${uc.academic.length}). ${changed.length} course${changed.length === 1 ? "" : "s"} ` +
+    `(UC today: ${sumText(uc.academic)} in ${uc.academic.length}). ${nChanged} course${nChanged === 1 ? "" : "s"} ` +
     `changed from UC.${when ? ` Last changed ${when}.` : ""}`);
 
   // Courses whose UC row is gone from the data (the table was regenerated).

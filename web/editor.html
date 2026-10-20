@@ -8,7 +8,28 @@
   <style>
     /* Page-specific styles for the curriculum editor (specs/11-editor-view.md). */
 
-    /* Draft toolbar: picker, name field, and the draft and history buttons. */
+    /* Versions panel: one card per saved version (a draft), the open one highlighted;
+       clicking a card switches to it. Cards wrap onto new rows on a narrow screen. */
+    .versions { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 12px 0 8px; }
+    .versions-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .versions-head h2 { margin: 0 auto 0 0; font-size: 17px; }
+    .save-as { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; margin: 8px 0 0; font-size: 14px; }
+    .save-as input { font: inherit; color: var(--ink); background: var(--page); border: 1px solid var(--accent); border-radius: 6px; padding: 4px 8px; width: 16em; max-width: 100%; }
+    .save-as .muted { font-size: 13px; flex-basis: 100%; }
+    .version-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; margin-top: 10px; }
+    .version {
+      all: unset; box-sizing: border-box; display: flex; flex-direction: column; gap: 2px; cursor: pointer;
+      padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--page); font-size: 13px; min-width: 0;
+    }
+    .version:hover { background: var(--hover); }
+    .version:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .version.open { border: 2px solid var(--accent); background: var(--surface); padding: 7px 9px; cursor: default; }
+    .version b { font-size: 14px; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .version .open-mark { color: var(--accent); font-weight: 600; font-size: 12px; }
+    .version span { color: var(--ink-2); }
+    .version .warn-count { color: var(--later); }
+
+    /* Draft toolbar: name field, and the history and file buttons. */
     .toolbar { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin: 8px 0; font-size: 14px; }
     .toolbar select, .toolbar input[type="text"] {
       font: inherit; color: var(--ink); background: var(--surface);
@@ -255,11 +276,24 @@
     descriptions, written for this project, stay marked <span class="badge-generic">generic</span>.
   </div>
 
+  <section class="versions" aria-labelledby="versions-title">
+    <div class="versions-head">
+      <h2 id="versions-title">Versions</h2>
+      <button class="btn primary" id="btn-save-as" type="button">Save as new version</button>
+      <button class="btn" id="btn-new" type="button">New from UC</button>
+    </div>
+    <form class="save-as hidden" id="save-as-form">
+      <label for="save-as-name">Name for the new version</label>
+      <input type="text" id="save-as-name" maxlength="80" required>
+      <button class="btn primary" type="submit">Save</button>
+      <button class="btn" type="button" id="save-as-cancel">Cancel</button>
+      <span class="muted">Saves a copy of the open version and switches to it; the open one is kept as it is now.</span>
+    </form>
+    <div class="version-list" id="version-list"></div>
+  </section>
+
   <div class="toolbar" id="toolbar">
-    <label>Draft <select id="draft-pick"></select></label>
-    <label>Name <input type="text" id="draft-name" maxlength="80"></label>
-    <button class="btn" id="btn-new" type="button">New from UC</button>
-    <button class="btn" id="btn-dup" type="button">Duplicate</button>
+    <label>Open version's name <input type="text" id="draft-name" maxlength="80"></label>
     <button class="btn danger" id="btn-del" type="button">Delete</button>
     <button class="btn" id="btn-undo" type="button" title="Ctrl/Cmd+Z">Undo</button>
     <button class="btn" id="btn-redo" type="button" title="Shift+Ctrl/Cmd+Z">Redo</button>

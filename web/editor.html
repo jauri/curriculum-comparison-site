@@ -116,11 +116,38 @@
     .tag.proposed { color: var(--ink-2); border-style: dashed; }
     .tag.warn { color: var(--later); }
 
+    /* Change colors for course cards. NEW keeps the accent (as in the alignment view's
+       NEW tag); moved and edited get their own hues so they are not read as the
+       green/red earlier/later of the alignment lines, or the red of a warning. */
+    :root { --chg-new: var(--accent); --chg-moved: #8250df; --chg-edited: #b7791f; --chg-removed: var(--later); }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --chg-moved: #a78bfa; --chg-edited: #e3b341; }
+    }
+    :root[data-theme="dark"] { --chg-moved: #a78bfa; --chg-edited: #e3b341; }
+    /* A changed card: tinted background and a border in its change color (the left
+       stripe keeps the subject-area color). color-mix() blends the change color into
+       the card background, so the tint works in light and dark themes. */
+    .card.chg { border-color: var(--chg); border-left-color: var(--stripe); background: color-mix(in srgb, var(--chg) 12%, var(--surface)); }
+    .card.chg:hover { background: color-mix(in srgb, var(--chg) 20%, var(--surface)); }
+    .card.chg-new { --chg: var(--chg-new); }
+    .card.chg-moved { --chg: var(--chg-moved); }
+    .card.chg-edited { --chg: var(--chg-edited); }
+    .card.chg-removed { --chg: var(--chg-removed); }
+    /* Change symbols in the card's top line: ＋ new, ▲/▼ n moved, ✎ edited, ✕ removed.
+       The symbol carries the meaning, so color is never the only cue. */
+    .card .code .right { display: inline-flex; gap: 3px; align-items: center; flex: none; }
+    .mark { font-size: 11px; font-weight: 700; line-height: 1.3; padding: 0 3px; border-radius: 3px; color: #fff; white-space: nowrap; }
+    .mark.new { background: var(--chg-new); }
+    .mark.moved { background: var(--chg-moved); }
+    .mark.edited { background: var(--chg-edited); }
+    .mark.removed { background: var(--chg-removed); }
+    .change-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; color: var(--ink-2); margin: 0 0 8px; align-items: center; }
+
     /* Checks: a fixed (non-CS) card can't be dragged, so it gets the plain cursor and the
        page background; a card with a problem gets a warning-colored border. */
     .card.locked { cursor: default; background: var(--page); }
     .card.locked:hover { background: var(--page); }
-    .card.warn { border-color: var(--later); border-left-color: var(--stripe); }
+    .card.warn, .card.chg.warn { border-color: var(--later); border-left-color: var(--stripe); }
     .sem-head span.over { color: var(--later); font-weight: 600; }
     .checks { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 0 0 16px; font-size: 13px; }
     .checks-head { display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: center; justify-content: space-between; }
@@ -271,8 +298,9 @@
     catalog; only those within UC's own plan can be checked, and added courses have none.
   </div>
   <div class="note">
-    <strong>Descriptions.</strong> Text you write in the editor is marked
-    <span class="tag proposed">proposed</span>: it is not UC's catalog text. Generic
+    <strong>Descriptions.</strong> A description you write in the editor marks the course
+    <span class="mark edited">✎</span> edited, and the course panel labels it "written in
+    this draft, not UC's catalog text". Generic
     descriptions, written for this project, stay marked <span class="badge-generic">generic</span>.
   </div>
 
@@ -318,6 +346,12 @@
   <h2>1. Edit the draft</h2>
   <p class="muted" id="draft-summary"></p>
   <div class="checks" id="checks" aria-live="polite"></div>
+  <p class="change-legend">Changes from UC:
+    <span><span class="mark new">＋</span> new</span>
+    <span><span class="mark moved">▲2</span> moved (▲ earlier, ▼ later, by semesters)</span>
+    <span><span class="mark edited">✎</span> edited (hover for what)</span>
+    <span><span class="mark removed">✕</span> removed</span>
+  </p>
   <div class="years" id="years"></div>
   <div class="removed-box">
     <h3>Removed</h3>

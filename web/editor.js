@@ -829,37 +829,77 @@ function renderEditor() {
     : "");
 }
 
+// How a course differs from UC, for its card: a list of [kind, symbol] marks (＋ new,
+// ▲/▼ n moved, ✎ edited, ✕ removed) and one sentence per change for the tooltip and
+// screen readers. A course can carry both a move and an edit; the first mark decides
+// the card's tint (new before moved before edited).
+function cardChanges(c, ch, removedMode) {
+  const marks = [], words = [];
+  const b = ch.base;
+  if (removedMode && b) {
+    marks.push(["removed", "✕"]);
+    words.push(`Removed (was in ${semLabel(b.norm_semester)}).`);
+  }
+  if (ch.added) {
+    marks.push(["new", "＋"]);
+    words.push("New course, not in UC's plan; its description is written in this draft.");
+  }
+  if (ch.moved) {
+    // ch.moved is the semester shift: negative = earlier (▲), positive = later (▼).
+    const n = Math.abs(ch.moved);
+    marks.push(["moved", `${ch.moved < 0 ? "▲" : "▼"}${n}`]);
+    words.push(`Moved from S${b.norm_semester}, ${n} semester${n === 1 ? "" : "s"} ${ch.moved < 0 ? "earlier" : "later"}.`);
+  }
+  if (ch.fields.length && !ch.added) {
+    marks.push(["edited", "✎"]);
+    words.push(`Edited: ${ch.fields.map((f) => FIELD_LABEL[f]).join(", ")}` +
+      (ch.fields.includes("description") ? " (description written in this draft, not UC's catalog text)." : "."));
+  }
+  return { marks, words };
+}
+
 // Draw course cards into a drop target. Removed cards show where the course used to be
-// in UC's plan. Tags say how a card differs from UC: NEW, MOVED (from semester k),
-// REVISED, and PROPOSED when its description was written in the editor.
+// in UC's plan. A changed card is tinted in its change color and carries symbol marks
+// in its top line (see cardChanges); problem tags (⚠ prereq...) stay at the bottom.
 function drawCards(stack, courses, removedMode) {
+  // Work out each card's changes once, for its class, tooltip, label, and marks.
+  const info = new Map(courses.map((c) => {
+    const ch = changesOf(c);
+    return [c.id, { ch, ...cardChanges(c, ch, removedMode) }];
+  }));
   const cards = stack.selectAll("button.card").data(courses, (c) => c.id).join("button")
     .attr("type", "button")
-    .attr("class", (c) => `card${isSlotCourse(c) ? " slot" : ""}${isEditable(c) ? "" : " locked"}${issuesById.has(c.id) ? " warn" : ""}`)
+    .attr("class", (c) => {
+      const kind = info.get(c.id).marks[0]?.[0]; // ?. gives undefined when unchanged
+      return `card${isSlotCourse(c) ? " slot" : ""}${isEditable(c) ? "" : " locked"}${issuesById.has(c.id) ? " warn" : ""}` +
+        (kind ? ` chg chg-${kind}` : "");
+    })
     .attr("data-id", (c) => c.id)
     .style("--stripe", (c) => areaByKey(c.area).color)
     // min-height, not height, so a card with change tags can grow to fit them.
     .style("min-height", removedMode ? null : (c) => `${cardHeight(c)}px`)
     .attr("title", (c) => [`${c.code || "Slot"}: ${c.title} (${credText(c)} cr).`,
+      ...info.get(c.id).words,
       isEditable(c) ? "Drag to move; click to edit." : "Not a CS course: fixed. Click to view.",
       ...(issuesById.get(c.id) || []).map((x) => `⚠ ${x.text}`)].join("\n"))
-    .attr("aria-label", (c) => `${c.code || "Slot"} ${c.title}, ${credText(c)} credits${removedMode ? ", removed" : `, semester ${c.sem}`}` +
-      `${isEditable(c) ? ". Press Enter to edit." : ", fixed. Press Enter to view."}` +
+    .attr("aria-label", (c) => `${c.code || "Slot"} ${c.title}, ${credText(c)} credits${removedMode ? "" : `, semester ${c.sem}`}. ` +
+      info.get(c.id).words.join(" ") +
+      `${isEditable(c) ? " Press Enter to edit." : " Fixed. Press Enter to view."}` +
       (issuesById.has(c.id) ? ` Warning: ${issuesById.get(c.id).map((x) => x.text).join(" ")}` : ""));
 
   cards.each(function (c) {
     const card = d3.select(this);
-    const ch = changesOf(c);
+    const { ch, marks } = info.get(c.id);
     const top = card.append("span").attr("class", "code");
     top.append("span").text(c.code ? `${c.code} · ${credText(c)} cr` : `${credText(c)} cr`);
+    // Right end of the top line: the generic badge, then the change marks. The marks
+    // are aria-hidden because the card's aria-label already says the same in words.
+    const right = top.append("span").attr("class", "right");
     const b = ch.base;
-    if (b && b.description_source === "generic" && !ch.fields.includes("description")) appendGenericBadge(top);
+    if (b && b.description_source === "generic" && !ch.fields.includes("description")) appendGenericBadge(right);
+    for (const [kind, sym] of marks) right.append("span").attr("class", `mark ${kind}`).attr("aria-hidden", "true").text(sym);
 
     const tags = [];
-    if (ch.added) tags.push(["new", "new"]);
-    if (ch.moved) tags.push(["moved", `moved from S${b.norm_semester}`]);
-    if (ch.fields.length) tags.push(["revised", "revised"]);
-    if (ch.added || ch.fields.includes("description")) tags.push(["proposed", "proposed"]);
     // One warning tag per kind of problem on this course ("⚠ prereq", "⚠ standing").
     const WARN = { prereq: "⚠ prereq", standing: "⚠ standing", fixed: "⚠ fixed" };
     for (const kind of new Set((issuesById.get(c.id) || []).map((x) => x.kind))) tags.push(["warn", WARN[kind]]);
@@ -1434,7 +1474,7 @@ function detailBasics(panel, n, extraFacts = []) {
 
 // The heading for a row's description, saying where the text comes from.
 function descHeading(r) {
-  if (r.description_source === "proposed") return "Description (proposed in this draft, not UC's catalog text)";
+  if (r.description_source === "proposed") return "Description (written in this draft, not UC's catalog text)";
   if (r.description_source === "generic") return "Description (generic, written for this project)";
   return `Description (${r.school.school_id === "draft" ? "UC" : r.school.short_name} catalog)`;
 }
@@ -1490,8 +1530,8 @@ function renderOldNew() {
       if (n.side === "L") return n.allLinks.length ? null : { text: "REMOVED", cls: "removed" };
       const ch = n.row._ch;
       if (ch.added) return { text: "NEW", cls: "new" };
-      if (ch.moved) return { text: `${ch.moved < 0 ? "▲" : "▼"} ${Math.abs(ch.moved)}${ch.fields.length ? " · REVISED" : ""}`, cls: "moved" };
-      if (ch.fields.length) return { text: "REVISED", cls: "revised" };
+      if (ch.moved) return { text: `${ch.moved < 0 ? "▲" : "▼"} ${Math.abs(ch.moved)}${ch.fields.length ? " · EDITED" : ""}`, cls: "moved" };
+      if (ch.fields.length) return { text: "EDITED", cls: "revised" };
       return null;
     },
     fade: (n) => n.side === "L" && !n.allLinks.length, // removed UC courses
@@ -1537,7 +1577,7 @@ function renderOldNew() {
 function renderChangesTable(d) {
   const KINDS = [
     ["removed", "✕", "Removed"], ["added", "+", "Added"], ["earlier", "▲", "Moved earlier"],
-    ["later", "▼", "Moved later"], ["revised", "✎", "Revised"],
+    ["later", "▼", "Moved later"], ["revised", "✎", "Edited"],
   ];
   const rows = [];
   let unchanged = 0;

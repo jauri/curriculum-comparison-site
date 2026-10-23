@@ -143,10 +143,7 @@
     .mark.removed { background: var(--chg-removed); }
     .change-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 13px; color: var(--ink-2); margin: 0 0 8px; align-items: center; }
 
-    /* Checks: a fixed (non-CS) card can't be dragged, so it gets the plain cursor and the
-       page background; a card with a problem gets a warning-colored border. */
-    .card.locked { cursor: default; background: var(--page); }
-    .card.locked:hover { background: var(--page); }
+    /* Checks: a card with a problem gets a warning-colored border. */
     .card.warn, .card.chg.warn { border-color: var(--later); border-left-color: var(--stripe); }
     .sem-head span.over { color: var(--later); font-weight: 600; }
     .checks { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin: 0 0 16px; font-size: 13px; }
@@ -286,9 +283,9 @@
     draft covers UC's 8 academic semesters; co-op work terms are not editable. Switch to
     <em>All terms, with co-op</em> to see UC's real 5-year calendar, with each semester
     under its own year and term and the co-op terms in between (all three sections).
-    Only <strong>CS courses</strong> can be moved, removed, or revised, and added
-    courses are CS courses; math, science, engineering, writing, and general education
-    stay as UC has them (click one to view it).
+    Every course can be moved, removed, or revised, CS or not (math, science,
+    engineering, writing, and general education too), and an added course can be in any
+    subject area.
   </div>
   <div class="note">
     <strong>Checks.</strong> The editor warns (but doesn't stop you) when a semester's
@@ -411,7 +408,6 @@
       <label for="f-desc" class="full">Description</label>
       <textarea id="f-desc" class="full"></textarea>
     </div>
-    <p class="dlg-note hidden" id="f-locked">This is not a CS course, so it is fixed in every draft.</p>
     <p class="dlg-note" id="f-prereq"></p>
     <ul class="dlg-warn" id="f-warn"></ul>
     <p class="form-error" id="f-error" role="alert"></p>

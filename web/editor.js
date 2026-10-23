@@ -9,11 +9,11 @@
 //      joining each UC course to its place in the draft, and a table of changes;
 //   3. the draft vs one school: the same two-axis view, linked by canonical course.
 //
-// Only CS-area courses can be edited (moved, removed, revised) or added; the rest of
-// UC's plan is fixed. Checks run on every change and warn (they don't block) when a
-// semester's credits are outside the limits, when a course comes before (or in the
-// same semester as) a prerequisite or is placed before the class standing it needs,
-// or when a draft from before the lock changed a non-CS course. Prerequisites come
+// Every course in the 8 academic semesters can be edited (moved, removed, revised),
+// whatever its subject area, and added courses can be in any area; only co-op terms
+// are fixed. Checks run on every change and warn (they don't block) when a
+// semester's credits are outside the limits, or when a course comes before (or in the
+// same semester as) a prerequisite or is placed before the class standing it needs. Prerequisites come
 // from data/processed/uc/prerequisites.json (src/parse_uc_prereqs.py).
 //
 // Reads the same processed files as the other views (loadAllSchools in common.js). The
@@ -61,8 +61,9 @@ const TOUCH_SLOP_PX = 8;
 // 18 is a common cap before a credit overload needs approval. UC's own plan has 15-17
 // in every semester. The viewer can change both on the page (kept with the drafts).
 const DEFAULT_LIMITS = { min: 12, max: 18 };
-// The one subject area whose courses can be edited (the user's rule, 2026-10-20).
-const EDITABLE_AREA = "cs";
+// The subject area a new course starts in (the user can pick another). Until 2026-10-23
+// only CS courses could be edited; the user then opened every course to editing.
+const DEFAULT_NEW_AREA = "cs";
 
 // The course fields the editor can change, compared with UC's row to find revisions.
 const FIELD_LABEL = { code: "code", title: "title", credits: "credits", area: "subject area",
@@ -171,14 +172,6 @@ function isSlotCourse(c) {
   return !c.code && !!b && !b.course_code;
 }
 
-// Can the user change this course? A UC course only if it is in the CS area; an added
-// course always (it is CS, since the area field is fixed). A course whose UC row is gone
-// (stale) counts as added.
-function isEditable(c) {
-  const b = c.base ? baseByKey.get(c.base) : null;
-  return b ? b.subject_area === EDITABLE_AREA : true;
-}
-
 // The viewer's credit limits, or the defaults when none were saved (or they are bad).
 function creditLimits() {
   const l = store.limits;
@@ -190,7 +183,7 @@ function creditLimits() {
 // ---------------------------------------------------------------------------------
 
 // Every problem in a draft, as a list of { kind, sem, ids, text }: kind is "credits",
-// "prereq", "standing", or "fixed"; sem is the semester it is about (or null); ids are
+// "prereq", or "standing"; sem is the semester it is about (or null); ids are
 // the draft courses to mark. The checks only warn: a committee may want to see a plan
 // that breaks a rule before deciding to change the rule.
 function checkDraft(d) {
@@ -245,14 +238,6 @@ function checkDraft(d) {
     }
   }
 
-  // 3. Non-CS courses changed in a draft made before they were fixed.
-  for (const c of d.courses) {
-    if (isEditable(c) && (c.base || c.area === EDITABLE_AREA)) continue;
-    const ch = changesOf(c);
-    if (!ch.added && !ch.removed && !ch.moved && !ch.fields.length) continue;
-    issues.push({ kind: "fixed", sem: c.removed ? null : c.sem, ids: [c.id],
-      text: `${c.code || c.title} is not a CS course, so it is fixed, but this draft changes it (${changePhrases(c).join("; ")}).` });
-  }
   return issues;
 }
 
@@ -260,21 +245,6 @@ function checkDraft(d) {
 function countsToward(c) {
   const b = c.base ? baseByKey.get(c.base) : null;
   return b ? b.counts_toward_total !== false : true;
-}
-
-// Put every non-CS course back as UC has it (one Undo step): fields and semester, and
-// delete added non-CS courses. For drafts made before non-CS courses were fixed.
-function resetFixedCourses() {
-  commit((d) => {
-    d.courses = d.courses.filter((c) => c.base || c.area === EDITABLE_AREA);
-    for (const c of [...d.courses]) {
-      const b = c.base ? baseByKey.get(c.base) : null;
-      if (!b || b.subject_area === EDITABLE_AREA) continue;
-      Object.assign(c, { code: b.course_code, title: b.title, credits_min: b.credits_min, credits_max: b.credits_max,
-        area: b.subject_area, description: b.description, canonical: b.matches.map((m) => m.canonical_id) });
-      if (c.removed || c.sem !== b.norm_semester) moveInList(d.courses, c, String(b.norm_semester));
-    }
-  }, "Put the non-CS courses back as UC has them.");
 }
 
 // The Checks box above the semesters: the credit limits (editable) and the list of
@@ -307,14 +277,10 @@ function renderChecks(issues) {
       "its prerequisites in UC's plan, and class standing fits.");
     return;
   }
-  const LABEL = { credits: "Credits", prereq: "Prerequisite", standing: "Standing", fixed: "Fixed course" };
+  const LABEL = { credits: "Credits", prereq: "Prerequisite", standing: "Standing" };
   const li = box.append("ul").selectAll("li").data(issues).join("li");
   li.append("span").attr("class", "tag warn").text((x) => LABEL[x.kind]);
   li.append("span").text((x) => ` ${x.text}`);
-  if (issues.some((x) => x.kind === "fixed")) {
-    box.append("button").attr("class", "btn").attr("type", "button").text("Put non-CS courses back as UC has them")
-      .on("click", resetFixedCourses);
-  }
 }
 
 // The registry-like entry the charts use for a draft's side.
@@ -871,7 +837,7 @@ function drawCards(stack, courses, removedMode) {
     .attr("type", "button")
     .attr("class", (c) => {
       const kind = info.get(c.id).marks[0]?.[0]; // ?. gives undefined when unchanged
-      return `card${isSlotCourse(c) ? " slot" : ""}${isEditable(c) ? "" : " locked"}${issuesById.has(c.id) ? " warn" : ""}` +
+      return `card${isSlotCourse(c) ? " slot" : ""}${issuesById.has(c.id) ? " warn" : ""}` +
         (kind ? ` chg chg-${kind}` : "");
     })
     .attr("data-id", (c) => c.id)
@@ -880,11 +846,11 @@ function drawCards(stack, courses, removedMode) {
     .style("min-height", removedMode ? null : (c) => `${cardHeight(c)}px`)
     .attr("title", (c) => [`${c.code || "Slot"}: ${c.title} (${credText(c)} cr).`,
       ...info.get(c.id).words,
-      isEditable(c) ? "Drag to move; click to edit." : "Not a CS course: fixed. Click to view.",
+      "Drag to move; click to edit.",
       ...(issuesById.get(c.id) || []).map((x) => `⚠ ${x.text}`)].join("\n"))
     .attr("aria-label", (c) => `${c.code || "Slot"} ${c.title}, ${credText(c)} credits${removedMode ? "" : `, semester ${c.sem}`}. ` +
       info.get(c.id).words.join(" ") +
-      `${isEditable(c) ? " Press Enter to edit." : " Fixed. Press Enter to view."}` +
+      " Press Enter to edit." +
       (issuesById.has(c.id) ? ` Warning: ${issuesById.get(c.id).map((x) => x.text).join(" ")}` : ""));
 
   cards.each(function (c) {
@@ -901,7 +867,7 @@ function drawCards(stack, courses, removedMode) {
 
     const tags = [];
     // One warning tag per kind of problem on this course ("⚠ prereq", "⚠ standing").
-    const WARN = { prereq: "⚠ prereq", standing: "⚠ standing", fixed: "⚠ fixed" };
+    const WARN = { prereq: "⚠ prereq", standing: "⚠ standing" };
     for (const kind of new Set((issuesById.get(c.id) || []).map((x) => x.kind))) tags.push(["warn", WARN[kind]]);
     if (removedMode && b) {
       card.append("span").attr("class", "title").text(c.title);
@@ -941,7 +907,6 @@ function enableDrag(el, course) {
     if (suppressClick) { suppressClick = false; return; }
     openCourseDialog(course);
   });
-  if (!isEditable(course)) return; // fixed (non-CS) courses open on click but don't drag
   el.addEventListener("pointerdown", (e) => {
     if (e.button !== 0) return; // left button / touch contact only
     const x0 = e.clientX;
@@ -1084,8 +1049,6 @@ let editing = null; // the course being edited, or null when adding
 // canonical courses (alphabetical, with "none" first).
 function setupDialog() {
   d3.select("#f-area").selectAll("option").data(AREAS).join("option").attr("value", (a) => a.key).text((a) => a.label);
-  // The area is never edited: only CS courses can be changed, and added ones are CS.
-  document.getElementById("f-area").disabled = true;
   const sems = [...d3.range(1, 9).map((s) => [String(s), semLabel(s)]), ["removed", "Removed"]];
   d3.select("#f-sem").selectAll("option").data(sems).join("option").attr("value", (s) => s[0]).text((s) => s[1]);
   const dlg = document.getElementById("course-dialog");
@@ -1130,19 +1093,13 @@ function openCourseDialog(course) {
   f("f-code").value = course ? course.code : "";
   f("f-title").value = course ? course.title : "";
   f("f-credits").value = course ? credText(course).replace("–", "-") : "3";
-  f("f-area").value = course ? course.area : EDITABLE_AREA;
+  f("f-area").value = course ? course.area : DEFAULT_NEW_AREA;
   f("f-sem").value = !course ? "1" : course.removed ? "removed" : String(course.sem);
   f("f-desc").value = course ? course.description : "";
   fillCanonOptions(course);
   f("f-error").textContent = "";
-  // A fixed (non-CS) course opens read-only: every field disabled, no Save / Remove.
-  const locked = !!course && !isEditable(course);
-  for (const id of ["f-code", "f-title", "f-credits", "f-sem", "f-canon", "f-desc"]) f(id).disabled = locked;
-  f("f-save").classList.toggle("hidden", locked);
-  f("f-cancel").textContent = locked ? "Close" : "Cancel";
-  f("f-locked").classList.toggle("hidden", !locked);
-  f("f-restore").classList.toggle("hidden", !b || locked);
-  f("f-remove").classList.toggle("hidden", !course || course.removed || locked);
+  f("f-restore").classList.toggle("hidden", !b);
+  f("f-remove").classList.toggle("hidden", !course || course.removed);
 
   // Prerequisites from UC's catalog (a UC course only), and this course's warnings.
   const p = b?.course_code ? prereqByCode.get(b.course_code) : null;
@@ -1180,7 +1137,6 @@ function openCourseDialog(course) {
 // (and shows why) when a field is invalid.
 function saveCourseDialog() {
   const f = (id) => document.getElementById(id);
-  if (editing && !isEditable(editing)) return true; // read-only: nothing to save
   const title = f("f-title").value.trim();
   // Credits: one number, or a range "4-5" / "4–5". (\d+(?:\.\d+)?) is a whole or decimal
   // number; the second, optional group is the top of the range.

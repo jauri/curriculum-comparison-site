@@ -1,0 +1,497 @@
+[
+  {
+    "canonical_id":"cs-orientation",
+    "name":"Computer Science Orientation Seminar",
+    "kind":"course",
+    "description":"A short first-year seminar that introduces the computer science major: degree requirements, career paths, student organizations, and what professional programmers do. Usually pass\/fail or low credit, with little or no programming.",
+    "typical_credits":"0-1",
+    "first_seen":"University of Cincinnati \/ CS 1100",
+    "notes":""
+  },
+  {
+    "canonical_id":"first-year-engineering",
+    "name":"First-Year Engineering Design",
+    "kind":"course",
+    "description":"Introductory engineering courses taken by all first-year engineering students. They cover the design process, teamwork, problem solving, technical communication, and computing tools such as spreadsheets, MATLAB or Python, and CAD, usually through hands-on team projects.",
+    "typical_credits":"2-4 per semester",
+    "first_seen":"University of Cincinnati \/ ENED 1001C",
+    "notes":"Often a two-semester sequence, and sometimes split into a design course and a tools course in the same term (as at UC). Every part maps here, so credits add up per school."
+  },
+  {
+    "canonical_id":"first-year-composition",
+    "name":"First-Year Composition",
+    "kind":"course",
+    "description":"A first-year writing course on academic reading, argument, research, and revision. Students write for different audiences and purposes and learn to find and cite sources.",
+    "typical_credits":"3",
+    "first_seen":"University of Cincinnati \/ ENGL 1001",
+    "notes":""
+  },
+  {
+    "canonical_id":"calculus-1",
+    "name":"Calculus I",
+    "kind":"course",
+    "description":"Limits, continuity, derivatives and their applications (rates of change, optimization), and an introduction to integrals and the fundamental theorem of calculus. Taught for science and engineering students.",
+    "typical_credits":"4-5",
+    "first_seen":"University of Cincinnati \/ MATH 1061",
+    "notes":""
+  },
+  {
+    "canonical_id":"calculus-2",
+    "name":"Calculus II",
+    "kind":"course",
+    "description":"Techniques and applications of integration, sequences and series (including power and Taylor series), and often an introduction to vectors or parametric and polar curves.",
+    "typical_credits":"4-5",
+    "first_seen":"University of Cincinnati \/ MATH 1062",
+    "notes":""
+  },
+  {
+    "canonical_id":"lab-science",
+    "name":"Laboratory Science Elective",
+    "kind":"slot",
+    "description":"Science courses with a lab chosen from an approved list, typically calculus-based physics, general chemistry, or biology for science and engineering majors. Some programs require a two-course sequence in one science.",
+    "typical_credits":"4-5 per course",
+    "first_seen":"University of Cincinnati \/ Science sequence I (PHYS\/CHEM\/BIOL lecture + lab)",
+    "notes":"Programs that require one specific science (e.g. physics only) still map here, with the choice recorded in notes. Every semester of the science requirement maps here."
+  },
+  {
+    "canonical_id":"intro-programming",
+    "name":"Introduction to Programming (CS1)",
+    "kind":"course",
+    "description":"A first programming course for computer science majors. It covers variables, control flow, functions, arrays, basic object-oriented programming, problem solving, and simple algorithms in a language such as Python, Java, or C++.",
+    "typical_credits":"3-4",
+    "first_seen":"University of Cincinnati \/ CS 1021C",
+    "notes":"Some schools spread this over two courses; the second one often maps to data-structures or gets its own canonical course."
+  },
+  {
+    "canonical_id":"coop-professional-development",
+    "name":"Co-op Professional Development",
+    "kind":"course",
+    "description":"Short courses that prepare students for co-op or internship work terms and help them reflect on those experiences afterward, covering job search, workplace skills, and career planning.",
+    "typical_credits":"0-1",
+    "first_seen":"University of Cincinnati \/ PD 1011",
+    "notes":"Specific to co-op programs. Excluded from comparisons with 4-year programs unless a school requires something similar."
+  },
+  {
+    "canonical_id":"computer-organization",
+    "name":"Computer Organization and Assembly Language",
+    "kind":"course",
+    "description":"How a computer works at the machine level: binary data representation and arithmetic, processor registers, memory, the instruction set, assembly language programming, addressing modes, and input\/output.",
+    "typical_credits":"3-4",
+    "first_seen":"University of Cincinnati \/ CS 2011",
+    "notes":"Some schools combine this with C programming in a systems course, or cover it in a computer architecture course instead."
+  },
+  {
+    "canonical_id":"python-programming",
+    "name":"Python Programming",
+    "kind":"course",
+    "description":"Programming in Python as a second language after the intro sequence, including Python's main data types and idioms and common libraries for tasks such as data handling or machine learning.",
+    "typical_credits":"3",
+    "first_seen":"University of Cincinnati \/ CS 2023",
+    "notes":"May be broadened to an additional-programming-language concept during the phase 2 pilot if other schools require a different second language."
+  },
+  {
+    "canonical_id":"data-structures",
+    "name":"Data Structures",
+    "kind":"course",
+    "description":"Implementation and analysis of lists, stacks, queues, trees, heaps, hash tables, and graphs. Covers abstract data types, dynamic memory, recursion, sorting and searching, and an introduction to big-O analysis.",
+    "typical_credits":"3-4",
+    "first_seen":"University of Cincinnati \/ CS 2028C",
+    "notes":"At many schools this is CS2, the second course of the intro sequence."
+  },
+  {
+    "canonical_id":"information-security",
+    "name":"Information Security",
+    "kind":"course",
+    "description":"An introduction to protecting information and computer systems: threats and vulnerabilities, risk assessment, access control, cryptography basics, security policy, and incident response.",
+    "typical_credits":"3",
+    "first_seen":"University of Cincinnati \/ IT 2030C",
+    "notes":"UC's course is an introductory IT course with technical and administrative content. Upper-level technical computer security courses may need their own canonical course."
+  },
+  {
+    "canonical_id":"linear-algebra",
+    "name":"Linear Algebra",
+    "kind":"course",
+    "description":"Systems of linear equations, matrices, vector spaces and subspaces, bases and dimension, linear transformations, determinants, orthogonality, and eigenvalues and eigenvectors.",
+    "typical_credits":"3-4",
+    "first_seen":"University of Cincinnati \/ MATH 2076",
+    "notes":""
+  },
+  {
+    "canonical_id":"discrete-math",
+    "name":"Discrete Mathematics",
+    "kind":"course",
+    "description":"Mathematical foundations for computer science: logic, proof techniques including induction, sets, relations, functions, counting, and graph theory.",
+    "typical_credits":"3-4",
+    "first_seen":"University of Cincinnati \/ CS 2071",
+    "notes":"Taught by the CS department at some schools and by the math department at others."
+  },
+  {
+    "canonical_id":"programming-languages",
+    "name":"Programming Languages",
+    "kind":"course",
+    "description":"Concepts behind the design and implementation of programming languages: syntax and semantics, types, scope, and control and data abstraction, with an introduction to the functional and logic programming paradigms.",
+    "typical_credits":"3",
+    "first_seen":"University of Cincinnati \/ CS 3003",
+    "notes":""
+  },
+  {
+    "canonical_id":"intermediate-composition",
+    "name":"Intermediate Composition",
+    "kind":"course",
+    "description":"A second-level writing course that builds on first-year composition, with more advanced research, analysis, and rhetorical writing for different audiences and genres.",
+    "typical_credits":"3",
+    "first_seen":"University of Cincinnati \/ ENGL 2089",
+    "notes":""
+  },
+  {
+    "canonical_id":"probability-statistics",
+    "name":"Probability and Statistics",
+    "kind":"course",
+    "description":"A calculus-based introduction to probability (random variables and common discrete and continuous distributions) and statistics (sampling, estimation, and hypothesis testing).",
+    "typical_credits":"3-4",
+    "first_seen":"University of Cincinnati \/ STAT 2037",
+    "notes":""
+  },
+  {
+    "canonical_id":"gen-ed-elective",
+    "name":"General Education Elective",
+    "kind":"slot",
+    "description":"Courses outside the major chosen from the institution's general education lists, commonly in the arts and humanities and the social and behavioral sciences.",
+    "typical_credits":"3 per course",
+    "first_seen":"University of Cincinnati \/ General Education course",
+    "notes":"UC does not assign gen-ed categories to specific terms, so all of UC's gen-ed slots map here. If schools are later compared by category, this may be split (e.g. humanities vs. social science)."
+  },
+  {
+    "canonical_id":"algorithms",
+    "name":"Design and Analysis of Algorithms",
+    "kind":"course",
+    "description":"Designing and analyzing algorithms: asymptotic analysis, recurrences, correctness proofs, divide and conquer, greedy algorithms, dynamic programming, and graph algorithms.",
+    "typical_credits":"3-4",
+    "first_seen":"University of Cincinnati \/ CS 4071",
+    "notes":""
+  },
+  {
+    "canonical_id":"databases",
+    "name":"Database Systems",
+    "kind":"course",
+    "description":"Designing and using databases: entity-relationship modeling, the relational model, SQL, normalization, and an introduction to storage, transactions, concurrency, and recovery.",
+    "typical_credits":"3",
+    "first_seen":"University of Cincinnati \/ CS 4092",
+    "notes":""
+  },
+  {
+    "canonical_id":"software-engineering",
+    "name":"Software Engineering",
+    "kind":"course",
+    "description":"Methods for building large software systems in teams: software lifecycle models, requirements, design, testing, maintenance, and professional ethics, usually with a team project.",
+    "typical_credits":"3-4",
+    "first_seen":"University of Cincinnati \/ CS 3093C",
+    "notes":""
+  },
+  {
+    "canonical_id":"artificial-intelligence",
+    "name":"Artificial Intelligence",
+    "kind":"course",
+    "description":"Core ideas of artificial intelligence: problem solving as search, heuristics, game playing, knowledge representation and reasoning, reasoning under uncertainty, and an introduction to machine learning.",
+    "typical_credits":"3",
+    "first_seen":"University of Cincinnati \/ CS 4033",
+    "notes":""
+  },
+  {
+    "canonical_id":"operating-systems",
+    "name":"Operating Systems",
+    "kind":"course",
+    "description":"How operating systems manage processes, threads, scheduling, synchronization, memory and virtual memory, file systems, and I\/O, often with systems programming assignments.",
+    "typical_credits":"3-4",
+    "first_seen":"University of Cincinnati \/ CS 4029",
+    "notes":""
+  },
+  {
+    "canonical_id":"computer-networks",
+    "name":"Computer Networks",
+    "kind":"course",
+    "description":"How computer networks work: the layered protocol model, transport and routing protocols, the Internet architecture, and network programming.",
+    "typical_credits":"3",
+    "first_seen":"University of Cincinnati \/ CS 4065",
+    "notes":""
+  },
+  {
+    "canonical_id":"technical-writing",
+    "name":"Technical Writing",
+    "kind":"course",
+    "description":"Professional writing for technical fields, such as reports, proposals, instructions, and presentations, with attention to audience, document design, and clarity.",
+    "typical_credits":"3",
+    "first_seen":"University of Cincinnati \/ ENGL 4092",
+    "notes":""
+  },
+  {
+    "canonical_id":"theory-of-computation",
+    "name":"Theory of Computation",
+    "kind":"course",
+    "description":"Formal models of computation: finite automata and regular languages, context-free grammars and pushdown automata, Turing machines, decidability, and an introduction to complexity theory.",
+    "typical_credits":"3",
+    "first_seen":"University of Cincinnati \/ CS 5170",
+    "notes":""
+  },
+  {
+    "canonical_id":"capstone-design",
+    "name":"Senior Capstone Design",
+    "kind":"course",
+    "description":"A culminating project course in which students, usually in teams, specify, design, build, and present a substantial software or computing system that draws on the whole curriculum.",
+    "typical_credits":"3-4 per semester",
+    "first_seen":"University of Cincinnati \/ CS 5001",
+    "notes":"Lasts one or two semesters depending on the school. Every semester maps here, so total capstone credits can be compared."
+  },
+  {
+    "canonical_id":"cs-elective",
+    "name":"Computer Science Elective",
+    "kind":"slot",
+    "description":"Upper-level computer science courses chosen by the student from a department-approved list.",
+    "typical_credits":"3 per course",
+    "first_seen":"University of Cincinnati \/ CS Electives",
+    "notes":"Slot rows may cover several courses (UC lists 6 and 9 credits as single rows), so compare these slots by credits, not row counts."
+  },
+  {
+    "canonical_id":"technical-elective",
+    "name":"Technical Elective",
+    "kind":"slot",
+    "description":"Electives chosen from an approved list that can include computer science courses and supporting technical fields such as mathematics, science, or engineering.",
+    "typical_credits":"3 per course",
+    "first_seen":"University of Cincinnati \/ Directed Elective",
+    "notes":"UC calls these directed electives."
+  },
+  {
+    "canonical_id":"coop-work-term",
+    "name":"Co-op Work Term",
+    "kind":"course",
+    "description":"A semester of full-time paid work in the field, arranged through a cooperative education program, with learning objectives and evaluations but no academic credit hours.",
+    "typical_credits":"0",
+    "first_seen":"University of Cincinnati \/ COOP 2011",
+    "notes":"Specific to co-op programs and has no normalized semester. Excluded from 4-year comparisons."
+  },
+  {
+    "canonical_id":"first-year-seminar",
+    "name":"First-Year Orientation Seminar",
+    "kind":"course",
+    "description":"A short first-year course that introduces new students to the university or college: academic policies, campus resources, study strategies, and an overview of majors and careers. Usually 0-1 credit and often pass\/fail.",
+    "typical_credits":"0-1",
+    "first_seen":"The Ohio State University \/ ENGR 1100",
+    "notes":"Broader than cs-orientation, which introduces the CS major itself. Added in step 10."
+  },
+  {
+    "canonical_id":"senior-seminar",
+    "name":"Senior Professional Seminar",
+    "kind":"course",
+    "description":"A short course in the final year about careers after graduation and the transition to professional life. It may include program assessment, such as an exit exam or survey. Usually 0-1 credit.",
+    "typical_credits":"0-1",
+    "first_seen":"University of Illinois Chicago \/ CS 499",
+    "notes":"Added in step 10."
+  },
+  {
+    "canonical_id":"calculus-3",
+    "name":"Calculus III (Multivariable)",
+    "kind":"course",
+    "description":"Calculus of several variables: vectors and geometry of space, partial derivatives, optimization, multiple integrals, and vector calculus (line and surface integrals, Green's and Stokes' theorems).",
+    "typical_credits":"3-4",
+    "first_seen":"University of Illinois Chicago \/ MATH 210",
+    "notes":"Some schools fold part of this into a second-semester engineering math course (e.g. OSU MATH 1172). Added in step 10."
+  },
+  {
+    "canonical_id":"intro-programming-2",
+    "name":"Programming II",
+    "kind":"course",
+    "description":"A second programming course that builds on the first: data abstraction, modular and object-oriented design, recursion, and simple linked data structures, with larger programs. Often called CS2 or Software Development.",
+    "typical_credits":"3-4",
+    "first_seen":"The Ohio State University \/ CSE 2221",
+    "notes":"Sits between intro-programming and data-structures. Some schools cover this material in their data structures course. Added in step 10."
+  },
+  {
+    "canonical_id":"intro-to-proofs",
+    "name":"Introduction to Proofs",
+    "kind":"course",
+    "description":"A mathematics course on reading and writing proofs: logic, proof techniques including induction and contradiction, sets, functions, and some number theory. A bridge to upper-level mathematics.",
+    "typical_credits":"3",
+    "first_seen":"The Ohio State University \/ MATH 3345",
+    "notes":"Overlaps with discrete-math. Kept separate because it is taught by mathematics as a proofs course, not as discrete structures for computing. Added in step 10."
+  },
+  {
+    "canonical_id":"digital-logic",
+    "name":"Digital Logic Design",
+    "kind":"course",
+    "description":"Boolean algebra, logic gates, combinational circuits (adders, multiplexers, decoders), sequential circuits (flip-flops, registers, counters, finite state machines), and basic hardware design.",
+    "typical_credits":"3-4",
+    "first_seen":"The Ohio State University \/ ECE 2060",
+    "notes":"Some schools combine digital logic with basic CPU design (e.g. UIC CS 362). Added in step 10."
+  },
+  {
+    "canonical_id":"electronics",
+    "name":"Electronic Circuits",
+    "kind":"course",
+    "description":"Analysis and design of basic electrical and electronic circuits: voltage, current, resistance, circuit laws, and components such as capacitors, diodes, and transistors, often applied to embedded systems.",
+    "typical_credits":"3-4",
+    "first_seen":"The Ohio State University \/ ECE 2360",
+    "notes":"Added in step 10."
+  },
+  {
+    "canonical_id":"computing-ethics",
+    "name":"Ethics and Professional Issues in Computing",
+    "kind":"course",
+    "description":"Social, ethical, legal, and professional issues in computing: privacy, intellectual property, security, the social impact of technology, and professional responsibility, often through case studies.",
+    "typical_credits":"1-3",
+    "first_seen":"The Ohio State University \/ CSE 2501",
+    "notes":"Added in step 10."
+  },
+  {
+    "canonical_id":"programming-practicum",
+    "name":"Programming Tools and Practices",
+    "kind":"course",
+    "description":"A practical programming course on the tools and habits of working programmers: debugging, testing, build tools, version control, standard libraries, and advanced language features.",
+    "typical_credits":"2-3",
+    "first_seen":"University of Illinois Chicago \/ CS 211",
+    "notes":"Added in step 10."
+  },
+  {
+    "canonical_id":"software-development-project",
+    "name":"Team Software Development Project",
+    "kind":"course",
+    "description":"A project course in which student teams design, build, test, and document a sizable software system, such as a web application, an interactive system, or system software, with emphasis on design and written documentation.",
+    "typical_credits":"3-4",
+    "first_seen":"The Ohio State University \/ CSE 390X (CSE 3901 or CSE 3902 or CSE 3903)",
+    "notes":"A mid-program project course, separate from the senior capstone. Added in step 10."
+  },
+  {
+    "canonical_id":"math-science-elective",
+    "name":"Math or Science Elective",
+    "kind":"slot",
+    "description":"An additional mathematics, statistics, or natural science course chosen from a list approved by the program.",
+    "typical_credits":"3-4 per course",
+    "first_seen":"The Ohio State University \/ Math or Science Elective",
+    "notes":"Distinct from lab-science (a laboratory science sequence). Added in step 10."
+  },
+  {
+    "canonical_id":"free-elective",
+    "name":"Free Elective",
+    "kind":"slot",
+    "description":"Any course the student chooses that counts toward the degree, inside or outside the major.",
+    "typical_credits":"1-4 per course",
+    "first_seen":"University of Illinois Chicago \/ Free Elective",
+    "notes":"Added in step 10."
+  },
+  {
+    "canonical_id":"computer-graphics",
+    "name":"Computer Graphics",
+    "kind":"course",
+    "description":"Algorithms and mathematics for producing images and animation by computer: geometric transformations, rendering and shading, modeling, and animation of objects and characters, often applied to interactive applications and games.",
+    "typical_credits":"3",
+    "first_seen":"The Ohio State University \/ CSE 35X1 (CSE 3521 or CSE 3541)",
+    "notes":""
+  },
+  {
+    "canonical_id":"american-government",
+    "name":"American Government",
+    "kind":"course",
+    "description":"A survey of the government of the United States: the Constitution, federalism, Congress, the presidency, courts, parties, and elections, sometimes with the student's state government. Some states require it of every public-university graduate.",
+    "typical_credits":"3",
+    "first_seen":"The University of Texas at Austin \/ GOV 310L",
+    "notes":"Texas requires two courses (UT's GOV 310L and 312L both map here)."
+  },
+  {
+    "canonical_id":"differential-equations",
+    "name":"Differential Equations",
+    "kind":"course",
+    "description":"Ordinary differential equations and their solution methods: first-order equations, linear second-order equations, systems of equations, and applications such as growth, oscillation, and circuits.",
+    "typical_credits":"3-4",
+    "first_seen":"Texas A&M University \/ MATH 251 or MATH 308 or STAT 212 (Engineering Mathematics III)",
+    "notes":"Sometimes combined with linear algebra in one course (e.g. Berkeley's MATH 54)."
+  },
+  {
+    "canonical_id":"oral-communication",
+    "name":"Oral Communication Requirement",
+    "kind":"slot",
+    "description":"A course on speaking to an audience, chosen from a list such as public speaking, professional or technical presentation, persuasion, or performance.",
+    "typical_credits":"3-4",
+    "first_seen":"Texas A&M University \/ COMM 203 or COMM 205 or ENGL 210 (Public Speaking)",
+    "notes":""
+  },
+  {
+    "canonical_id":"experiential-learning",
+    "name":"Experiential Learning Requirement",
+    "kind":"course",
+    "description":"A required learning experience outside the classroom, such as an internship, undergraduate research, study abroad, or service, usually recorded on the transcript for no credit.",
+    "typical_credits":"0",
+    "first_seen":"Texas A&M University \/ High-Impact Experience",
+    "notes":""
+  },
+  {
+    "canonical_id":"data-science-foundations",
+    "name":"Foundations of Data Science",
+    "kind":"course",
+    "description":"An introduction to the mathematics and computation behind data science and machine learning: linear algebra, probability, and working with data in a language such as Python.",
+    "typical_credits":"3-4",
+    "first_seen":"Northeastern University \/ DS 3000",
+    "notes":""
+  },
+  {
+    "canonical_id":"technology-and-society",
+    "name":"Technology and Society Requirement",
+    "kind":"slot",
+    "description":"A course chosen from a list on how computing and technology affect society, such as technology ethics, the law and policy of data, or the history and sociology of technology.",
+    "typical_credits":"3-4",
+    "first_seen":"Northeastern University \/ Computing and Social Issues",
+    "notes":"Different from computing-ethics, which is one named course in the major."
+  },
+  {
+    "canonical_id":"signals-and-systems",
+    "name":"Signals and Systems",
+    "kind":"course",
+    "description":"Mathematical tools for signals and linear systems: signal representation, linear time-invariant systems, frequency analysis, and introductions to feedback control and optimization, usually grounded in linear algebra.",
+    "typical_credits":"3-4",
+    "first_seen":"University of California, Berkeley \/ ELENG 66 or ELENG 64 (Introduction to Signals, Dynamics, and Information)",
+    "notes":""
+  },
+  {
+    "canonical_id":"numerical-methods",
+    "name":"Numerical Methods",
+    "kind":"course",
+    "description":"Computing with real numbers on a computer: floating-point arithmetic and error, solving linear and nonlinear equations, interpolation and approximation, numerical integration, and numerical solution of differential equations, with programming exercises.",
+    "typical_credits":"3",
+    "first_seen":"University of Illinois Urbana-Champaign \/ CS 357",
+    "notes":""
+  },
+  {
+    "canonical_id":"world-language",
+    "name":"World Language Requirement",
+    "kind":"slot",
+    "description":"Study of a language other than English, to a stated level (often the third or fourth semester), or the same proficiency shown by placement or high school study.",
+    "typical_credits":"0-16",
+    "first_seen":"University of Illinois Urbana-Champaign \/ Language Other Than English (3rd level)",
+    "notes":"Credits vary with prior study; a plan places only the courses a typical student takes."
+  },
+  {
+    "canonical_id":"functional-programming",
+    "name":"Functional Programming",
+    "kind":"course",
+    "description":"A programming course based on the functional model of computation: recursion over inductive data types, higher-order functions, types and type inference, and proofs of program correctness by structural induction, usually in a language such as ML, OCaml, Haskell, or Scheme.",
+    "typical_credits":"3-4",
+    "first_seen":"Carnegie Mellon University \/ 15-150",
+    "notes":"Distinct from programming-languages, which surveys language concepts and paradigms; this is a course in programming in the functional style, often early in the major."
+  },
+  {
+    "canonical_id":"computational-problem-solving",
+    "name":"Computational Problem Solving",
+    "kind":"course",
+    "description":"A course on general problem-solving strategies for computing: heuristics for mathematical and word problems, generating and evaluating solutions to open-ended problems, solving problems through computation, and problem solving in teams.",
+    "typical_credits":"3",
+    "first_seen":"Virginia Polytechnic Institute and State University \/ CS 2104",
+    "notes":"Not a programming course; a methods course that sits between intro programming and discrete mathematics."
+  },
+  {
+    "canonical_id":"combinatorics",
+    "name":"Applied Combinatorics and Graph Theory",
+    "kind":"course",
+    "description":"A mathematics course in combinatorics beyond a first discrete math course: counting methods, recurrences, generating functions, and graph theory and graph algorithms.",
+    "typical_credits":"3",
+    "first_seen":"Georgia Institute of Technology \/ MATH 3012",
+    "notes":"Split from discrete-math: a second course after discrete math, usually taught by mathematics."
+  }
+]

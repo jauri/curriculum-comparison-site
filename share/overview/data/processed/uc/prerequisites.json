@@ -1,0 +1,549 @@
+[
+  {
+    "course_code": "CS 1100",
+    "text": "To take this course you must: Be enrolled in one of these Plans EASE-BX, FEP-BX, CS-BSCS, CS20-BS. Be a First Year Student.",
+    "alternatives": [],
+    "plan_alternatives": [],
+    "standing": "First year",
+    "min_sem": 1,
+    "max_sem": 2
+  },
+  {
+    "course_code": "ENED 1021",
+    "text": "To take this course you must: Have taken the following Courses MATH1019 min grade C-, or MATH1020 min grade C-, or MATH1021 min grade C-, or MATH1022 min grade C-, or MATH1023 min grade C-, or MATH1024 min grade C-, or MATH1026 min grade C-, or MATH1044 min grade C-, or MATH1046 min grade C-, or MATH1055 min grade C-, or MATH1056 min grade C-, or MATH1060 min grade C-, or MATH1061 min grade C-, or MATH1062 min grade C-, or MATH2063 min grade C-, or MATH2073 min grade C-. Taken one of these tests ACT MATH min score of 22, or ALEKS MATH min score of 46, or SAT MATH min score of 540, or SAT MATHS min score of 540.",
+    "alternatives": [
+      [
+        "MATH 1019"
+      ],
+      [
+        "MATH 1020"
+      ],
+      [
+        "MATH 1021"
+      ],
+      [
+        "MATH 1022"
+      ],
+      [
+        "MATH 1023"
+      ],
+      [
+        "MATH 1024"
+      ],
+      [
+        "MATH 1026"
+      ],
+      [
+        "MATH 1044"
+      ],
+      [
+        "MATH 1046"
+      ],
+      [
+        "MATH 1055"
+      ],
+      [
+        "MATH 1056"
+      ],
+      [
+        "MATH 1060"
+      ],
+      [
+        "MATH 1061"
+      ],
+      [
+        "MATH 1062"
+      ],
+      [
+        "MATH 2063"
+      ],
+      [
+        "MATH 2073"
+      ]
+    ],
+    "plan_alternatives": [],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "MATH 1061",
+    "text": "To take this course you must: Have taken the following Courses MATH1022 min grade C-, or MATH1024 min grade C-, or MATH1026 min grade C-, or MATH1059 min grade C-. Taken one of these tests ACT MATH min score of 26, or ALEKS MATH min score of 76, or SAT MATHS min score of 610, or SAT MATH min score of 710, or UCPT MATH min score of 750.",
+    "alternatives": [
+      [
+        "MATH 1022"
+      ],
+      [
+        "MATH 1024"
+      ],
+      [
+        "MATH 1026"
+      ],
+      [
+        "MATH 1059"
+      ]
+    ],
+    "plan_alternatives": [],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 1021C",
+    "text": "To take this course you must: Have taken the following Courses CS1005C min grade C-, or CS2005C min grade C-, or ENED1021 min grade C-, or ENED1090 min grade C-, or ENED1100 min grade C-, or IT1090C min grade C-. Be enrolled in one of these Programs 20BAC, 20BC, 20CRT. Be enrolled in the following Plan CS-MIN.",
+    "alternatives": [
+      [
+        "CS 1005C"
+      ],
+      [
+        "CS 2005C"
+      ],
+      [
+        "ENED 1021"
+      ],
+      [
+        "ENED 1090"
+      ],
+      [
+        "ENED 1100"
+      ],
+      [
+        "IT 1090C"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "ENED 1021"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "ENED 1002C",
+    "text": "To take this course you must: Have taken the following Courses ENED1001C min grade C-, or ENED1100 min grade C-.",
+    "alternatives": [
+      [
+        "ENED 1001C"
+      ],
+      [
+        "ENED 1100"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "ENED 1001C"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "ENED 1022",
+    "text": "To take this course you must: Have taken the following Courses ENED1021 min grade C-, or ENED1100 min grade C-.",
+    "alternatives": [
+      [
+        "ENED 1021"
+      ],
+      [
+        "ENED 1100"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "ENED 1021"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "MATH 1062",
+    "text": "To take this course you must: Have taken the following Courses MATH1056 min grade C-, or MATH1060 min grade C-, or MATH1061 min grade C-.",
+    "alternatives": [
+      [
+        "MATH 1056"
+      ],
+      [
+        "MATH 1060"
+      ],
+      [
+        "MATH 1061"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "MATH 1061"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "PD 1011",
+    "text": "To take this course you must: Be enrolled in one of these Programs 20BAC, 20BC.",
+    "alternatives": [],
+    "plan_alternatives": [],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 2011",
+    "text": "To take this course you must: Have taken the following Courses CS1021C min grade C-, or EECE1080C min grade C-. Be enrolled in one of these Plans CS-BSCS, CS-MIN.",
+    "alternatives": [
+      [
+        "CS 1021C"
+      ],
+      [
+        "EECE 1080C"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "CS 1021C"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 2023",
+    "text": "To take this course you must: Have taken the following Courses CS1005C min grade C-, or CS1021C min grade C-, or CS2005C min grade C-, or EECE1080C min grade C-, or ENED1021 min grade C-, or ENED1120 min grade C-. Be enrolled in the following Program 20CRT. Be enrolled in one of these Plans ISE-BSISE, CS-BSCS, CMPE-BSCOM, EE-BSEE, EET-BSEET, CS-MIN. Be at least a Sophomore.",
+    "alternatives": [
+      [
+        "CS 1005C"
+      ],
+      [
+        "CS 1021C"
+      ],
+      [
+        "CS 2005C"
+      ],
+      [
+        "EECE 1080C"
+      ],
+      [
+        "ENED 1021"
+      ],
+      [
+        "ENED 1120"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "CS 1021C"
+      ],
+      [
+        "ENED 1021"
+      ]
+    ],
+    "standing": "Sophomore",
+    "min_sem": 3,
+    "max_sem": 8
+  },
+  {
+    "course_code": "CS 2028C",
+    "text": "To take this course you must: Have taken the following Courses CS1021C min grade C-, or EECE1080C min grade C-. Be enrolled in one of these Plans CS-BSCS, CYBR-C1, CS-MIN.",
+    "alternatives": [
+      [
+        "CS 1021C"
+      ],
+      [
+        "EECE 1080C"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "CS 1021C"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "MATH 2076",
+    "text": "To take this course you must: Have taken the following Course MATH1062 min grade C-.",
+    "alternatives": [
+      [
+        "MATH 1062"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "MATH 1062"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 2071",
+    "text": "To take this course you must: Have taken the following Courses CS1021C min grade C-, or EECE1080C min grade C-. Be enrolled in one of these Plans CYE-BSCYBR, CMPE-BSCOM, CS-BSCS, CS-MIN.",
+    "alternatives": [
+      [
+        "CS 1021C"
+      ],
+      [
+        "EECE 1080C"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "CS 1021C"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 3003",
+    "text": "To take this course you must: Have taken the following Courses CS2028C min grade C-, or EECE2080C min grade C-. Be enrolled in one of these Plans CS-BSCS, CMPE-BSCOM, CS-MIN.",
+    "alternatives": [
+      [
+        "CS 2028C"
+      ],
+      [
+        "EECE 2080C"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "CS 2028C"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "ENGL 2089",
+    "text": "To take this course you must: Have taken the following Courses ENGL1001 min grade C-, or ENGL1001C min grade C-, or ENGL1002 min grade C-, or ENGL1012 min grade C-, or ENGL1902 min grade C-. Be at least a Sophomore.",
+    "alternatives": [
+      [
+        "ENGL 1001"
+      ],
+      [
+        "ENGL 1001C"
+      ],
+      [
+        "ENGL 1002"
+      ],
+      [
+        "ENGL 1012"
+      ],
+      [
+        "ENGL 1902"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "ENGL 1001"
+      ]
+    ],
+    "standing": "Sophomore",
+    "min_sem": 3,
+    "max_sem": 8
+  },
+  {
+    "course_code": "STAT 2037",
+    "text": "To take this course you must: Have taken the following Courses MATH1045 min grade C-, or MATH1046 min grade C-, or MATH1062 min grade C-.",
+    "alternatives": [
+      [
+        "MATH 1045"
+      ],
+      [
+        "MATH 1046"
+      ],
+      [
+        "MATH 1062"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "MATH 1062"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "PD 2050",
+    "text": "To take this course you must: Have taken the following Course COOP2011 min grade D-. Be enrolled in one of these Programs 20BAC, 20BC.",
+    "alternatives": [
+      [
+        "COOP 2011"
+      ]
+    ],
+    "plan_alternatives": [],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 4071",
+    "text": "To take this course you must: Have taken the following Courses CS2028C min grade C-,CS2071 min grade C-,STAT2037 min grade C-.",
+    "alternatives": [
+      [
+        "CS 2028C",
+        "CS 2071",
+        "STAT 2037"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "CS 2028C",
+        "CS 2071",
+        "STAT 2037"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 4092",
+    "text": "To take this course you must: Have taken the following Courses CS2028C min grade C-,CS2071 min grade C-, or EECE2080C min grade C-, or EECE2040 min grade C-.",
+    "alternatives": [
+      [
+        "CS 2028C",
+        "CS 2071"
+      ],
+      [
+        "EECE 2080C"
+      ],
+      [
+        "EECE 2040"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "CS 2028C",
+        "CS 2071"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 4033",
+    "text": "To take this course you must: Have taken the following Courses CS2028C min grade C-, or EECE2080C min grade C-. Be enrolled in the following Program 20BC. Be enrolled in the following Plan CS-MIN.",
+    "alternatives": [
+      [
+        "CS 2028C"
+      ],
+      [
+        "EECE 2080C"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "CS 2028C"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 4065",
+    "text": "To take this course you must: Have taken the following Courses CS2028C min grade C-, or EECE2080C min grade C-. Be enrolled in one of these Plans CS-BSCS, CMPE-BSCOM, CS-MIN.",
+    "alternatives": [
+      [
+        "CS 2028C"
+      ],
+      [
+        "EECE 2080C"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "CS 2028C"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "ENGL 4092",
+    "text": "To take this course you must: Have taken the following Courses ENGL1001 min grade D-, or ENGL1012 min grade D-, or ESL1080 min grade D-.",
+    "alternatives": [
+      [
+        "ENGL 1001"
+      ],
+      [
+        "ENGL 1012"
+      ],
+      [
+        "ESL 1080"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "ENGL 1001"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 5001",
+    "text": "To take this course you must: Be enrolled in the following Plan CS-BSCS.",
+    "alternatives": [],
+    "plan_alternatives": [],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 5170",
+    "text": "To take this course you must: Have taken the following Courses CS2028C min grade C-,CS2071 min grade C-, or EECE2080C min grade C-. Be enrolled in one of these Plans CS-BSCS, CMPE-BSCOM, CS-MIN.",
+    "alternatives": [
+      [
+        "CS 2028C",
+        "CS 2071"
+      ],
+      [
+        "EECE 2080C"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "CS 2028C",
+        "CS 2071"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  },
+  {
+    "course_code": "CS 5002",
+    "text": "To take this course you must: Have taken the following Course CS5001 min grade C-. Be enrolled in the following Plan CS-BSCS.",
+    "alternatives": [
+      [
+        "CS 5001"
+      ]
+    ],
+    "plan_alternatives": [
+      [
+        "CS 5001"
+      ]
+    ],
+    "standing": null,
+    "min_sem": null,
+    "max_sem": null
+  }
+]

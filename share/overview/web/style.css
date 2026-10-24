@@ -1,0 +1,187 @@
+/* Shared styles for the web views (index.html, review.html).
+
+   Colors are defined once as custom properties ("tokens") on :root and referenced by
+   role everywhere else, so dark mode only has to redefine the tokens. Dark values are
+   declared twice: under the OS-level prefers-color-scheme media query (guarded so an
+   explicit data-theme="light" wins), and under data-theme="dark" for an explicit
+   switch.
+
+   The six --area-* colors are the categorical slots from the dataviz reference palette,
+   in its fixed order, and pass its colorblind-safety validator in both modes. Several
+   light-mode slots are below 3:1 contrast on the surface, so color never carries
+   meaning alone: every card has a text label, and there is a legend. */
+
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.10);
+  --hover: rgba(11, 11, 11, 0.04);
+  --accent: #2a78d6;
+  --area-1: #2a78d6; /* Computer science */
+  --area-2: #eb6834; /* Math & statistics */
+  --area-3: #1baf7a; /* Lab science */
+  --area-4: #eda100; /* Engineering & co-op prep */
+  --area-5: #e87ba4; /* Writing */
+  --area-6: #008300; /* General education */
+  --coop: #e1e0d9;
+  --earlier: #1a7f37; /* UC takes the course earlier (alignment table) */
+  --later: #c4302b;   /* UC takes the course later */
+}
+
+/* Dark tokens: the same hues stepped for a dark surface (not an automatic inversion). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #f0efec;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.10);
+    --hover: rgba(255, 255, 255, 0.05);
+    --accent: #3987e5;
+    --area-1: #3987e5;
+    --area-2: #d95926;
+    --area-3: #199e70;
+    --area-4: #c98500;
+    --area-5: #d55181;
+    --area-6: #008300;
+    --coop: #383835;
+    --earlier: #3fb950;
+    --later: #f0605a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --axis: #383835;
+  --border: rgba(255, 255, 255, 0.10);
+  --hover: rgba(255, 255, 255, 0.05);
+  --accent: #3987e5;
+  --area-1: #3987e5;
+  --area-2: #d95926;
+  --area-3: #199e70;
+  --area-4: #c98500;
+  --area-5: #d55181;
+  --area-6: #008300;
+  --coop: #383835;
+  --earlier: #3fb950;
+  --later: #f0605a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+h1 { font-size: 24px; margin: 0 0 4px; }
+h2 { font-size: 17px; margin: 32px 0 8px; }
+p { margin: 0 0 12px; max-width: 75ch; }
+a { color: var(--accent); }
+.sub { color: var(--ink-2); margin-bottom: 16px; }
+.muted { color: var(--muted); }
+
+nav { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 16px; font-size: 14px; }
+nav a[aria-current="page"] { color: var(--ink); font-weight: 600; text-decoration: none; }
+
+/* A boxed explanatory note (e.g. what "generic" means, how co-op was removed). */
+.note {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  color: var(--ink-2);
+  max-width: 90ch;
+}
+.note strong { color: var(--ink); }
+
+/* The "generic" label. It is text, not just a color, so it stays readable in print,
+   in forced-colors mode, and for colorblind readers. */
+.badge-generic {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0 6px;
+  border: 1px dashed var(--ink-2);
+  border-radius: 4px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+/* Legend: a colored square (matching the card stripe) followed by a text label. */
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 8px 0 16px; font-size: 13px; color: var(--ink-2); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.legend .slot-key { width: 18px; height: 12px; border: 1.5px dashed var(--ink-2); background: none; }
+
+/* Form controls in one row above the content they filter. */
+.filters { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin: 8px 0 16px; font-size: 14px; }
+.filters select, .filters input {
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 6px 8px; border-bottom: 1px solid var(--grid); }
+th { color: var(--ink-2); font-weight: 600; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Wide tables scroll inside their own box on narrow screens, never the whole page. */
+.table-wrap { overflow-x: auto; }
+
+.error { color: #d03b3b; font-weight: 600; }
+
+/* Tooltip shared by the alignment and timeline views (moved from compare.html in step 15). */
+/* Hover tooltip: a small card that follows the pointer. pointer-events: none keeps
+   it from stealing the hover from the node beneath it. */
+.tooltip {
+  position: fixed; pointer-events: none; z-index: 10; max-width: 360px;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--border);
+  border-radius: 6px; padding: 6px 8px; font-size: 12px; line-height: 1.35;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.tooltip b { display: block; }
+.tooltip > span { color: var(--ink-2); display: block; }
+/* Description blocks: a small heading (with the GENERIC badge when generic) and the
+   shortened text. */
+.tooltip .tip-head { margin-top: 6px; font-weight: 600; color: var(--ink); font-size: 11px; }
+.tooltip .tip-desc { margin: 2px 0 0; color: var(--ink-2); font-size: 12px; max-width: none; }
+.tooltip .badge-generic { font-size: 9px; padding: 0 4px; }
+
+/* Co-op terms in the alignment views (common.js, drawSlotBands): a shaded band behind
+   each co-op slot, co-op boxes in the co-op color, and a dashed empty box where a school
+   has no co-op term at that point. */
+.coop-band { fill: var(--coop); opacity: 0.35; }
+svg .node.coop .box { fill: var(--coop); } /* svg raises specificity over the pages' faded styles */
+.coop-empty { fill: none; stroke: var(--axis); stroke-dasharray: 4 3; }
+.coop-empty-text { fill: var(--muted); font-size: 11px; font-style: italic; }

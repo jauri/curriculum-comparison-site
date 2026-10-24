@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Timeline</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-specific styles for the timeline view (specs/07-timeline-view.md). */
+
+    /* Each section's chart scrolls sideways inside its own box on narrow screens,
+       never the page. */
+    .chart-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+    svg { display: block; font: 12px system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+    /* Column heads (semesters, years, the "course not required" bin) and the strip rules. */
+    .year-head { fill: var(--ink); font-weight: 600; }
+    .sem-head { fill: var(--muted); font-size: 11px; }
+    .area-head { fill: var(--ink); font-weight: 700; font-size: 16px; }
+    .group-rule { stroke: var(--ink-2); stroke-width: 1.5; }
+    .baseline { stroke: var(--axis); stroke-width: 1; }
+    .sem-tick { stroke: var(--grid); }
+    .sem-mid { stroke: var(--axis); stroke-width: 1; }
+    .bin-rule { stroke: var(--axis); stroke-dasharray: 3 3; }
+    .strip-name { fill: var(--ink); font-weight: 600; }
+    .strip-sub { fill: var(--ink-2); font-size: 11px; }
+    .strip-sub .uc { fill: var(--accent); font-weight: 600; }
+    .strip-sub .uc-none { fill: var(--ink); font-weight: 700; }
+    /* Share bar: how many of the other 15 schools require the course. Neutral ink, so the
+       accent color stays UC's alone; "possible" (one option of a choice) is lighter. */
+    .share-track { fill: var(--grid); }
+    .share-possible { fill: var(--axis); }
+    .share-required { fill: var(--ink-2); }
+    /* UC flags (early, late, missing): bold ink, so they read as a remark about UC
+       without taking UC's accent color from its dots. */
+    .uc-flag { fill: var(--ink); color: var(--ink); font-weight: 700; font-size: 11px; }
+    .strip-sub .pct { fill: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+    /* Dots. Every school but UC is one neutral color; UC uses the accent color and a
+       ring, so it stands out without giving fifteen schools fifteen hues. Fills are
+       solid (covers), half (partial), or hollow (possible: one option of a choice). */
+    .dot { cursor: pointer; outline: none; }
+    .dot .mark { fill: var(--muted); stroke: var(--muted); stroke-width: 1.25; }
+    .dot .half { fill: var(--muted); }
+    .dot.possible .mark, .dot.partial .mark { fill: var(--surface); }
+    .dot.uc .mark, .dot.uc .half { stroke: var(--accent); }
+    .dot.uc .mark { fill: var(--accent); }
+    .dot.uc.possible .mark, .dot.uc.partial .mark { fill: var(--surface); }
+    .dot.uc .half { fill: var(--accent); }
+    .dot .ring { fill: none; stroke: none; }
+    .dot.uc .ring { stroke: var(--accent); stroke-width: 1.5; }
+    /* "Course not required" dots: pale, so they read as absence; UC's keeps the highlight. */
+    .dot.absent .mark { fill: var(--grid); stroke: var(--axis); }
+    .dot.absent.uc .mark { fill: var(--accent); stroke: var(--accent); }
+    .dot:focus-visible .ring { stroke: var(--ink); stroke-width: 2; }
+    /* Wide invisible circle behind each dot, so the hover target is bigger than the mark. */
+    .dot .hit { fill: transparent; }
+
+    /* Following a school: its dots stay full strength, the rest fade. */
+    svg.following .dot:not(.on) { opacity: 0.2; }
+    svg.following .dot.on .ring { stroke: var(--ink); stroke-width: 1.5; }
+    svg.following .dot.on.uc .ring { stroke: var(--accent); }
+
+    /* Area toggle buttons: checkbox buttons that show their on/off state as a filled
+       or outlined pill, with the checkbox kept for keyboard and screen readers. */
+    .toggle { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border: 1px solid var(--axis);
+              border-radius: 999px; cursor: pointer; user-select: none; background: var(--surface); }
+    .toggle input { margin: 0; accent-color: var(--accent); }
+    .toggle:has(input:checked) { background: var(--hover); border-color: var(--ink-2); color: var(--ink); }
+    .toggle:has(input:not(:checked)) { color: var(--muted); }
+
+    /* Legend swatches drawn as small SVG dots so they match the chart exactly. */
+    .legend svg { display: inline-block; vertical-align: middle; }
+
+    details.slots > summary { cursor: pointer; font-size: 17px; font-weight: 600; margin: 32px 0 8px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+<main>
+  <nav>
+    <a href="index.html">Course Plans</a>
+    <a href="compare.html">Course-level alignment</a>
+    <a href="timeline.html" aria-current="page">Timeline</a>
+    <a href="review.html">Canonical matches</a>
+  </nav>
+  <h1>Course timeline</h1>
+  <p class="sub" id="subtitle">When each school schedules each canonical course in a 4-year plan, and which schools don't require it.</p>
+
+  <div class="note">
+    <strong>How to read this.</strong> Each strip is one canonical course, the shared list of
+    course concepts our reviewed matching assigns every school's courses to. A dot is one
+    school's required course or requirement slot, placed in its semester of a 4-year plan
+    (UC's 5-year co-op plan is normalized to 8 semesters). Dots in the same semester stack.
+    The small bar under each name shows the share of the other 15 schools that require
+    the course (lighter: only as one option of a choice). Schools with no required course matched to the strip sit in the <em>Course not required</em> bin on
+    the right. <strong>UC is the blue dot with a ring</strong>; every other school is gray.
+    A glyph in the last column flags where UC differs from most of the other
+    schools: &#9664; earlier or &#9654; later (with the gap to their median semester), or &#10005; missing (two thirds of them require it, UC doesn't). Hover the glyph for the counts.
+    Hover a dot for the school, course, and description; the school's dots in every other
+    strip light up too. Click a dot (or pick a school) to keep following that school.
+  </div>
+  <div class="note">
+    <strong>What's shown.</strong> Computing (CS and IT), Engineering &amp; co-op prep, and
+    Math &amp; statistics courses only; lab science, writing, and general education are left
+    out. Co-op work terms have no academic semester and are not drawn<span id="undrawn"></span>.
+    <strong>Generic descriptions</strong> are marked <span class="badge-generic">generic</span>:
+    typical descriptions of a course with that name, written for this project, not the
+    school's own catalog text.
+  </div>
+
+  <div class="filters">
+    <span id="area-toggles" style="display:contents"></span>
+    <label>Sort <select id="sort">
+      <option value="year">By typical year</option>
+      <option value="area">By area, then name</option>
+      <option value="common">Most common first</option>
+    </select></label>
+    <label>Follow school <select id="follow"></select></label>
+  </div>
+  <div class="legend" id="legend"></div>
+
+  <h2>Courses</h2>
+  <div class="chart-wrap"><svg id="chart-courses" role="img" aria-labelledby="subtitle"></svg></div>
+
+  <details class="slots" id="slots">
+    <summary>Requirement slots (electives)</summary>
+    <p class="muted">Slots a student fills with a course of their choice, such as a CS elective.
+      A school with several such slots draws a dot for each.</p>
+    <div class="chart-wrap"><svg id="chart-slots" role="img" aria-label="Requirement slots by semester"></svg></div>
+  </details>
+
+  <h2>Timeline table</h2>
+  <p class="muted">One row per canonical course shown above, with the semesters where each
+    school places it. Follows the sort and the area buttons.</p>
+  <div class="table-wrap"><table id="table"></table></div>
+</main>
+<div class="tooltip hidden" id="tooltip" role="tooltip"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="common.js"></script>
+<script src="timeline.js"></script>
+</body>
+</html>

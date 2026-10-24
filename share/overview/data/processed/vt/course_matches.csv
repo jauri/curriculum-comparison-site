@@ -1,0 +1,40 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+CS 1114,intro-programming,covers,high,Fundamental programming concepts from an object-oriented perspective.,False,approved,
+ENGE 1215,first-year-engineering,covers,high,"The first semester of VT's general engineering foundations sequence: problem solving, programming tools, and professional practice.",False,approved,
+ENGL 1105,first-year-composition,covers,high,"First-year writing: rhetorical analysis, critical writing, and revision.",False,approved,
+MATH 1225,calculus-1,covers,high,The first semester of single-variable calculus.,False,approved,
+Natural Science Elective,lab-science,covers,high,"A two-course lab science sequence (biology, chemistry, or physics).",False,approved,
+CS 2114,intro-programming-2,covers,high,"Advanced object-oriented design and implementation after CS 1114, with a team project.",True,approved,Partial because it also covers classic data structures.
+CS 2114,data-structures,covers,medium,"Classic data structures and algorithm analysis, with object-oriented design.",True,approved,Partial: the main data structures course is CS 3114.
+ENGE 1216,first-year-engineering,covers,high,The second semester of the engineering foundations sequence.,False,approved,
+ENGL 1106,first-year-composition,covers,high,The continuation of first-year writing.,False,approved,"Mapped with ENGL 1105 rather than to intermediate-composition, since VT calls it first-year writing."
+MATH 1226,calculus-2,covers,high,The second semester of single-variable calculus.,False,approved,
+CS 1944,cs-orientation,covers,high,Academic and career planning for CS majors.,False,approved,
+CS 2104,computational-problem-solving,covers,new,"Heuristics for solving problems in computing: math and word problems, real-life problems, solving through computation, and teamwork.",False,approved,New concept (no course in the list teaches problem-solving methods by themselves).
+CS 2505,computer-organization,covers,high,"Design and operation of digital computers, from logic gates up to the ALU and control unit.",True,approved,Partial: begins with digital logic.
+CS 2505,digital-logic,covers,medium,Combinational and sequential circuits from the logic gate level.,True,approved,Partial: the digital logic part of the first organization course.
+MATH 2534 or MATH 3034 (Introduction to Discrete Mathematics),discrete-math,one_of,high,"Option MATH 2534, Introduction to Discrete Mathematics.",False,approved,
+MATH 2534 or MATH 3034 (Introduction to Discrete Mathematics),intro-to-proofs,one_of,high,"Option MATH 3034, Introduction to Proofs.",False,approved,
+"Pathways General Education (Concept 2, 3, 6a, or 7)",gen-ed-elective,covers,high,"Humanities, social science, and arts general education courses.",False,approved,
+CS 2506,computer-organization,covers,high,"Instruction formats, addressing, memory hierarchy, pipelining, and I/O.",False,approved,
+MATH 2114,linear-algebra,covers,high,"Vector and matrix algebra, linear systems, bases, and linear transformations.",False,approved,
+MATH 2204 or CMDA 2005 (Introduction to Multivariable Calculus),calculus-3,covers,medium,Option MATH 2204 is multivariable calculus; CMDA 2005 covers it within an integrated quantitative sciences course.,False,approved,
+Communications Elective,oral-communication,covers,high,Public speaking or team communication (COMM 2004 or COMM 2014).,False,approved,
+Advanced Natural Science Elective,math-science-elective,covers,medium,One more natural science course beyond the two-course sequence.,False,approved,
+CS 3114,data-structures,covers,high,"Advanced data structures, hashing, trees, and file organization.",True,approved,Partial because it also covers algorithm analysis.
+CS 3114,algorithms,covers,medium,"Analysis of data structure and algorithm performance, sorting, and searching.",True,approved,Partial: VT's algorithms course is a theory elective option.
+CS 3000-5000 Level Elective,cs-elective,covers,high,Upper-level CS electives.,False,approved,
+MATH 3134,combinatorics,covers,high,Combinatorics and graph theory with an emphasis on computational theory.,False,approved,A second math course after discrete math; moved from discrete-math.
+Professional Writing Elective,technical-writing,covers,high,Every option is a professional or technical writing course.,False,approved,
+CS 3214,operating-systems,covers,high,"Operating system principles: processes, threads, synchronization, scheduling, and memory management.",True,approved,"Partial: also covers linking, networking, and performance."
+CS 3604,computing-ethics,covers,high,"Ethical, social, and professional concerns in computing.",False,approved,
+ENGE 3900,experiential-learning,covers,high,"Records the required Career Bridge Experience (internship, co-op, or research) for 0 credits.",False,approved,
+Statistics Elective,probability-statistics,covers,high,Every option is a probability and statistics course.,False,approved,
+CS 3304,programming-languages,covers,high,Programming language constructs and their implementation.,False,approved,
+CS Theory Elective,algorithms,one_of,high,Options CS 4104 (Data and Algorithm Analysis) and CS 5114 (Theory of Algorithms).,False,approved,
+CS Theory Elective,theory-of-computation,one_of,high,"Options CS 4114, CS 4124, and CS 5104 (formal languages, automata, computability); CS 4134 is quantum computation.",False,approved,
+CS Technical Elective,technical-elective,covers,high,A technical course from a list broader than CS.,False,approved,
+Free Elective,free-elective,covers,high,Any course.,False,approved,
+CS 4944,senior-seminar,covers,high,A 1-credit senior seminar (no official description; generic).,False,approved,
+CS Capstone,capstone-design,covers,high,A required capstone course from VT's list.,False,approved,Slot mapped to a course concept by the SLOT_MAY_FILL_COURSE exception.
+CS 4000-5000 Level Elective,cs-elective,covers,high,An upper-level CS elective.,False,approved,

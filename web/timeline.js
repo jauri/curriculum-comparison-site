@@ -24,7 +24,7 @@ const HIT_R = 6.5; // invisible hover target, a little bigger than the dot
 const BIN_GAP = 22; // space between semester 8 and the "course not required" bin
 const BIN_W = COL_W;
 const FLAG_GAP = 14; // space between the bin and the UC flag column
-const FLAG_W = 104; // the UC flag column at the far right; fits "◆ ▶ 2 sem late"
+const FLAG_W = 104; // the UC flag column at the far right; fits "▶ 2 sem late"
 const HEAD_H = 40; // year and semester heads at the top of each chart
 const AREA_HEAD_H = 42; // a heading row: an area (area sort) or a typical year (year sort)
 const GROUP_RULE_Y = 10; // where the dark rule above a heading row sits, from the row's top
@@ -36,12 +36,12 @@ const SHARE_W = 60; // the "share of other schools" bar in each strip's label
 const SHARE_H = 7;
 
 // UC flags (07-timeline-view.md, "UC flags"; the percentile rule is the user's choice).
-// "Most" is at least two thirds and "few" at most one third, of the other 15 schools
-// (missing, UC only) or of the other schools that require the course (early, late).
+// "Most" is at least two thirds, of the other 15 schools (missing) or of the other
+// schools that require the course (early, late). A "UC only" flag (few others require
+// it) was built and then removed at the user's request: it didn't read clearly.
 // Timing is only judged when at least MIN_TIMING_N other schools require the course:
 // with fewer, "earlier than most" rests on two or three schools.
 const FLAG_MOST = 2 / 3;
-const FLAG_FEW = 1 / 3;
 const MIN_TIMING_N = 5;
 // Glyph and short word for each flag. The arrows point along the time axis (left is
 // earlier); none is a circle, since circles already mean match types.
@@ -49,7 +49,6 @@ const FLAG_GLYPHS = {
   early: { glyph: "◀", word: "early" },
   late: { glyph: "▶", word: "late" },
   missing: { glyph: "✕", word: "missing" },
-  unique: { glyph: "◆", word: "UC only" },
 };
 
 // The three areas this view shows (07-timeline-view.md: lab science, writing, and
@@ -136,12 +135,11 @@ function buildStrips() {
 
 // UC's flags for one canonical course: where UC differs from most of the other schools.
 // Takes the Map school -> earliest full-match semester and the definite / possible
-// school sets from buildStrips. Returns a list (a course can be both "UC only" and
-// "late") of { kind, text, why }, with `why` the evidence for the tooltip and table,
+// school sets from buildStrips. Returns a list (zero or one flag: missing excludes
+// timing, and early excludes late) of { kind, text, why }, with `why` the evidence for the tooltip and table,
 // and the others' median semester, where the "typical" tick goes on a timed strip:
 // { list, median }.
 //   missing: UC doesn't require it (not even as an option), most others do.
-//   unique:  UC requires it, few others do.
 //   early / late: UC's earliest semester is before / after most of the others'
 //     earliest semesters (ties count as neither), when at least MIN_TIMING_N others
 //     require it. The gap is UC's semester minus the others' median.
@@ -155,9 +153,6 @@ function ucFlags(earliest, definite, possible) {
   const has = definite.has("uc");
   if (!has && !possible.has("uc") && others.length >= FLAG_MOST * n) {
     flags.push({ kind: "missing", text: "", why: `UC doesn't require it; ${others.length} of ${n} other schools do` });
-  }
-  if (has && others.length <= FLAG_FEW * n) {
-    flags.push({ kind: "unique", text: "", why: others.length ? `UC requires it; only ${others.length} of ${n} other schools do` : `UC requires it; none of the ${n} other schools do` });
   }
   if (has && others.length >= MIN_TIMING_N) {
     const uc = earliest.get("uc");
@@ -176,8 +171,9 @@ function ucFlags(earliest, definite, possible) {
   return { list: flags, median };
 }
 
-// One line of flag text, e.g. "◀ 2 sem early" or "◆ ▶ 2 sem late" (two flags show both
-// glyphs and only the timing words, to fit the label gutter).
+// One line of flag text, e.g. "◀ 2 sem early" or "✕ missing". Written for a list so
+// that a second kind of flag could be added (several flags show every glyph, then the
+// last flag's words).
 function flagText(flags) {
   if (!flags.length) return "";
   const glyphs = flags.map((f) => FLAG_GLYPHS[f.kind].glyph).join(" ");
@@ -577,7 +573,7 @@ function setupControls() {
   // The UC flag glyphs, as text (they are text in the chart too), and the typical tick.
   const flagKeys = [
     ["early", "UC earlier than most"], ["late", "UC later than most"],
-    ["missing", "UC doesn't require it; most do"], ["unique", "UC requires it; few do"],
+    ["missing", "UC doesn't require it; most do"]
   ];
   for (const [kind, text] of flagKeys) {
     const item = legend.append("span");

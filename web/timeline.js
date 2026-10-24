@@ -33,6 +33,23 @@ const SEM_TICK_H = 8; // the in-year semester divider: a short tick up from the 
 const SHARE_W = 60; // the "share of other schools" bar in each strip's label
 const SHARE_H = 7;
 
+// UC flags (07-timeline-view.md, "UC flags"; the percentile rule is the user's choice).
+// "Most" is at least two thirds and "few" at most one third, of the other 15 schools
+// (missing, UC only) or of the other schools that require the course (early, late).
+// Timing is only judged when at least MIN_TIMING_N other schools require the course:
+// with fewer, "earlier than most" rests on two or three schools.
+const FLAG_MOST = 2 / 3;
+const FLAG_FEW = 1 / 3;
+const MIN_TIMING_N = 5;
+// Glyph and short word for each flag. The arrows point along the time axis (left is
+// earlier); none is a circle, since circles already mean match types.
+const FLAG_GLYPHS = {
+  early: { glyph: "◀", word: "early" },
+  late: { glyph: "▶", word: "late" },
+  missing: { glyph: "✕", word: "missing" },
+  unique: { glyph: "◆", word: "UC only" },
+};
+
 // The three areas this view shows (07-timeline-view.md: lab science, writing, and
 // general education are left out), in the order they are listed and sorted. Labels are
 // shorter than the plan view's, to fit the toggle buttons.
@@ -104,6 +121,7 @@ function buildStrips() {
     const typicalSem = earliest.size ? d3.median([...earliest.values()]) : Infinity; // Infinity sorts last
     built.push({
       canon: c, area, dots, definite, possible, absent, typicalSem,
+      flags: ucFlags(earliest, definite, possible),
       // Year of the typical semester: semesters 1-2 are year 1, 3-4 year 2, ... A median
       // between two semesters (e.g. 2.5) rounds up to the later one's year.
       typicalYear: Number.isFinite(typicalSem) ? Math.ceil(typicalSem / 2) : null,
@@ -112,6 +130,57 @@ function buildStrips() {
     });
   }
   return { built, undrawn };
+}
+
+// UC's flags for one canonical course: where UC differs from most of the other schools.
+// Takes the Map school -> earliest full-match semester and the definite / possible
+// school sets from buildStrips. Returns a list (a course can be both "UC only" and
+// "late") of { kind, text, why }, with `why` the evidence for the tooltip and table,
+// and the others' median semester, where the "typical" tick goes on a timed strip:
+// { list, median }.
+//   missing: UC doesn't require it (not even as an option), most others do.
+//   unique:  UC requires it, few others do.
+//   early / late: UC's earliest semester is before / after most of the others'
+//     earliest semesters (ties count as neither), when at least MIN_TIMING_N others
+//     require it. The gap is UC's semester minus the others' median.
+// A UC "possible" match is neither missing nor timed: students may never take it.
+function ucFlags(earliest, definite, possible) {
+  const n = data.schools.length - 1; // the other schools
+  // Other schools' earliest semesters (UC left out, so UC isn't compared with itself).
+  const others = [...earliest].filter(([id]) => id !== "uc").map(([, sem]) => sem);
+  const flags = [];
+  let median = null; // set only when UC is early or late
+  const has = definite.has("uc");
+  if (!has && !possible.has("uc") && others.length >= FLAG_MOST * n) {
+    flags.push({ kind: "missing", text: "", why: `UC doesn't require it; ${others.length} of ${n} other schools do` });
+  }
+  if (has && others.length <= FLAG_FEW * n) {
+    flags.push({ kind: "unique", text: "", why: others.length ? `UC requires it; only ${others.length} of ${n} other schools do` : `UC requires it; none of the ${n} other schools do` });
+  }
+  if (has && others.length >= MIN_TIMING_N) {
+    const uc = earliest.get("uc");
+    const before = others.filter((x) => x < uc).length; // schools that take it earlier than UC
+    const after = others.filter((x) => x > uc).length;
+    const mid = d3.median(others);
+    const gap = uc - mid; // negative: UC is earlier than the typical school
+    const sem = `${Math.abs(gap)} sem`;
+    if (after >= FLAG_MOST * others.length) {
+      flags.push({ kind: "early", text: ` ${sem}`, why: `UC: semester ${uc}; ${after} of ${others.length} other schools take it later (median semester ${mid})` });
+    } else if (before >= FLAG_MOST * others.length) {
+      flags.push({ kind: "late", text: ` ${sem}`, why: `UC: semester ${uc}; ${before} of ${others.length} other schools take it earlier (median semester ${mid})` });
+    }
+    if (flags.some((f) => f.kind === "early" || f.kind === "late")) median = mid;
+  }
+  return { list: flags, median };
+}
+
+// One line of flag text, e.g. "◀ 2 sem early" or "◆ ▶ 2 sem late" (two flags show both
+// glyphs and only the timing words, to fit the label gutter).
+function flagText(flags) {
+  if (!flags.length) return "";
+  const glyphs = flags.map((f) => FLAG_GLYPHS[f.kind].glyph).join(" ");
+  const last = flags[flags.length - 1];
+  return `${glyphs}${last.text} ${FLAG_GLYPHS[last.kind].word}`;
 }
 
 // The most common area among a canonical course's rows; ties go to the earlier area in
@@ -253,8 +322,17 @@ function drawStrip(g, s, h) {
 
   // Label: the canonical course name (cut with "…" if too long) and a counts line that
   // ends with UC's placement, so UC's status reads without finding its dot.
+  // UC's flag (if any) sits at the right end of the name line, and the name is cut to
+  // the space left of it. The <title> child is the flag's hover text: the evidence.
+  let flagW = 0;
+  if (s.flags.list.length) {
+    const flag = g.append("text").attr("class", "uc-flag").attr("x", LABEL_W - 10).attr("y", 17)
+      .attr("text-anchor", "end").text(flagText(s.flags.list));
+    flag.append("title").text(s.flags.list.map((f) => f.why).join(". "));
+    flagW = flag.node().getComputedTextLength() + 8; // + 8: a gap between name and flag
+  }
   const name = g.append("text").attr("class", "strip-name").attr("x", 12).attr("y", 17);
-  fitText(name.node(), s.canon.name, LABEL_W - 20);
+  fitText(name.node(), s.canon.name, LABEL_W - 20 - flagW);
   // Second line: a small bar of how common the course is among the other schools, its
   // percent, and UC's placement.
   const share = otherShare(s);
@@ -272,6 +350,15 @@ function drawStrip(g, s, h) {
   sub.append("tspan").text(`${share.possible ? ` +${share.possible} possible` : ""} · `);
   const uc = ucStatus(s);
   sub.append("tspan").attr("class", uc.none ? "uc-none" : "uc").text(uc.text);
+
+  // The "typical" tick on a strip where UC is early or late: a dashed line at the
+  // other schools' median semester (the center of its column; a median such as 4.5
+  // falls on the boundary between two columns). Drawn before the dots, so it sits behind them.
+  if (s.flags.median != null) {
+    const tx = semX(s.flags.median) + COL_W / 2;
+    g.append("line").attr("class", "typical-tick").attr("x1", tx).attr("x2", tx).attr("y1", 4).attr("y2", h)
+      .append("title").text(`Other schools' median: semester ${s.flags.median}`);
+  }
 
   // Dots, semester by semester, then the bin.
   for (const [sem, dots] of s.bySem) {
@@ -410,7 +497,7 @@ function togglePin(id) {
 function renderTable() {
   const table = d3.select("#table");
   table.selectAll("*").remove();
-  const head = ["Canonical course", "Area", "Other schools requiring it", "UC", "Other schools (semester)", "Course not required"];
+  const head = ["Canonical course", "Area", "Other schools requiring it", "UC", "UC flag", "Other schools (semester)", "Course not required"];
   table.append("thead").append("tr").selectAll("th").data(head).join("th").text((t) => t)
     .classed("num", (t) => t === "Other schools requiring it");
   const body = table.append("tbody");
@@ -428,6 +515,8 @@ function renderTable() {
     tr.append("td").attr("class", "num")
       .text(`${share.required} of ${share.n} (${share.pct}%)${share.possible ? ` + ${share.possible} possible` : ""}`);
     tr.append("td").text(uc ? uc.text.replace(/^UC /, "") : "not required"); // ^UC : drop the school name at the start
+    // The flag spelled out, with its evidence, since a glyph alone means little in a table.
+    tr.append("td").text(s.flags.list.map((f) => `${FLAG_GLYPHS[f.kind].glyph} ${FLAG_GLYPHS[f.kind].word}${f.text ? ` (${f.text.trim()})` : ""}: ${f.why}`).join("; "));
     tr.append("td").text(perSchool.filter((p) => p.id !== "uc").map((p) => p.text).join("; "));
     tr.append("td").text(s.absent.map((x) => x.short_name).join(", "));
   }
@@ -477,6 +566,20 @@ function setupControls() {
     if (cls.partial) g.append("path").attr("class", "half").attr("d", `M0,${-DOT_R} A${DOT_R},${DOT_R} 0 0 0 0,${DOT_R} Z`);
     item.append("span").text(text);
   }
+  // The UC flag glyphs, as text (they are text in the chart too), and the typical tick.
+  const flagKeys = [
+    ["early", "UC earlier than most"], ["late", "UC later than most"],
+    ["missing", "UC doesn't require it; most do"], ["unique", "UC requires it; few do"],
+  ];
+  for (const [kind, text] of flagKeys) {
+    const item = legend.append("span");
+    item.append("span").attr("class", "uc-flag").attr("aria-hidden", true).text(FLAG_GLYPHS[kind].glyph);
+    item.append("span").text(text);
+  }
+  const tickItem = legend.append("span");
+  tickItem.append("svg").attr("width", 10).attr("height", 18).attr("aria-hidden", true)
+    .append("line").attr("class", "typical-tick").attr("x1", 5).attr("x2", 5).attr("y1", 1).attr("y2", 17);
+  tickItem.append("span").text("Other schools' median semester (when UC is early or late)");
 
   // Escape unpins; a click on empty chart space unpins too (dot clicks don't reach it
   // because they are handled on the dot, and stopPropagation is not needed: the target

@@ -23,6 +23,8 @@ const RING_R = DOT_R + 2.5; // UC's ring sits 2.5px outside its dot
 const HIT_R = 6.5; // invisible hover target, a little bigger than the dot
 const BIN_GAP = 22; // space between semester 8 and the "course not required" bin
 const BIN_W = COL_W;
+const FLAG_GAP = 14; // space between the bin and the UC flag column
+const FLAG_W = 104; // the UC flag column at the far right; fits "◆ ▶ 2 sem late"
 const HEAD_H = 40; // year and semester heads at the top of each chart
 const AREA_HEAD_H = 42; // a heading row: an area (area sort) or a typical year (year sort)
 const GROUP_RULE_Y = 10; // where the dark rule above a heading row sits, from the row's top
@@ -238,7 +240,8 @@ function dotXY(i, x0, base) {
 
 const semX = (k) => LABEL_W + (k - 1) * COL_W; // left edge of semester k's column
 const BIN_X = LABEL_W + 8 * COL_W + BIN_GAP; // left edge of the "course not required" bin
-const CHART_W = BIN_X + BIN_W + RIGHT_PAD;
+const FLAG_X = BIN_X + BIN_W + FLAG_GAP; // left edge of the UC flag column (the user's choice: far right)
+const CHART_W = FLAG_X + FLAG_W + RIGHT_PAD;
 
 // Draw one section (a SECTIONS key) into its SVG: the heads, then each strip with its
 // label, baseline, dots, and "course not required" bin. Called on load and whenever a control
@@ -269,6 +272,10 @@ function drawSection(svgId, section) {
   const binHead = head.append("text").attr("class", "year-head").attr("y", 15).attr("text-anchor", "middle");
   binHead.append("tspan").attr("x", BIN_X + BIN_W / 2).text("Course not");
   binHead.append("tspan").attr("x", BIN_X + BIN_W / 2).attr("dy", 14).text("required");
+  // The UC flag column's title, on two lines like the bin's.
+  const flagHead = head.append("text").attr("class", "year-head").attr("y", 15);
+  flagHead.append("tspan").attr("x", FLAG_X + 6).text("UC vs. most");
+  flagHead.append("tspan").attr("x", FLAG_X + 6).attr("dy", 14).text("other schools");
 
   let y = HEAD_H;
   let lastGroup = null;
@@ -319,20 +326,21 @@ function drawStrip(g, s, h) {
   }
   g.append("line").attr("class", "bin-rule").attr("x1", BIN_X - BIN_GAP / 2).attr("x2", BIN_X - BIN_GAP / 2)
     .attr("y1", 4).attr("y2", h);
+  g.append("line").attr("class", "bin-rule").attr("x1", FLAG_X - FLAG_GAP / 2).attr("x2", FLAG_X - FLAG_GAP / 2)
+    .attr("y1", 4).attr("y2", h); // the same dashed divider before the flag column
 
   // Label: the canonical course name (cut with "…" if too long) and a counts line that
   // ends with UC's placement, so UC's status reads without finding its dot.
-  // UC's flag (if any) sits at the right end of the name line, and the name is cut to
-  // the space left of it. The <title> child is the flag's hover text: the evidence.
-  let flagW = 0;
-  if (s.flags.list.length) {
-    const flag = g.append("text").attr("class", "uc-flag").attr("x", LABEL_W - 10).attr("y", 17)
-      .attr("text-anchor", "end").text(flagText(s.flags.list));
-    flag.append("title").text(s.flags.list.map((f) => f.why).join(". "));
-    flagW = flag.node().getComputedTextLength() + 8; // + 8: a gap between name and flag
-  }
   const name = g.append("text").attr("class", "strip-name").attr("x", 12).attr("y", 17);
-  fitText(name.node(), s.canon.name, LABEL_W - 20 - flagW);
+  fitText(name.node(), s.canon.name, LABEL_W - 20);
+  // UC's flag (if any) sits in its own column at the far right, on the name's line, so
+  // flagged courses can be scanned down one edge. The <title> child is its hover text:
+  // the evidence.
+  if (s.flags.list.length) {
+    const flag = g.append("text").attr("class", "uc-flag").attr("x", FLAG_X + 6).attr("y", 17)
+      .text(flagText(s.flags.list));
+    flag.append("title").text(s.flags.list.map((f) => f.why).join(". "));
+  }
   // Second line: a small bar of how common the course is among the other schools, its
   // percent, and UC's placement.
   const share = otherShare(s);

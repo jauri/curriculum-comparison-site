@@ -22,5 +22,5 @@ Junior Design (Part 1),capstone-design,covers,high,The first semester of the req
 Junior Design (Part 2),capstone-design,covers,high,The second semester of the Junior Design capstone sequence.,False,approved,Slot mapped to a course concept by the SLOT_MAY_FILL_COURSE exception.
 Humanities Elective,gen-ed-elective,covers,high,An approved humanities course.,False,approved,
 Probability & Statistics Option,probability-statistics,covers,high,"Every option is a probability or statistics course (MATH 3215, MATH 3670, ISYE 3770, ISYE 2027/2028).",False,approved,
-MATH 3012,discrete-math,covers,medium,"Applied combinatorics: counting, recurrences, and graph models.",True,approved,Partial: a second discrete-math course after CS 2050.
+MATH 3012,combinatorics,covers,new,"Applied combinatorics: counting, recurrences, and graph models; it creates the combinatorics concept.",False,approved,A second math course after CS 2050 (discrete math); moved from discrete-math.
 Thread Course,cs-elective,covers,medium,"Courses required by or chosen from the student's two Threads, mostly upper-level CS.",False,approved,The threads' own requirements are not modeled.

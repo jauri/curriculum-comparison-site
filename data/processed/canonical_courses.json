@@ -484,5 +484,14 @@
     "typical_credits":"3",
     "first_seen":"Virginia Polytechnic Institute and State University \/ CS 2104",
     "notes":"Not a programming course; a methods course that sits between intro programming and discrete mathematics."
+  },
+  {
+    "canonical_id":"combinatorics",
+    "name":"Applied Combinatorics and Graph Theory",
+    "kind":"course",
+    "description":"A mathematics course in combinatorics beyond a first discrete math course: counting methods, recurrences, generating functions, and graph theory and graph algorithms.",
+    "typical_credits":"3",
+    "first_seen":"Georgia Institute of Technology \/ MATH 3012",
+    "notes":"Split from discrete-math: a second course after discrete math, usually taught by mathematics."
   }
 ]

@@ -1196,7 +1196,7 @@
     "description":"Elementary combinatorial techniques used in discrete problem solving: counting methods, solving linear recurrences, graph and network models, related algorithms, and combinatorial designs.",
     "description_source":"official",
     "description_url":"https:\/\/catalog.gatech.edu\/coursesaz\/math\/",
-    "canonical_ids":"discrete-math",
+    "canonical_ids":"combinatorics",
     "match_status":"approved",
     "notes":"Sheet: 'MATH 3012'.",
     "plan":"General 8 Semester Plan, No Threads, AY 2025-26 (College of Computing credit sheet)",
@@ -1213,13 +1213,13 @@
     "subject_area":"math",
     "matches":[
       {
-        "canonical_id":"discrete-math",
+        "canonical_id":"combinatorics",
         "match_role":"covers",
-        "match_confidence":"medium",
-        "match_rationale":"Applied combinatorics: counting, recurrences, and graph models.",
-        "partial_match":true,
+        "match_confidence":"new",
+        "match_rationale":"Applied combinatorics: counting, recurrences, and graph models; it creates the combinatorics concept.",
+        "partial_match":false,
         "match_status":"approved",
-        "notes":"Partial: a second discrete-math course after CS 2050."
+        "notes":"A second math course after CS 2050 (discrete math); moved from discrete-math."
       }
     ]
   },

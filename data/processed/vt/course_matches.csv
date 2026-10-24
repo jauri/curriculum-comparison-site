@@ -24,7 +24,7 @@ Advanced Natural Science Elective,math-science-elective,covers,medium,One more n
 CS 3114,data-structures,covers,high,"Advanced data structures, hashing, trees, and file organization.",True,approved,Partial because it also covers algorithm analysis.
 CS 3114,algorithms,covers,medium,"Analysis of data structure and algorithm performance, sorting, and searching.",True,approved,Partial: VT's algorithms course is a theory elective option.
 CS 3000-5000 Level Elective,cs-elective,covers,high,Upper-level CS electives.,False,approved,
-MATH 3134,discrete-math,covers,medium,Combinatorics and graph theory with an emphasis on computational theory.,True,approved,Partial: a second discrete-math course.
+MATH 3134,combinatorics,covers,high,Combinatorics and graph theory with an emphasis on computational theory.,False,approved,A second math course after discrete math; moved from discrete-math.
 Professional Writing Elective,technical-writing,covers,high,Every option is a professional or technical writing course.,False,approved,
 CS 3214,operating-systems,covers,high,"Operating system principles: processes, threads, synchronization, scheduling, and memory management.",True,approved,"Partial: also covers linking, networking, and performance."
 CS 3604,computing-ethics,covers,high,"Ethical, social, and professional concerns in computing.",False,approved,

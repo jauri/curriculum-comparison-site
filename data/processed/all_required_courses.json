@@ -25437,7 +25437,7 @@
     "description": "Elementary combinatorial techniques used in discrete problem solving: counting methods, solving linear recurrences, graph and network models, related algorithms, and combinatorial designs.",
     "description_source": "official",
     "description_url": "https://catalog.gatech.edu/coursesaz/math/",
-    "canonical_ids": "discrete-math",
+    "canonical_ids": "combinatorics",
     "match_status": "approved",
     "notes": "Sheet: 'MATH 3012'.",
     "plan": "General 8 Semester Plan, No Threads, AY 2025-26 (College of Computing credit sheet)",
@@ -25454,13 +25454,13 @@
     "subject_area": "math",
     "matches": [
       {
-        "canonical_id": "discrete-math",
+        "canonical_id": "combinatorics",
         "match_role": "covers",
-        "match_confidence": "medium",
-        "match_rationale": "Applied combinatorics: counting, recurrences, and graph models.",
-        "partial_match": true,
+        "match_confidence": "new",
+        "match_rationale": "Applied combinatorics: counting, recurrences, and graph models; it creates the combinatorics concept.",
+        "partial_match": false,
         "match_status": "approved",
-        "notes": "Partial: a second discrete-math course after CS 2050."
+        "notes": "A second math course after CS 2050 (discrete math); moved from discrete-math."
       }
     ]
   },
@@ -27657,7 +27657,7 @@
     "description": "Emphasis on concepts related to computational theory and formal languages. Includes topics in graph theory such as paths, circuits, and trees. Topics from combinatorics such as permutations, generating functions, and recurrence relations.",
     "description_source": "official",
     "description_url": "https://catalog.vt.edu/course-descriptions/math/",
-    "canonical_ids": "discrete-math",
+    "canonical_ids": "combinatorics",
     "match_status": "approved",
     "notes": "The requirements also allow MATH 3124 (Modern Algebra).",
     "plan": "Roadmap (Plan of Study Grid), 2026-2027 Academic Catalog",
@@ -27674,13 +27674,13 @@
     "subject_area": "math",
     "matches": [
       {
-        "canonical_id": "discrete-math",
+        "canonical_id": "combinatorics",
         "match_role": "covers",
-        "match_confidence": "medium",
+        "match_confidence": "high",
         "match_rationale": "Combinatorics and graph theory with an emphasis on computational theory.",
-        "partial_match": true,
+        "partial_match": false,
         "match_status": "approved",
-        "notes": "Partial: a second discrete-math course."
+        "notes": "A second math course after discrete math; moved from discrete-math."
       }
     ]
   },

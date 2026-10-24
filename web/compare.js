@@ -25,7 +25,9 @@ const ORDER_PASSES = 6; // barycenter passes (see orderNodes)
 // Page state that survives redraws: the chosen school, the checked subject areas, and
 // the pinned node's id (a string, so it can be found again after a resize redraw).
 // coop: whether co-op work terms are drawn in their place (the "Show co-op terms" toggle).
-const state = { school: null, areas: new Set(AREAS.map((a) => a.key)), pinnedId: null, coop: false };
+// The page opens with only computer science checked (as concept_compare.js does); the
+// other areas are one click away in the filter.
+const state = { school: null, areas: new Set(["cs"]), pinnedId: null, coop: false };
 let data = null; // { schools, canon, rows } once loaded
 let canonById = null;
 let model = null; // the current layout, built by buildModel()
@@ -601,7 +603,7 @@ function setupControls() {
   });
 
   const boxes = d3.select("#area-filters").selectAll("label").data(AREAS).join("label").attr("class", "area");
-  boxes.append("input").attr("type", "checkbox").property("checked", true)
+  boxes.append("input").attr("type", "checkbox").property("checked", (a) => state.areas.has(a.key))
     .on("change", (event, a) => {
       if (event.target.checked) state.areas.add(a.key); else state.areas.delete(a.key);
       draw(); // re-lay out around the checked areas

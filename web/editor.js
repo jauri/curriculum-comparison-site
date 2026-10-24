@@ -559,6 +559,29 @@ function setupControls() {
     renderAll();
     flash(`Deleted "${name}".`);
   });
+  // Reset puts the open version's courses back to UC's current plan, as one change, so
+  // Undo brings the edits back. Undo history only lasts until the page is reloaded, so
+  // Reset also takes two clicks, like Delete. The version keeps its name and stays open.
+  let resetArmed = null;
+  d3.select("#btn-reset").on("click", (event) => {
+    const btn = event.currentTarget;
+    if (!resetArmed) {
+      btn.textContent = "Confirm reset";
+      resetArmed = setTimeout(() => { resetArmed = null; btn.textContent = "Reset to UC"; }, 4000);
+      return;
+    }
+    clearTimeout(resetArmed);
+    resetArmed = null;
+    btn.textContent = "Reset to UC";
+    // Compare before committing: commit() records nothing (and says nothing) when the
+    // course list doesn't change, so an unchanged version needs its own message.
+    if (JSON.stringify(currentDraft().courses) === JSON.stringify(baselineCourses())) {
+      flash("This version already matches UC's plan.");
+      return;
+    }
+    commit((d) => { d.courses = baselineCourses(); },
+      `Reset "${currentDraft().name}" to UC's plan. Undo brings your changes back.`);
+  });
   d3.select("#btn-undo").on("click", undo);
   d3.select("#btn-redo").on("click", redo);
   d3.select("#btn-export").on("click", exportDrafts);

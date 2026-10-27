@@ -1,0 +1,44 @@
+match_key,phrase,reason,notes
+CS 1100,EECS department,framing,
+CS 1100,Overview of,framing,
+CS 1100,Building abstractions by connecting simpler elements to larger conceptual entities,too-general,Abstraction as an idea; no topic to tag.
+CS 1021C,Introduction to computer science with emphasis upon,course-label,
+CS 1021C,algorithm design,no-concept,Algorithm design in an intro course; no general concept (the Algorithms group has specific techniques only).
+CS 1021C,problem-solving,generic-aim,
+CS 1021C,Currently,framing,
+CS 1021C,is used as the computer language,framing,The language itself is tagged (C++).
+CS 2023,performing some AI related tasks,too-general,"AI tasks, unspecified."
+CS 2023,Sophomore standing or higher is required. Students must be active participants in an EECS program to enroll in this course,prerequisite,Enrollment rule.
+CS 2028C,Sets,no-concept,Set as a container ADT; no concept for container sets (the Sets of discrete math is a different concept).
+CS 2028C,Lists,too-general,"List ADT, implementation not stated; covered by the ADT phrase."
+IT 2030C,various,framing,
+IT 2030C,foundation for understanding the key issues associated with,framing,
+IT 2030C,determining,framing,
+IT 2030C,appropriate,framing,
+CS 2071,Three undergraduate credits,framing,
+CS 2071,discrete mathematical topics in the context of CS,course-label,
+CS 3003,Concepts and features in design,no-concept,"Programming-language design and features; no concept (nearest: programming-paradigms, syntax-and-semantics, neither named)."
+CS 4071,An introduction to the study of sequential algorithms,course-label,
+CS 4071,Major design strategies,framing,Introduces a list that is tagged item by item.
+CS 3093C,Introduction to software engineering,course-label,
+CS 3093C,General course topics include,framing,
+CS 3093C,global software engineering,no-concept,Software engineering with distributed (global) teams; no concept.
+CS 3093C,ethics for software engineering,framing,Ethics is tagged; the rest restates the course.
+CS 3093C,"In the lab sessions, students apply concepts taught in lecture, and develop",framing,
+CS 4033,Fundamental Issues in Intelligent Systems,framing,
+CS 4033,Describe Turing test and Chinese Room Thought Experiment,no-concept,Philosophy and foundations of AI; no concept.
+CS 4033,Definitions of AI; Difference between optimum reasoning/behavior and human-like behavior/reasoning,no-concept,Philosophy and foundations of AI; no concept.
+CS 4033,Examples of applications of search-based solutions for business and scientific decision making,framing,Application examples.
+CS 4033,Illustration of modern AI systems such as Watson that represent large volumes of knowledge and their applications in medicine and business,framing,Application examples.
+CS 4033,"Examples of data-driven decision support systems for use in business, engineering and sciences",framing,Application examples.
+CS 4029,Introduction to concepts of modern operating systems and systems programming,course-label,
+CS 4029,"Emphasis is on the concepts, algorithms and architectures of modern operating systems",course-label,"Names no specific OS topic (scheduling, memory management, file systems...), so none is tagged."
+CS 4065,Introduction to basic concepts of computer networks,course-label,
+CS 4065,computing principles for networked systems,too-general,No specific topic named.
+CS 5001,First of two semester laboratory series in which students create,framing,
+CS 5001,capitalizing on their prior four years of computer science education,framing,
+CS 5001,"Each student selects a project advisor, and works with him/her to select a design problem",framing,
+CS 5001,design the product,too-general,"Design, method unspecified."
+CS 5001,strongly encouraged,framing,
+CS 5002,Second of two semester laboratory series in which students create,framing,
+CS 5002,capitalizing on their prior four years of computer science education,framing,

@@ -1,0 +1,12 @@
+match_key,concept_id,evidence_field,evidence,tag_confidence,tag_status,notes
+CS 1301,development-tools,description,software tools,medium,proposed,
+CS 1100,,,,,proposed,Description names no specific topic.
+CS 1331,object-oriented-programming,description,object-oriented programming,high,proposed,
+CS 1331,inheritance-and-polymorphism,description,polymorphism | inheritance,high,proposed,
+CS 1331,encapsulation-and-interfaces,description,encapsulation,high,proposed,
+CS 1332,object-oriented-programming,description,object-oriented programming,high,proposed,
+CS 2110,c-language,description,C programming,high,proposed,
+CS 2110,assembly-language,description,assembly language | machine language,high,proposed,
+CS 2340,object-oriented-programming,description,Object-oriented programming,high,proposed,
+CS 2340,software-testing,description,quality processes | testing | testing to assure a quality product,high,proposed,
+CS 2340,debugging,description,debugging techniques,high,proposed,

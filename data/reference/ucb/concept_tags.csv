@@ -1,0 +1,21 @@
+match_key,concept_id,evidence_field,evidence,tag_confidence,tag_status,notes
+COMPSCI 61A,functions-and-procedures,description,procedural abstraction | functions,medium,proposed,
+COMPSCI 61A,recursion,description,recursion,high,proposed,
+COMPSCI 61A,object-oriented-programming,description,"object-oriented | objects, classes",high,proposed,
+COMPSCI 61A,encapsulation-and-interfaces,description,interfaces,medium,proposed,
+COMPSCI 61A,generics,description,generic operators,high,proposed,
+COMPSCI 61A,large-software-project,description,significant programming projects,high,proposed,
+COMPSCI 61A,abstract-data-types,description,data abstraction,high,proposed,
+COMPSCI 61A,asymptotic-analysis,description,analysis of algorithms | asymptotic analysis,high,proposed,
+COMPSCI 61A,programming-paradigms,description,programming paradigms | declarative,high,proposed,
+COMPSCI 61A,functional-programming,description,"functional, object-oriented, and declarative approaches",high,proposed,
+COMPSCI 61A,higher-order-functions,description,higher-order functions,high,proposed,
+COMPSCI 61A,compilers-and-interpreters,description,interpreters | language abstraction using interpreters and macros,high,proposed,
+COMPSCI 70,computability,description,undecidability,high,proposed,
+COMPSCI 70,propositional-logic,description,Logic,medium,proposed,"""Logic"" alone; not said to be propositional."
+COMPSCI 70,induction,description,induction,high,proposed,
+COMPSCI 70,number-theory,description,Modular arithmetic | GCDs | primality testing,high,proposed,
+COMPSCI 70,probability,description,law of large numbers | Probability | random variables | independence | sample spaces,high,proposed,
+COMPSCI 70,information-theory,description,error correcting codes,high,proposed,
+COMPSCI 70,cryptography,description,cryptography,high,proposed,
+COMPSCI 70,probabilistic-reasoning,description,Bayesian inference,medium,proposed,An example within the probability unit.

@@ -1,0 +1,28 @@
+match_key,phrase,reason,notes
+COMP SCI 200,Learn the process of incrementally developing small (200-500 lines) programs,no-concept,Incremental development of small programs; no concept (software-process is about lifecycle models).
+COMP SCI 200,along with the fundamental Computer Science topics,framing,
+COMP SCI 200,teaches and reinforces,framing,
+COMP SCI 200,Intended for students who have no prior programming experience,framing,Audience.
+COMP SCI 300,to solve more complex problems,framing,
+COMP SCI 300,lists,no-concept,Lists as a collection (array-based or linked); no general list concept.
+COMP SCI 300,List,no-concept,List ADT; no general list concept.
+COMP SCI 300,Programming assignments require writing and developing multi-class (file) programs,framing,
+COMP SCI 300,to solve challenging real world problems,framing,
+COMP SCI 300,Topics reviewed include,framing,
+COMP SCI 300,iterators,no-concept,Iterators; no concept.
+COMP SCI 300,vs. linked,framing,
+COMP SCI 400,The third course in our programming fundamentals sequence,framing,
+COMP SCI 400,sets,no-concept,Set as a container type; no concept (discrete-math sets is a different concept).
+COMP SCI 400,about classes of problems that require each data type,framing,
+COMP SCI 400,Involves design and implementation using,framing,
+COMP SCI 400,"demonstrates knowledge and use of latest language features, tools, and conventions",too-general,
+COMP SCI 400,Additional topics may include,framing,
+COMP SCI 400,anonymous inner classes,no-concept,A Java language feature; no concept.
+COMP SCI 252,rudimentary,framing,
+COMP SCI 252,basic computer organization and design,course-label,
+COMP SCI 354,An introduction to fundamental structures of computer systems,course-label,
+COMP SCI 354,with a focus on the low-level interrelationships and,framing,
+COMP SCI 240,Basic concepts of mathematics,framing,
+COMP SCI 240,with a focus on discrete structures,course-label,
+COMP SCI 240,"bits, strings",too-general,Bits and strings as discrete objects; no specific topic.
+COMP SCI 368,"For students interested in learning a particular programming language. Focuses on a specific language offered at one of three levels: beginner, intermediate, and advanced. Students may repeat the course if the topic title is different",framing,"The language varies, so no topic is fixed."

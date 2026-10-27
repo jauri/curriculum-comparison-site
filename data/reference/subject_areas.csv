@@ -1,0 +1,64 @@
+rule,institution,key,subject_area,notes
+institution_subject,"University of Minnesota, Twin Cities",CSE,eng,"CSE 1001 is the College of Science and Engineering's first-year course; OSU's CSE is its CS department"
+subject,,CS,cs,
+subject,,CSE,cs,Ohio State's CS department
+subject,,IT,cs,UC's IT 2030C (Information Security) is part of the CS degree's computing core
+subject,,MATH,math,
+subject,,STAT,math,
+subject,,PHYSICS,science,
+subject,,ENED,eng,
+subject,,ENGR,eng,
+subject,,ECE,eng,Electrical and computer engineering; grouped with engineering (decided with the user in step 12)
+subject,,PD,eng,UC's co-op professional development
+subject,,ENGL,writing,
+subject,,GENED,gened,
+subject,,PHILOS,gened,
+subject,,C S,cs,UT Austin writes CS with a space
+subject,,CSCE,cs,
+subject,,COMPSCI,cs,
+subject,,DS,cs,Northeastern's data science; a computing subject
+subject,,CY,cs,Northeastern's cybersecurity
+subject,,M,math,UT Austin's math
+subject,,SDS,math,
+subject,,CHEM,science,
+subject,,PHYS,science,
+subject,,EECE,eng,Electrical engineering; like ECE
+subject,,ELENG,eng,Electrical engineering; like ECE
+subject,,RHE,writing,
+subject,,ENGW,writing,
+subject,,COMM,writing,
+subject,,GOV,gened,UT Austin's state-required government courses
+subject,,ENG,eng,UIUC's Grainger orientation seminar (ENG 100)
+subject,,COMP SCI,cs,Wisconsin writes COMP SCI with a space
+subject,,CSCI,cs,
+subject,,EECS,cs,
+subject,,STATS,math,
+subject,,DATASCI,math,
+subject,,INTER-LS,eng,Wisconsin's INTER-LS 210 is career development; grouped with co-op prep
+subject,,WRIT,writing,
+subject,,TCHNCLCM,writing,Michigan's technical communication
+subject,,07,cs,CMU's SCS interdisciplinary department number
+subject,,15,cs,CMU's Computer Science department number
+subject,,21,math,CMU's Mathematical Sciences department number
+subject,,76,writing,CMU's English department number
+subject,,99,gened,CMU's Core@CMU (99-101) is a university-wide first-year course
+subject,,CMPSC,cs,
+subject,,CMPEN,eng,Penn State's computer engineering; like ECE
+subject,,CAS,writing,Penn State's speech courses; communication like COMM
+subject,,ENGE,eng,Virginia Tech's first-year engineering
+subject,,CMDA,math,Virginia Tech's computational modeling and data analytics; like DATASCI
+subject,,MA,math,Purdue's math
+subject,,APPH,gened,Georgia Tech's wellness course
+subject,,HIST,gened,
+slot,,lab-science,science,
+slot,,gen-ed-elective,gened,
+slot,,free-elective,gened,Free electives share the general-education area
+slot,,cs-elective,cs,
+slot,,technical-elective,cs,
+slot,,math-science-elective,math,
+slot,,oral-communication,writing,
+slot,,technology-and-society,gened,
+slot,,world-language,gened,UIUC's and Wisconsin's language requirement
+slot,,capstone-design,cs,Michigan's Approved CS Capstone course slot
+slot,,first-year-seminar,gened,Penn State's First-Year Seminar slot
+slot,,coop-work-term,eng,"Co-op terms (UC, Northeastern); they have no semester, so the views do not draw them. Before step 14 the views fell back to cs for them"

@@ -1,0 +1,35 @@
+match_key,phrase,reason,notes
+CSCE 181,from,framing,
+CSCE 120,Extension of prior programming knowledge and creation of computer programs that solve problems,framing,
+CSCE 120,application of computational thinking to enhance problem solving,generic-aim,
+CSCE 120,"analysis of, design of and implementation of computer programs",course-label,
+CSCE 120,study of,framing,
+CSCE 222,Mathematical foundations from discrete mathematics,course-label,
+CSCE 221,lists,no-concept,"Lists as a collection, implementation not stated; no general list concept."
+CSCE 312,Computer systems from programmer's perspective,course-label,
+CSCE 312,memory,too-general,"Memory, aspect not stated."
+CSCE 312,hands-on lab assignments,framing,
+CSCE 314,Exploration of the,framing,
+CSCE 314,via an in-depth study of,framing,
+CSCE 314,using concrete programming languages as examples,framing,
+CSCE 314,Focuses on idiomatic uses of programming language constructs and on features characteristic for each language,no-concept,Programming-language features and idioms; no concept (cf. UC CS 3003).
+CSCE 231,coverage of,framing,
+CSCE 231,variety of contemporary topics,framing,
+CSCE 313,"system support for application programs, both on single node and over network",course-label,
+CSCE 313,hands-on lab assignments,framing,
+CSCE 331,Intensive programming experience and provision of the fundamentals needed for,framing,
+CSCE 331,integration of concepts in computer science and familiarization with a variety of,framing,
+CSCE 331,with an emphasis on a different specialization within computer science,framing,
+CSCE 331,practical exposure to,framing,
+CSCE 331,through,framing,
+CSCE 325,Foundations of artificial intelligence,course-label,
+CSCE 325,problem solving,generic-aim,
+CSCE 325,"applications across domains such as language, vision and robotics",no-concept,"AI application areas (natural language, vision, robotics); no concepts."
+CSCE 325,evaluation of systems,too-general,
+CSCE 411,Study of computer algorithms for numeric and non-numeric problems,course-label,
+CSCE 411,design paradigms,no-concept,Algorithm design paradigms in general; no general concept (specific techniques are not listed here).
+CSCE 481,topics of current interest in computer science,framing,
+CSCE 482,Development of system integration skills for solving real-world problems in computer science,framing,
+CSCE 482,integration of advanced concepts across computer science specializations,framing,
+CSCE 482,projects require,framing,
+CSCE 120,to develop,framing,

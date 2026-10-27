@@ -1,0 +1,18 @@
+match_key,phrase,reason,notes
+C S 312,First part of a two-part sequence in programming,framing,
+C S 312,data structures,course-label,
+C S 312,with a focus on problem solving strategies and implementation,generic-aim,
+C S 311,A focus on discrete mathematical tools of fundamental importance to the working computer scientist,course-label,
+C S 311,placed on,framing,
+C S 311,to express,framing,
+C S 314,Second part of a two-part sequence in programming,framing,
+C S 314,building and using canonical data structures,course-label,
+C S 429,low-level computer design ranging from the basics of,course-label,
+C S 429,basic systems principles of,framing,
+C S 429,requires writing and understanding programs at multiple levels,framing,
+C S 103F,direct participation and discussion using,framing,
+C S 439,computer systems software abstractions with an emphasis on the connection of these abstractions to underlying computer hardware,course-label,
+C S 439,Key abstractions,framing,
+C S 439,Requires writing,framing,
+C S 439,pieces of an operating system,course-label,
+C S 331,An investigation of algorithmic paradigms,framing,Introduces a list that is tagged item by item.

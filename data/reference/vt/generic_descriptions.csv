@@ -1,0 +1,16 @@
+title,description,notes
+CS 4944,"A one-credit senior seminar for computer science majors, usually covering professional topics such as careers, research, graduate study, and the role of computing in society.","Virginia Tech's catalog entry for CS 4944 (Seminar) has no description text, so the description is generic."
+Natural Science Elective,"A laboratory science course from a two-semester sequence, such as general biology, general chemistry, or physics, each with a lab.","VT: BIOL, CHEM, or PHYS sequences."
+MATH 2534 or MATH 3034 (Introduction to Discrete Mathematics),"A course on mathematical reasoning: logic, proof techniques, sets, functions, relations, and induction, as either a discrete mathematics course or an introduction to proofs.",Choice slot: VT's MATH 2534 or MATH 3034. Official descriptions are in data/raw/vt/ (courses-math page).
+"Pathways General Education (Concept 2, 3, 6a, or 7)","A general education course in the humanities, social sciences, or the arts, chosen from a university-wide list.","VT Pathways Concepts 2, 3, 6a, and 7 (7 suspended from Fall 2025)."
+MATH 2204 or CMDA 2005 (Introduction to Multivariable Calculus),"A course in multivariable calculus (partial derivatives, multiple integrals, vector calculus), or an integrated quantitative-sciences course that covers it alongside other topics.","Choice slot: VT's MATH 2204 or CMDA 2005. Official descriptions are in data/raw/vt/ (courses-math, courses-cmda pages)."
+Communications Elective,"A course in oral communication, such as public speaking or communication in teams.",VT: COMM 2004 or COMM 2014.
+Advanced Natural Science Elective,"A further natural science course beyond the first-year sequence, often with a lab, in a field such as biology, chemistry, physics, or geosciences.",
+CS 3000-5000 Level Elective,An upper-level computer science elective chosen by the student.,VT: 6 credits at the 3000 level or above.
+Professional Writing Elective,"A course in professional or technical writing, such as technical writing, editing, documentation, or writing for digital media.",VT: one of seven ENGL courses.
+Statistics Elective,"A course in probability and statistics for engineers or scientists: probability models, estimation, hypothesis testing, and regression.",VT: one of several STAT courses.
+CS Theory Elective,"An upper-level theory course, such as algorithm analysis, formal languages and automata, theory of computation, or quantum computation.",VT: one of six courses.
+CS Technical Elective,"A technical course in or related to computing, chosen from a list that includes courses in other departments, such as machine learning, numerical methods, cryptography, or data analytics.",
+Free Elective,Any course the student chooses.,
+CS Capstone,"A senior capstone course in which students complete a substantial team project in an area of computing, such as software engineering, systems, security, human-computer interaction, or data.",VT: one capstone from a list.
+CS 4000-5000 Level Elective,"An upper-level computer science elective chosen by the student, at the 4000 level or above.",VT: 3 credits.

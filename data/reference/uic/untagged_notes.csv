@@ -1,0 +1,18 @@
+match_key,phrase,reason,notes
+CS 141,lists,no-concept,"Lists as a collection, implementation not stated; the vocabulary has linked-lists and arrays but no general list concept."
+CS 141,programming exercises,framing,
+CS 151,Discrete mathematics concepts fundamental to computing,course-label,
+CS 151,applications,framing,
+CS 211,advanced language features,too-general,
+CS 251,"Design, usage and analysis of data structures",course-label,
+CS 251,lists,no-concept,"Lists as a collection, implementation not stated; no general list concept."
+CS 251,programming projects and lab exercises,framing,
+CS 261,data structures,too-general,"How data structures sit in memory, in a machine-organization list; no specific topic."
+CS 361,Study of computer systems emphasizing impact on application level programming,course-label,
+CS 362,Computer hardware building blocks,course-label,
+CS 342,Software design principles and practices,course-label,
+CS 277,"Attendance, participation, and presentations required",framing,Presentations is tagged; the rest is course format.
+CS 401,Design and analysis of computer algorithms,course-label,Analysis is tagged; design restates the course.
+CS 499,Graduating seniors will be provided with information regarding future,framing,
+CS 499,will provide information regarding,framing,
+CS 499,Students take the CS Major Field Exam as part of this course,framing,"Program assessment, not a topic."

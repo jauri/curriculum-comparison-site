@@ -1,0 +1,19 @@
+step,title,after_commit,before_entry,status
+0,Specs and plan,,,proposed
+1,Project setup,90fc48e,,proposed
+2,Collect UC sources,3b5f444,,proposed
+3-4,Parse and normalize the UC plan,d56e6ae,u-93e76e33-957,proposed
+5,Attach course descriptions,4d6fdac,,proposed
+6,Seed the canonical course list,f670562,,proposed
+7,Write outputs,a0bf77a,,proposed
+8,First web views,cc643c8,u-9355affe-ffb,proposed
+9,Generalize the pipeline,e49b6e7,,proposed
+10,Pilot: Ohio State and UIC,9ca40fc,u-bcb31fbe-600,proposed
+11,Spec the alignment view,1d2311a,u-f1c94118-678,proposed
+12,Build the alignment view,3d41c30,,proposed
+13,Remaining schools,360bf1c,,proposed
+14-15,Combined table and timeline view,6b005ac,,proposed
+16,Concept vocabulary,35ed5c2,,proposed
+15,Timeline view refinements,79736d1,,proposed
+17,Concept tags and the public site,04cfd7f,u-81c3a10d-1ba,proposed
+21,Process page,5019df1,,proposed

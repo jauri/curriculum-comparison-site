@@ -1,0 +1,15 @@
+match_key,phrase,reason,notes
+CS 18000,Problem solving and algorithms,generic-aim,
+CS 18000,implementation of algorithms in a high level programming language,course-label,
+CS 18000,collections of data,too-general,"Collections, kind not stated."
+CS 18000,a glimpse at topics from other CS courses,framing,
+CS 18000,Intended primarily for students majoring in computer sciences,framing,Audience.
+CS 18000,"Credit cannot be obtained for both CS 18000 and any of 15600, 15800 and 15900. Not open to students with credit in CS 24000",framing,Credit rule.
+CS 24000,operators,too-general,Operators as a language construct (cf. OSU CSE 3341 expressions).
+CS 24000,program structure,too-general,
+CS 25100,one-dimensional data structures,too-general,"Linear structures, kind not stated."
+CS 25100,additional topics,framing,
+CS 25200,Low-level programming,course-label,
+CS 25200,review of,framing,
+CS 25200,inheritance,too-general,"Inheritance of descriptors across processes, presumably; not object-oriented inheritance, and not stated."
+CS 25200,programming embedded systems,no-concept,Embedded systems; no concept.

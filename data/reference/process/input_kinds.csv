@@ -1,0 +1,121 @@
+entry_id,primary,secondary,status,excerpt
+u-0e7cfe34-145,Exploration,Specification,proposed,this is a new project. I would like to make some specification files to help us 
+u-edaa3559-42f,Workflow,,proposed,let's git init and then i'll describe what i want
+u-b4698e22-932,Specification,,proposed,here's what i want to do. I want to first gather data on the university of cinci
+u-c4af7241-27d,Working style,,proposed,ask me about these questions with AskClaude
+u-ed213662-29d,Specification,,proposed,"I like javascript, but I think python is right for data analysis. Can we do a mi"
+u-3e7a4f72-4a6,Specification,,proposed,let's change to just use online sources. i'd like to discuss the comparison set.
+u-737546b4-739,Specification,Exploration,proposed,i want to stick to semester schools. I want to include aspirational top programs
+u-3d2be985-993,Specification,,proposed,only do CS degrees in engineering. use common core as required and the rest as e
+u-20a1e99e-ff2,Exploration,Specification,proposed,lets add 2 more public schools to the list to make it 15. any suggestions?
+u-e3452114-b64,Decision,,proposed,let's add in virginia tech and penn state
+u-f8f9aa21-e7b,Clarification,,proposed,is there anything else we need to discuss before I review the plan?
+u-49d3142d-061,Specification,,proposed,match courses across schools- i suggest we write out course descriptions for the
+u-ae258cbb-717,Clarification,,proposed,is everything saved in specs?
+u-1104dcd2-dc9,Workflow,,proposed,let's make the first commit
+u-ce68ac0a-c06,Clarification,,proposed,if i ask you to work on a phase but close my computer what happens
+u-5cf40345-e9d,Workflow,,proposed,what is next?
+u-0e2a4bf4-6c2,Working style,Workflow,proposed,let's do step one only and verify work with me
+u-4fec1b6e-b0d,Clarification,,proposed,is pandas installed
+u-8013a45e-970,Workflow,,proposed,yes lets commit
+u-c9baf2c8-8af,Working style,Workflow,proposed,let's move to step 2 - plan it with me and explain what you are going to do and 
+u-ee1773e0-4bc,Specification,Working style,proposed,can you add comments to all the python files explaining what each function is do
+u-bcf727b3-eff,Workflow,,proposed,"yes, commit everything"
+u-ed2de1b6-bf8,Exploration,,proposed,should we try running these?
+u-ecb3161a-8d2,Workflow,,proposed,save progress in markdown
+u-93e76e33-957,Workflow,,proposed,what's next
+u-0747e55b-8e1,Working style,,proposed,ask questions using AskUser
+u-60d1ec1c-9b3,Specification,,proposed,i would like to add a step- take the parsed data and make another file that tran
+u-b9003a5b-a7d,Clarification,,proposed,did this change the plan?
+u-64b765ce-f8d,Workflow,,proposed,"ok, what's next?"
+u-bddb821f-d35,Workflow,,proposed,what's next
+u-9da745ca-b97,Decision,,proposed,i approve
+u-bc1b9c95-715,Correction,Clarification,proposed,why are some of the match confidences marked high? shouldn't they all be new? th
+u-e1e89d31-42b,Decision,,proposed,ok this is fine
+u-0e1a8d21-cdc,Workflow,,proposed,what's next
+u-8f130fab-fa3,Decision,,proposed,i approve this
+u-9355affe-ffb,Decision,Workflow,proposed,this looks right commit and move to step 8
+u-ef84110f-11b,Workflow,,proposed,commit
+u-645dfde4-a65,Workflow,,proposed,what's next
+u-67537d90-ab7,Clarification,,proposed,why not make a single parser? why do we need one for each school?
+u-dae68651-0f5,Decision,Workflow,proposed,"its ok, we can have one parser for each school- different ones. you can start on"
+u-bcb31fbe-600,Specification,,proposed,"instead of piloting with UIUC, can we substitution Univ illinois chicago?"
+u-84591458-cb8,Workflow,,proposed,commit first
+u-46b38209-62a,Decision,,proposed,yes
+u-a44c9ce4-499,Working style,,proposed,"do you need to ask questions, use ASKUSER"
+u-1d444f9b-d5a,Clarification,,proposed,is this running somewhere- the UC one?
+u-32a91d27-5ac,Workflow,,proposed,what's next
+u-f1c94118-678,Specification,,proposed,i want to first add a phase to create a visualization showing the alignment betw
+u-8a268cfc-a47,Correction,Clarification,proposed,something is wrong with the matching approach. can you describe in high-level te
+u-433eff93-9e3,Specification,,proposed,can we add the course descriptions to the hover interactions
+u-e65b0a74-6bc,Clarification,,proposed,"this is great, is it recorded in progress and committed?"
+u-74711fea-6c9,Workflow,,proposed,what's next
+u-3da7e63b-fe8,Specification,,proposed,let's swap ohioU and miami with alternatives. Perhaps we could do university of 
+u-a21d2aaa-aae,Specification,Exploration,proposed,let's swap out kent state and wright state and instead do northeastern and anoth
+u-9791a6e8-4e1,Decision,,proposed,georgia tech
+u-8a24568e-43a,Clarification,,proposed,can you check for issues due to computer going to sleep?
+u-44bc077b-24c,Workflow,Exploration,proposed,Let's commit first. Then I want to discuss the matching approach a bit.
+u-d5f055a8-161,Specification,Exploration,proposed,Courses should be ok to match multiple canonical courses. I want to discuss one 
+u-3d324ba8-f85,Workflow,,proposed,Start the build
+u-8e5e4669-66f,Decision,Workflow,proposed,I think this is all fine. Let's commit and then prepare for clear
+u-2355149b-af5,Workflow,,proposed,What's next
+u-6cce5910-98d,Workflow,,proposed,commit and then prepare to clear- save progress
+u-ed764064-a14,Workflow,,proposed,What's next
+u-fd7e3f43-637,Workflow,,proposed,Let's go to batch 3
+u-56c61584-6c4,Workflow,,proposed,commit and prepare for clear
+u-69cc03a2-ac3,Workflow,,proposed,what's next
+u-30915b8a-6cc,Clarification,,proposed,where do i review?
+u-f0e13de9-07a,Workflow,Decision,proposed,"so far i think things are great, what's next?"
+u-bf63c855-1d5,Specification,,proposed,"let's discuss some of these steps. visually, i want to do an experiment like thi"
+u-9466ac86-1d6,Specification,,proposed,"also, for the timeline view I want to focus on computing (which includes CS and "
+u-4d98510d-79b,Workflow,,proposed,ok shall we try it?
+u-000e0c64-d64,Specification,,proposed,"i would like to change the timelien view in a few ways. first, can we sort top t"
+u-22bb9070-7c2,Correction,,proposed,"ok, forgot the request to divide 'no course' into two categories. instead, go ba"
+u-5335f9bd-d1b,Specification,,proposed,let change the language in the header to course not required or not offered. and
+u-36aed4ed-278,Correction,,proposed,"ok, on second thought, let's go back to the previous version where we only deal "
+u-51bae489-a75,Exploration,Decision,proposed,"can you show me the choice i just made again, so i can decide if it was the righ"
+u-6a0e8f69-ad4,Exploration,Specification,proposed,can you show the percentage of schools that require a course in the category wit
+u-43811aa7-bd8,Workflow,,proposed,commit
+u-19da337f-e88,Workflow,,proposed,prepare to clear
+u-cd060911-dcf,Workflow,,proposed,what's next?
+u-78ec6374-adb,Clarification,,proposed,why do you need michigan's guides?
+u-01b1e44d-faf,Decision,,proposed,I think this is no big deal and we can skip it..
+u-dbcf5a13-192,Workflow,,proposed,Yes start step 16
+u-e83ab060-4b5,Specification,,proposed,can i give you the description here: 1. Pointers and dynamic memory management w
+u-20c3382a-229,Decision,,proposed,let's continue i'll have to find it later
+u-f18c5b0d-031,Specification,Exploration,proposed,"remove the first seen line, and instead maybe we list the schools? or maybe the "
+u-a9ccd9c2-f5d,Specification,,proposed,"for this view, can you sort within each major category by the number of schools "
+u-742134c4-c21,Exploration,Specification,proposed,i want Uc to stand out more in the list of dots. suggestions?
+u-56fd0758-2d3,Specification,,proposed,"on hover can we should the school and the course the concept is in, in a tooltip"
+u-194e8676-47c,Workflow,,proposed,save progress
+u-31df4279-2b6,Specification,,proposed,i want to make some changes in the timeline view- it is hard to see the gap betw
+u-74d54c95-273,Specification,,proposed,can you set the course timeline to default to engineering and coop and math and 
+u-2cf613d0-146,Specification,,proposed,"in the timeline view, sort the typical courses by percent of the schools that of"
+u-b6a397b9-6cc,Specification,Exploration,proposed,Can we differentiate each year from each other a bit more? maybe font size or a 
+u-68c08da3-a1d,Workflow,,proposed,"commit, prepare for clear"
+u-5b165c88-01f,Specification,,proposed,remove the lines between courses within year bands in the timeline table. i want
+u-d2900925-8e0,Correction,,proposed,"lets but the line back, but maybe we remove the explicit timeline line draw, so "
+u-99300503-cac,Workflow,,proposed,prepare to clear
+u-81c3a10d-1ba,Workflow,,proposed,What's next
+u-e72a2344-dd2,Exploration,Workflow,proposed,I'm away from the computer so I can't complete the check right now. Please add i
+u-1ecb61c3-5f8,Exploration,,proposed,I would like to learn more first about number 3. Could I set this up through you
+u-5735abd4-6df,Exploration,Workflow,proposed,Can you write these steps into a place where we can find them again? I'll have t
+u-5ddb6c88-5cd,Exploration,Workflow,proposed,Let's pause on validation for a moment. Can we try the path to get this online u
+u-b102ecaf-5fb,Workflow,Decision,proposed,This is great. Let's prepare to clear.
+u-f9864819-a9d,Workflow,,proposed,What's next
+u-e89b5c10-48b,Specification,Exploration,proposed,Let's pause this for now (move to a later step). .I want to do a new page with t
+u-6580a516-317,Specification,,proposed,I want to illustrate to a committee of other faculty how I made this in collabor
+u-9bf6bb73-f78,Decision,,proposed,let's do it!
+u-a427408b-018,Specification,,proposed,this looks great. i wish i could see my responses to the questions from ASKUSER 
+u-8600aac8-35f,Specification,,proposed,"this is great, can we keep it as the last tab at the top, instead of in the midd"
+u-583f7eed-7f6,Workflow,,proposed,you can commit this and push it to the public repo
+u-4d3ba59e-dd6,Workflow,,proposed,prepare to clear
+u-dc35387e-7b3,Specification,Exploration,proposed,"to the process view, i would like to add below 'how this was made' an overview v"
+u-408087ca-e7c,Specification,Exploration,proposed,"could we add to this a toggle, where in one selection it is colored as it is now"
+u-c7799a2f-055,Specification,,proposed,nice. can we add a divider between the amount of work timeline and the content b
+u-cd6bf9f7-973,Specification,,proposed,"can we put the color key always on the line below the description. Also, there i"
+u-c94db7cb-f74,Specification,,proposed,lets change the timing scheme to be pauses over 5 min count as 5.
+u-602006f1-bfe,Specification,Exploration,proposed,let's make another change. pauses over a certain number of minutes count as one 
+u-36792cab-3e4,Workflow,Decision,proposed,this is great. let's save and commit.
+u-123e3a6f-22a,Exploration,Specification,proposed,"one more thing- could you run through my requests and do some kind of ranking, b"
+u-d2348d66-a09,Correction,Specification,proposed,"this ranking is not quite right. sometimes i am asking clarification questions, "

@@ -1,0 +1,13 @@
+match_key,phrase,reason,notes
+COMPSCI 61A,An introduction to programming and computer science focused on abstraction techniques as means to manage program complexity,course-label,
+COMPSCI 61A,Techniques include,framing,
+COMPSCI 61A,control abstraction,too-general,"Its means (recursion, higher-order functions) are tagged."
+COMPSCI 61A,"generators, and streams",no-concept,Generators and streams (lazy sequences); no concept.
+COMPSCI 61A,The course,framing,
+COMPSCI 61A,There are,framing,
+COMPSCI 70,infinity,no-concept,Infinity and countability; no concept.
+COMPSCI 70,stable marriage problem,no-concept,Stable matching; no concept.
+COMPSCI 70,Polynomials,no-concept,Polynomials over finite fields; no concept.
+COMPSCI 70,interpolation,no-concept,Polynomial interpolation; no concept.
+COMPSCI 70,load balancing,framing,An example application of probability.
+COMPSCI 70,existence arguments,framing,An example application of probability (the probabilistic method).

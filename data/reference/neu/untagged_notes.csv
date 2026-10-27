@@ -1,0 +1,46 @@
+match_key,phrase,reason,notes
+CS 1200,Seeks to support students in their transition to Northeastern and in their holistic development as they become responsible members of the college and university communities,framing,
+CS 1200,"Incorporates large group discussion, small group activities, and self-reflection in order to facilitate connections with faculty, staff, and peers; promote utilization of appropriate",framing,Format and aims of the seminar.
+CS 1200,assist with,framing,
+CS 1800,the mathematical structures and methods that form the foundation of computer science,course-label,Restates the course: discrete structures.
+CS 1800,structures,too-general,
+CS 1800,counting techniques and arguments needed,framing,
+CS 1802,"Accompanies CS 1800. Illustrates topics from the lecture course through discussions, quizzes, and homework assignments",framing,Recitation; names no topic of its own.
+CS 2001,Accompanies CS 2000. Covers topics from the course through various experiments,framing,Lab; names no topic of its own.
+CS 2101,Accompanies CS 2100. Covers topics from the course through various experiments,framing,Lab; names no topic of its own.
+CS 3101,Accompanies CS 3100. Covers topics from the course and provides students with additional opportunities to engage with course material,framing,Lab; names no topic of its own.
+CS 2000,Introduces computer science and data science to students with no prior programming experience,framing,Audience.
+CS 2000,Starts by building programs,course-label,Intro programming.
+CS 2000,both interactively and through coding by doing,framing,
+CS 2000,Offers students an opportunity to build a solid foundation and practice coding with a popular industrial coding language,framing,Language not named.
+CS 2100,Builds on prior introductory programming experience (from inside or outside Northeastern University),prerequisite,
+CS 2100,the fundamentals of program design and implementation,course-label,
+CS 2100,design of data- and object-oriented programs,no-concept,Data-driven program design (designing a program from the shape of its data); no concept for it.
+CS 2100,use of data structures,course-label,"Names the data-structures course area, not a structure."
+CS 2100,underlying principles such as abstraction,too-general,
+CS 2100,common software engineering practices such as,framing,Introduces a list that is tagged item by item.
+CS 2100,Students practice using these design principles by writing,framing,
+CS 3100,Builds on foundations introduced in CS 2100 to examine program design at increasing scales of complexity,course-label,
+CS 3100,Reviews abstraction,too-general,
+CS 3100,Presents a comparative approach to,framing,
+CS 3100,Offers students an opportunity to obtain a deeper understanding of the principles of program design including,course-label,
+CS 3100,graphical design notations,no-concept,Design diagrams such as UML; no concept for modeling notations.
+CS 3100,Illustrates the impact of design-time decisions on software,framing,
+CS 3100,accessibility,no-concept,Accessibility as a software quality; no concept for it.
+CS 1210,Continues the,framing,
+CS 1210,in the computing and information fields by discussing,framing,
+CS 3000,"the basic principles and techniques for the design, analysis, and implementation of efficient algorithms and data representations",course-label,Restates the course: algorithms and data structures.
+CS 3000,optimization techniques,no-concept,"Could mean greedy algorithms, dynamic programming, or linear programming; the vocabulary has no general algorithmic-optimization concept, and guessing one would overstate the text."
+CS 3000,the fundamental structures for representing data,course-label,Data structures.
+CS 3000,flat,too-general,Flat (array-like) representations; too vague to tag arrays.
+CS 3000,Concludes with a discussion of the relationship of the topics in this course to,framing,
+CS 3000,the notion of,framing,
+CS 3650,"the basic design of computing systems, computer operating systems",course-label,
+CS 3650,systems programming,course-label,
+CS 3650,the basic structures of an operating system,course-label,
+DS 3000,methods and concepts from linear algebra and probability that form a basis for modern,framing,
+DS 3000,Emphasizes computational aspects,framing,
+DS 3000,the course assumes familiarity with Python,prerequisite,
+DS 3000,may be tasked with implementing from scratch algorithms central to,framing,
+CS 3800,the theory behind computers and computing aimed at answering the question,course-label,
+CS 3800,portion,framing,

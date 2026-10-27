@@ -1,0 +1,83 @@
+match_key,concept_id,evidence_field,evidence,tag_confidence,tag_status,notes
+CS 1200,academic-orientation,description,academic and personal goal setting | campus resources | transition to Northeastern,high,proposed,
+CS 1800,recursion,description,recursive definitions,high,proposed,
+CS 1800,asymptotic-analysis,description,space-time complexity | growth of functions | space-time complexity of algorithms,high,proposed,
+CS 1800,propositional-logic,description,truth tables | basic logic,high,proposed,
+CS 1800,proof-techniques,description,principles of proof,high,proposed,
+CS 1800,induction,description,inductive proof | inductive,high,proposed,
+CS 1800,sets-relations-functions,description,equivalence relations | sets | relations | functions | sequences | tuples | lists | ordering,high,proposed,
+CS 1800,counting-and-combinatorics,description,counting techniques | estimate the size of sets,high,proposed,
+CS 1800,graph-theory,description,graphs | trees,high,proposed,
+CS 1802,,,,,proposed,Recitation for CS 1800; its description names no topic.
+CS 2000,data-analysis,description,"constructing graphs | data analysis | datasets | real, complex datasets | computing interesting results",high,proposed,
+CS 2000,ethical-reasoning,description,ethical challenges | identify and respond to ethical challenges that arise in the program design process,high,proposed,
+CS 2000,variables-and-data-types,description,"numbers, text, and images",medium,proposed,Kinds of values the first programs work with.
+CS 2000,development-tools,description,professional programmer’s interface to the code,medium,proposed,"An IDE, described without the word."
+CS 2001,,,,,proposed,Lab for CS 2000; its description names no topic.
+CS 2100,object-oriented-programming,description,object-oriented,high,proposed,
+CS 2100,inheritance-and-polymorphism,description,inheritance,high,proposed,
+CS 2100,encapsulation-and-interfaces,description,encapsulation | interfaces,high,proposed,
+CS 2100,design-patterns,description,common patterns,high,proposed,
+CS 2100,code-quality,description,good programming habits,high,proposed,
+CS 2100,test-driven-development,description,test-driven development,high,proposed,
+CS 2100,version-control,description,version control,high,proposed,
+CS 2100,development-tools,description,development environments,high,proposed,
+CS 2100,large-software-project,description,medium-sized applications,medium,proposed,"""medium-sized applications""."
+CS 2100,reusable-components,description,libraries,high,proposed,
+CS 2100,data-analysis,description,data science libraries,medium,proposed,"""using data science libraries""."
+CS 2100,ethical-reasoning,description,ethical challenges | identify and respond to ethical challenges that arise in the program design process,high,proposed,
+CS 2101,,,,,proposed,Lab for CS 2100; its description names no topic.
+CS 3100,object-oriented-programming,description,object-oriented | object-oriented languages,high,proposed,
+CS 3100,inheritance-and-polymorphism,description,inheritance,high,proposed,
+CS 3100,encapsulation-and-interfaces,description,interface design | encapsulation | interfaces,high,proposed,
+CS 3100,design-patterns,description,software design patterns,high,proposed,
+CS 3100,test-driven-development,description,test-driven development,high,proposed,
+CS 3100,team-projects,description,collaborate,high,proposed,
+CS 3100,large-software-project,description,large software project | throughout the semester to design and implement,high,proposed,
+CS 3100,reusable-components,description,reusable software components | open-source ecosystems | reusability,high,proposed,
+CS 3100,program-correctness,description,correctness,medium,proposed,"""software correctness"" as a design concern."
+CS 3100,performance-optimization,description,performance,low,proposed,Performance as a design concern.
+CS 3100,programming-paradigms,description,paradigms,high,proposed,
+CS 3100,functional-programming,description,functional programming,high,proposed,
+CS 3100,type-systems,description,statically typed,medium,proposed,
+CS 3100,privacy,description,privacy,low,proposed,Privacy as a design concern.
+CS 3100,code-quality,description,changeability,medium,proposed,Changeability as a design quality (maintainable code).
+CS 3101,,,,,proposed,Lab for CS 3100; its description names no topic.
+CS 1210,ethical-reasoning,description,ethical issues,high,proposed,
+CS 1210,professional-responsibility,description,professional behavior | ethical issues in the workplace,high,proposed,
+CS 1210,career-preparation,description,"interviewing techniques | careers | resumé | co-op | preparation of students for careers | prepare a professional resumé | practice proper interviewing techniques | current job opportunities | engage in the job and referral process | co-op policies, procedures, and expectations | co-op processes",high,proposed,
+CS 3000,program-correctness,description,formal methods | correctness | establishing the correctness of algorithms,high,proposed,
+CS 3000,trees,description,hierarchical representations,medium,proposed,"""hierarchical representations""."
+CS 3000,asymptotic-analysis,description,asymptotic analysis,high,proposed,
+CS 3000,divide-and-conquer,description,divide-and-conquer | divide-and-conquer algorithms,high,proposed,
+CS 3000,graph-algorithms,description,graph traversal algorithms,high,proposed,
+CS 3000,np-completeness,description,hardness of problems | complexity theory,high,proposed,
+CS 3000,information-theory,description,information theory | data compression,high,proposed,
+CS 3000,linked-lists,description,dynamic data representations,medium,proposed,"Dynamic (linked) representations of data, contrasted with flat ones."
+CS 3650,pointers-and-dynamic-memory,description,pointers,high,proposed,
+CS 3650,assembly-language,description,assembly language | interface between assembly language and high-level languages,high,proposed,
+CS 3650,instruction-set-architecture,description,RISC | RISC architecture,high,proposed,
+CS 3650,memory-hierarchy-and-caches,description,caches,high,proposed,
+CS 3650,io-and-interrupts,description,input/output | input/output control,high,proposed,
+CS 3650,processes,description,processes,high,proposed,
+CS 3650,threads-and-concurrency,description,threads,high,proposed,
+CS 3650,synchronization,description,synchronization | deadlock,high,proposed,
+CS 3650,os-memory-management,description,memory management,high,proposed,
+CS 3650,virtual-memory,description,virtual memory,high,proposed,
+CS 3650,file-systems,description,file systems,high,proposed,
+CS 3650,interprocess-communication,description,interprocess communication,high,proposed,
+CS 3650,system-calls,description,system calls | interaction with the operating system | application interfaces,high,proposed,
+CS 3650,scope-and-runtime,description,call frames,high,proposed,
+DS 3000,python-language,description,Python | Python programming language,high,proposed,
+DS 3000,probability,description,probability,high,proposed,
+DS 3000,linear-algebra,description,linear algebra | tensors | work with tensors,high,proposed,
+DS 3000,numerical-methods,description,numerical linear algebra,high,proposed,
+DS 3000,data-analysis,title,Data Science,low,proposed,Only the title says data science; the content is math for ML.
+DS 3000,machine-learning,description,machine learning,high,proposed,
+DS 3000,reusable-components,description,NumPy,medium,proposed,A numerical library students use.
+CS 3800,asymptotic-analysis,description,big-O | small-o notation,high,proposed,
+CS 3800,finite-automata,description,nonregular languages | finite automata | regular expressions | nondeterminism | automata theory,high,proposed,
+CS 3800,context-free-languages,description,noncontext-free languages | context-free languages | pushdown automata,high,proposed,
+CS 3800,turing-machines,description,Church-Turing thesis | Turing machines,high,proposed,
+CS 3800,computability,description,Halting theorem | computability | decidable | capabilities and limitations of computers | decidable languages,high,proposed,
+CS 3800,np-completeness,description,NP-completeness | P and NP | P vs. NP | complexity | P vs. NP question,high,proposed,

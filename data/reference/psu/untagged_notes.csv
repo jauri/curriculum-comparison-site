@@ -1,0 +1,37 @@
+match_key,phrase,reason,notes
+CMPSC 150N,a concise introduction to,framing,
+CMPSC 150N,students will be exposed to ongoing debates surrounding the,framing,
+CMPSC 150N,"This exposure aims to cultivate a critical understanding of how computers influence our society, fostering digital literacy and promoting responsible technology use",framing,Aims of the course.
+CMPSC 221,Major topics include,framing,
+CMPSC 221,(Java-specific),framing,
+CMPSC 221,program design,too-general,
+CMPSC 221,Extensive programming assignments provide an understanding of the,framing,
+CMPSC 221,This course prepares students to meet immediate demands in solving complex computational problems,framing,
+CMPSC 222,"This course provides a practical introduction to the design, implementation and analysis of advanced data structures and algorithms",course-label,
+CMPSC 222,Data structures include,framing,
+CMPSC 222,along with algorithms for managing and manipulating them,framing,
+CMPSC 222,Also covered is the,framing,
+CMPSC 360,Discrete mathematics and foundations for modern computer science,course-label,
+CMPSC 360,algorithms,too-general,"Algorithms in a discrete-math list, no technique named."
+CMPSC 315,This is the first of a two-course sequence to learn the foundations of the underlying hardware and systems software that enable programs to run on a computing platform,course-label,
+CMPSC 315,This first course covers the architectural issues in the design of modern processor hardware and the operating system software to manage this hardware,course-label,
+CMPSC 315,"On the hardware side, this course covers",framing,
+CMPSC 315,Students will also learn about the importance of,framing,
+CMPSC 315,"On the software side, coverage will include",framing,
+CMPSC 315,"At the end, students will understand how to",framing,
+CMPSC 320,This course is an introduction to software engineering concepts and principles,course-label,
+CMPSC 320,problem-solving for computer science,generic-aim,
+CMPSC 320,will be familiarized with,framing,
+CMPSC 320,problem-solving methodologies for computer science,generic-aim,
+CMPSC 320,This course gives the student the knowledge and skills needed to successfully develop non-trivial software systems,framing,
+CMPSC 320,exploring also,framing,
+CMPSC 465,Fundamental concepts of computer science: data structures,course-label,
+CMPSC 465,sets,no-concept,Set as a container type; no concept (discrete-math sets is a different concept).
+CMPSC 316,This is the second of the two course sequence to learn the foundations of the underlying hardware and systems software that enable programs to run on a computing platform,course-label,
+CMPSC 316,This course covers the hardware issues in the design of modern memory systems and I/O peripherals and the operating system software to manage such hardware,course-label,
+CMPSC 316,"On the hardware side, this course covers",framing,
+CMPSC 316,"On the software side, coverage will include",framing,
+CMPSC 316,"For each hardware resource, students will learn",framing,
+CMPSC 461,programming language design,no-concept,Programming-language design; no concept (cf. UC CS 3003).
+CMPSC 461,features,no-concept,Programming-language features; no concept.
+CMPSC 483W,Applications of scientific knowledge and methods in the design and construction of computer software using engineering concepts,course-label,Restates software engineering; no topic named.

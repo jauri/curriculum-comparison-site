@@ -1,0 +1,11 @@
+match_key,phrase,reason,notes
+CSE 1223,Introduction to computer programming,course-label,
+CSE 1223,problem solving techniques using computer programs,generic-aim,"General problem solving, not named heuristics (cf. VT CS 2104)."
+CSE 1223,programming lab experience,framing,
+CSE 2221,Intellectual foundations of software engineering,course-label,
+CSE 2231,Data representation using,course-label,"Data structures, listed item by item."
+CSE 2331,Design/analysis of algorithms and data structures,course-label,Analysis is tagged; design restates the course.
+CSE 2421,Introduction to computer architecture at machine,course-label,
+CSE 2421,computer organization,course-label,
+CSE 2431,Introduction to operating system concepts,course-label,
+CSE 3341,expressions,too-general,Expressions as a language construct; no concept.

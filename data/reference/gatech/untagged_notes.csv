@@ -1,0 +1,10 @@
+match_key,phrase,reason,notes
+CS 1301,Introduction to computing principles and programming practices,course-label,
+CS 1301,"with an emphasis on the design, construction and implementation of problem solutions",generic-aim,
+CS 1100,"Small group discussions with first year students are led by one or more faculty members and include a variety of foundational, motivational, and topical subjects for computationalist",framing,Seminar format; no topic named.
+CS 1331,techniques and methods of,framing,
+CS 1331,software development and individual programming skills,framing,
+CS 1332,Computer data structures and algorithms in the context of,course-label,
+CS 1332,Focus on software development towards applications,framing,
+CS 2110,basic computer hardware,course-label,
+CS 2340,methods for dealing with large programs,framing,

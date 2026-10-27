@@ -1,0 +1,38 @@
+match_key,concept_id,evidence_field,evidence,tag_confidence,tag_status,notes
+C S 312,control-structures,description,structured programming,medium,proposed,"Structured programming is programming with sequence, selection, and loops."
+C S 312,functions-and-procedures,description,procedures,high,proposed,
+C S 312,specifications-and-contracts,description,informal specification,high,proposed,
+C S 312,software-testing,description,ad hoc testing,high,proposed,
+C S 312,debugging,description,debugging,high,proposed,
+C S 312,program-correctness,description,informal reasoning about program behavior,medium,proposed,Informal reasoning about what a program does.
+C S 311,program-correctness,description,program correctness,high,proposed,
+C S 311,recurrence-relations,description,recurrences,high,proposed,
+C S 311,proof-techniques,description,rigorous mathematical arguments,high,proposed,
+C S 311,induction,description,proof by induction,high,proposed,
+C S 311,sets-relations-functions,description,functions | sets,high,proposed,
+C S 311,graph-theory,description,graph theory,high,proposed,
+C S 311,propositional-logic,description,using logical notation,medium,proposed,"Logical notation, kind not stated (cf. ""Logic"" alone)."
+C S 314,specifications-and-contracts,description,specifications,high,proposed,
+C S 314,software-testing,description,unit testing,high,proposed,
+C S 314,debugging,description,debugging,high,proposed,
+C S 314,program-correctness,description,assertions and invariants | reasoning techniques such as assertions and invariants,high,proposed,
+C S 314,asymptotic-analysis,description,algorithm analysis,medium,proposed,
+C S 429,logic-gates-and-combinational-circuits,description,digital design,high,proposed,
+C S 429,pipelining,description,pipelining,high,proposed,
+C S 429,memory-hierarchy-and-caches,description,caching,high,proposed,
+C S 429,instruction-set-architecture,description,hardware/software interface for application programs,medium,proposed,The hardware/software interface is the instruction set architecture.
+C S 103F,ethical-reasoning,description,ethical topics | case studies to illustrate ethical topics,high,proposed,
+C S 103F,social-impact,description,ethical and real-world consequences | reasoning about the effects of the technology created by computer scientists | consequences of that technology,high,proposed,
+C S 439,io-and-interrupts,description,I/O,medium,proposed,I/O as an OS abstraction.
+C S 439,threads-and-concurrency,description,multithreaded programs | threads,high,proposed,
+C S 439,synchronization,description,synchronized,high,proposed,
+C S 439,virtual-memory,description,virtual memory,high,proposed,
+C S 439,protection-and-isolation,description,protection,high,proposed,
+C S 331,divide-and-conquer,description,divide and conquer,high,proposed,
+C S 331,dynamic-programming,description,dynamic programming,high,proposed,
+C S 331,greedy-algorithms,description,greedy algorithms,high,proposed,
+C S 331,graph-algorithms,description,graph algorithms,high,proposed,
+C S 331,randomized-algorithms,description,randomized algorithms,high,proposed,
+C S 331,approximation-algorithms,description,approximation algorithms,high,proposed,
+C S 331,computability,description,undecidability,high,proposed,
+C S 331,np-completeness,description,NP-completeness,high,proposed,

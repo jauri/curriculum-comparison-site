@@ -1,0 +1,71 @@
+match_key,phrase,reason,notes
+15-112,NOTE: students must achieve a C or better in order to use this course to satisfy the pre-requisite for any subsequent Computer Science course,framing,Grade rule.
+15-122,NOTE: students must achieve a C or better in order to use this course to satisfy the pre-requisite for any subsequent Computer Science course,framing,Grade rule.
+15-151,NOTE: students must achieve a C or better in order to use this course to satisfy the pre-requisite for any subsequent Computer Science course,framing,Grade rule.
+15-150,NOTE: students must achieve a C or better in order to use this course to satisfy the pre-requisite for any subsequent Computer Science course,framing,Grade rule.
+15-251,NOTE: students must achieve a C or better in order to use this course to satisfy the pre-requisite for any subsequent Computer Science course,framing,Grade rule.
+15-210,NOTE: students must achieve a C or better in order to use this course to satisfy the per-requisite for any subsequent Computer Science course,framing,Grade rule.
+15-112,"(GHC Clusters are the 3 labs on on Gates floor 5, 5207, 5208, and 5210)",framing,Lab locations.
+15-122,"(GHC Clusters are the 3 labs on on Gates floor 5, 5207, 5208, and 5210)",framing,Lab locations.
+15-112,A technical introduction to the fundamentals of programming with an emphasis on producing,course-label,
+15-112,informal analysis,too-general,Analysis of what is not stated (efficiency or correctness).
+15-112,"Starting from first principles, we will cover a large subset of the",framing,
+15-112,We will also target,framing,
+15-112,"This course assumes no prior programming experience. Even so, it is a fast-paced and rigorous preparation for 15-122. Students seeking a more gentle introduction to computer science should consider first taking 15-110",framing,Audience and sequencing.
+07-128,The First Year Seminar is taken by first-semester School of Computer Science students on the Pittsburgh campus,framing,
+07-128,Talks range from,framing,
+07-128,in the field to descriptions of the,framing,
+07-128,being conducted in the School of Computer Science,framing,
+07-128,Enrollment is limited to SCS First Year students ONLY,framing,Enrollment rule.
+07-131,SECTION A IS OPEN TO SCS FIRST YEAR STUDENTS ONLY,framing,Enrollment rule.
+07-131,"Throughout your education as a Computer Scientist at Carnegie Mellon, you will take courses on programming, theoretical ideas, logic, systems, etc",framing,"Describes the rest of the curriculum, not this course."
+07-131,"As you progress, you will be expected to pick up the so-called",framing,
+07-131,"This course is intended to help you learn what you need to know in a friendly, low-stress, high-support way",framing,
+07-131,We will discuss,framing,
+07-131,Laptop required. Only undergraduate students will be able to enroll in this course,framing,Enrollment rule.
+15-122,"For students with a basic understanding of programming (variables, expressions, loops, arrays, functions)",prerequisite,
+15-122,Teaches,framing,
+15-122,Students will learn the process and concepts needed to,framing,
+15-122,with specific application to basic data structures and algorithms,course-label,
+15-122,Much of the course will be conducted in,framing,
+15-122,This course prepares students for 15-213 and 15-210,framing,
+15-151,*CS majors only* This course is offered to incoming Computer Science freshmen and focuses on the fundamental concepts in Mathematics that are of particular interest to Computer Science such as,framing,
+15-151,These topics are used as a context in which students learn to,framing,
+15-151,This course uses experimentation and collaboration as ways to gain better understanding of the material,framing,
+15-151,Open to CS freshmen only,framing,Enrollment rule.
+15-150,An introduction to,framing,
+15-150,is a natural generalization of algebra in which,framing,
+15-150,"and #8212;-that is, as a function",framing,
+15-150,"But instead of being confined to real- or complex-valued functions, the functional model extends the algebraic view to a very rich class of",framing,
+15-150,including not only,framing,
+15-150,This course is an introduction to programming that is focused on the,framing,
+15-150,One major theme is the interplay between,framing,
+15-150,which are built up incrementally,framing,
+15-150,which compute over inductive types by decomposition,framing,Inductive types and decomposition are tagged.
+15-150,which is used to,framing,
+15-150,Another major theme is the,framing,
+15-150,and the,framing,
+15-150,through the introduction of data types whose values may be altered during computation,no-concept,Mutable state; no concept.
+15-213,"This course provides a programmer's view of how computer systems execute programs, store information, and communicate",course-label,Names no specific systems topic.
+15-213,"It enables students to become more effective programmers, especially in dealing with issues of",framing,
+15-213,portability and robustness,too-general,
+15-213,"It also serves as a foundation for courses on compilers, networks, operating systems, and computer architecture, where a deeper understanding of systems-level issues is required",framing,"Names later courses, not this one's topics."
+15-210,"Teaches students about how to design, analyze, and program algorithms and data structures",course-label,
+15-210,The course emphasizes,framing,
+15-210,and how sequential algorithms can be considered a special case,framing,
+15-210,The course goes into more theoretical content on,framing,
+15-210,"than 15-122 and 15-150 while still including a significant programming component and covering a variety of practical applications such as problems in data analysis, graphics, text processing, and the computational sciences",framing,Application examples.
+15-251,This course is about how to use theoretical ideas to formulate and solve problems in computer science,course-label,
+15-251,It integrates mathematical material with general problem solving techniques and computer science applications,framing,
+15-251,Examples are drawn from algorithms,too-general,
+15-251,algebra,no-concept,Abstract algebra; no concept.
+15-251,Assignments involve both mathematical,framing,
+15-251,and programming,framing,
+15-451,This course is about the design and analysis of algorithms,course-label,
+15-451,"We study specific algorithms for a variety of problems, as well as",framing,
+15-451,general design and analysis techniques,no-concept,Algorithm design techniques in general; no general concept.
+15-451,Specific topics include,framing,
+15-451,efficient data structures,course-label,
+15-451,A variety of other topics may be covered at the discretion of the instructor,framing,
+15-451,geometric algorithms,no-concept,Computational geometry; no concept.
+07-128,The course is designed to,framing,

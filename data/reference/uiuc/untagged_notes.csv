@@ -1,0 +1,33 @@
+match_key,phrase,reason,notes
+CS 100,Introduction to Computer Science as a,framing,
+CS 100,for incoming first year and external transfer students in the computer science majors,framing,Audience.
+CS 124,Basic concepts in computing and fundamental techniques for solving computational problems,generic-aim,
+CS 124,Intended as a first course for computer science majors and others with a deep interest in computing,framing,
+CS 124,Credit is not given for both CS 124 and CS 125,framing,Credit rule.
+CS 128,Continuation of CS 124,framing,
+CS 128,More advanced concepts in computing and techniques and approaches for solving computational problems,generic-aim,
+CS 173,Discrete mathematical structures frequently encountered in the study of Computer Science,course-label,
+CS 173,Credit is not given toward graduation for: Credit is not given for both CS 173 and MATH 213,framing,Credit rule.
+CS 222,Design and implementation of novel software solutions,course-label,
+CS 225,elementary data structures,course-label,
+CS 225,lists,no-concept,"Lists as a collection, implementation not stated; no general list concept."
+CS 225,Solutions to a variety of computational problems such as,framing,
+CS 225,Elementary,framing,
+CS 225,Credit is not given toward graduation for: CS 277 if credit for CS 225 has been earned,framing,Credit rule.
+CS 233,Fundamentals of computer architecture,course-label,
+CS 361,with applications to computer science,framing,
+CS 361,simulation,no-concept,Simulation (Monte Carlo); no concept.
+CS 361,the PageRank algorithm,framing,"An application of Markov chains, which are tagged."
+CS 361,Credit is not given toward graduation for: Credit is not given for both CS 361 and ECE 313,framing,Credit rule.
+CS 341,Basics of system programming,course-label,
+CS 341,Credit is not given for both CS 341 and either CS 241 or ECE 391,framing,Credit rule.
+CS 357,Fundamentals of numerical methods for students in science and engineering,framing,
+CS 357,various applications in science and engineering,framing,
+CS 357,programming exercises and use of high quality,framing,
+CS 357,(Counts for advanced hours in LAS). Same as MATH 357,framing,Credit rule.
+CS 357,Credit is not given toward graduation for: Credit is not given towards graduation for CS 357 if credit for CS 450 has been earned,framing,Credit rule.
+CS 374,major paradigms of algorithm design,framing,Introduces a list that is tagged item by item.
+CS 374,Same as ECE 374,framing,Cross-listing.
+CS 421,Structure of programming languages and,course-label,
+CS 421,Basic language design principles,no-concept,Programming-language design; no concept (cf. UC CS 3003).
+CS 421,3 undergraduate hours. 3 or 4 graduate hours,framing,Credit hours.

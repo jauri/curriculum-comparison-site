@@ -1,0 +1,39 @@
+match_key,phrase,reason,notes
+CS 1114,Fundamental concepts of programming,course-label,
+CS 1114,Basic software engineering principles and programming skills in a programming language that supports the,framing,
+CS 1114,basic algorithms,too-general,
+CS 1114,A basic model of the computer as an abstract machine,no-concept,A model of how the computer runs programs (notional machine); no concept.
+CS 1114,Modeling and problem-solving skills applicable to programming at this level,generic-aim,
+CS 1114,"Partially duplicates 1054, 1124, and 1705",framing,Credit rule.
+CS 2114,A programming-intensive exploration of software design concepts and implementation techniques,course-label,
+CS 2114,Builds on knowledge of fundamental,prerequisite,
+CS 2114,Advanced,framing,
+CS 2114,classic data structures,course-label,
+CS 1944,for computer science majors,framing,
+CS 2104,aid programmers and computer scientists,framing,
+CS 2505,An introduction to the design and operation of digital computers,course-label,
+CS 2505,Works up from the,framing,
+CS 2505,basic computer organization,course-label,
+CS 2505,A grade of C or better is required in CS prerequisite. Corequisites: MATH 2534 or MATH 3034,prerequisite,
+CS 2506,An introduction to the design and operation of digital computers,course-label,
+CS 2506,A grade of C or better is required in CS pre-requisite 2505 and 2114,prerequisite,
+CS 3114,Advanced data structures,course-label,
+CS 3114,"Course projects require advanced problem-solving, design, and implementation skills",framing,
+CS 3214,"Introduction to computer systems as they are relevant to application programmers today, with emphasis on operating system principles",course-label,
+CS 3214,Operating system design and architectures,course-label,
+CS 3214,A grade of C or better is required in CS pre-requisites 2506 and 2114,prerequisite,
+CS 3604,Studies,framing,
+CS 3604,"of reliable, risk-free technologies",no-concept,Reliability and risk of computer systems; no concept.
+CS 3604,systems that provide user friendly processes,no-concept,Usability; no concept.
+CS 3604,Specific studies are augmented by an overview of the,framing,
+CS 3604,interaction with industrial partners and computing professionals,framing,
+CS 3604,attention to,framing,
+CS 3604,"This is a web-supported course, incorporating",framing,
+CS 3604,"exercises, making extensive use of active learning technologies",framing,
+CS 3604,A grade of C or better required in CS prerequisite 3114,prerequisite,
+CS 3304,This course in programming language constructs emphasizes the,no-concept,Programming-language constructs and features; no concept (cf. UC CS 3003).
+CS 3304,The languages are studied from two points of view,framing,
+CS 3304,the fundamental elements of languages and their inclusion in commercially available systems,no-concept,Language features across real languages; no concept.
+CS 3304,the differences between implementations of common elements in languages,no-concept,Comparing how languages implement shared features; no concept.
+CS 3304,A grade of C or better required in CS prerequisite 3114,prerequisite,
+CS 3604,The topics are studied through,framing,

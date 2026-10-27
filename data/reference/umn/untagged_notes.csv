@@ -1,0 +1,23 @@
+match_key,phrase,reason,notes
+CSCI 1133,Fundamental programming concepts,course-label,
+CSCI 1133,Problem solving skills,generic-aim,
+CSCI 1133,Algorithm development techniques,no-concept,Algorithm design in an intro course; no general concept.
+CSCI 1133,Use of,framing,
+CSCI 1133,Develop programs to solve real-world problems,framing,
+CSCI 2011,Foundations of discrete mathematics,course-label,
+CSCI 1933,Advanced,framing,
+CSCI 1933,Weekly lab,framing,
+CSCI 2021,Introduction to hardware/software components of computer system,course-label,
+CSCI 2033,basic theory,framing,
+CSCI 2033,MATLAB,no-concept,MATLAB; no concept for it in Languages used.
+CSCI 2033,to solve variety of computer science problems,framing,
+CSCI 2041,Principles/techniques for,framing,
+CSCI 2041,robust,too-general,
+CSCI 2041,Computing with symbolic data,no-concept,Symbolic computation; no concept.
+CSCI 2041,impact of,framing,
+CSCI 3081W,Principles of programming design/analysis,course-label,
+CSCI 3081W,Concepts in software development,framing,
+CSCI 3081W,illustrate key ideas in program design/development,framing,
+CSCI 3081W,data structures,course-label,
+CSCI 4061,Systems programming projects,course-label,
+CSCI 2041,modular programs,framing,Modular is tagged; programs is filler.

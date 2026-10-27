@@ -1,0 +1,10 @@
+match_key,phrase,reason,notes
+EECS 203,Introduction to the mathematical foundations of computer science,course-label,
+EECS 203,introduction to algorithms,too-general,"Algorithms in a discrete-math course, no technique named."
+EECS 280,Algorithm development and effective programming,no-concept,Algorithm design in an intro course; no general concept.
+EECS 281,Fundamental data structures including,course-label,
+EECS 281,lists,no-concept,"Lists as a collection, implementation not stated; no general list concept."
+EECS 281,Several programming assignments,framing,
+EECS 370,Basic concepts of computer organization and hardware,course-label,
+EECS 376,An introduction to theory of computation,course-label,
+EECS 376,paradigms of algorithm design,no-concept,Algorithm design paradigms in general; no general concept.

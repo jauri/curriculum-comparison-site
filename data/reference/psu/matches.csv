@@ -1,0 +1,35 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+CMPSC 121 or CMPSC 131 (Introduction to Programming Techniques),intro-programming,covers,high,Both options are a first programming course.,false,approved,
+CMPSC 150N,computing-ethics,covers,medium,"Computers and society: an introduction to ethics, computing history, and the Internet.",true,approved,Partial: broader than ethics (history and social impact).
+MATH 140,calculus-1,covers,high,The first course of the calculus sequence.,false,approved,
+ENGL 15,first-year-composition,covers,high,First-year rhetoric and composition.,false,approved,
+General Education Course,gen-ed-elective,covers,high,General education courses across Penn State's knowledge domains.,false,approved,
+CMPSC 122 or CMPSC 132 (Intermediate Programming),intro-programming-2,covers,high,Both options are a second programming course.,false,approved,
+MATH 141,calculus-2,covers,high,The second course of the calculus sequence.,false,approved,
+PHYS 211,lab-science,covers,high,Required calculus-based mechanics; a named science fills the science requirement.,false,approved,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+First-Year Seminar,first-year-seminar,covers,high,"One credit of first-year seminar, chosen per the college's engagement plan.",false,approved,"Slot mapped to a course concept: first-year-seminar added to SLOT_MAY_FILL_COURSE in step 13 batch 3, for review."
+CMPSC 221,intro-programming-2,covers,medium,A third programming course: advanced object-oriented programming applied to web-based client/server applications.,true,approved,"Partial: covers GUIs, server-side programming, and databases beyond a programming II course."
+MATH 230,calculus-3,covers,high,"Partial differentiation, multiple integrals, and vector calculus.",false,approved,
+MATH 220,linear-algebra,covers,high,"Matrices: linear systems, matrix algebra, and eigenvalues (2-3 credits).",true,approved,Partial: a short matrices course.
+PHYS 212,lab-science,covers,high,Required calculus-based electricity and magnetism.,false,approved,Course row mapped to a slot concept (allowed for lab-science only).
+CAS 100A or CAS 100B (Effective Speech),oral-communication,covers,high,Both options are Effective Speech.,false,approved,
+CMPSC 222,data-structures,covers,high,"Design, implementation, and analysis of advanced data structures in C.",true,approved,Partial because it also covers algorithms.
+CMPSC 222,algorithms,covers,medium,Analysis of algorithms on advanced data structures.,true,approved,Partial: the main algorithms course is CMPSC 465.
+CMPSC 360,discrete-math,covers,high,"Sets, relations, logic, graphs, finite state machines, and regular expressions.",false,approved,
+CMPEN 270,digital-logic,covers,high,Combinational and sequential circuits and digital design practice.,false,approved,
+Natural Science (GN) Elective,math-science-elective,covers,medium,A further natural science course (PHYS 213/214 or an approved course).,false,approved,
+CMPSC 315,computer-organization,covers,high,"Processor datapath, pipelining, instruction sets, and translation of C to assembly.",true,approved,"Partial: also covers processes, threads, and scheduling."
+CMPSC 315,operating-systems,covers,medium,"Processes, threads, context switching, and CPU scheduling.",true,approved,Partial: the first of a two-course hardware/OS sequence.
+CMPSC 320,software-engineering,covers,high,"Software engineering concepts across the development lifecycle, with project management.",false,approved,
+CMPSC 465,algorithms,covers,high,"Analysis of algorithms, recursion, sorting, and graph algorithms.",true,approved,Partial because it also covers data structures.
+CMPSC 465,data-structures,covers,medium,"Trees, sets, graphs, and other data structures.",true,approved,Partial.
+STAT 318,probability-statistics,covers,high,"Elementary probability: axioms, random variables, expectation, and limit theorems.",false,approved,
+CMPSC 316,computer-organization,covers,medium,"Memory systems, caches, address translation, buses, and I/O hardware.",true,approved,Partial: the second half of the hardware/OS sequence.
+CMPSC 316,operating-systems,covers,high,"Concurrency, memory allocation, virtual memory, file systems, and device drivers.",true,approved,Partial: also covers memory and I/O hardware.
+CMPSC 461,programming-languages,covers,high,"Programming language design, paradigms, and implementation.",false,approved,
+STAT 319,probability-statistics,covers,high,"Statistical inference: estimation, hypothesis tests, regression, and ANOVA.",false,approved,
+ENGL 202C,technical-writing,covers,high,Technical writing for science and engineering students.,false,approved,
+CMPSC 483W,capstone-design,covers,high,The senior software design course: applying engineering methods to design and build software.,false,approved,
+CMPSC/CMPEN 400-Level Elective,cs-elective,covers,high,Upper-level CS and computer engineering electives from a department list.,false,approved,
+General Elective (Department List),free-elective,covers,medium,Electives from a department list that may include ROTC or co-op credit.,false,approved,
+General Education Course (Health and Wellness),gen-ed-elective,covers,high,"General education, health and wellness domain.",false,approved,

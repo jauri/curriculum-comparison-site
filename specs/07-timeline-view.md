@@ -86,11 +86,17 @@ percentile rule, with two thirds as "most").
   - A fourth flag, ◆ **UC only** (UC requires it, at most a third of the others do), was
     built and then removed at the user's request (2026-10-24): it didn't make sense on
     the page.
+  - ◆ **few others** (added 2026-11-10 at the user's request, a stricter return of the
+    idea above): UC requires the course, and at most **20%** of the other schools do
+    (3 of 15). Unlike the other flags, a school that has it only as one option of a
+    choice counts as requiring it here, so the flag means the course is rare even
+    counting "possible" schools; the hover text gives how many of them are options. It
+    never meets early / late, which need at least 5 other schools.
 - **Where:** in its own column at the far right, after the "course not required" bin,
   headed "UC vs. most other schools", on the name's line (moved there from the label
   at the user's request, 2026-10-24).
   Hovering the glyph shows the evidence ("UC: semester 4; 11 of 14 other schools take
-  it earlier (median semester 3)"). The legend lists the three glyphs, and the companion table has a "UC flag" column that spells out each flag and its
+  it earlier (median semester 3)"). The legend lists the four glyphs, and the companion table has a "UC flag" column that spells out each flag and its
   evidence.
 - A dashed tick at the other schools' median semester on early or late strips was built
   and then dropped at the user's request (2026-10-24): it ran through the dot stacks and

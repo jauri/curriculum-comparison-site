@@ -42,6 +42,12 @@ const SHARE_H = 7;
 // Timing is only judged when at least MIN_TIMING_N other schools require the course:
 // with fewer, "earlier than most" rests on two or three schools.
 const FLAG_MOST = 2 / 3;
+// "Few" for the uncommon flag (added 2026-11-10 at the user's request, bringing back the
+// idea above with a stricter threshold): UC requires the course and at most 20% of the
+// other schools do (3 of 15). Here a school that has it only as one option of a choice
+// counts as requiring it, so the flag only fires when the course is rare even counting
+// "possible" schools.
+const FLAG_FEW = 0.2;
 const MIN_TIMING_N = 5;
 // Glyph and short word for each flag. The arrows point along the time axis (left is
 // earlier); none is a circle, since circles already mean match types.
@@ -49,6 +55,8 @@ const FLAG_GLYPHS = {
   early: { glyph: "◀", word: "early" },
   late: { glyph: "▶", word: "late" },
   missing: { glyph: "✕", word: "missing" },
+  // ◆ matches "Only UC requires" in the Course-level alignment table.
+  uncommon: { glyph: "◆", word: "few others" },
 };
 
 // The three areas this view shows (07-timeline-view.md: lab science, writing, and
@@ -142,6 +150,9 @@ function buildStrips() {
 //   early / late: UC's earliest semester is before / after most of the others'
 //     earliest semesters (ties count as neither), when at least MIN_TIMING_N others
 //     require it. The gap is UC's semester minus the others' median.
+//   uncommon: UC requires it, and at most FLAG_FEW of the others do (counting schools
+//     where it is only one option). It can't meet early / late: those need at least
+//     MIN_TIMING_N others, more than 20% of 15.
 // A UC "possible" match is neither missing nor timed: students may never take it.
 function ucFlags(earliest, definite, possible) {
   const n = data.schools.length - 1; // the other schools
@@ -151,6 +162,12 @@ function ucFlags(earliest, definite, possible) {
   const has = definite.has("uc");
   if (!has && !possible.has("uc") && others.length >= FLAG_MOST * n) {
     flags.push({ kind: "missing", text: "", why: `UC doesn't require it; ${others.length} of ${n} other schools do` });
+  }
+  // Other schools that require it at all, as a full match or only as an option.
+  const anyOther = [...definite, ...possible].filter((id) => id !== "uc").length;
+  if (has && anyOther <= FLAG_FEW * n) {
+    const opt = anyOther - others.length; // of those, schools where it is only an option
+    flags.push({ kind: "uncommon", text: "", why: `UC requires it; ${anyOther} of ${n} other schools do${opt ? ` (${opt} only as an option)` : ""}` });
   }
   if (has && others.length >= MIN_TIMING_N) {
     const uc = earliest.get("uc");
@@ -561,7 +578,8 @@ function setupControls() {
   // The UC flag glyphs, as text (they are text in the chart too).
   const flagKeys = [
     ["early", "UC earlier than most"], ["late", "UC later than most"],
-    ["missing", "UC doesn't require it; most do"]
+    ["missing", "UC doesn't require it; most do"],
+    ["uncommon", "UC requires it; 20% or fewer do"]
   ];
   for (const [kind, text] of flagKeys) {
     const item = legend.append("span");

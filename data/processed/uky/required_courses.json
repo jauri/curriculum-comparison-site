@@ -839,7 +839,7 @@
     "description":"This course provides an introduction to computer systems and explores computer architecture, operating systems, and networks from a programmer’s perspective. The course also introduces advanced programming and debugging tools. Topics include hardware instruction sets, machine language and C language program representations, linking\/loading, operating systems (process management, scheduling, memory management, interprocess communication, and file systems), network programming (socket programming and web protocols), and common security attacks and solutions.",
     "description_source":"official",
     "description_url":"https:\/\/catalogs.uky.edu\/preview_course_nopop.php?catoid=22&coid=238652",
-    "canonical_ids":"computer-organization",
+    "canonical_ids":"computer-organization; systems-programming",
     "match_status":"proposed",
     "notes":"",
     "plan":"Curriculum (eight semesters), 2026-2027 Undergraduate Catalog",
@@ -863,6 +863,15 @@
         "partial_match":true,
         "match_status":"proposed",
         "notes":"Partial: also operating-systems and networks topics."
+      },
+      {
+        "canonical_id":"systems-programming",
+        "match_role":"covers",
+        "match_confidence":"medium",
+        "match_rationale":"Processes, interprocess communication, file systems, and socket programming from a programmer's perspective.",
+        "partial_match":true,
+        "match_status":"proposed",
+        "notes":"Partial: also architecture and machine language (kept as computer-organization, like CMU 15-213). systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },

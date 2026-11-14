@@ -10,7 +10,7 @@ ENGL 1007,first-year-composition,covers,high,"First-year college composition wit
 CSE 2500,discrete-math,covers,high,"Logic, set theory, number theory, proofs, discrete systems.",False,proposed,
 CSE 3140,information-security,covers,high,Design of secure systems; attacks and defenses (lab).,False,proposed,
 MATH 2110Q,calculus-3,covers,high,Multivariable and vector calculus.,False,proposed,
-CSE 3100,operating-systems,covers,medium,"System-level C programming, process management, and multi-threaded concurrency.",True,proposed,Partial: a systems programming course; UConn has no required operating systems course. Alternative: programming-practicum.
+CSE 3100,systems-programming,covers,high,"System-level C programming, process management, multi-threaded concurrency, and memory management.",False,proposed,"UConn has no required operating systems course. Was operating-systems; systems-programming canonical course added (user, 2026-11-14)."
 CSE 3500,algorithms,covers,high,"Design and analysis of algorithms: divide-and-conquer, dynamic programming, greedy.",False,proposed,
 MATH 2210Q,linear-algebra,covers,high,"Matrices, linear transformations, eigenvalues, computational approach.",False,proposed,
 CSE 3150 or CSE 3160 (C++ Essentials),programming-practicum,one_of,medium,CSE 3150 C++ Essentials: advanced language features and tools.,False,proposed,

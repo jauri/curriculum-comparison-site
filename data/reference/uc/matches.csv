@@ -28,6 +28,7 @@ CS 4092,databases,covers,new,"ER modeling, the relational model, storage, recove
 CS 3093C,software-engineering,covers,new,"Lifecycle, requirements, design, testing, and ethics, with a large group project in lab.",false,approved,
 CS 4033,artificial-intelligence,covers,new,"Foundations of intelligent systems, search strategies, and heuristics: a survey AI course.",false,approved,
 CS 4029,operating-systems,covers,new,"OS concepts and algorithms plus Unix systems programming (synchronization, IPC).",false,approved,
+CS 4029,systems-programming,covers,medium,"Unix systems programming (synchronization, IPC) taught alongside OS concepts.",true,proposed,"Partial: combined with operating systems in one year-4 course. systems-programming canonical course added (user, 2026-11-14)."
 CS 4065,computer-networks,covers,new,"Network concepts, communication protocols, and networked computing.",false,approved,
 ENGL 4092,technical-writing,covers,new,"Professional writing for technology, science, and engineering careers.",false,approved,
 CS 5001,capstone-design,covers,new,"First semester of UC's two-semester senior design project (requirements, specification, design).",false,approved,

@@ -7,7 +7,7 @@ CSE 116,intro-programming-2,covers,high,Introduction to Computer Science II: pro
 CSE 191,discrete-math,covers,high,"Logic, proofs, sets, functions, relations, recursion, induction.",False,proposed,
 MTH 142,calculus-2,covers,high,College Calculus 2.,False,proposed,
 Pathway,gen-ed-elective,covers,high,UB Curriculum Pathway course.,False,proposed,
-CSE 220,computer-organization,covers,medium,Systems Programming: computer systems from a programmer's perspective.,True,proposed,Partial: systems programming (Kentucky's CS 270 was matched the same way); CSE 341 is UB's computer organization course.
+CSE 220,systems-programming,covers,medium,Programmable interfaces of a computer system from a programmer's perspective: data representation in memory and OS system calls.,False,proposed,"CSE 341 is UB's computer organization course. Was computer-organization; systems-programming canonical course added (user, 2026-11-14)."
 CSE 250,data-structures,covers,high,"Design, implementation, and analysis of data structures.",False,proposed,
 Scientific Literacy and Inquiry 1,lab-science,covers,high,Science sequence lecture.,False,proposed,
 CSE 341,computer-organization,covers,high,"Instruction set architecture, arithmetic, processor, memory.",False,proposed,

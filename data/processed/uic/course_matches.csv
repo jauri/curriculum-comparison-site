@@ -12,7 +12,7 @@ CS 251,data-structures,covers,high,"Lists, stacks, queues, hash tables, priority
 CS 261,computer-organization,covers,high,"Data representation, machine language, memory hierarchy, and processor architecture including pipelining.",False,approved,
 CS 301,theory-of-computation,covers,high,"Finite automata, context-free languages, pushdown automata, Turing machines, and decidability.",False,approved,
 CS 342,software-engineering,covers,medium,"Object-oriented design, design patterns, testing, GUIs, and team development; more design-focused than a full lifecycle course.",True,approved,
-CS 361,operating-systems,covers,medium,"Virtual memory, concurrency, processes and threads, and system-level I/O, taught from the application programmer's side (systems programming) rather than as OS internals.",True,approved,
+CS 361,systems-programming,covers,new,"Systems programming from the application programmer's side: virtual memory and memory management, system-level I/O, processes, threads, synchronization, and network programming.",False,proposed,"Was operating-systems (partial, approved); systems-programming canonical course added (user, 2026-11-14)."
 CS 362,digital-logic,covers,medium,"Logic gates, combinational and sequential circuits, plus registers, memory, and CPU design.",True,approved,
 CS 362,computer-organization,covers,medium,"Beyond digital logic it covers registers, memory, and CPU design, the hardware half of computer organization.",True,approved,
 CS 277,technical-writing,covers,high,"Technical and professional communication for computing: writing, presentations, portfolios, interviews.",False,approved,

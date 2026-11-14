@@ -24,7 +24,7 @@ CSE 316,software-engineering,covers,medium,"Systematic design, development, and 
 CSE 373,algorithms,covers,high,Analysis of Algorithms.,false,proposed,
 UD Technical Elective,cs-elective,covers,high,Upper-division technical CSE course.,false,proposed,
 Elective,free-elective,covers,high,Free elective.,false,proposed,
-CSE 320,operating-systems,covers,medium,"Operating systems, compilers, and concurrency from the application programmer's view.",true,proposed,Partial: also systems programming and compilers.
+CSE 320,systems-programming,covers,medium,"Operating system APIs from the application programmer's side: memory management, error handling, threaded programming.",true,proposed,"Partial: also compilers and performance analysis; CSE 306 (OS internals) is not required. Was operating-systems; systems-programming canonical course added (user, 2026-11-14)."
 UD Elective,free-elective,covers,medium,Upper-division elective (any department).,false,proposed,
 CSE 416 or CSE 356 (Software Engineering),software-engineering,covers,medium,CSE 416 Software Engineering (team project); the alternative CSE 356 is Cloud Computing.,true,proposed,Partial: CSE 356 is a cloud systems course.
 Elective or SBC (SBS+ or HFA+),free-elective,covers,high,"Free elective, or SBC for CSE 356 takers.",false,proposed,

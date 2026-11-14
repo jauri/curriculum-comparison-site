@@ -25,7 +25,7 @@ CS 3162,computing-ethics,covers,high,"Professional and ethical responsibilities,
 PHYS 2326,lab-science,covers,high,Required calculus-based electromagnetism and waves.,False,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
 CS 3354,software-engineering,covers,high,"Software life cycle, requirements, design, testing, quality assurance, maintenance.",False,proposed,
 PHYS 2126,lab-science,covers,high,The laboratory that goes with PHYS 2326.,False,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
-CS 3377,programming-practicum,covers,medium,"UNIX tools, shell scripts, processes and threads, sockets, pipes, version control.",True,proposed,Partial: systems programming overlaps operating-systems.
+CS 3377,systems-programming,covers,high,"UNIX processes and threads, the file system, pipes and signals, sockets and client-server programming, shell scripts.",False,proposed,"UTD's operating systems course is CS 4348. Was programming-practicum; systems-programming canonical course added (user, 2026-11-14)."
 Free Elective,free-elective,covers,high,Any course toward the 124-hour total.,False,proposed,
 CS 4337,programming-languages,covers,high,Design and implementation of programming languages and paradigms.,False,proposed,
 CS 4348,operating-systems,covers,high,"Operating system design: processes, concurrency, critical sections, deadlocks.",False,proposed,

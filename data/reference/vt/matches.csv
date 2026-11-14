@@ -26,7 +26,7 @@ CS 3114,algorithms,covers,medium,"Analysis of data structure and algorithm perfo
 CS 3000-5000 Level Elective,cs-elective,covers,high,Upper-level CS electives.,false,approved,
 MATH 3134,combinatorics,covers,high,Combinatorics and graph theory with an emphasis on computational theory.,false,approved,"A second math course after discrete math; moved from discrete-math."
 Professional Writing Elective,technical-writing,covers,high,Every option is a professional or technical writing course.,false,approved,
-CS 3214,operating-systems,covers,high,"Operating system principles: processes, threads, synchronization, scheduling, and memory management.",true,approved,"Partial: also covers linking, networking, and performance."
+CS 3214,systems-programming,covers,medium,"Systems for application programmers: processes, threads, synchronization, system calls, system-level I/O, IPC, linking, and network programming.",true,proposed,"Partial: emphasizes OS principles too (scheduling, deadlock, memory management), so operating-systems is a possible second match. Was operating-systems (high, partial, approved); systems-programming canonical course added (user, 2026-11-14)."
 CS 3604,computing-ethics,covers,high,"Ethical, social, and professional concerns in computing.",false,approved,
 ENGE 3900,experiential-learning,covers,high,"Records the required Career Bridge Experience (internship, co-op, or research) for 0 credits.",false,approved,
 Statistics Elective,probability-statistics,covers,high,Every option is a probability and statistics course.,false,approved,

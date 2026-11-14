@@ -1043,8 +1043,8 @@
     "description":"Study of computer systems emphasizing impact on application level programming. Virtual memory and memory management; code optimization; system-level I\/O; concurrency: processes, threads, synchronization; introduction to network programming.",
     "description_source":"official",
     "description_url":"https:\/\/catalog.uic.edu\/ucat\/course-descriptions\/cs\/",
-    "canonical_ids":"operating-systems",
-    "match_status":"approved",
+    "canonical_ids":"systems-programming",
+    "match_status":"proposed",
     "notes":"",
     "plan":"Sample Course Schedule, 2026-2027 Undergraduate Catalog",
     "orig_calendar_year":"",
@@ -1060,13 +1060,13 @@
     "subject_area":"cs",
     "matches":[
       {
-        "canonical_id":"operating-systems",
+        "canonical_id":"systems-programming",
         "match_role":"covers",
-        "match_confidence":"medium",
-        "match_rationale":"Virtual memory, concurrency, processes and threads, and system-level I\/O, taught from the application programmer's side (systems programming) rather than as OS internals.",
-        "partial_match":true,
-        "match_status":"approved",
-        "notes":""
+        "match_confidence":"new",
+        "match_rationale":"Systems programming from the application programmer's side: virtual memory and memory management, system-level I\/O, processes, threads, synchronization, and network programming.",
+        "partial_match":false,
+        "match_status":"proposed",
+        "notes":"Was operating-systems (partial, approved); systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },

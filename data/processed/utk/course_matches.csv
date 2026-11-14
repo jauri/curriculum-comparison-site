@@ -18,7 +18,7 @@ COSC 311 or COSC 317 (Discrete Structures),discrete-math,covers,high,"Sets, func
 Global Citizenship - United States (GCUS) Elective,gen-ed-elective,covers,high,Volunteer Core elective.,False,proposed,
 Social Sciences Elective,gen-ed-elective,covers,high,Volunteer Core elective.,False,proposed,
 COSC 312,theory-of-computation,covers,medium,"Finite and pushdown automata, regular and context-free languages.",True,proposed,Partial: also counting and combinatorics for algorithm analysis.
-COSC 360 or COSC 367 (Systems Programming),programming-practicum,covers,medium,"Systems programming in C: memory, system calls, files, processes.",True,proposed,Partial: overlaps operating-systems (UConn's CSE 3100 was matched to operating-systems; compare).
+COSC 360 or COSC 367 (Systems Programming),systems-programming,covers,medium,"Systems programming in C: memory and process layout, system calls, files, and process management.",False,proposed,"Medium: the description is generic. Was programming-practicum; systems-programming canonical course added (user, 2026-11-14)."
 "Select one: ECE 313, ECE 317, STAT 251, MATH 323",probability-statistics,covers,high,Every option is probability and statistics.,False,proposed,
 Computer Science Upper-Division Elective,cs-elective,covers,high,Upper-division COSC or ECE elective.,False,proposed,
 Arts and Humanities (AH) Elective,gen-ed-elective,covers,high,Volunteer Core elective.,False,proposed,

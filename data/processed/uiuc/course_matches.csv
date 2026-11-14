@@ -21,7 +21,7 @@ MATH 257,linear-algebra,covers,high,"Linear equations, matrices, vector spaces, 
 PHYS 212,lab-science,covers,high,Required calculus-based electricity and magnetism; part of the named physics requirement.,False,approved,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
 Free Elective,free-elective,covers,high,"Any course counting toward the degree, within the college's restrictions.",False,approved,
 CS 210 or CS 211 (Ethical & Professional Issues),computing-ethics,covers,high,Both options are ethics and professional conduct for computing.,False,approved,
-CS 341,operating-systems,covers,medium,"POSIX processes, synchronization, memory management, file I/O, and network programming, taught as systems programming; partial because it is not an OS internals course (as with UIC's CS 361).",True,approved,
+CS 341,systems-programming,covers,high,"POSIX processes, inter-process communication, signals, synchronization, memory management, file I/O, shell and socket programming, and systems tools.",False,proposed,"Was operating-systems (partial, approved); systems-programming canonical course added (user, 2026-11-14)."
 CS 357,numerical-methods,covers,new,"Floating-point computation, linear systems, approximation, nonlinear equations, and ODEs; no existing concept fits, so it creates numerical-methods.",False,approved,
 CS Technical Elective,cs-elective,covers,high,CS 397 and CS 400-level courses with breadth across focus areas.,False,approved,
 Language Other Than English (3rd level),world-language,covers,new,"A language requirement to the third-semester level; no existing slot fits (gen-ed-elective is a breadth list), so it creates world-language.",False,approved,

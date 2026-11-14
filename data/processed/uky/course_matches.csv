@@ -16,6 +16,7 @@ CS 275,discrete-math,covers,high,"Set theory, induction, relations, functions, B
 MA 213,calculus-3,covers,high,Multivariable calculus.,False,proposed,
 UK Core - Social Sciences,gen-ed-elective,covers,high,UK Core.,False,proposed,
 CS 270,computer-organization,covers,medium,"Computer systems from a programmer's perspective: architecture, operating systems, and networks.",True,proposed,Partial: also operating-systems and networks topics.
+CS 270,systems-programming,covers,medium,"Processes, interprocess communication, file systems, and socket programming from a programmer's perspective.",True,proposed,"Partial: also architecture and machine language (kept as computer-organization, like CMU 15-213). systems-programming canonical course added (user, 2026-11-14)."
 EE 280,digital-logic,covers,high,"Boolean algebra, combinational and sequential logic circuits.",False,proposed,
 CS 315,algorithms,covers,high,"Design and analysis of algorithms, asymptotic analysis, correctness proofs.",False,proposed,
 Science Elective,math-science-elective,covers,medium,Natural or social science course.,False,proposed,Social science options make this broader than a science elective.

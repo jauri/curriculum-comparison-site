@@ -1562,7 +1562,7 @@
     "description":"This course introduces essential concepts of operating systems, compilers, concurrency, and performance analysis, focused around several cross-cutting examples, such as memory management, error handling, and threaded programming. In this course, operating systems concepts are considered from the point of view of the application programmer, and the focus is on APIs for interacting with an operating system. A companion course, CSE 306, considers operating systems from the point of view of the OS kernel implementer.",
     "description_source":"official",
     "description_url":"https:\/\/catalog.stonybrook.edu\/preview_course_nopop.php?catoid=11&coid=23713",
-    "canonical_ids":"operating-systems",
+    "canonical_ids":"systems-programming",
     "match_status":"proposed",
     "notes":"",
     "plan":"Sample Course Sequence, Fall 2026 Undergraduate Catalog",
@@ -1579,13 +1579,13 @@
     "subject_area":"cs",
     "matches":[
       {
-        "canonical_id":"operating-systems",
+        "canonical_id":"systems-programming",
         "match_role":"covers",
         "match_confidence":"medium",
-        "match_rationale":"Operating systems, compilers, and concurrency from the application programmer's view.",
+        "match_rationale":"Operating system APIs from the application programmer's side: memory management, error handling, threaded programming.",
         "partial_match":true,
         "match_status":"proposed",
-        "notes":"Partial: also systems programming and compilers."
+        "notes":"Partial: also compilers and performance analysis; CSE 306 (OS internals) is not required. Was operating-systems; systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },

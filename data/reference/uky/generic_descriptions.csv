@@ -1,0 +1,13 @@
+title,description,notes
+CIS 110 or WRD 110 (Composition and Communication I),"A first-year course in composition and communication: academic reading, writing, research, and oral and visual presentation.",Choice slot: UK's CIS 110 or WRD 110 (the same course offered by two departments). Official descriptions are in data/raw/uky/courses/.
+CIS 111 or WRD 111 (Composition and Communication II),The second first-year composition and communication course: research-based writing and presentation on public issues.,Choice slot: UK's CIS 111 or WRD 111. Official descriptions are in data/raw/uky/courses/.
+UK Core - Social Sciences,"A general education course on how individuals, groups, and societies behave, from a field such as psychology, sociology, economics, or political science.",UK Core general education requirement.
+Science Elective,A natural science or social science course chosen from the university's general education lists or approved by the department.,UK [S]: 3 hours from the UK Core natural or social science lists.
+UK Core - Humanities,"A general education course in the humanities, such as literature, philosophy, history, or the arts, focused on interpreting texts and ideas.",UK Core general education requirement.
+CS 321 or MA 321 or MA 322 (Introduction to Numerical Methods),"A computational mathematics course: numerical methods (root finding, interpolation, numerical integration, linear systems) or matrix algebra and its applications.",Choice slot: UK's CS 321 / MA 321 (cross-listed numerical methods) or MA 322 (matrix algebra). Official descriptions are in data/raw/uky/courses/.
+Computer Science Elective,"An upper-level computer science course chosen by the student, such as web programming, graphics, cryptology, databases, or artificial intelligence.","UK [C]: 15 hours of 300-level and above CS, three from a listed set."
+Technical Elective,"An upper-level course in computer science, electrical engineering, mathematics, or business chosen by the student to broaden technical knowledge.",UK [T]: 12 hours of 300-level or higher technical courses.
+UK Core - Citizenship - US,"A general education course on community, culture, and citizenship in the United States.",UK Core general education requirement.
+Natural Science Elective,"A natural science course, such as biology, chemistry, geology, astronomy, or further physics.",UK [N]: 3 hours from the UK Core natural science list.
+Free Elective,"Any course the student chooses that counts toward the degree, inside or outside the major.","UK [E]: 7 hours, at least 3 outside CS, math, natural science, and engineering."
+UK Core - Global Dynamics,"A general education course on global issues, cultures, and societies outside the United States.",UK Core general education requirement.

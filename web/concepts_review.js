@@ -11,7 +11,7 @@
 
 // Dot strip geometry, in pixels: one dot per school in registry order (UC first). UC's
 // dot is larger (UC_R) and followed by a gap with a thin divider, so it reads as
-// separate from the fifteen comparison schools.
+// separate from the comparison schools.
 const DOT_R = 4.5;
 const UC_R = 6;
 const DOT_STEP = 12;
@@ -186,14 +186,15 @@ function render(concepts, groups, rowByKey, ctx) {
 
     const table = card.append("div").attr("class", "table-wrap").append("table");
     table.append("thead").append("tr").selectAll("th")
-      .data(["Concept", "Definition and synonyms", "UC · 15 comparison schools", "Appears in (schools)"])
+      .data(["Concept", "Definition and synonyms", "UC · comparison schools", "Appears in (schools)"])
       .join("th")
       .attr("class", (d, i) => (i === 3 ? "hide-narrow" : null))
       .text((d) => d);
     // Color "UC" in the strip's header to match UC's dot (the legend for the color).
     const th = table.select("thead th:nth-child(3)").text("");
     th.append("span").attr("class", "uc-key").text("UC");
-    th.append("span").text(" · 15 comparison schools");
+    // The count comes from the registry, so it stays right as schools are added (batch 4).
+    th.append("span").text(` · ${ctx.schools.length - 1} comparison schools`);
 
     // .each with function() so `this` is the <tr> for each concept.
     table.append("tbody").selectAll("tr").data(list).join("tr").each(function (c) {

@@ -1,0 +1,7 @@
+title,description,notes
+CS 111X (Introduction to Programming),"A first programming course: variables, control flow, functions, data collections, and simple algorithms, usually in Python or Java.","Choice slot: UVA's CS 1110, 1111, 1112, or 1113 (versions for different backgrounds). Official descriptions are in data/raw/uva/courses/."
+HSS/UE,"A humanities or social sciences elective, or an unrestricted elective chosen by the student.",UVA: 15 HSS credits and 12 unrestricted credits in all.
+Math/Sci Elective,An additional mathematics or natural science course chosen from an approved list.,UVA: 3 credits.
+APMA Elective,"An applied mathematics course beyond calculus, such as linear algebra, differential equations, statistics, or numerical methods.",UVA: APMA electives (9 credits including APMA 3100).
+CS Elective,An upper-level computer science course chosen by the student.,UVA: 15 credits of CS electives.
+CS Capstone,"A capstone research or project course in which the student produces a technical report, taken alongside the engineering senior thesis.","Choice slot: UVA's CS 4971, CS 4980, or CS 4991."

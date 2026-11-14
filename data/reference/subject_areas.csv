@@ -1,5 +1,8 @@
 rule,institution,key,subject_area,notes
 institution_subject,"University of Minnesota, Twin Cities",CSE,eng,"CSE 1001 is the College of Science and Engineering's first-year course; OSU's CSE is its CS department"
+institution_subject,University of Kentucky,CIS,writing,"Kentucky's Communication and Information (composition and communication); CIS elsewhere can mean computer science"
+institution_subject,University of Kentucky,CHE,science,"Kentucky's chemistry department; CHE elsewhere usually means chemical engineering"
+institution_subject,"University at Buffalo, The State University of New York",ENG,writing,"Buffalo's English department (ENG 105 Writing and Rhetoric); UIUC's ENG is its engineering college"
 subject,,CS,cs,
 subject,,CSE,cs,Ohio State's CS department
 subject,,IT,cs,UC's IT 2030C (Information Security) is part of the CS degree's computing core
@@ -50,6 +53,26 @@ subject,,CMDA,math,Virginia Tech's computational modeling and data analytics; li
 subject,,MA,math,Purdue's math
 subject,,APPH,gened,Georgia Tech's wellness course
 subject,,HIST,gened,
+subject,,APPM,math,"Colorado's applied mathematics (calculus for engineers)"
+subject,,PHIL,gened,"Colorado's logic and ethics options (philosophy)"
+subject,,RHET,writing,UT Dallas rhetoric (first-year writing)
+subject,,GOVT,gened,UT Dallas government (Texas core)
+subject,,ECS,eng,"UT Dallas Jonsson School courses (first-year engineering, orientation); ECS 2390 technical communication falls here too"
+subject,,COSC,cs,Tennessee's CS department
+subject,,EF,science,"Tennessee's Engineering Fundamentals physics-for-engineers courses (the plan's physics slots)"
+subject,,EGR,eng,"Kentucky's first-year engineering courses (EGR 102 is its first programming course)"
+subject,,WRD,writing,Kentucky's Writing Rhetoric and Digital Studies
+subject,,EE,eng,Electrical engineering (grouped with ECE)
+subject,,STA,math,Kentucky's statistics
+subject,,PHY,science,Kentucky's physics
+subject,,MTH,math,Buffalo's mathematics
+subject,,EAS,eng,"Buffalo's School of Engineering and Applied Sciences courses (EAS 360 STEM Communications, EAS 305 probability)"
+subject,,UBC,gened,Buffalo's UB Curriculum (general education) capstone
+subject,,WRT,writing,Stony Brook's writing program
+subject,,AMS,math,Stony Brook's Applied Mathematics and Statistics
+subject,,APMA,math,UVA's applied mathematics
+subject,,STS,gened,"UVA's Science, Technology and Society (engineering ethics and the SEAS senior thesis)"
+subject,,WRTG,writing,Utah's writing program
 slot,,lab-science,science,
 slot,,gen-ed-elective,gened,
 slot,,free-elective,gened,Free electives share the general-education area

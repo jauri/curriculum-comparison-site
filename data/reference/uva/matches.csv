@@ -1,0 +1,28 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+APMA 1110,calculus-2,covers,high,"Single Variable Calculus II: integration techniques, series.",false,proposed,"The outline omits APMA 1090 (Calculus I), which the current checklist requires (see the row notes)."
+CS 111X (Introduction to Programming),intro-programming,covers,high,Every option is the first programming course.,false,proposed,
+CHEM 1410,lab-science,covers,high,Required Introductory College Chemistry I.,false,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+APMA 2120,calculus-3,covers,high,Multivariable Calculus.,false,proposed,
+CHEM 1411,lab-science,covers,high,The laboratory that goes with CHEM 1410.,false,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+ENGR 1020,first-year-engineering,covers,high,Engineering Foundations 2: open-ended team design.,false,proposed,
+ENGR 1010,first-year-engineering,covers,high,Engineering Foundations 1: introduction to engineering practice.,false,proposed,
+PHYS 1425,lab-science,covers,high,Required Introductory Physics 1 for Engineers.,false,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+PHYS 1429,lab-science,covers,high,The physics workshop that goes with PHYS 1425.,false,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+HSS/UE,gen-ed-elective,covers,high,Humanities/social science or unrestricted elective.,false,proposed,
+Math/Sci Elective,math-science-elective,covers,high,Math or science elective.,false,proposed,
+CS 2100,data-structures,covers,high,"Foundational data structures and analysis, with object-oriented programming in Java.",true,proposed,"Partial: also intro-programming-2 content (OOP, inheritance)."
+CS 2130,computer-organization,covers,high,"Computer architecture abstraction hierarchy, from gates to C.",false,proposed,
+CS 2120,discrete-math,covers,high,"Discrete mathematics and proof: predicate logic, induction.",false,proposed,
+CS 3140,programming-practicum,covers,medium,"Software Development Essentials: software construction, design patterns, functional programming, data storage.",true,proposed,Partial: also software-engineering content; CS 3240 is the software engineering course.
+ECE 2200,lab-science,covers,high,"Applied Physics II (electricity and magnetism with lab), the outline's second physics.",false,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+APMA 3100,probability-statistics,covers,high,Calculus-based probability.,false,proposed,
+STS 2600,computing-ethics,covers,medium,Introduction to Engineering Ethics.,true,proposed,"Partial: engineering ethics, not computing-specific."
+CS 3100,algorithms,covers,high,"Algorithms and their analysis, building on CS 2100.",false,proposed,
+CS 3120,theory-of-computation,covers,high,Fundamental limits on what can be efficiently computed.,false,proposed,
+CS 3240,software-engineering,covers,high,Software engineering practice for multi-person projects.,false,proposed,
+CS 3130,operating-systems,covers,medium,"Second systems course: processors and the operating system, permissions, concurrency, virtual memory, networking.",true,proposed,Partial: also computer-networks and computer-organization topics.
+APMA Elective,math-science-elective,covers,medium,Applied mathematics elective.,false,proposed,No math-only elective concept; math-science-elective is the closest.
+CS Elective,cs-elective,covers,high,CS elective.,false,proposed,
+STS 4500,capstone-design,covers,medium,"STS and Engineering Practice: the first semester of the SEAS senior thesis (prospectus), taken with the CS capstone.",true,proposed,Partial: a science-technology-society writing course; the CS Capstone is the CS project part.
+STS 4600,computing-ethics,covers,medium,"The Engineer, Ethics, and Professional Responsibility: the second semester of the SEAS senior thesis.",true,proposed,Partial: engineering ethics with the thesis.
+CS Capstone,capstone-design,covers,high,Every option is a CS capstone with a technical report.,false,proposed,

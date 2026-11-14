@@ -1,0 +1,25 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+CSE 1010,intro-programming,covers,high,"Introduction to computing logic, algorithmic thinking, and a programming language.",false,proposed,
+MATH 1131Q,calculus-1,covers,high,"Limits, continuity, differentiation, integrals.",false,proposed,
+Lab Science,lab-science,covers,high,Chemistry or physics sequence plus one more science (12 credits).,false,proposed,
+ENGR 1000,first-year-seminar,covers,medium,1-credit orientation lectures and seminars on the fields of engineering.,false,proposed,"For review: first-year-engineering is the alternative, but the course has no design or tools content."
+TOI Course,gen-ed-elective,covers,high,Common Curriculum Topics of Inquiry course.,false,proposed,
+CSE 2050,data-structures,covers,high,Fundamental data structures and algorithms with object-oriented design.,true,proposed,Partial: also object-oriented design (intro-programming-2 content); UConn has no separate CS2 course.
+MATH 1132Q,calculus-2,covers,high,"Integration, series, vectors.",false,proposed,
+ENGL 1007,first-year-composition,covers,high,"First-year college composition with rhetorical, digital, and information literacies.",false,proposed,
+CSE 2500,discrete-math,covers,high,"Logic, set theory, number theory, proofs, discrete systems.",false,proposed,
+CSE 3140,information-security,covers,high,Design of secure systems; attacks and defenses (lab).,false,proposed,
+MATH 2110Q,calculus-3,covers,high,Multivariable and vector calculus.,false,proposed,
+CSE 3100,operating-systems,covers,medium,"System-level C programming, process management, and multi-threaded concurrency.",true,proposed,Partial: a systems programming course; UConn has no required operating systems course. Alternative: programming-practicum.
+CSE 3500,algorithms,covers,high,"Design and analysis of algorithms: divide-and-conquer, dynamic programming, greedy.",false,proposed,
+MATH 2210Q,linear-algebra,covers,high,"Matrices, linear transformations, eigenvalues, computational approach.",false,proposed,
+CSE 3150 or CSE 3160 (C++ Essentials),programming-practicum,one_of,medium,CSE 3150 C++ Essentials: advanced language features and tools.,false,proposed,
+CSE 3150 or CSE 3160 (C++ Essentials),functional-programming,one_of,high,CSE 3160 Functional Programming Fundamentals.,false,proposed,
+CSE 3666,computer-organization,covers,high,"Instruction sets, assembly language, arithmetic, machine organization.",false,proposed,
+CSE Elective 3000+ or Concentration Course,cs-elective,covers,high,Upper-level CSE elective or concentration course.,false,proposed,
+Probability & Statistics Course,probability-statistics,covers,high,Every option is a probability or statistics course.,false,proposed,
+CSE 3000,computing-ethics,covers,high,"Global and societal impact of computing, professional and ethical responsibility.",false,proposed,
+Free Elective,free-elective,covers,high,Electives to reach 120 credits.,false,proposed,
+CSE 4939W,capstone-design,covers,high,First semester of the two-semester team design project.,false,proposed,
+CSE 4940,capstone-design,covers,high,Second semester of the design project.,false,proposed,
+CSE Elective,cs-elective,covers,high,CSE courses to reach 43 CSE credits.,false,proposed,

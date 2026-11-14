@@ -67,6 +67,22 @@ else (track or thread requirements) as `elective_slot` rows that describe the ch
   UC San Diego was considered and rejected because it is on quarters. Berkeley has two CS
   degrees, so the engineering rule picks the EECS BS over the L&S CS BA.
 
+- **2026-11-13 (batch 4, expansion beyond 15):** the user chose 10 more **top public
+  universities with CS in a college of engineering**, all in the Aspirational group: UVA,
+  Florida, Colorado Boulder, Utah, Stony Brook, Buffalo, UT Dallas, UConn, Tennessee
+  (Knoxville), and Kentucky. NC State, Michigan State, and Arizona State were proposed and
+  dropped by the user; Clemson, Delaware, and George Mason are backups. Strong publics left
+  out: quarter calendars (Washington, UCLA, UC San Diego, UC Irvine, UC Davis, UC Santa
+  Barbara) and CS outside engineering (Maryland, UMass Amherst, UNC, Rutgers, Pitt,
+  Indiana, Arizona). Utah was first thought to have no 2026-27 semester plan, and its
+  2024-25 plan was chosen; the 2026-27 catalog's "Computer Science Sample 4 Year Plan"
+  was then found and the user switched to it.
+  UVA's 2026-27 Record lists requirements only, so the CS advising site's 2024-25 example
+  semester outline is used, also at the user's request.
+  Florida was then removed by the user: its plan places courses in two required summer
+  terms (10 terms, not 8). The batch is now 9 schools, all built by 2026-11-14 (matches
+  proposed, concept tags not yet written).
+
 ## Open questions
 
 - [x] Track/thread handling: common core = required, rest = electives.

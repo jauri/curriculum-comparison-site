@@ -1,0 +1,31 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+CSE 199,first-year-seminar,covers,medium,"UB Seminar: a 3-credit first-year seminar on a big idea in the field, part of UB's general education.",false,proposed,For review: longer and more academic than most first-year seminars; cs-orientation is the alternative.
+CSE 115,intro-programming,covers,high,Introduction to Computer Science I: first programming course.,false,proposed,
+MTH 141,calculus-1,covers,high,College Calculus I.,false,proposed,
+ENG 105,first-year-composition,covers,high,Writing and Rhetoric.,false,proposed,
+CSE 116,intro-programming-2,covers,high,Introduction to Computer Science II: program structure and design after CSE 115.,false,proposed,
+CSE 191,discrete-math,covers,high,"Logic, proofs, sets, functions, relations, recursion, induction.",false,proposed,
+MTH 142,calculus-2,covers,high,College Calculus 2.,false,proposed,
+Pathway,gen-ed-elective,covers,high,UB Curriculum Pathway course.,false,proposed,
+CSE 220,computer-organization,covers,medium,Systems Programming: computer systems from a programmer's perspective.,true,proposed,Partial: systems programming (Kentucky's CS 270 was matched the same way); CSE 341 is UB's computer organization course.
+CSE 250,data-structures,covers,high,"Design, implementation, and analysis of data structures.",false,proposed,
+Scientific Literacy and Inquiry 1,lab-science,covers,high,Science sequence lecture.,false,proposed,
+CSE 341,computer-organization,covers,high,"Instruction set architecture, arithmetic, processor, memory.",false,proposed,
+CSE 331,algorithms,covers,high,"Greedy, divide-and-conquer, dynamic programming; limits of algorithms.",false,proposed,
+Scientific Literacy and Inquiry 2,lab-science,covers,high,Science sequence lecture.,false,proposed,
+Scientific Literacy and Inquiry Lab,lab-science,covers,high,Science sequence laboratory.,false,proposed,
+CSE 305,programming-languages,covers,high,Concepts and constructs of programming languages.,false,proposed,
+MTH 309,linear-algebra,covers,high,Introductory Linear Algebra.,false,proposed,
+Probability/Statistics Course,probability-statistics,covers,high,Every option is calculus-based probability and statistics.,false,proposed,
+Topic Area 1 (Theory),theory-of-computation,one_of,high,"CSE 396 / CSE 491 Introduction to the Theory of Computation, and other theory options.",false,proposed,
+Topic Area 1 (Theory),algorithms,one_of,medium,"CSE 429, 431, 432 algorithms options.",false,proposed,
+EAS 360,technical-writing,covers,high,"STEM Communications for technical, professional, and public audiences.",false,proposed,
+Topic Area 2 (Security),information-security,covers,high,Every option is a security course.,false,proposed,
+Topic Area 3 (Artificial Intelligence),artificial-intelligence,covers,high,Every option is an AI or machine learning course.,false,proposed,
+CSE 300 or 400 Technical Elective,cs-elective,covers,high,Upper-level CSE elective.,false,proposed,
+Specialization 1,cs-elective,covers,high,Specialization area CSE course.,false,proposed,
+Math or Science Elective,math-science-elective,covers,high,Additional math or science course.,false,proposed,
+Capstone Requirement,capstone-design,covers,medium,"Every option is designated as UB's capstone (experiential learning/research, software engineering, compilers, or seminar).",false,proposed,"Options differ in content (CSE 442 is software engineering, CSE 443 compilers)."
+Elective,free-elective,covers,high,Free elective.,false,proposed,
+UB Curriculum Capstone,gen-ed-elective,covers,medium,UB Curriculum Capstone (UBC 399): the general education program's 1-credit capstone.,false,proposed,For review: no canonical concept for a general education capstone.
+Specialization 2,cs-elective,covers,high,Specialization area CSE course.,false,proposed,

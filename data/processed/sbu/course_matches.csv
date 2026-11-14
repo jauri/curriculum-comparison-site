@@ -1,0 +1,30 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+First Year Seminar 101,first-year-seminar,covers,high,1-credit first-year seminar.,False,proposed,"Slot mapped to a course concept (SLOT_MAY_FILL_COURSE: first-year-seminar, Penn State precedent)."
+First Year Seminar 102,first-year-seminar,covers,high,1-credit first-year seminar.,False,proposed,"Slot mapped to a course concept (SLOT_MAY_FILL_COURSE: first-year-seminar, Penn State precedent)."
+WRT 101,first-year-composition,covers,high,Introductory Writing Workshop.,False,proposed,
+WRT 102,intermediate-composition,covers,high,Intermediate Writing Workshop: extended academic writing and research essays.,False,proposed,
+CSE 101 or CSE 103 (Computer Science Principles),intro-programming,one_of,medium,"CSE 101 Computer Science Principles: computational thinking with weekly programming, for beginners.",True,proposed,Partial: a CS0-level course before CSE 114.
+CSE 101 or CSE 103 (Computer Science Principles),data-science-foundations,one_of,medium,CSE 103 Data Science Principles: programming with real-world data sets.,False,proposed,
+AMS 161,calculus-2,covers,high,Applied Calculus II.,False,proposed,
+AMS 151,calculus-1,covers,high,Applied Calculus I.,False,proposed,
+Natural Science Course + Lab,lab-science,covers,high,Natural science with lab.,False,proposed,
+SBC,gen-ed-elective,covers,high,Stony Brook Curriculum course.,False,proposed,
+CSE 114,intro-programming,covers,high,Introduction to Object-Oriented Programming: the first course of the major.,False,proposed,
+CSE 214,data-structures,covers,high,"Stacks, queues, lists, trees, heaps, priority queues, graphs.",False,proposed,
+CSE 213,discrete-math,covers,medium,"Foundations of Computer Science II: counting, graph theory, finite automata.",True,proposed,Partial: also finite automata (theory-of-computation content).
+CSE 113,discrete-math,covers,high,"Foundations of Computer Science I: logic, proof techniques, sets, relations, graphs.",False,proposed,
+CSE 220,computer-organization,covers,high,"Systems-level programming in C and assembly, and the correspondence to computer architecture.",False,proposed,
+AMS 210 or MAT 211 (Applied Linear Algebra),linear-algebra,covers,high,Both options are linear algebra.,False,proposed,
+AMS 310,probability-statistics,covers,high,Survey of probability and statistics.,False,proposed,
+Natural Science,lab-science,covers,high,Natural science course.,False,proposed,
+CSE 300,technical-writing,covers,high,Technical Communications: professional writing and presentations.,False,proposed,
+CSE 312,computing-ethics,covers,high,"Social, Legal, and Ethical Issues in Computing.",False,proposed,
+CSE 307,programming-languages,covers,high,"Programming language paradigms, including functional and logic programming.",False,proposed,
+CSE 316,software-engineering,covers,medium,"Systematic design, development, and testing of software systems; version control.",True,proposed,Partial: also programming-practicum and database content; CSE 416 is the software engineering course.
+CSE 373,algorithms,covers,high,Analysis of Algorithms.,False,proposed,
+UD Technical Elective,cs-elective,covers,high,Upper-division technical CSE course.,False,proposed,
+Elective,free-elective,covers,high,Free elective.,False,proposed,
+CSE 320,operating-systems,covers,medium,"Operating systems, compilers, and concurrency from the application programmer's view.",True,proposed,Partial: also systems programming and compilers.
+UD Elective,free-elective,covers,medium,Upper-division elective (any department).,False,proposed,
+CSE 416 or CSE 356 (Software Engineering),software-engineering,covers,medium,CSE 416 Software Engineering (team project); the alternative CSE 356 is Cloud Computing.,True,proposed,Partial: CSE 356 is a cloud systems course.
+Elective or SBC (SBS+ or HFA+),free-elective,covers,high,"Free elective, or SBC for CSE 356 takers.",False,proposed,

@@ -1,0 +1,16 @@
+title,description,notes
+Pathway,"A general education course from a thematic sequence (a 'pathway') that the student builds across disciplines, outside the major.",UB Curriculum Pathways (general education).
+Scientific Literacy and Inquiry 1,"A natural science lecture course, such as biology, chemistry, physics, or geology, that introduces scientific reasoning and the field's main ideas.",UB Science Sequence (7-9 credits with lab).
+Scientific Literacy and Inquiry 2,"A second natural science lecture course, continuing a science sequence.",UB Science Sequence.
+Scientific Literacy and Inquiry Lab,A laboratory course that accompanies one of the student's science lectures.,UB Science Sequence: one credit of lab in the same subject as a lecture.
+Probability/Statistics Course,"A calculus-based course in probability and statistics: random variables, distributions, expectation, estimation, and hypothesis testing.","Choice slot: UB's EAS 305, EE 305, CE 305, or CIE 308."
+Topic Area 1 (Theory),"An upper-level theory course, such as theory of computation, advanced algorithms, randomized algorithms, quantum computation, or coding theory.",UB required Topic Area 1 (Theory).
+Topic Area 2 (Security),"An upper-level computer security course: systems, software, or network security and system administration.",UB required Topic Area 2 (Security).
+Topic Area 3 (Artificial Intelligence),"An upper-level artificial intelligence course, such as AI, machine learning, computer vision, natural language processing, robotics, or data mining.",UB required Topic Area 3 (Artificial Intelligence).
+CSE 300 or 400 Technical Elective,An upper-level computer science course chosen by the student.,UB: one general 300- or 400-level CSE course.
+Specialization 1,An upper-level computer science course in the student's chosen specialization area.,UB: two courses from one Topic Area.
+Specialization 2,A second upper-level computer science course in the student's specialization area.,UB: two courses from one Topic Area.
+Math or Science Elective,An additional mathematics or natural science course chosen from an approved list.,UB: one additional math or science course.
+Capstone Requirement,"A senior capstone course in which students apply their computing knowledge to a substantial project, such as a team software engineering project, a compiler, or research.","Choice slot: UB's CSE 402, CSE 442, CSE 443, or CSE 494. Official descriptions are in data/raw/ub/courses/."
+Elective,"Any course the student chooses that counts toward the degree, inside or outside the major.",UB: electives to reach 120 credits.
+UB Curriculum Capstone,"A short capstone for the general education program, in which students reflect on and connect their general education coursework, often through an e-portfolio.",UB: UBC 399 (1 credit). The official description is in data/raw/ub/courses/ (UBC399M entry).

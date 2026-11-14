@@ -1,0 +1,31 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+APPM 1350,calculus-1,covers,high,"First calculus course for engineers: limits, derivatives, integrals.",false,proposed,
+CSCI 1000,cs-orientation,covers,high,"1-credit introduction to the CS curriculum, study skills, and careers, with alumni speakers.",false,proposed,
+CSCI 1300,intro-programming,covers,high,First programming course (CS1).,false,proposed,
+Natural science elective,lab-science,covers,high,Natural science credits toward CU's 17-credit physics and natural science requirement.,false,proposed,
+Humanities and social sciences elective,gen-ed-elective,covers,high,College-approved humanities and social sciences elective.,false,proposed,
+COEN 1500,first-year-seminar,covers,high,1-credit discussion seminar for incoming engineering students on thriving at the university.,false,proposed,
+APPM 1360,calculus-2,covers,high,"Continuation of APPM 1350: integration methods and applications, series.",false,proposed,
+CSCI 2270,data-structures,covers,high,"Stacks, queues, lists, trees, graphs, heaps, hash tables.",false,proposed,
+PHYS 1110,lab-science,covers,high,Required first-semester calculus-based physics; lab-science covers a program that names its science.,false,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+Logic,gen-ed-elective,covers,medium,Critical thinking (PHIL 1440) or symbolic logic (PHIL 2440): a philosophy requirement with no canonical logic course; the closest is a general education course.,false,proposed,"For review: no canonical concept for a required logic course. Alternative: intro-to-proofs (partial), since CU recommends it before Discrete Structures."
+CSCI 2400,computer-organization,covers,high,"Machine-level representation of programs and data, computer components, memory hierarchy.",false,proposed,
+CSCI 2824,discrete-math,covers,high,"Sets, logic, proofs, induction, relations, graphs, combinatorics, discrete probability.",false,proposed,
+CSCI 3308,software-engineering,covers,medium,"Team semester-long application project with industry practices, agile methods, and full-stack tools.",true,proposed,Partial: also programming-practicum (tools) content.
+Ethics,computing-ethics,covers,medium,"An ethics course; options include CSCI 2750 Computing, Ethics and Society and PHIL 2160 Ethics and Information Technology, and also general ethics courses.",true,proposed,Partial: some options are general philosophy ethics (Georgia Tech's ethics slot precedent).
+CSCI 3104,algorithms,covers,high,"Fundamentals of algorithms and algorithmic strategies, with time and space analysis.",false,proposed,
+Computer science core course (1 of 5),cs-elective,covers,high,One of five courses chosen from CU's approved core list of upper-level CS areas.,false,proposed,
+Computer science core course (2 of 5),cs-elective,covers,high,As core course 1 of 5.,false,proposed,
+Computer science core course (3 of 5),cs-elective,covers,high,As core course 1 of 5.,false,proposed,
+Computer science core course (4 of 5),cs-elective,covers,high,As core course 1 of 5.,false,proposed,
+Computer science core course (5 of 5),cs-elective,covers,high,As core course 1 of 5.,false,proposed,
+CSCI 2820,linear-algebra,covers,high,Linear algebra in the context of computer science applications.,false,proposed,
+CSCI 3155,programming-languages,covers,high,Design and analysis of programming languages.,false,proposed,
+Computer science elective,cs-elective,covers,high,Approved CS coursework toward 58 CS credits.,false,proposed,
+CSCI 3022,probability-statistics,covers,high,"Probability theory, distributions, statistical simulation, inference, and modeling.",false,proposed,
+CSCI 3022,data-science-foundations,covers,medium,Also covers tools for cleaning and analyzing data (data science).,true,proposed,
+College-approved writing course,gen-ed-elective,covers,medium,"Upper-division writing course from a college-approved list; with no options saved, a slot concept is required.",false,proposed,"For review: in content this is closer to technical-writing (a course concept), which a slot can match only by exception."
+Natural science sequence,lab-science,covers,high,"Second laboratory science sequence (physics, chemistry, or biology).",false,proposed,
+Free elective,free-elective,covers,high,Any course to reach 128 credits.,false,proposed,
+Senior capstone I,capstone-design,covers,high,First semester of a two-semester capstone; every option is a capstone sequence.,false,proposed,
+Senior capstone II,capstone-design,covers,high,Second semester of the capstone sequence.,false,proposed,

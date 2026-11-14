@@ -1,0 +1,13 @@
+title,description,notes
+First Year Seminar 101,"A short first-year seminar that introduces new students to the university: academic expectations, campus resources, and study strategies.",SBU: 1 credit; the sequence names no course code.
+First Year Seminar 102,"The second short first-year seminar, continuing the introduction to university life and academic skills.",SBU: 1 credit; the sequence names no course code.
+CSE 101 or CSE 103 (Computer Science Principles),"An introductory computing course for students with no programming experience: computational thinking, basic programming, and either the breadth of computer science or working with real data sets.",Choice slot: SBU's CSE 101 (Computer Science Principles) or CSE 103 (Data Science Principles). Official descriptions are in data/raw/sbu/courses/.
+Natural Science Course + Lab,"A natural science lecture course with its laboratory, such as general physics, chemistry, or biology.",SBU natural science requirement.
+SBC,"A general education course from the university's Stony Brook Curriculum, in an area such as humanities, social sciences, the arts, diversity, or global studies.","SBU: SBC categories DIV, HUM, SBS, ARTS, USA, GLO."
+AMS 210 or MAT 211 (Applied Linear Algebra),"A first linear algebra course: systems of linear equations, matrices, vector spaces, eigenvalues, and applications.",Choice slot: SBU's AMS 210 or MAT 211.
+Natural Science,A further natural science course.,SBU natural science requirement.
+UD Technical Elective,An upper-division computer science course chosen by the student.,SBU: six upper-division technical CSE courses.
+Elective,"Any course the student chooses that counts toward the degree, inside or outside the major.",SBU: free elective.
+UD Elective,"An upper-division course chosen by the student, inside or outside the major.",SBU: upper-division elective.
+CSE 416 or CSE 356 (Software Engineering),"A senior software course: software engineering methods and a team project, or building scalable online services in the cloud.",Choice slot: SBU's CSE 416 (Software Engineering) or CSE 356 (Cloud Computing). Official descriptions are in data/raw/sbu/courses/.
+Elective or SBC (SBS+ or HFA+),"A free elective, or a general education course in the social sciences or humanities and arts for students who take CSE 356 instead of CSE 416.",SBU footnote.

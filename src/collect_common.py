@@ -126,3 +126,32 @@ def fetch(raw_dir: Path, slug: str, url: str, description: str, today: str, ext:
     resp = requests.get(url, headers=HEADERS, timeout=30)  # timeout: never hang on a dead server
     resp.raise_for_status()  # 4xx/5xx raise, so an error page is never saved as a source
     save(raw_dir, name, url, description, "script", resp, today)
+
+
+# Raw-folder names for an Acalog catalog bundle (batch 4: Tennessee, Kentucky, Buffalo,
+# Stony Brook, UVA). Acalog catalogs bot-challenge scripts, so each school's program page
+# and the course entries it links are saved through Chrome as one bundle: the first page
+# is the program (preview_program.php), and every other page is a course entry
+# (preview_course_nopop.php) whose bundle record carries "code", the link text the
+# program page showed for it, e.g. "COSC 202 - Data Structures". The course code is the
+# subject and number at the start of that text ("COSC 202", "CSE 114", "APMA 1110"),
+# found with a regex because Acalog separates code and title with a non-breaking space.
+ACALOG_CODE = r"^([A-Z]{2,4})\s+(\d{3,4}[A-Z]?)"
+
+
+# Return a function for import_bundle(): program page -> program_name, course entry ->
+# "courses/<SUBJ><NUM>.html" (Berkeley's per-course layout, e.g. courses/COSC202.html).
+def acalog_namer(program_name: str):
+    """Return a name_for(page) function for an Acalog bundle."""
+    import re
+
+    # name_for closes over program_name, so each school passes only its own file name.
+    def name_for(page: dict) -> str:
+        if "preview_program.php" in page["url"]:
+            return program_name
+        m = re.match(ACALOG_CODE, page["code"].replace("\xa0", " "))
+        if not m:
+            raise SystemExit(f"No course code in bundle record {page['code']!r} ({page['url']}).")
+        return f"courses/{m.group(1)}{m.group(2)}.html"
+
+    return name_for

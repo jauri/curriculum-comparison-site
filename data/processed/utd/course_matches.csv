@@ -1,0 +1,38 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+MATH 2417 or MATH 2413 (Calculus I),calculus-1,covers,high,Both options are first-semester calculus (MATH 2413 is the differential-calculus half of a slower sequence).,False,proposed,
+"Language, Philosophy and Culture (040)",gen-ed-elective,covers,high,Texas core component 040.,False,proposed,
+MATH 2419 or MATH 2414 (Calculus II),calculus-2,covers,high,Both options are second-semester calculus.,False,proposed,
+RHET 1302,first-year-composition,covers,high,"College Writing II: rhetorical, analytical, and argumentative writing.",False,proposed,
+ECS 1100,first-year-seminar,covers,medium,"1-credit introduction to engineering and computing careers, curricula, and study skills for all Jonsson School majors.",False,proposed,"For review: cs-orientation is the alternative, but the course is college-wide, not CS-specific."
+GOVT 2305,american-government,covers,high,"American National Government, required by Texas law (UT Austin's GOV 310L precedent).",False,proposed,
+ECS 1210,first-year-engineering,covers,medium,Computational and design thinking through programming fundamentals and hands-on reverse engineering of physical systems.,True,proposed,"Partial: also introduces programming (data types, arrays, functions, recursion)."
+CS 1337,intro-programming-2,covers,high,"Object-oriented programming, classes, searching and sorting after the first course (CS 1436).",False,proposed,
+CS 1436,intro-programming,covers,high,First programming course: structured programming in C.,False,proposed,
+CS 2305,discrete-math,covers,high,"Counting, Boolean operations, logic and proof, relations, graph theory, number theory.",False,proposed,
+Creative Arts (050),gen-ed-elective,covers,high,Texas core component 050.,False,proposed,
+American History (060),gen-ed-elective,covers,high,Texas core component 060 (UT Austin's U.S. History (060) precedent).,False,proposed,
+MATH 2418,linear-algebra,covers,high,Linear Algebra.,False,proposed,
+Government/Political Science (070),gen-ed-elective,covers,high,"Texas core component 070; the second government course (a slot, so it cannot match american-government).",False,proposed,"For review: in content this is american-government (Texas government), a course concept a slot can match only by exception."
+ECS 2390,technical-writing,covers,high,Professional and technical communication: technical documents and presentations.,True,proposed,Partial: also oral presentations.
+PHYS 2325,lab-science,covers,high,Required calculus-based mechanics.,False,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+CS 2336,data-structures,covers,high,"Recursion, stacks, queues, linked lists, hash tables, trees, graphs, and algorithm analysis.",False,proposed,
+PHYS 2125,lab-science,covers,high,The laboratory that goes with PHYS 2325.,False,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+CS 2340,computer-organization,covers,high,"Instruction-set architecture, MIPS assembly, datapath, pipelining, memory hierarchy.",False,proposed,
+CS 3341,probability-statistics,covers,high,"Axiomatic probability, distributions, and statistics for CS.",False,proposed,
+CS 3345,data-structures,covers,high,"Second data structures course: trees (including B-trees), heaps, hashing, sorting, disjoint sets, graphs, with Big-O analysis.",True,proposed,Partial: also algorithm analysis; CS 4349 is UTD's algorithms course.
+Social and Behavioral Sciences (080),gen-ed-elective,covers,high,Texas core component 080.,False,proposed,
+CS 3162,computing-ethics,covers,high,"Professional and ethical responsibilities, social implications, intellectual property.",False,proposed,
+PHYS 2326,lab-science,covers,high,Required calculus-based electromagnetism and waves.,False,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+CS 3354,software-engineering,covers,high,"Software life cycle, requirements, design, testing, quality assurance, maintenance.",False,proposed,
+PHYS 2126,lab-science,covers,high,The laboratory that goes with PHYS 2326.,False,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+CS 3377,programming-practicum,covers,medium,"UNIX tools, shell scripts, processes and threads, sockets, pipes, version control.",True,proposed,Partial: systems programming overlaps operating-systems.
+Free Elective,free-elective,covers,high,Any course toward the 124-hour total.,False,proposed,
+CS 4337,programming-languages,covers,high,Design and implementation of programming languages and paradigms.,False,proposed,
+CS 4348,operating-systems,covers,high,"Operating system design: processes, concurrency, critical sections, deadlocks.",False,proposed,
+CS 4347,databases,covers,high,Design and implementation of database systems.,False,proposed,
+CS 4349,algorithms,covers,high,"Asymptotic analysis, recurrences, graph algorithms, greedy, dynamic programming, divide-and-conquer.",False,proposed,
+CS 4384,theory-of-computation,covers,high,Automata theory through Turing machines and undecidability.,False,proposed,
+CS 4341,digital-logic,covers,high,"Boolean algebra, logic circuits, sequential circuits.",False,proposed,
+Major Technical Elective,cs-elective,covers,high,4000-level CS elective.,False,proposed,
+CS 4141,digital-logic,covers,high,The laboratory that goes with CS 4341.,False,proposed,
+CS 4485,capstone-design,covers,high,"Team-based senior software project from requirements to testing, with documentation.",False,proposed,

@@ -1,0 +1,36 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+EGR 101,first-year-seminar,covers,medium,"1-credit introduction to engineering and CS professions, college degree programs, and opportunities.",False,proposed,"For review: UK pairs it with EGR 103 (design project), which maps to first-year-engineering."
+EGR 102,intro-programming,covers,high,Fundamentals of Engineering Computing: the first programming and computational problem-solving course (prerequisite of CS 215).,False,proposed,
+CHE 105,lab-science,covers,high,Required General College Chemistry I.,False,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+CIS 110 or WRD 110 (Composition and Communication I),first-year-composition,covers,high,Composition and Communication I.,False,proposed,
+MA 113,calculus-1,covers,high,Calculus I.,False,proposed,
+CIS 111 or WRD 111 (Composition and Communication II),intermediate-composition,covers,high,"Composition and Communication II, the second required composition course.",False,proposed,
+MA 114,calculus-2,covers,high,Calculus II.,False,proposed,
+PHY 231,lab-science,covers,high,Required calculus-based physics.,False,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+PHY 241,lab-science,covers,high,The laboratory that goes with PHY 231.,False,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+CS 215,intro-programming-2,covers,high,"Object-oriented problem solving, design, and programming after EGR 102.",False,proposed,
+EGR 103,first-year-engineering,covers,high,Semester-long team engineering design project.,False,proposed,
+CS 217,data-structures,covers,high,Theory and implementation of data structures and their algorithms.,False,proposed,
+CS 218,programming-practicum,covers,high,"Substantial projects with object-oriented design and tools for development, maintenance, and testing; operating system interfaces.",False,proposed,
+CS 275,discrete-math,covers,high,"Set theory, induction, relations, functions, Boolean algebra, counting.",False,proposed,
+MA 213,calculus-3,covers,high,Multivariable calculus.,False,proposed,
+UK Core - Social Sciences,gen-ed-elective,covers,high,UK Core.,False,proposed,
+CS 270,computer-organization,covers,medium,"Computer systems from a programmer's perspective: architecture, operating systems, and networks.",True,proposed,Partial: also operating-systems and networks topics.
+EE 280,digital-logic,covers,high,"Boolean algebra, combinational and sequential logic circuits.",False,proposed,
+CS 315,algorithms,covers,high,"Design and analysis of algorithms, asymptotic analysis, correctness proofs.",False,proposed,
+Science Elective,math-science-elective,covers,medium,Natural or social science course.,False,proposed,Social science options make this broader than a science elective.
+UK Core - Humanities,gen-ed-elective,covers,high,UK Core.,False,proposed,
+CS 321 or MA 321 or MA 322 (Introduction to Numerical Methods),numerical-methods,one_of,high,CS 321 / MA 321 Introduction to Numerical Methods.,False,proposed,
+CS 321 or MA 321 or MA 322 (Introduction to Numerical Methods),linear-algebra,one_of,medium,MA 322 Matrix Algebra and Its Applications.,False,proposed,
+CS 371,computer-networks,covers,high,"Internet principles, data communications, protocols.",False,proposed,
+Computer Science Elective,cs-elective,covers,high,300-level and above CS elective.,False,proposed,
+STA 381,probability-statistics,covers,high,"Engineering statistics: data, inference, hypothesis testing.",False,proposed,
+CS 375,theory-of-computation,covers,medium,"Logic and theory of computing: propositional and predicate calculus, models of computation.",True,proposed,Partial: also logic (discrete-math content).
+Technical Elective,technical-elective,covers,high,Upper-level technical elective.,False,proposed,
+UK Core - Citizenship - US,gen-ed-elective,covers,high,UK Core.,False,proposed,
+Natural Science Elective,lab-science,covers,high,Natural science elective.,False,proposed,
+CS 450G,programming-languages,covers,high,"Fundamental concepts of high-level programming languages, formal syntax.",False,proposed,
+CS 498,software-engineering,covers,high,"Specifications, testing, verification; team assignments.",False,proposed,
+Free Elective,free-elective,covers,high,Free elective.,False,proposed,
+UK Core - Global Dynamics,gen-ed-elective,covers,high,UK Core.,False,proposed,
+CS 499,capstone-design,covers,high,Senior design project in small groups.,False,proposed,

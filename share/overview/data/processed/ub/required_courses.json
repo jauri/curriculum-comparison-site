@@ -431,7 +431,7 @@
     "description":"This course is an introductory course on computer systems. It introduces computer systems from a programmer’s perspective, rather than a system implementer’s perspective, which prepares students for more advanced topics that discuss the internals of a computer system (e.g., operating systems or computer architecture). As a result, the focus of the course is teaching programmable interfaces of a computer system as well as how to use them correctly and effectively when writing a program. The topics mainly include hardware\/software interfaces (e.g., data representation in memory) and OS\/application interfaces (e.g., syscalls). In discussing these topics, the course gives an overview of a complete computer system, the hardware, operating system, compiler, and network, in order to guide students through various components that modern programs rely on to accomplish their intended purposes.",
     "description_source":"official",
     "description_url":"https:\/\/catalogs.buffalo.edu\/preview_course_nopop.php?catoid=21&coid=149387",
-    "canonical_ids":"computer-organization",
+    "canonical_ids":"systems-programming",
     "match_status":"proposed",
     "notes":"",
     "plan":"Curricular Plan, 2026-2027 Undergraduate Catalog",
@@ -448,13 +448,13 @@
     "subject_area":"cs",
     "matches":[
       {
-        "canonical_id":"computer-organization",
+        "canonical_id":"systems-programming",
         "match_role":"covers",
         "match_confidence":"medium",
-        "match_rationale":"Systems Programming: computer systems from a programmer's perspective.",
-        "partial_match":true,
+        "match_rationale":"Programmable interfaces of a computer system from a programmer's perspective: data representation in memory and OS system calls.",
+        "partial_match":false,
         "match_status":"proposed",
-        "notes":"Partial: systems programming (Kentucky's CS 270 was matched the same way); CSE 341 is UB's computer organization course."
+        "notes":"CSE 341 is UB's computer organization course. Was computer-organization; systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },

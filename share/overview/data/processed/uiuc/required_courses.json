@@ -1154,8 +1154,8 @@
     "description":"Basics of system programming, including POSIX processes, process control, inter-process communication, synchronization, signals, simple memory management, file I\/O and directories, shell programming, socket network programming, RPC programming in distributed systems, basic security mechanisms, and standard tools for systems programming such as debugging tools. Credit is not given for both CS 341 and either CS 241 or ECE 391.",
     "description_source":"official",
     "description_url":"https:\/\/catalog.illinois.edu\/courses-of-instruction\/cs\/",
-    "canonical_ids":"operating-systems",
-    "match_status":"approved",
+    "canonical_ids":"systems-programming",
+    "match_status":"proposed",
     "notes":"",
     "plan":"Sample Sequence, 2026-2027 Course Catalog",
     "orig_calendar_year":"",
@@ -1171,13 +1171,13 @@
     "subject_area":"cs",
     "matches":[
       {
-        "canonical_id":"operating-systems",
+        "canonical_id":"systems-programming",
         "match_role":"covers",
-        "match_confidence":"medium",
-        "match_rationale":"POSIX processes, synchronization, memory management, file I\/O, and network programming, taught as systems programming; partial because it is not an OS internals course (as with UIC's CS 361).",
-        "partial_match":true,
-        "match_status":"approved",
-        "notes":""
+        "match_confidence":"high",
+        "match_rationale":"POSIX processes, inter-process communication, signals, synchronization, memory management, file I\/O, shell and socket programming, and systems tools.",
+        "partial_match":false,
+        "match_status":"proposed",
+        "notes":"Was operating-systems (partial, approved); systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },

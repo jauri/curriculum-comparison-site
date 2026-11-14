@@ -1385,8 +1385,8 @@
     "description":"Introduction to computer systems as they are relevant to application programmers today, with emphasis on operating system principles. Operating system design and architectures; processes; threads, synchronization techniques, deadlock; CPU scheduling; system call interfaces, system level I\/O and file management; shell programming; separate compilation, loading and linking; inter-process communication (IPC); virtual and physical memory management and garbage collection; network protocols and programming; virtualization; performance analysis and optimization. A grade of C or better is required in CS pre-requisites 2506 and 2114.",
     "description_source":"official",
     "description_url":"https:\/\/catalog.vt.edu\/course-descriptions\/cs\/",
-    "canonical_ids":"operating-systems",
-    "match_status":"approved",
+    "canonical_ids":"systems-programming",
+    "match_status":"proposed",
     "notes":"",
     "plan":"Roadmap (Plan of Study Grid), 2026-2027 Academic Catalog",
     "orig_calendar_year":"",
@@ -1402,13 +1402,13 @@
     "subject_area":"cs",
     "matches":[
       {
-        "canonical_id":"operating-systems",
+        "canonical_id":"systems-programming",
         "match_role":"covers",
-        "match_confidence":"high",
-        "match_rationale":"Operating system principles: processes, threads, synchronization, scheduling, and memory management.",
+        "match_confidence":"medium",
+        "match_rationale":"Systems for application programmers: processes, threads, synchronization, system calls, system-level I\/O, IPC, linking, and network programming.",
         "partial_match":true,
-        "match_status":"approved",
-        "notes":"Partial: also covers linking, networking, and performance."
+        "match_status":"proposed",
+        "notes":"Partial: emphasizes OS principles too (scheduling, deadlock, memory management), so operating-systems is a possible second match. Was operating-systems (high, partial, approved); systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },

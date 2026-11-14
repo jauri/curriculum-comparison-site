@@ -14575,7 +14575,8 @@
    "title": "Operating Systems and Systems Programming",
    "norm_semester": "6",
    "canonical_ids": [
-    "operating-systems"
+    "operating-systems",
+    "systems-programming"
    ],
    "description": "Introduction to concepts of modern operating systems and systems programming. Emphasis is on the concepts, algorithms and architectures of modern operating systems. Students will also learn Unix system programming such as synchronizing, inter-process communication, and networking.",
    "notes": "",
@@ -16207,7 +16208,7 @@
    "title": "Systems Programming",
    "norm_semester": "5",
    "canonical_ids": [
-    "operating-systems"
+    "systems-programming"
    ],
    "description": "Study of computer systems emphasizing impact on application level programming. Virtual memory and memory management; code optimization; system-level I/O; concurrency: processes, threads, synchronization; introduction to network programming.",
    "notes": "",
@@ -18150,7 +18151,7 @@
    "title": "Introduction to Computer Systems",
    "norm_semester": "5",
    "canonical_ids": [
-    "operating-systems"
+    "systems-programming"
    ],
    "description": "Introduction to system support for application programs, both on single node and over network including OS application interface, inter-process communication, introduction to system and network programming, and simple computer security concepts; hands-on lab assignments.",
    "notes": "",
@@ -21033,7 +21034,7 @@
    "title": "System Programming",
    "norm_semester": "5",
    "canonical_ids": [
-    "operating-systems"
+    "systems-programming"
    ],
    "description": "Basics of system programming, including POSIX processes, process control, inter-process communication, synchronization, signals, simple memory management, file I/O and directories, shell programming, socket network programming, RPC programming in distributed systems, basic security mechanisms, and standard tools for systems programming such as debugging tools. Credit is not given for both CS 341 and either CS 241 or ECE 391.",
    "notes": "",
@@ -25068,7 +25069,7 @@
    "norm_semester": "2",
    "canonical_ids": [
     "computer-organization",
-    "operating-systems"
+    "systems-programming"
    ],
    "description": "This course provides a programmer's view of how computer systems execute programs, store information, and communicate. It enables students to become more effective programmers, especially in dealing with issues of performance, portability and robustness. It also serves as a foundation for courses on compilers, networks, operating systems, and computer architecture, where a deeper understanding of systems-level issues is required.",
    "notes": "12 CMU units.",
@@ -26359,7 +26360,7 @@
    "title": "Computer Systems",
    "norm_semester": "6",
    "canonical_ids": [
-    "operating-systems"
+    "systems-programming"
    ],
    "description": "Introduction to computer systems as they are relevant to application programmers today, with emphasis on operating system principles. Operating system design and architectures; processes; threads, synchronization techniques, deadlock; CPU scheduling; system call interfaces, system level I/O and file management; shell programming; separate compilation, loading and linking; inter-process communication (IPC); virtual and physical memory management and garbage collection; network protocols and programming; virtualization; performance analysis and optimization. A grade of C or better is required in CS pre-requisites 2506 and 2114.",
    "notes": "",
@@ -28750,7 +28751,7 @@
    "title": "Systems Programming",
    "norm_semester": "4",
    "canonical_ids": [
-    "operating-systems"
+    "systems-programming"
    ],
    "description": "Low-level programming; review of addresses, pointers, memory layout, and data representation; text, data, and bss segments; debugging and hex dumps; concurrent execution with threads and processes; address spaces; file names; descriptors and file pointers; inheritance; system calls and library functions; standard I/O and string libraries; simplified socket programming; building tools to help programmers; make and make files; shell scripts and quoting; Unix tools including sed, echo, test, and find; scripting languages such as awk; version control; object and executable files (.o and a.out); symbol tables; pointers to functions; hierarchical directories; and DNS hierarchy; programming embedded systems.",
    "notes": "Purdue (Concentration Notes): all major required and track courses need a C or better.",
@@ -31065,7 +31066,7 @@
    "title": "Systems Programming in UNIX and Other Environments",
    "norm_semester": "5",
    "canonical_ids": [
-    "programming-practicum"
+    "systems-programming"
    ],
    "description": "Basic UNIX concepts, commands, and utilities, organization of UNIX file system including links and access control, creating and managing UNIX processes and threads, implementing algorithms using shell scripts, basic networking concepts including socket and client-server programming, inter-process communication using pipes and signals, using a version control system to manage work, and an overview of cloud computing. Design and implementation of a comprehensive programming project is required.",
    "notes": "The plan prints 'CS 3337', which has no catalog entry; the degree requirements list CS 3377 instead.",
@@ -32446,7 +32447,7 @@
    "title": "Systems Programming",
    "norm_semester": "4",
    "canonical_ids": [
-    "operating-systems"
+    "systems-programming"
    ],
    "description": "Introduction to system-level programming with an emphasis on C programming, process management and small scale concurrency with multi-threaded programming. Special attention will be devoted to proficiency with memory management and debugging facilities both in a sequential and parallel setting.",
    "notes": "",
@@ -34185,7 +34186,8 @@
    "title": "Systems Programming",
    "norm_semester": "4",
    "canonical_ids": [
-    "computer-organization"
+    "computer-organization",
+    "systems-programming"
    ],
    "description": "This course provides an introduction to computer systems and explores computer architecture, operating systems, and networks from a programmer\u2019s perspective. The course also introduces advanced programming and debugging tools. Topics include hardware instruction sets, machine language and C language program representations, linking/loading, operating systems (process management, scheduling, memory management, interprocess communication, and file systems), network programming (socket programming and web protocols), and common security attacks and solutions.",
    "notes": "",
@@ -35612,7 +35614,7 @@
    "title": "Systems Programming",
    "norm_semester": "3",
    "canonical_ids": [
-    "computer-organization"
+    "systems-programming"
    ],
    "description": "This course is an introductory course on computer systems. It introduces computer systems from a programmer\u2019s perspective, rather than a system implementer\u2019s perspective, which prepares students for more advanced topics that discuss the internals of a computer system (e.g., operating systems or computer architecture). As a result, the focus of the course is teaching programmable interfaces of a computer system as well as how to use them correctly and effectively when writing a program. The topics mainly include hardware/software interfaces (e.g., data representation in memory) and OS/application interfaces (e.g., syscalls). In discussing these topics, the course gives an overview of a complete computer system, the hardware, operating system, compiler, and network, in order to guide students through various components that modern programs rely on to accomplish their intended purposes.",
    "notes": "",
@@ -37434,7 +37436,7 @@
    "title": "Systems Fundamentals II",
    "norm_semester": "7",
    "canonical_ids": [
-    "operating-systems"
+    "systems-programming"
    ],
    "description": "This course introduces essential concepts of operating systems, compilers, concurrency, and performance analysis, focused around several cross-cutting examples, such as memory management, error handling, and threaded programming. In this course, operating systems concepts are considered from the point of view of the application programmer, and the focus is on APIs for interacting with an operating system. A companion course, CSE 306, considers operating systems from the point of view of the OS kernel implementer.",
    "notes": "",

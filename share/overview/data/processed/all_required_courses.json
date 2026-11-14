@@ -1480,8 +1480,8 @@
     "description": "Introduction to concepts of modern operating systems and systems programming. Emphasis is on the concepts, algorithms and architectures of modern operating systems. Students will also learn Unix system programming such as synchronizing, inter-process communication, and networking.",
     "description_source": "official",
     "description_url": "https://classes.catalyst-services.uc.edu/psc/psclass/EMPLOYEE/SA/c/COMMUNITY_ACCESS.SSS_BROWSE_CATLG.GBL",
-    "canonical_ids": "operating-systems",
-    "match_status": "approved",
+    "canonical_ids": "operating-systems; systems-programming",
+    "match_status": "proposed",
     "notes": "",
     "plan": "Class of 2031 Section I",
     "orig_calendar_year": 2030,
@@ -1504,6 +1504,15 @@
         "partial_match": false,
         "match_status": "approved",
         "notes": ""
+      },
+      {
+        "canonical_id": "systems-programming",
+        "match_role": "covers",
+        "match_confidence": "medium",
+        "match_rationale": "Unix systems programming (synchronization, IPC) taught alongside OS concepts.",
+        "partial_match": true,
+        "match_status": "proposed",
+        "notes": "Partial: combined with operating systems in one year-4 course. systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -5520,8 +5529,8 @@
     "description": "Study of computer systems emphasizing impact on application level programming. Virtual memory and memory management; code optimization; system-level I/O; concurrency: processes, threads, synchronization; introduction to network programming.",
     "description_source": "official",
     "description_url": "https://catalog.uic.edu/ucat/course-descriptions/cs/",
-    "canonical_ids": "operating-systems",
-    "match_status": "approved",
+    "canonical_ids": "systems-programming",
+    "match_status": "proposed",
     "notes": "",
     "plan": "Sample Course Schedule, 2026-2027 Undergraduate Catalog",
     "orig_calendar_year": "",
@@ -5537,13 +5546,13 @@
     "subject_area": "cs",
     "matches": [
       {
-        "canonical_id": "operating-systems",
+        "canonical_id": "systems-programming",
         "match_role": "covers",
-        "match_confidence": "medium",
-        "match_rationale": "Virtual memory, concurrency, processes and threads, and system-level I/O, taught from the application programmer's side (systems programming) rather than as OS internals.",
-        "partial_match": true,
-        "match_status": "approved",
-        "notes": ""
+        "match_confidence": "new",
+        "match_rationale": "Systems programming from the application programmer's side: virtual memory and memory management, system-level I/O, processes, threads, synchronization, and network programming.",
+        "partial_match": false,
+        "match_status": "proposed",
+        "notes": "Was operating-systems (partial, approved); systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -9863,8 +9872,8 @@
     "description": "Introduction to system support for application programs, both on single node and over network including OS application interface, inter-process communication, introduction to system and network programming, and simple computer security concepts; hands-on lab assignments.",
     "description_source": "official",
     "description_url": "https://catalog.tamu.edu/undergraduate/course-descriptions/csce/",
-    "canonical_ids": "operating-systems",
-    "match_status": "approved",
+    "canonical_ids": "systems-programming",
+    "match_status": "proposed",
     "notes": "",
     "plan": "Plan of Study, 2026-2027 Undergraduate Catalog (first year common to Engineering, then CS years 2-4)",
     "orig_calendar_year": "",
@@ -9880,13 +9889,13 @@
     "subject_area": "cs",
     "matches": [
       {
-        "canonical_id": "operating-systems",
+        "canonical_id": "systems-programming",
         "match_role": "covers",
-        "match_confidence": "medium",
-        "match_rationale": "System support for programs: the OS interface, inter-process communication, and system and network programming; partial because it is a systems-programming course rather than OS internals.",
-        "partial_match": true,
-        "match_status": "approved",
-        "notes": ""
+        "match_confidence": "high",
+        "match_rationale": "The OS application interface, inter-process communication, and system and network programming.",
+        "partial_match": false,
+        "match_status": "proposed",
+        "notes": "Was operating-systems (partial, approved); systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -15413,8 +15422,8 @@
     "description": "Basics of system programming, including POSIX processes, process control, inter-process communication, synchronization, signals, simple memory management, file I/O and directories, shell programming, socket network programming, RPC programming in distributed systems, basic security mechanisms, and standard tools for systems programming such as debugging tools. Credit is not given for both CS 341 and either CS 241 or ECE 391.",
     "description_source": "official",
     "description_url": "https://catalog.illinois.edu/courses-of-instruction/cs/",
-    "canonical_ids": "operating-systems",
-    "match_status": "approved",
+    "canonical_ids": "systems-programming",
+    "match_status": "proposed",
     "notes": "",
     "plan": "Sample Sequence, 2026-2027 Course Catalog",
     "orig_calendar_year": "",
@@ -15430,13 +15439,13 @@
     "subject_area": "cs",
     "matches": [
       {
-        "canonical_id": "operating-systems",
+        "canonical_id": "systems-programming",
         "match_role": "covers",
-        "match_confidence": "medium",
-        "match_rationale": "POSIX processes, synchronization, memory management, file I/O, and network programming, taught as systems programming; partial because it is not an OS internals course (as with UIC's CS 361).",
-        "partial_match": true,
-        "match_status": "approved",
-        "notes": ""
+        "match_confidence": "high",
+        "match_rationale": "POSIX processes, inter-process communication, signals, synchronization, memory management, file I/O, shell and socket programming, and systems tools.",
+        "partial_match": false,
+        "match_status": "proposed",
+        "notes": "Was operating-systems (partial, approved); systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -22523,8 +22532,8 @@
     "description": "This course provides a programmer's view of how computer systems execute programs, store information, and communicate. It enables students to become more effective programmers, especially in dealing with issues of performance, portability and robustness. It also serves as a foundation for courses on compilers, networks, operating systems, and computer architecture, where a deeper understanding of systems-level issues is required.",
     "description_source": "official",
     "description_url": "https://coursecatalog.web.cmu.edu/schools-colleges/schoolofcomputerscience/courses/",
-    "canonical_ids": "computer-organization; operating-systems",
-    "match_status": "approved",
+    "canonical_ids": "computer-organization; systems-programming",
+    "match_status": "proposed",
     "notes": "12 CMU units.",
     "plan": "Sample Course Sequence, 2026-2027 Undergraduate Catalog",
     "orig_calendar_year": "",
@@ -22549,13 +22558,13 @@
         "notes": "Partial: also covers systems topics (as with Northeastern's CS 3650)."
       },
       {
-        "canonical_id": "operating-systems",
+        "canonical_id": "systems-programming",
         "match_role": "covers",
         "match_confidence": "medium",
-        "match_rationale": "Covers processes, virtual memory, system I/O, and concurrency from the programmer's side, as a foundation for later OS courses.",
+        "match_rationale": "A programmer's view of processes, virtual memory, system I/O, concurrency, and network programming.",
         "partial_match": true,
-        "match_status": "approved",
-        "notes": "Partial: the operating systems course itself (15-410) is a systems elective."
+        "match_status": "proposed",
+        "notes": "Partial: also machine-level code (computer-organization). Was operating-systems (partial, approved); the OS course itself (15-410) is a systems elective. systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -27813,8 +27822,8 @@
     "description": "Introduction to computer systems as they are relevant to application programmers today, with emphasis on operating system principles. Operating system design and architectures; processes; threads, synchronization techniques, deadlock; CPU scheduling; system call interfaces, system level I/O and file management; shell programming; separate compilation, loading and linking; inter-process communication (IPC); virtual and physical memory management and garbage collection; network protocols and programming; virtualization; performance analysis and optimization. A grade of C or better is required in CS pre-requisites 2506 and 2114.",
     "description_source": "official",
     "description_url": "https://catalog.vt.edu/course-descriptions/cs/",
-    "canonical_ids": "operating-systems",
-    "match_status": "approved",
+    "canonical_ids": "systems-programming",
+    "match_status": "proposed",
     "notes": "",
     "plan": "Roadmap (Plan of Study Grid), 2026-2027 Academic Catalog",
     "orig_calendar_year": "",
@@ -27830,13 +27839,13 @@
     "subject_area": "cs",
     "matches": [
       {
-        "canonical_id": "operating-systems",
+        "canonical_id": "systems-programming",
         "match_role": "covers",
-        "match_confidence": "high",
-        "match_rationale": "Operating system principles: processes, threads, synchronization, scheduling, and memory management.",
+        "match_confidence": "medium",
+        "match_rationale": "Systems for application programmers: processes, threads, synchronization, system calls, system-level I/O, IPC, linking, and network programming.",
         "partial_match": true,
-        "match_status": "approved",
-        "notes": "Partial: also covers linking, networking, and performance."
+        "match_status": "proposed",
+        "notes": "Partial: emphasizes OS principles too (scheduling, deadlock, memory management), so operating-systems is a possible second match. Was operating-systems (high, partial, approved); systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -31672,8 +31681,8 @@
     "description": "Low-level programming; review of addresses, pointers, memory layout, and data representation; text, data, and bss segments; debugging and hex dumps; concurrent execution with threads and processes; address spaces; file names; descriptors and file pointers; inheritance; system calls and library functions; standard I/O and string libraries; simplified socket programming; building tools to help programmers; make and make files; shell scripts and quoting; Unix tools including sed, echo, test, and find; scripting languages such as awk; version control; object and executable files (.o and a.out); symbol tables; pointers to functions; hierarchical directories; and DNS hierarchy; programming embedded systems.",
     "description_source": "official",
     "description_url": "https://catalog.purdue.edu/preview_course_nopop.php?catoid=19&coid=226824",
-    "canonical_ids": "operating-systems",
-    "match_status": "approved",
+    "canonical_ids": "systems-programming",
+    "match_status": "proposed",
     "notes": "Purdue (Concentration Notes): all major required and track courses need a C or better.",
     "plan": "Plan of study, Computer Science: Software Engineering, BS, 2026-2027 University Catalog (the nine track plans share one template; track courses are slots)",
     "orig_calendar_year": "",
@@ -31689,13 +31698,13 @@
     "subject_area": "cs",
     "matches": [
       {
-        "canonical_id": "operating-systems",
+        "canonical_id": "systems-programming",
         "match_role": "covers",
-        "match_confidence": "medium",
-        "match_rationale": "Systems programming: processes, threads, address spaces, files, and concurrency.",
-        "partial_match": true,
-        "match_status": "approved",
-        "notes": "Partial: a systems programming course rather than OS design (as UIC's CS 361)."
+        "match_confidence": "high",
+        "match_rationale": "Low-level programming: memory layout, processes and threads, system calls, file descriptors, sockets, shell scripts, and Unix tools.",
+        "partial_match": false,
+        "match_status": "proposed",
+        "notes": "Was operating-systems (partial, approved); systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -36413,7 +36422,7 @@
     "description": "Basic UNIX concepts, commands, and utilities, organization of UNIX file system including links and access control, creating and managing UNIX processes and threads, implementing algorithms using shell scripts, basic networking concepts including socket and client-server programming, inter-process communication using pipes and signals, using a version control system to manage work, and an overview of cloud computing. Design and implementation of a comprehensive programming project is required.",
     "description_source": "official",
     "description_url": "https://catalog.utdallas.edu/2026/undergraduate/courses/cs3377",
-    "canonical_ids": "programming-practicum",
+    "canonical_ids": "systems-programming",
     "match_status": "proposed",
     "notes": "The plan prints 'CS 3337', which has no catalog entry; the degree requirements list CS 3377 instead.",
     "plan": "Four-Year Degree Plan (Example), 2026 Undergraduate Catalog",
@@ -36430,13 +36439,13 @@
     "subject_area": "cs",
     "matches": [
       {
-        "canonical_id": "programming-practicum",
+        "canonical_id": "systems-programming",
         "match_role": "covers",
-        "match_confidence": "medium",
-        "match_rationale": "UNIX tools, shell scripts, processes and threads, sockets, pipes, version control.",
-        "partial_match": true,
+        "match_confidence": "high",
+        "match_rationale": "UNIX processes and threads, the file system, pipes and signals, sockets and client-server programming, shell scripts.",
+        "partial_match": false,
         "match_status": "proposed",
-        "notes": "Partial: systems programming overlaps operating-systems."
+        "notes": "UTD's operating systems course is CS 4348. Was programming-practicum; systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -38181,7 +38190,7 @@
     "description": "Introduction to system-level programming with an emphasis on C programming, process management and small scale concurrency with multi-threaded programming. Special attention will be devoted to proficiency with memory management and debugging facilities both in a sequential and parallel setting.",
     "description_source": "official",
     "description_url": "https://catalog.uconn.edu/undergraduate/courses/cse/",
-    "canonical_ids": "operating-systems",
+    "canonical_ids": "systems-programming",
     "match_status": "proposed",
     "notes": "",
     "plan": "Computer Science (BS) common map, Catalog Year 2026-2027 (Storrs), College of Engineering",
@@ -38198,13 +38207,13 @@
     "subject_area": "cs",
     "matches": [
       {
-        "canonical_id": "operating-systems",
+        "canonical_id": "systems-programming",
         "match_role": "covers",
-        "match_confidence": "medium",
-        "match_rationale": "System-level C programming, process management, and multi-threaded concurrency.",
-        "partial_match": true,
+        "match_confidence": "high",
+        "match_rationale": "System-level C programming, process management, multi-threaded concurrency, and memory management.",
+        "partial_match": false,
         "match_status": "proposed",
-        "notes": "Partial: a systems programming course; UConn has no required operating systems course. Alternative: programming-practicum."
+        "notes": "UConn has no required operating systems course. Was operating-systems; systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -40530,7 +40539,7 @@
     "description": "A systems programming course in C: memory and process layout, system calls, files, and process management.",
     "description_source": "generic",
     "description_url": "",
-    "canonical_ids": "programming-practicum",
+    "canonical_ids": "systems-programming",
     "match_status": "proposed",
     "notes": "UTK: select one course.",
     "plan": "Academic Map, 2026-2027 Undergraduate Catalog",
@@ -40547,13 +40556,13 @@
     "subject_area": "cs",
     "matches": [
       {
-        "canonical_id": "programming-practicum",
+        "canonical_id": "systems-programming",
         "match_role": "covers",
         "match_confidence": "medium",
-        "match_rationale": "Systems programming in C: memory, system calls, files, processes.",
-        "partial_match": true,
+        "match_rationale": "Systems programming in C: memory and process layout, system calls, files, and process management.",
+        "partial_match": false,
         "match_status": "proposed",
-        "notes": "Partial: overlaps operating-systems (UConn's CSE 3100 was matched to operating-systems; compare)."
+        "notes": "Medium: the description is generic. Was programming-practicum; systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -42524,7 +42533,7 @@
     "description": "This course provides an introduction to computer systems and explores computer architecture, operating systems, and networks from a programmer’s perspective. The course also introduces advanced programming and debugging tools. Topics include hardware instruction sets, machine language and C language program representations, linking/loading, operating systems (process management, scheduling, memory management, interprocess communication, and file systems), network programming (socket programming and web protocols), and common security attacks and solutions.",
     "description_source": "official",
     "description_url": "https://catalogs.uky.edu/preview_course_nopop.php?catoid=22&coid=238652",
-    "canonical_ids": "computer-organization",
+    "canonical_ids": "computer-organization; systems-programming",
     "match_status": "proposed",
     "notes": "",
     "plan": "Curriculum (eight semesters), 2026-2027 Undergraduate Catalog",
@@ -42548,6 +42557,15 @@
         "partial_match": true,
         "match_status": "proposed",
         "notes": "Partial: also operating-systems and networks topics."
+      },
+      {
+        "canonical_id": "systems-programming",
+        "match_role": "covers",
+        "match_confidence": "medium",
+        "match_rationale": "Processes, interprocess communication, file systems, and socket programming from a programmer's perspective.",
+        "partial_match": true,
+        "match_status": "proposed",
+        "notes": "Partial: also architecture and machine language (kept as computer-organization, like CMU 15-213). systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -44301,7 +44319,7 @@
     "description": "This course is an introductory course on computer systems. It introduces computer systems from a programmer’s perspective, rather than a system implementer’s perspective, which prepares students for more advanced topics that discuss the internals of a computer system (e.g., operating systems or computer architecture). As a result, the focus of the course is teaching programmable interfaces of a computer system as well as how to use them correctly and effectively when writing a program. The topics mainly include hardware/software interfaces (e.g., data representation in memory) and OS/application interfaces (e.g., syscalls). In discussing these topics, the course gives an overview of a complete computer system, the hardware, operating system, compiler, and network, in order to guide students through various components that modern programs rely on to accomplish their intended purposes.",
     "description_source": "official",
     "description_url": "https://catalogs.buffalo.edu/preview_course_nopop.php?catoid=21&coid=149387",
-    "canonical_ids": "computer-organization",
+    "canonical_ids": "systems-programming",
     "match_status": "proposed",
     "notes": "",
     "plan": "Curricular Plan, 2026-2027 Undergraduate Catalog",
@@ -44318,13 +44336,13 @@
     "subject_area": "cs",
     "matches": [
       {
-        "canonical_id": "computer-organization",
+        "canonical_id": "systems-programming",
         "match_role": "covers",
         "match_confidence": "medium",
-        "match_rationale": "Systems Programming: computer systems from a programmer's perspective.",
-        "partial_match": true,
+        "match_rationale": "Programmable interfaces of a computer system from a programmer's perspective: data representation in memory and OS system calls.",
+        "partial_match": false,
         "match_status": "proposed",
-        "notes": "Partial: systems programming (Kentucky's CS 270 was matched the same way); CSE 341 is UB's computer organization course."
+        "notes": "CSE 341 is UB's computer organization course. Was computer-organization; systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },
@@ -47387,7 +47405,7 @@
     "description": "This course introduces essential concepts of operating systems, compilers, concurrency, and performance analysis, focused around several cross-cutting examples, such as memory management, error handling, and threaded programming. In this course, operating systems concepts are considered from the point of view of the application programmer, and the focus is on APIs for interacting with an operating system. A companion course, CSE 306, considers operating systems from the point of view of the OS kernel implementer.",
     "description_source": "official",
     "description_url": "https://catalog.stonybrook.edu/preview_course_nopop.php?catoid=11&coid=23713",
-    "canonical_ids": "operating-systems",
+    "canonical_ids": "systems-programming",
     "match_status": "proposed",
     "notes": "",
     "plan": "Sample Course Sequence, Fall 2026 Undergraduate Catalog",
@@ -47404,13 +47422,13 @@
     "subject_area": "cs",
     "matches": [
       {
-        "canonical_id": "operating-systems",
+        "canonical_id": "systems-programming",
         "match_role": "covers",
         "match_confidence": "medium",
-        "match_rationale": "Operating systems, compilers, and concurrency from the application programmer's view.",
+        "match_rationale": "Operating system APIs from the application programmer's side: memory management, error handling, threaded programming.",
         "partial_match": true,
         "match_status": "proposed",
-        "notes": "Partial: also systems programming and compilers."
+        "notes": "Partial: also compilers and performance analysis; CSE 306 (OS internals) is not required. Was operating-systems; systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },

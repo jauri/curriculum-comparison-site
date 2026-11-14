@@ -992,7 +992,7 @@
     "description":"A systems programming course in C: memory and process layout, system calls, files, and process management.",
     "description_source":"generic",
     "description_url":"",
-    "canonical_ids":"programming-practicum",
+    "canonical_ids":"systems-programming",
     "match_status":"proposed",
     "notes":"UTK: select one course.",
     "plan":"Academic Map, 2026-2027 Undergraduate Catalog",
@@ -1009,13 +1009,13 @@
     "subject_area":"cs",
     "matches":[
       {
-        "canonical_id":"programming-practicum",
+        "canonical_id":"systems-programming",
         "match_role":"covers",
         "match_confidence":"medium",
-        "match_rationale":"Systems programming in C: memory, system calls, files, processes.",
-        "partial_match":true,
+        "match_rationale":"Systems programming in C: memory and process layout, system calls, files, and process management.",
+        "partial_match":false,
         "match_status":"proposed",
-        "notes":"Partial: overlaps operating-systems (UConn's CSE 3100 was matched to operating-systems; compare)."
+        "notes":"Medium: the description is generic. Was programming-practicum; systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },

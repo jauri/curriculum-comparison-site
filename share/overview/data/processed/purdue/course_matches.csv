@@ -14,7 +14,7 @@ CS 25100,data-structures,covers,high,"Lists, trees, heaps, hash tables, and grap
 CS 25100,algorithms,covers,medium,"Running time analysis, sorting, and graph algorithms.",True,approved,Partial: the algorithms course (CS 38100) is a track course.
 MA 26100 or MA 27101 (Multivariate Calculus),calculus-3,covers,high,Both options are multivariable calculus (MA 27101 is honors).,False,approved,
 Language and Culture II,world-language,covers,medium,Second world language or culture course.,False,approved,
-CS 25200,operating-systems,covers,medium,"Systems programming: processes, threads, address spaces, files, and concurrency.",True,approved,Partial: a systems programming course rather than OS design (as UIC's CS 361).
+CS 25200,systems-programming,covers,high,"Low-level programming: memory layout, processes and threads, system calls, file descriptors, sockets, shell scripts, and Unix tools.",False,proposed,"Was operating-systems (partial, approved); systems-programming canonical course added (user, 2026-11-14)."
 MA 26500 or MA 35100 (Linear Algebra),linear-algebra,covers,high,Both options are linear algebra.,False,approved,
 Technical Writing and Presentation,oral-communication,covers,medium,Technical writing and technical presentation (COM 21700 suggested).,True,approved,Partial: half writing; the slot can't map to the technical-writing course concept without options.
 Language and Culture III,world-language,covers,medium,Third world language or culture course.,False,approved,

@@ -21,7 +21,7 @@ COMM 203 or COMM 205 or ENGL 210 (Public Speaking),oral-communication,one_of,new
 COMM 203 or COMM 205 or ENGL 210 (Public Speaking),technical-writing,one_of,high,Option ENGL 210 is technical and business writing.,False,approved,
 Complementary elective,free-elective,covers,medium,An advisor-approved course outside or alongside the major; closer to a free elective than to a technical elective.,False,approved,
 CSCE 231,computing-ethics,covers,high,"Legal, social, and ethical issues in computing and professional responsibility.",False,approved,
-CSCE 313,operating-systems,covers,medium,"System support for programs: the OS interface, inter-process communication, and system and network programming; partial because it is a systems-programming course rather than OS internals.",True,approved,
+CSCE 313,systems-programming,covers,high,"The OS application interface, inter-process communication, and system and network programming.",False,proposed,"Was operating-systems (partial, approved); systems-programming canonical course added (user, 2026-11-14)."
 CSCE 331,software-engineering,covers,high,Fundamentals of larger-scale software development with development tools and team practices.,False,approved,
 STAT 211,probability-statistics,covers,high,"Probability distributions, inference, hypothesis testing, and regression.",False,approved,
 CSCE 325,artificial-intelligence,covers,high,"Search, reasoning, knowledge representation, and machine learning.",False,approved,

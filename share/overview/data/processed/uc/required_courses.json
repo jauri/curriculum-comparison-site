@@ -1451,8 +1451,8 @@
     "description":"Introduction to concepts of modern operating systems and systems programming. Emphasis is on the concepts, algorithms and architectures of modern operating systems. Students will also learn Unix system programming such as synchronizing, inter-process communication, and networking.",
     "description_source":"official",
     "description_url":"https:\/\/classes.catalyst-services.uc.edu\/psc\/psclass\/EMPLOYEE\/SA\/c\/COMMUNITY_ACCESS.SSS_BROWSE_CATLG.GBL",
-    "canonical_ids":"operating-systems",
-    "match_status":"approved",
+    "canonical_ids":"operating-systems; systems-programming",
+    "match_status":"proposed",
     "notes":"",
     "plan":"Class of 2031 Section I",
     "orig_calendar_year":2030,
@@ -1475,6 +1475,15 @@
         "partial_match":false,
         "match_status":"approved",
         "notes":""
+      },
+      {
+        "canonical_id":"systems-programming",
+        "match_role":"covers",
+        "match_confidence":"medium",
+        "match_rationale":"Unix systems programming (synchronization, IPC) taught alongside OS concepts.",
+        "partial_match":true,
+        "match_status":"proposed",
+        "notes":"Partial: combined with operating systems in one year-4 course. systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },

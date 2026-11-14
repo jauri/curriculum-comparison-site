@@ -207,6 +207,15 @@
     "notes":""
   },
   {
+    "canonical_id":"systems-programming",
+    "name":"Systems Programming",
+    "kind":"course",
+    "description":"Programming against the operating system's interfaces from the application programmer's side, usually in C on Unix: memory layout and management, processes and threads, system calls, file I\/O, inter-process communication (pipes, signals), synchronization, and socket network programming, with tools such as debuggers, make, and the shell.",
+    "typical_credits":"3-4",
+    "first_seen":"University of Illinois Chicago \/ CS 361",
+    "notes":"Split from operating-systems (and from programming-practicum and computer-organization where schools' systems courses had landed): the programmer's-side systems course, distinct from OS internals. UC teaches it inside CS 4029."
+  },
+  {
     "canonical_id":"computer-networks",
     "name":"Computer Networks",
     "kind":"course",

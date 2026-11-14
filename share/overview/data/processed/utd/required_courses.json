@@ -1247,7 +1247,7 @@
     "description":"Basic UNIX concepts, commands, and utilities, organization of UNIX file system including links and access control, creating and managing UNIX processes and threads, implementing algorithms using shell scripts, basic networking concepts including socket and client-server programming, inter-process communication using pipes and signals, using a version control system to manage work, and an overview of cloud computing. Design and implementation of a comprehensive programming project is required.",
     "description_source":"official",
     "description_url":"https:\/\/catalog.utdallas.edu\/2026\/undergraduate\/courses\/cs3377",
-    "canonical_ids":"programming-practicum",
+    "canonical_ids":"systems-programming",
     "match_status":"proposed",
     "notes":"The plan prints 'CS 3337', which has no catalog entry; the degree requirements list CS 3377 instead.",
     "plan":"Four-Year Degree Plan (Example), 2026 Undergraduate Catalog",
@@ -1264,13 +1264,13 @@
     "subject_area":"cs",
     "matches":[
       {
-        "canonical_id":"programming-practicum",
+        "canonical_id":"systems-programming",
         "match_role":"covers",
-        "match_confidence":"medium",
-        "match_rationale":"UNIX tools, shell scripts, processes and threads, sockets, pipes, version control.",
-        "partial_match":true,
+        "match_confidence":"high",
+        "match_rationale":"UNIX processes and threads, the file system, pipes and signals, sockets and client-server programming, shell scripts.",
+        "partial_match":false,
         "match_status":"proposed",
-        "notes":"Partial: systems programming overlaps operating-systems."
+        "notes":"UTD's operating systems course is CS 4348. Was programming-practicum; systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },

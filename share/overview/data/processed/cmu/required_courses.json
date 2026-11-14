@@ -542,8 +542,8 @@
     "description":"This course provides a programmer's view of how computer systems execute programs, store information, and communicate. It enables students to become more effective programmers, especially in dealing with issues of performance, portability and robustness. It also serves as a foundation for courses on compilers, networks, operating systems, and computer architecture, where a deeper understanding of systems-level issues is required.",
     "description_source":"official",
     "description_url":"https:\/\/coursecatalog.web.cmu.edu\/schools-colleges\/schoolofcomputerscience\/courses\/",
-    "canonical_ids":"computer-organization; operating-systems",
-    "match_status":"approved",
+    "canonical_ids":"computer-organization; systems-programming",
+    "match_status":"proposed",
     "notes":"12 CMU units.",
     "plan":"Sample Course Sequence, 2026-2027 Undergraduate Catalog",
     "orig_calendar_year":"",
@@ -568,13 +568,13 @@
         "notes":"Partial: also covers systems topics (as with Northeastern's CS 3650)."
       },
       {
-        "canonical_id":"operating-systems",
+        "canonical_id":"systems-programming",
         "match_role":"covers",
         "match_confidence":"medium",
-        "match_rationale":"Covers processes, virtual memory, system I\/O, and concurrency from the programmer's side, as a foundation for later OS courses.",
+        "match_rationale":"A programmer's view of processes, virtual memory, system I\/O, concurrency, and network programming.",
         "partial_match":true,
-        "match_status":"approved",
-        "notes":"Partial: the operating systems course itself (15-410) is a systems elective."
+        "match_status":"proposed",
+        "notes":"Partial: also machine-level code (computer-organization). Was operating-systems (partial, approved); the OS course itself (15-410) is a systems elective. systems-programming canonical course added (user, 2026-11-14)."
       }
     ]
   },

@@ -63,6 +63,12 @@ project-relative paths. The email address and any credentials are removed by rul
 - Before the page is published, the user reads through it and hides anything not to be
   shared (the user's choice: public only after review). Until then `publish_site.sh`
   leaves the page and its data off the public site unless `PUBLISH_PROCESS=1` is set.
+- **Security check before every publish (user, 2026-11-14).** The user keeps publishing
+  the chat history, with a check first: with `PUBLISH_PROCESS=1`, `publish_site.sh` runs
+  `src/check_process_security.py` on `timeline.json` and stops if it finds credentials
+  (the same patterns `parse_transcripts.py` redacts), long random-looking strings, email
+  addresses, home-folder or macOS temp paths, private network addresses, or private keys.
+  `data/reference/process/` (message excerpts, curation notes) is never published.
 
 ## Layout
 

@@ -7,7 +7,7 @@
   "questions": 166,
   "actions": 2720,
   "cards": 241,
-  "commits": 49,
+  "commits": 53,
   "hidden": 0,
   "first": "Oct 16, 2026",
   "last": "Nov 14, 2026"
@@ -22231,7 +22231,7 @@
   {
    "kind": "claude",
    "id": "c-49724a45-587",
-   "text": "The process page now has a token chart, **\"How many tokens Claude used\"**. It sits under \"What the author's messages did\" and has one bar per plan step. I checked both toggle settings in Chrome on the local server, and the numbers match my earlier hand count.\n\n- **By default** it shows the tokens Claude wrote and the context added. Step 13 (Remaining schools) is the biggest at 2.1M, followed by 21 (this page) and 10 (Ohio State and UIC pilot).\n- **\"Including re-read context\"** adds the cache reads in gray. They're 97% of all tokens (239M), and Step 13 alone is 109M, because each reply re-reads that long conversation.\n- **Hovering a bar** shows that step's reply count and all the parts. A note under the chart gives the project totals.\n\nWhat changed:\n- **Parser:** `src/parse_transcripts.py` totals the token counts per step and writes them to `tokens` in `timeline.json`. I re-collected the logs, so the totals include today's sessions, this one so far.\n- **Page:** a new section in `web/process.html` and a `renderTokens` function in `web/process.js`.\n- **Spec:** a new \"Token usage\" section in `specs/09-process-view.md`.\n\nScreenshot: `/var/folders/z8/nvlzd3jn54b_msbvj4rmlx540000gn/T/claude-chrome-screenshots-cNZdyK/screenshot-1792369369744-0.jpg`\n\nNothing is committed or published yet. This page only goes to the public site with `PUBLISH_PROCESS=1 ./publish_site.sh`. Say \"commit\" and/or \"publish\" when you're happy with it, or tell me what to change.",
+   "text": "The process page now has a token chart, **\"How many tokens Claude used\"**. It sits under \"What the author's messages did\" and has one bar per plan step. I checked both toggle settings in Chrome on the local server, and the numbers match my earlier hand count.\n\n- **By default** it shows the tokens Claude wrote and the context added. Step 13 (Remaining schools) is the biggest at 2.1M, followed by 21 (this page) and 10 (Ohio State and UIC pilot).\n- **\"Including re-read context\"** adds the cache reads in gray. They're 97% of all tokens (239M), and Step 13 alone is 109M, because each reply re-reads that long conversation.\n- **Hovering a bar** shows that step's reply count and all the parts. A note under the chart gives the project totals.\n\nWhat changed:\n- **Parser:** `src/parse_transcripts.py` totals the token counts per step and writes them to `tokens` in `timeline.json`. I re-collected the logs, so the totals include today's sessions, this one so far.\n- **Page:** a new section in `web/process.html` and a `renderTokens` function in `web/process.js`.\n- **Spec:** a new \"Token usage\" section in `specs/09-process-view.md`.\n\nScreenshot: `(temp)\n\nNothing is committed or published yet. This page only goes to the public site with `PUBLISH_PROCESS=1 ./publish_site.sh`. Say \"commit\" and/or \"publish\" when you're happy with it, or tell me what to change.",
    "iso": "2026-10-19T00:23:12.510000+00:00",
    "label": "8:23 PM"
   },
@@ -34606,6 +34606,38 @@
    "text": "Next, publishing. Your saved preference is to republish the site after changes, refreshing the process page first. I'll also check whether any changed page is in a shared copy.",
    "iso": "2026-11-14T17:23:33.945000+00:00",
    "label": "12:23 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-e4db232",
+   "hash": "e4db232",
+   "text": "Batch 4: nine more top public CS programs, with matches and concept tags",
+   "iso": "2026-11-14T12:49:45-05:00",
+   "label": "12:49 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-5eaedd8",
+   "hash": "5eaedd8",
+   "text": "Add the /audit tool: read-only auditor agent, skill, and HTML report builder",
+   "iso": "2026-11-14T13:21:41-05:00",
+   "label": "1:21 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-986a344",
+   "hash": "986a344",
+   "text": "publish_site.sh: never publish data/reference/process/ (session message excerpts)",
+   "iso": "2026-11-14T13:22:21-05:00",
+   "label": "1:22 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-56a47b1",
+   "hash": "56a47b1",
+   "text": "Process timeline: redact credentials by rule and refuse to write if any remain; PROGRESS: audit follow-up",
+   "iso": "2026-11-14T13:23:09-05:00",
+   "label": "1:23 PM"
   }
  ]
 }

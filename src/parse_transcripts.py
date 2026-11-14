@@ -15,7 +15,7 @@ specs/09-process-view.md:
 
 Entries the user chose to hide or annotate are listed in
 data/reference/process/curation.csv. Text is verbatim except for the redactions in
-clean() (home-directory paths and the email address).
+clean() (home-directory paths, the email address, and credentials).
 
 Usage:
     python src/parse_transcripts.py
@@ -61,12 +61,42 @@ def clean(text):
     text = re.sub(r"~/\.claude/projects/[^/\s]+", "~/.claude/projects/(this project)", text)
     # Claude Code's per-session temp folders: /private/tmp/claude-501/... or /tmp/claude-501/...
     text = re.sub(r"(/private)?/tmp/claude-\d+/\S*", "(temp)", text)
+    # macOS per-user temp folders (/var/folders/z8/<random>/T/...), for example where
+    # Chrome screenshots are saved; the random part is tied to the user's account.
+    text = re.sub(r"(/private)?/var/folders/\S*", "(temp)", text)
     # Any email address (local@domain.tld).
     text = re.sub(r"[\w.+-]+@[\w-]+\.[\w.-]+", "(email removed)", text)
+    # API keys, tokens, and passwords (patterns in CREDENTIALS above).
+    text = redact_credentials(text)
     # System notes Claude Code sometimes appends inside a message; not something the
     # user typed. The (?s) flag lets "." match newlines, and *? stops at the first close.
     text = re.sub(r"(?s)<system-reminder>.*?</system-reminder>", "", text)
     return text.strip()
+
+
+# Credential patterns removed by clean(), and checked again in main() before writing.
+# Spec 09 says credentials are removed "by rule", so safety doesn't depend on someone
+# reading every card before a publish (audit, 2026-10-29). Session logs record every
+# typed message and command, so a pasted token would otherwise reach the public page.
+# Each pattern is a well-known token shape; the last one catches assignments such as
+# GH_TOKEN=..., password: ..., or ?api_key=... in a URL; its (?!...) lookahead skips a
+# value an earlier pattern already replaced. (?i) makes a pattern case-insensitive, and
+# \b anchors it at a word boundary.
+CREDENTIALS = [
+    r"\b(?:ghp|gho|ghs|ghu|github_pat)_[A-Za-z0-9_]{20,}",  # GitHub tokens
+    r"\bsk-(?:ant-)?[A-Za-z0-9_-]{20,}",                    # OpenAI / Anthropic API keys
+    r"\bxox[abprs]-[A-Za-z0-9-]{10,}",                      # Slack tokens
+    r"\bAKIA[0-9A-Z]{16}\b",                                # AWS access key ids
+    r"(?i)\bBearer\s+[A-Za-z0-9._~+/-]{16,}=*",              # HTTP Authorization headers
+    r"(?i)\b\w*(?:token|secret|passwd|password|api_?key)\w*\s*[=:]\s*(?!\(credential)[^\s&\"']+",
+]
+
+
+# Replace every credential-shaped substring with a visible marker.
+def redact_credentials(text):
+    for pat in CREDENTIALS:
+        text = re.sub(pat, "(credential removed)", text)
+    return text
 
 
 # Convert a log timestamp ("2026-10-17T04:08:12.345Z", UTC) to an aware datetime.
@@ -654,9 +684,16 @@ def main():
         "first": first.astimezone(TZ).strftime("%b %-d, %Y"),
         "last": max(e["time"] for e in items).astimezone(TZ).strftime("%b %-d, %Y"),
     }
+    payload = {"counts": counts, "activity": activity, "inputs": inputs, "tokens": tokens, "items": out}
+    # Last line of defense: scan the whole serialized output (not just the fields that
+    # went through clean()) and refuse to write if anything credential-shaped is left.
+    serialized = json.dumps(payload, ensure_ascii=False)
+    leaks = [pat for pat in CREDENTIALS if re.search(pat, serialized)]
+    if leaks:
+        raise SystemExit(f"Credential-like text left in the timeline (patterns: {leaks}); not writing.")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     with open(OUT_DIR / "timeline.json", "w", encoding="utf-8") as f:
-        json.dump({"counts": counts, "activity": activity, "inputs": inputs, "tokens": tokens, "items": out}, f, ensure_ascii=False, indent=1)
+        json.dump(payload, f, ensure_ascii=False, indent=1)
     print(json.dumps(counts, indent=1))
 
 

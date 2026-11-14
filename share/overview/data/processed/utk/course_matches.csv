@@ -1,0 +1,36 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+ENGL 101,first-year-composition,covers,high,English Composition I.,False,proposed,
+COSC 103,intro-programming,covers,medium,"First CS course in the map: modular object-oriented programming, strings, vectors, file I/O, pointers, sorting, recursion.",True,proposed,"Partial: assumes COSC 101 or AP credit (UTK footnote), so it also covers intro-programming-2 content."
+COSC 104,intro-programming,covers,high,The laboratory that goes with COSC 103.,False,proposed,
+EF 142 or EF 151 or EF 157 (Introduction to Physics and Modeling for Engineers II),lab-science,covers,medium,Every option is first-semester calculus-based engineering physics.,True,proposed,Partial: the Engineering Fundamentals courses also introduce engineering practice (first-year-engineering).
+MATH 132 or MATH 141 or MATH 147 (Calculus 1B Infused with Precalculus),calculus-1,covers,high,Every option is first-semester calculus.,False,proposed,
+COSC 203,data-structures,covers,high,"Lists, stacks, queues, hash tables, binary search trees, heaps.",False,proposed,
+COSC 204,data-structures,covers,high,The laboratory that goes with COSC 203.,False,proposed,
+COSC 230,computer-organization,covers,high,"Binary arithmetic, datapath, memory hierarchy, instruction set architecture.",True,proposed,Partial: also gate-level logic.
+EF 152 or EF 158 (Physics for Engineers II),lab-science,covers,high,Second-semester engineering physics.,False,proposed,
+MATH 142 or MATH 148 (Calculus II),calculus-2,covers,high,Second-semester calculus.,False,proposed,
+ENGL 102,intermediate-composition,covers,high,English Composition II.,False,proposed,
+MATH 251 or MATH 257 (Linear Algebra I),linear-algebra,covers,high,Linear Algebra I.,False,proposed,
+"Select one: BIOL 101, BIOL 104, BIOL 150, PHYS 231, CHEM 128, CHEM 102, CHEM 122",lab-science,covers,high,"Biology, chemistry, or physics science course.",False,proposed,
+COSC 303 or COSC 308 (Algorithms),algorithms,covers,medium,"Design, analysis, and implementation of data structures and algorithms.",True,proposed,Partial: the catalog text reads like a second data structures course.
+COSC 304,algorithms,covers,high,The laboratory that goes with COSC 303.,False,proposed,
+COSC 311 or COSC 317 (Discrete Structures),discrete-math,covers,high,"Sets, functions, relations, proof techniques.",False,proposed,
+Global Citizenship - United States (GCUS) Elective,gen-ed-elective,covers,high,Volunteer Core elective.,False,proposed,
+Social Sciences Elective,gen-ed-elective,covers,high,Volunteer Core elective.,False,proposed,
+COSC 312,theory-of-computation,covers,medium,"Finite and pushdown automata, regular and context-free languages.",True,proposed,Partial: also counting and combinatorics for algorithm analysis.
+COSC 360 or COSC 367 (Systems Programming),programming-practicum,covers,medium,"Systems programming in C: memory, system calls, files, processes.",True,proposed,Partial: overlaps operating-systems (UConn's CSE 3100 was matched to operating-systems; compare).
+"Select one: ECE 313, ECE 317, STAT 251, MATH 323",probability-statistics,covers,high,Every option is probability and statistics.,False,proposed,
+Computer Science Upper-Division Elective,cs-elective,covers,high,Upper-division COSC or ECE elective.,False,proposed,
+Arts and Humanities (AH) Elective,gen-ed-elective,covers,high,Volunteer Core elective.,False,proposed,
+COSC 340,software-engineering,covers,high,"Software processes for large projects: design, management, maintenance, testing.",False,proposed,
+COSC 366,information-security,covers,high,Broad introduction to cybersecurity.,False,proposed,
+COSC 325 or COSC 361 or COSC 362 (Introduction to Machine Learning),artificial-intelligence,one_of,medium,COSC 325 Introduction to Machine Learning.,False,proposed,
+COSC 325 or COSC 361 or COSC 362 (Introduction to Machine Learning),operating-systems,one_of,high,COSC 361 Operating Systems.,False,proposed,
+COSC 325 or COSC 361 or COSC 362 (Introduction to Machine Learning),computer-networks,one_of,high,COSC 362 Introduction to Computer Networks.,False,proposed,
+Global Citizenship - International (GCI) Elective,gen-ed-elective,covers,high,Volunteer Core elective.,False,proposed,
+COSC 365,programming-languages,covers,high,"Language paradigms, design and implementation.",False,proposed,
+ENGL 355 or ENGL 360 (Rhetoric and Writing),technical-writing,covers,medium,"Rhetoric and Writing, or Technical and Professional Writing.",True,proposed,Partial: ENGL 355 is general rhetoric.
+Expanded Perspectives Elective,gen-ed-elective,covers,high,Volunteer Core elective.,False,proposed,
+Engaged Inquiries (EI) Elective,gen-ed-elective,covers,high,Volunteer Core elective.,False,proposed,
+COSC 401,capstone-design,covers,high,Senior design theory: design process and professional practice.,False,proposed,
+COSC 402,capstone-design,covers,high,Senior design practicum: team project.,False,proposed,

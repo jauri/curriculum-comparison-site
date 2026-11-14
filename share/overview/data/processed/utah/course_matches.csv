@@ -1,0 +1,31 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+CS 1420,intro-programming,covers,high,Accelerated introduction to object-oriented programming (CS 1400 and 1410 in one semester).,True,proposed,Partial: also covers intro-programming-2 content.
+MATH 1210,calculus-1,covers,high,Calculus I.,False,proposed,
+GE - LS (Life Sciences),lab-science,covers,medium,Life sciences general education.,False,proposed,General education science; not necessarily a lab course.
+WR1 - Writing Requirement 1,gen-ed-elective,covers,medium,"First writing requirement (a gen_ed slot, so it cannot match first-year-composition).",False,proposed,"For review: in content this is first-year-composition, a course concept a slot can match only by exception."
+CS 2420,data-structures,covers,high,Classical algorithms and data structures for efficient programs.,True,proposed,Partial: also introductory algorithms.
+MATH 1220,calculus-2,covers,high,Calculus II.,False,proposed,
+WRTG 2010,intermediate-composition,covers,high,Intermediate Writing: Academic Writing and Research.,False,proposed,
+GE - BF (Social/Behavioral Science Expl),gen-ed-elective,covers,high,General education.,False,proposed,
+CS 2100,discrete-math,covers,high,Discrete Structures.,False,proposed,
+MATH 2270,linear-algebra,covers,high,Linear Algebra.,False,proposed,
+CS 3500,software-engineering,covers,medium,"Software Practice: requirements, design, implementation, testing, and maintenance of large systems; software tools.",True,proposed,Partial: also programming-practicum content.
+GE - AI (American Institutions),gen-ed-elective,covers,high,American Institutions general education.,False,proposed,"Utah's state-required American Institutions; UT Austin and UT Dallas match their government courses to american-government (courses, not slots)."
+PS - Physical Sciences,lab-science,covers,medium,Physical sciences general education.,False,proposed,
+CS 3130,probability-statistics,covers,high,Engineering Probability and Statistics.,False,proposed,
+CS 3505,software-development-project,covers,high,Team-based software development with UML and an agile process.,False,proposed,
+CS 3810,computer-organization,covers,high,"Computer architecture: ISAs, CPU organization, pipelining, memory.",False,proposed,
+BD - DV (Diversity),gen-ed-elective,covers,high,Diversity designation.,False,proposed,
+HF - Humanities Exploration,gen-ed-elective,covers,high,Humanities general education.,False,proposed,
+CS 4150 or CS 4400 (Algorithms),algorithms,all_of_group,high,"CS 4150 Algorithms, one of the two required courses in the Year 3 group.",False,proposed,
+CS 4150 or CS 4400 (Algorithms),computer-organization,all_of_group,medium,"CS 4400 Computer Systems: systems from a programmer's view (machine-level programs, memory hierarchy, linking).",True,proposed,Partial: a systems programming course (Kentucky's CS 270 and Buffalo's CSE 220 were matched the same way).
+CS Elective,cs-elective,covers,high,CS elective.,False,proposed,
+GE - FF (Fine Art Exploration),gen-ed-elective,covers,high,Fine arts general education.,False,proposed,
+BD - IR (International Requirement),gen-ed-elective,covers,high,International designation.,False,proposed,
+CS 3100 or CS 3200 (Models of Computation),theory-of-computation,one_of,high,CS 3100 Models of Computation.,False,proposed,
+CS 3100 or CS 3200 (Models of Computation),numerical-methods,one_of,medium,CS 3200 Introduction to Scientific Computing and Data Computing.,False,proposed,
+WRTG 3014 or WRTG 3015 (Writing in the Sciences),technical-writing,covers,high,Both options are upper-division scientific or professional writing.,False,proposed,
+General Elective,free-elective,covers,high,General elective.,False,proposed,
+CS 4000 or CS 4940 (Senior Capstone Project - Design Phase),capstone-design,covers,medium,Capstone design phase (CS 4000) or undergraduate research (CS 4940).,False,proposed,
+Additional Math/Science,math-science-elective,covers,high,Additional math or science course.,False,proposed,
+CS 4500 or CS 4970 (Senior Capstone Project),capstone-design,covers,high,Senior capstone project (CS 4500) or bachelor's thesis (CS 4970).,False,proposed,

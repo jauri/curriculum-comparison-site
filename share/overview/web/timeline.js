@@ -36,7 +36,7 @@ const SHARE_W = 60; // the "share of other schools" bar in each strip's label
 const SHARE_H = 7;
 
 // UC flags (07-timeline-view.md, "UC flags"; the percentile rule is the user's choice).
-// "Most" is at least two thirds, of the other 15 schools (missing) or of the other
+// "Most" is at least two thirds, of the other schools (missing) or of the other
 // schools that require the course (early, late). A "UC only" flag (few others require
 // it) was built and then removed at the user's request: it didn't read clearly.
 // Timing is only judged when at least MIN_TIMING_N other schools require the course:
@@ -44,7 +44,7 @@ const SHARE_H = 7;
 const FLAG_MOST = 2 / 3;
 // "Few" for the uncommon flag (added 2026-11-10 at the user's request, bringing back the
 // idea above with a stricter threshold): UC requires the course and at most 20% of the
-// other schools do (3 of 15). Here a school that has it only as one option of a choice
+// other schools do (e.g. 3 of 15). Here a school that has it only as one option of a choice
 // counts as requiring it, so the flag only fires when the course is rare even counting
 // "possible" schools.
 const FLAG_FEW = 0.2;
@@ -152,7 +152,7 @@ function buildStrips() {
 //     require it. The gap is UC's semester minus the others' median.
 //   uncommon: UC requires it, and at most FLAG_FEW of the others do (counting schools
 //     where it is only one option). It can't meet early / late: those need at least
-//     MIN_TIMING_N others, more than 20% of 15.
+//     MIN_TIMING_N others (more than 20% of the 15 schools it was set with; see the constant).
 // A UC "possible" match is neither missing nor timed: students may never take it.
 function ucFlags(earliest, definite, possible) {
   const n = data.schools.length - 1; // the other schools

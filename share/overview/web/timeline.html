@@ -26,7 +26,7 @@
     .strip-sub { fill: var(--ink-2); font-size: 11px; }
     .strip-sub .uc { fill: var(--accent); font-weight: 600; }
     .strip-sub .uc-none { fill: var(--ink); font-weight: 700; }
-    /* Share bar: how many of the other 15 schools require the course. Neutral ink, so the
+    /* Share bar: how many of the other schools require the course. Neutral ink, so the
        accent color stays UC's alone; "possible" (one option of a choice) is lighter. */
     .share-track { fill: var(--grid); }
     .share-possible { fill: var(--axis); }
@@ -37,7 +37,7 @@
     .strip-sub .pct { fill: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 
     /* Dots. Every school but UC is one neutral color; UC uses the accent color and a
-       ring, so it stands out without giving fifteen schools fifteen hues. Fills are
+       ring, so it stands out without giving every school its own hue. Fills are
        solid (covers), half (partial), or hollow (possible: one option of a choice). */
     .dot { cursor: pointer; outline: none; }
     .dot .mark { fill: var(--muted); stroke: var(--muted); stroke-width: 1.25; }
@@ -92,7 +92,7 @@
     course concepts our reviewed matching assigns every school's courses to. A dot is one
     school's required course or requirement slot, placed in its semester of a 4-year plan
     (UC's 5-year co-op plan is normalized to 8 semesters). Dots in the same semester stack.
-    The small bar under each name shows the share of the other 15 schools that require
+    The small bar under each name shows the share of the other schools that require
     the course (lighter: only as one option of a choice). Schools with no required course matched to the strip sit in the <em>Course not required</em> bin on
     the right. <strong>UC is the blue dot with a ring</strong>; every other school is gray.
     A glyph in the last column flags where UC differs from most of the other

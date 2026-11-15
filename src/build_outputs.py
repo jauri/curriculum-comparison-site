@@ -160,10 +160,13 @@ def main() -> None:
     js.to_json(out_json, orient="records", indent=2, force_ascii=False)
     # The canonical list is shared, so every school's build rewrites the same copy.
     canon.to_json(CANON_JSON, orient="records", indent=2, force_ascii=False)
-    # Only schools whose table exists are listed, so the page never requests a missing file.
+    # Only schools whose table exists are listed, so the page never requests a missing file,
+    # and only those marked displayed in schools.csv (CMU and Pitt are hidden; see
+    # common.displayed_school_ids), so the views never load a hidden school.
     schools = pd.read_csv(SCHOOLS_CSV, keep_default_na=False, dtype=str)
     built = schools["school_id"].map(lambda sid: (CANON_JSON.parent / sid / "required_courses.json").exists())
-    schools[built].to_json(SCHOOLS_JSON, orient="records", indent=2, force_ascii=False)
+    schools[built & (schools["displayed"] == "true")].to_json(SCHOOLS_JSON, orient="records", indent=2,
+                                                              force_ascii=False)
 
     print(f"College confirmed on {rel(college_page)}: {school.college}")
     print(f"Wrote {len(df)} rows to {rel(out_csv)} and {out_json.name}; {len(used)} match lines to {out_matches.name}")

@@ -37,7 +37,7 @@ import re
 
 import pandas as pd
 
-from common import ALL_COURSES_CSV, all_school_ids, concept_scope_rows, load_school, rel, require, split_evidence
+from common import ALL_COURSES_CSV, displayed_school_ids, concept_scope_rows, load_school, rel, require, split_evidence
 from preview_concepts import normalize
 
 NOTE_COLUMNS = ["match_key", "phrase", "reason", "notes"]
@@ -163,7 +163,7 @@ def main() -> None:
     parser.add_argument("--school", help="one school id (default: every school)")
     parser.add_argument("--strict", action="store_true", help="fail while any fragment is left")
     args = parser.parse_args()
-    school_ids = [load_school(args.school).id] if args.school else all_school_ids()
+    school_ids = [load_school(args.school).id] if args.school else displayed_school_ids()
 
     require([(ALL_COURSES_CSV, "build_combined.py")]
             + [(load_school(s).reference / "concept_tags.csv", "the reference file") for s in school_ids])

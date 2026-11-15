@@ -36,7 +36,7 @@ import argparse
 
 import pandas as pd
 
-from common import (ALL_COURSES_CSV, CONCEPTS_CSV, EVIDENCE_SEP, all_school_ids, concept_scope_rows, load_school,
+from common import (ALL_COURSES_CSV, CONCEPTS_CSV, EVIDENCE_SEP, concept_scope_rows, displayed_school_ids, load_school,
                     rel, require, split_evidence)
 # normalize() lowercases and collapses whitespace; shared with the preview so a phrase
 # the preview highlights and a phrase the checker accepts follow the same rule.
@@ -138,7 +138,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--school", help="one school id (default: every school)")
     args = parser.parse_args()
-    school_ids = [load_school(args.school).id] if args.school else all_school_ids()
+    school_ids = [load_school(args.school).id] if args.school else displayed_school_ids()
 
     require([(CONCEPTS_CSV, "the reference file"), (ALL_COURSES_CSV, "build_combined.py")]
             + [(tags_path(s), "the reference file") for s in school_ids])
@@ -157,7 +157,8 @@ def main() -> None:
 
     # "Every concept is used" is about the whole vocabulary, so it needs every school's
     # tags. Rejected tags don't count: a concept whose only tags were rejected is unused.
-    all_paths = [tags_path(s) for s in all_school_ids()]
+    # Displayed schools only: a hidden school's rows are not in the combined table.
+    all_paths = [tags_path(s) for s in displayed_school_ids()]
     if all(p.exists() for p in all_paths):
         every = pd.concat([pd.read_csv(p, dtype=str, keep_default_na=False) for p in all_paths])
         used = set(every.loc[every["tag_status"] != "rejected", "concept_id"])

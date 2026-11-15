@@ -18,6 +18,13 @@
   the one housed in the engineering college. Where a school has only one CS BS, include it
   whatever college it is in, and record the college in the table.
 - Use the same catalog year as UC (2026–27) where available.
+- **Start from no programming experience** (added 2026-11-14): the views show the plan
+  for a student entering with no prior programming, who starts from an intro course. A
+  school whose only plan assumes an intro programming course before the first semester
+  is kept in the data but hidden from the views (`displayed = false` in schools.csv).
+  Hidden so far: CMU (assumes 15-112) and Pitt (assumes intro programming before CMPINF
+  0401). Where a school offers several plans, use the one for no prior experience (USC:
+  "Begin with CSCI 102").
 
 ## Initial set (15)
 

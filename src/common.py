@@ -172,6 +172,19 @@ def all_school_ids() -> list[str]:
     return pd.read_csv(SCHOOLS_CSV, dtype=str, keep_default_na=False)["school_id"].tolist()
 
 
+# The school ids the web views show, in registry order: those whose `displayed` column
+# in schools.csv is "true". Added 2026-11-14 when the user hid CMU and Pitt, whose plans
+# assume an intro programming course before the first semester, so the views show one
+# consistent experience: a student who starts with no programming experience. A hidden
+# school keeps all its files and still passes the per-school checks; only the steps
+# that write the views' shared data (schools.json, the combined course table, the
+# concept table) skip it. Set the column back to "true" and rebuild to show it again.
+def displayed_school_ids() -> list[str]:
+    """Return the school ids marked displayed in schools.csv."""
+    schools = pd.read_csv(SCHOOLS_CSV, dtype=str, keep_default_na=False)
+    return schools.loc[schools["displayed"] == "true", "school_id"].tolist()
+
+
 # Parse the command line of a shared step: `--school <id>` (required) plus whatever
 # extra arguments the caller adds through `extra`, a function that receives the parser.
 # Returns the School and the parsed arguments.

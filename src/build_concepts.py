@@ -30,7 +30,7 @@ import json
 
 import pandas as pd
 
-from common import (ALL_COURSES_CSV, CONCEPTS_CSV, ROOT, all_school_ids, concept_scope_rows, load_school, rel,
+from common import (ALL_COURSES_CSV, CONCEPTS_CSV, ROOT, displayed_school_ids, concept_scope_rows, load_school, rel,
                     split_evidence)
 
 PROCESSED = ROOT / "data" / "processed"
@@ -50,7 +50,7 @@ COLUMNS = [
 # Schools without a tag file are skipped (with a message), so a partial build still runs.
 def load_all_tags() -> pd.DataFrame:
     frames = []
-    for sid in all_school_ids():
+    for sid in displayed_school_ids():  # hidden schools (schools.csv `displayed`) are left out
         path = load_school(sid).reference / "concept_tags.csv"
         if not path.exists():
             print(f"Skipping {sid}: {rel(path)} not found.")

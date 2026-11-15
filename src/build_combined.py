@@ -25,7 +25,7 @@ import json
 
 import pandas as pd
 
-from common import ROOT, all_school_ids, rel
+from common import ROOT, displayed_school_ids, rel
 
 PROCESSED = ROOT / "data" / "processed"
 OUT_CSV = PROCESSED / "all_required_courses.csv"
@@ -35,7 +35,8 @@ OUT_JSON = PROCESSED / "all_required_courses.json"
 # Script entry point: read each built school's table, stack them, write both files.
 def main() -> None:
     frames, records, counts = [], [], {}
-    for sid in all_school_ids():  # registry order: UC first, then the comparison set
+    # Registry order (UC first, then the comparison set), skipping hidden schools.
+    for sid in displayed_school_ids():
         csv_path = PROCESSED / sid / "required_courses.csv"
         json_path = PROCESSED / sid / "required_courses.json"
         if not csv_path.exists():

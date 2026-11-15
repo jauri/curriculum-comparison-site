@@ -12,6 +12,7 @@
     "credits_source":"*_cs-bs-majormap-class2031-sec1.html",
     "college_source":"*_cs-bs-program-detail.html",
     "group":"home",
+    "displayed":"true",
     "notes":"5-year co-op program; catalog year 2026-27 = Class of 2031, Section I (specs\/02-data.md)."
   },
   {
@@ -27,6 +28,7 @@
     "credits_source":"*_bs-cse-curriculum-sheet-2025-07.docx",
     "college_source":"*_bs-cse-program-page.html",
     "group":"Ohio public",
+    "displayed":"true",
     "notes":"No 2026-27 plan published; uses the CSE department's July 2025 curriculum sheet (effective AU24, Individualized specialization), chosen by the user. Stated total is a minimum of 126."
   },
   {
@@ -42,6 +44,7 @@
     "credits_source":"*_bs-cs-catalog.html",
     "college_source":"*_bs-cs-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2027 Undergraduate Catalog (CourseLeaf). Replaced UIUC as the step 10 pilot at the user's request."
   },
   {
@@ -57,6 +60,7 @@
     "credits_source":"*_bscompsci-cs-option-catalog.html",
     "college_source":"*_bscompsci-cs-option-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2028 Undergraduate Catalog (CourseLeaf), Computer Science Option (not the Honors or Turing Scholars options). Added in step 13."
   },
   {
@@ -72,6 +76,7 @@
     "credits_source":"*_bs-cs-catalog.html",
     "college_source":"*_bs-cs-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2027 Undergraduate Catalog (CourseLeaf). The plan is two grids: the common engineering first year and the CS years 2-4. Replaced Maryland in step 13."
   },
   {
@@ -87,6 +92,7 @@
     "credits_source":"*_bscs-catalog-2025-26.html",
     "college_source":"*_bscs-catalog-2025-26.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"Co-op school (exception to the no-co-op-peer rule, made by the user). The 2026-27 catalog has no plan of study, so the archived 2025-26 'Four Years, Two Co-ops in Spring\/Summer First Half' sample is used; 2026-27 requires 133 hours. Added in step 13."
   },
   {
@@ -102,6 +108,7 @@
     "credits_source":"*_eecs-major-program.html",
     "college_source":"courses\/*_ELENG66.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"Berkeley Engineering Undergraduate Guide, 2026-27 freshman program. EECS BS chosen over the L&S CS BA by the engineering rule. Saved through Chrome (the site returns 403 to scripts). Credits 104-114 are what the program rows sum to; the page states a 120-unit minimum, reached with free electives the plan does not place (decided with the user). Added in step 13. The program page names the college only as Berkeley Engineering, so the college is checked on the ELENG 66 catalog page (owner: COE - College of Engineering), the EECS department's own course."
   },
   {
@@ -117,6 +124,7 @@
     "credits_source":"*_bs-cs-catalog.html",
     "college_source":"*_bs-cs-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2027 Course Catalog (CourseLeaf), eight-semester Sample Sequence. Added in step 13."
   },
   {
@@ -132,6 +140,7 @@
     "credits_source":"*_bs-cs-guide.html",
     "college_source":"*_bs-cs-guide.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2027 Guide (CourseLeaf), Four-Year Plan. The only CS degrees are the L&S BA and BS; the BS is used. Credits 120-123: the plan states 120 (its term sums use the low end), and three CS slots are 3-4 credits. Added in step 13."
   },
   {
@@ -147,6 +156,7 @@
     "credits_source":"*_cs-four-year-plan.html",
     "college_source":"*_cs-bs-program.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"CSE Computer Science Four-Year Plan (revised 03\/2026) with the Coursedog catalog program page (last updated Fall 2026). Most plan rows are '3 or 4' credits and open electives are 'if needed to reach 120 credits', so the rows sum to 110-129; the catalog's degree minimum of 120 is checked by the parser. Added in step 13."
   },
   {
@@ -162,22 +172,8 @@
     "credits_source":"*_cs-eng-sample-schedule-fa26.pdf",
     "college_source":"*_eecs.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"College of Engineering Bulletin, FA26 CS-Eng Sample Schedule (students entering Fall 2026). The BSE in Engineering is used over the LSA BS by the engineering rule. Bulletin pages saved through Chrome (the site returns 403 to scripts). MATH, PHYS, CHEM, and STATS descriptions are in a login-only LSA course guide, so they are generic. Added in step 13."
-  },
-  {
-    "school_id":"cmu",
-    "short_name":"CMU",
-    "institution":"Carnegie Mellon University",
-    "program":"Computer Science BS",
-    "college":"School of Computer Science",
-    "in_engineering_college":"false",
-    "catalog_year":"2026-27",
-    "credits_min":"121",
-    "credits_max":"121",
-    "credits_source":"*_bs-cs-catalog.html",
-    "college_source":"*_bs-cs-catalog.html",
-    "group":"Aspirational",
-    "notes":"2026-2027 Undergraduate Catalog (CourseLeaf), Sample Course Sequence for students entering Fall 2026. CMU's only CS BS, in the School of Computer Science. CMU counts units: credits are units \/ 3 (decided with the user), units kept in row notes. The sample assumes credit for 15-112 and 21-120; both are added to semester 1 with counts_toward_total = false. Credits 121 = the sample's 363 counted units (360-unit minimum; the optional 07-131 is not counted). Added in step 13 batch 3."
   },
   {
     "school_id":"gatech",
@@ -192,6 +188,7 @@
     "credits_source":"*_8-semester-plan-25-26.xlsx",
     "college_source":"*_bs-cs-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"College of Computing 'General 8 Semester Plan, No Threads', AY 2025-26 (Excel credit sheet on Dropbox); the 2026-27 sheets are restricted, so the prior year is used (decided with the user). The 2026-27 catalog page verifies the college and the total (124 hours plus a 2-hour Wellness course = 126), and its course pages give titles and descriptions. Thread courses are slots. Added in step 13 batch 3."
   },
   {
@@ -207,6 +204,7 @@
     "credits_source":"*_bs-cs-catalog.html",
     "college_source":"*_bs-cs-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2027 Academic Catalog (CourseLeaf), Roadmap plan of study. Saved through Chrome: the catalog answers scripts with an AWS bot challenge. Added in step 13 batch 3."
   },
   {
@@ -222,6 +220,7 @@
     "credits_source":"*_bs-cs-bulletin.html",
     "college_source":"*_bs-cs-bulletin.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2027 Undergraduate Bulletin (CourseLeaf), University Park suggested academic plan (one of several campus plans on the page). Credits 127-130 as the plan states; some rows are 1.5 credits. Added in step 13 batch 3."
   },
   {
@@ -237,6 +236,7 @@
     "credits_source":"*_dept-cs-catalog.html",
     "college_source":"*_dept-cs-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2027 University Catalog (Acalog), saved through Chrome (the catalog answers scripts with an AWS bot challenge). The CS BS has nine tracks with one plan each; the Software Engineering plan is used (it agrees most with the others) and the parser checks that all nine name the same courses. Track courses are slots. Credits 120-137 are the row sums; the catalog's 120-credit minimum is inside (Minnesota's precedent). Purdue's 2026 progression guide needs a Purdue login. Added in step 13 batch 3."
   },
   {
@@ -252,6 +252,7 @@
     "credits_source":"*_bs-cs-catalog.html",
     "college_source":"*_bs-cs-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"Undergraduate Catalog (CourseLeaf), Recommended Four-Year Plan of Study. The BS is in Engineering (the BA is in Arts & Sciences). Added in batch 4."
   },
   {
@@ -267,6 +268,7 @@
     "credits_source":"*_bs-cs-program.html",
     "college_source":"*_bs-cs-program.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026 Undergraduate Catalog, Four-Year Degree Plan (Example). Added in batch 4."
   },
   {
@@ -282,6 +284,7 @@
     "credits_source":"*_cs-common-map-26-27.pdf",
     "college_source":"*_bs-cs-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"College of Engineering 2026-2027 CS (BS) common map (Storrs) with the 2026-2027 catalog program page. Catalog pages saved through Chrome (the site answers scripts with a bot challenge). Added in batch 4."
   },
   {
@@ -297,6 +300,7 @@
     "credits_source":"*_bs-cs-catalog.html",
     "college_source":"*_bs-cs-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2027 Undergraduate Catalog (Acalog), Academic Map. Credits 121-123 as the map states (the Term 1 math and Term 3 science choices span 1 credit each). Saved through Chrome (the catalog answers scripts with a bot challenge). Added in batch 4."
   },
   {
@@ -312,6 +316,7 @@
     "credits_source":"*_bs-cs-catalog.html",
     "college_source":"*_college-programs.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2027 Undergraduate Catalog (Acalog), eight-semester Curriculum. Saved through Chrome (bot challenge). The program page does not name its college; the college's catalog page, which lists the program, is the college source. Added in batch 4."
   },
   {
@@ -327,6 +332,7 @@
     "credits_source":"*_bs-cs-catalog.html",
     "college_source":"*_bs-cs-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2027 Undergraduate Catalog (Acalog), Curricular Plan. Credits 120-122 are the row sums (the capstone and the probability\/statistics course are 3-4 credits each); the plan requires 120. Saved through Chrome (bot challenge). Added in batch 4."
   },
   {
@@ -342,6 +348,7 @@
     "credits_source":"*_bs-cs-catalog.html",
     "college_source":"*_bs-cs-catalog.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"Fall 2026 Undergraduate Catalog (Acalog), Sample Course Sequence (Fall 2026 chosen over Spring 2027 with the user). Saved through Chrome (bot challenge). Added in batch 4."
   },
   {
@@ -357,6 +364,7 @@
     "credits_source":"*_bs-cs-record.html",
     "college_source":"*_bs-cs-record.html",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"The 2026-27 Undergraduate Record lists requirements only, so the CS advising site's 'Example BSCS Semester Outline - 2024-2025' is the plan (decided with the user); the 2026-27 Record verifies the college and 126 credits, and the current checklist is compared with the outline. The BS is in Engineering (the BA is the College of Arts & Sciences' interdisciplinary major). Record pages saved through Chrome (bot challenge). Added in batch 4."
   },
   {
@@ -372,6 +380,71 @@
     "credits_source":"*_cs-bs-programs-api.json",
     "college_source":"*_cs-bs-programs-api.json",
     "group":"Aspirational",
+    "displayed":"true",
     "notes":"2026-2027 General Catalog (Coursedog), 'Computer Science Sample 4 Year Plan' (the plain CS plan, not an emphasis plan). The college is the John and Marcia Price College of Engineering, written 'EN - J & M Price College of Eng.' in the catalog data (Kahlert School of Computing). Saved through Chrome (page and API return 403 to scripts). Switched from the 2024-25 handbook plan once the 2026-27 plan was found (user). Added in batch 4."
+  },
+  {
+    "school_id":"vanderbilt",
+    "short_name":"Vanderbilt",
+    "institution":"Vanderbilt University",
+    "program":"Computer Science BS",
+    "college":"School of Engineering",
+    "in_engineering_college":"true",
+    "catalog_year":"2025-26",
+    "credits_min":"120",
+    "credits_max":"120",
+    "credits_source":"*_cs-roadmap-2025-26.pdf",
+    "college_source":"*_cs-major-program.json",
+    "group":"Aspirational",
+    "displayed":"true",
+    "notes":"Four-Year Roadmap and Checklist, 2025-26 (School of Engineering); no 2026-27 roadmap is posted. The 2026-27 catalog (Kuali) program record verifies the college, and its course records give descriptions. Added in batch 5."
+  },
+  {
+    "school_id":"usc",
+    "short_name":"USC",
+    "institution":"University of Southern California",
+    "program":"Computer Science BS",
+    "college":"Viterbi School of Engineering",
+    "in_engineering_college":"true",
+    "catalog_year":"2026-27",
+    "credits_min":"128",
+    "credits_max":"128",
+    "credits_source":"*_bs-cs-catalogue.html",
+    "college_source":"*_bs-cs-catalogue.html",
+    "group":"Aspirational",
+    "displayed":"true",
+    "notes":"Viterbi 2026 guide, four-year plan 'Begin with CSCI 102' (for students without AP credit; user), transcribed from the guide's image grid; the 2026-2027 USC Catalogue (Acalog) gives the college, the 128-unit minimum, and descriptions. Catalogue saved through Chrome (bot challenge). Added in batch 5."
+  },
+  {
+    "school_id":"nyu",
+    "short_name":"NYU",
+    "institution":"New York University",
+    "program":"Computer Science BS",
+    "college":"Tandon School of Engineering",
+    "in_engineering_college":"true",
+    "catalog_year":"2026-27",
+    "credits_min":"128",
+    "credits_max":"128",
+    "credits_source":"*_bs-cs-bulletin.html",
+    "college_source":"*_bs-cs-bulletin.html",
+    "group":"Aspirational",
+    "displayed":"true",
+    "notes":"NYU Bulletins (CourseLeaf), Tandon Computer Science (BS) Sample Plan of Study, eight semesters. Plan starts with CS-UY 1114, for students with limited prior programming. Added in batch 5."
+  },
+  {
+    "school_id":"case",
+    "short_name":"Case Western",
+    "institution":"Case Western Reserve University",
+    "program":"Computer Science BS",
+    "college":"Case School of Engineering",
+    "in_engineering_college":"true",
+    "catalog_year":"2026-27",
+    "credits_min":"122",
+    "credits_max":"122",
+    "credits_source":"*_bs-cs-bulletin.html",
+    "college_source":"*_bs-cs-bulletin.html",
+    "group":"Aspirational",
+    "displayed":"true",
+    "notes":"2026-2027 CWRU General Bulletin (CourseLeaf), Sample Plan of Study. The BS is in the Case School of Engineering (Department of Computer and Data Sciences). Added in batch 5."
   }
 ]

@@ -1,0 +1,21 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+CS-UY 1114,intro-programming,covers,high,"First programming course in Python, for majors with limited prior experience.",False,proposed,
+EG-UY 1004,first-year-engineering,covers,high,"Tandon's first-year engineering course: design process, experimentation, data analysis, and a semester-long team design project.",False,proposed,
+EXPOS-UA 1,first-year-composition,covers,high,First-year writing seminar required of incoming students.,False,proposed,
+MA-UY 1024,calculus-1,covers,high,"Calculus I for engineers: limits, derivatives, and integrals of functions of one variable.",False,proposed,
+CS-UY 1134,data-structures,covers,high,"Abstract data types, standard data structures, fundamental algorithms, and basic algorithm analysis.",False,proposed,
+CS-UY 1122,cs-orientation,covers,medium,"2-credit breadth-first survey for CS majors: hardware, virtual machines, software, applications, and social issues; not a programming course.",True,proposed,"Broader than an orientation seminar (it surveys CS subfields rather than the major's requirements and careers), so partial."
+MA-UY 1124,calculus-2,covers,high,"Techniques of integration, introduction to differential equations, improper integrals, and series.",False,proposed,
+EXPOS-UA 22,intermediate-composition,covers,high,"Second writing seminar building on Writing as Inquiry; research, proposals, presentations. The catalog says it is not a technical writing course.",False,proposed,
+Science elective,lab-science,covers,high,"Three natural science courses (chemistry, biology, or calculus-based physics) from an approved list.",False,proposed,
+CS-UY 2124,intro-programming-2,covers,high,"Intermediate object-oriented programming in C++: classes, inheritance, polymorphism, templates, dynamic memory, recursion.",False,proposed,
+MA-UY 2314,discrete-math,covers,high,"Logic, proofs, sets, functions, relations, recurrences, graphs.",False,proposed,
+Humanities and social sciences elective,gen-ed-elective,covers,high,Humanities and social sciences (HUSS) general education electives.,False,proposed,
+CS-UY 2214,computer-organization,covers,high,"Computer architecture, assembly language, and computer organization.",False,proposed,
+CS-UY 2413,algorithms,covers,high,"Asymptotic notation, recurrences, sorting, graph algorithms, greedy algorithms, dynamic programming, NP-completeness.",False,proposed,
+MA-UY 2224,probability-statistics,covers,high,Introductory probability and statistics for engineers.,False,proposed,
+CS-UY 3224,operating-systems,covers,high,Fundamental concepts and principles of operating systems.,False,proposed,
+Computer science elective,cs-elective,covers,high,CS elective slot.,False,proposed,
+Free elective,free-elective,covers,high,Free elective slot.,False,proposed,
+CS-UY 4513,software-engineering,covers,high,"Techniques to specify, design, test, and document medium and large software systems.",False,proposed,
+CS-UY 4523,capstone-design,covers,medium,"Supervised design project course (individual or team) applying the design and project-management skills of CS-UY 4513, with a written report and oral presentation.",False,proposed,Projects may be individual; capstone-design usually means team projects.

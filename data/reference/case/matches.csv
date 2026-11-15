@@ -1,0 +1,20 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+CSDS 132,intro-programming,covers,high,"First course in the plan; no prerequisite. Programming and algorithmic problem solving in Java.",false,proposed,"It goes further than most CS1 courses (object-oriented design, generics, linked lists, unit testing, threads), so it may also cover part of intro-programming-2."
+MATH 121,calculus-1,covers,high,"Calculus I for science and engineering: limits, derivatives, definite integrals, fundamental theorem of calculus.",false,proposed,
+General education breadth or elective,gen-ed-elective,covers,high,Unified General Education Requirement slot (inquiry seminars and breadth courses) or an elective.,false,proposed,
+Open elective,free-elective,covers,high,Open (free) elective slot.,false,proposed,
+CSDS 233,data-structures,covers,high,"Lists, stacks, queues, trees, graphs, hashing, searching and sorting, abstract data types, asymptotic analysis.",false,proposed,
+Calculus for Science and Engineering II or Calculus II,calculus-2,covers,high,Both options (MATH 122 and MATH 124) are Calculus II.,false,proposed,
+PHYS 121,lab-science,covers,high,Required calculus-based mechanics with lab; a named science fills the science requirement.,false,proposed,Course row mapped to a slot concept (allowed for lab-science only; decided in step 10).
+CSDS 281,digital-logic,covers,high,"Boolean algebra, combinational and sequential circuit analysis and synthesis.",false,proposed,
+CSDS 281,computer-organization,covers,high,"Computer organization, datapaths, instruction sets and assembly language, memory, I/O.",false,proposed,One course covering both digital logic and computer organization.
+CSDS 302,discrete-math,covers,high,"Logic, proofs, induction, sets, functions and relations, graphs, combinatorial reasoning.",false,proposed,
+Calculus for Science and Engineering III or Calculus III,calculus-3,covers,high,Both options (MATH 223 and MATH 227) are Calculus III.,false,proposed,
+PHYS 122,lab-science,covers,high,Required calculus-based electricity and magnetism.,false,proposed,Course row mapped to a slot concept (allowed for lab-science only).
+Introduction to Linear Algebra for Applications or Linear Algebra,linear-algebra,covers,high,Both options (MATH 201 and MATH 307) are linear algebra.,false,proposed,
+Computer science breadth course,cs-elective,covers,medium,"Eight CS electives restricted to four breadth areas (two each), so more structured than an open CS elective.",false,proposed,"The areas include databases, software engineering, networks, operating systems, theory, AI, and ML; none is required on its own."
+Statistics elective,probability-statistics,covers,high,"All seven options (MATH 380, OPRE 207, STAT 302/312/313/332/333) are probability or statistics courses.",false,proposed,
+Technical elective,technical-elective,covers,high,Technical elective slot: any CSDS course or an approved related course.,false,proposed,
+CSDS 310,algorithms,covers,high,"Algorithm analysis, divide-and-conquer, dynamic programming, greedy algorithms, graph algorithms.",false,proposed,
+ENGR 399,computing-ethics,covers,medium,Engineering ethics and professional responsibility for the societal impacts of technical work.,true,proposed,"About engineering in general, not computing (no privacy, intellectual property, or security), so partial."
+CSDS 395,capstone-design,covers,high,"Senior capstone: software systems development with project management, engineering design, and a final presentation and report.",false,proposed,

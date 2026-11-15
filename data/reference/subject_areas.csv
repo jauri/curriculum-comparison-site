@@ -92,3 +92,8 @@ slot,,world-language,gened,UIUC's and Wisconsin's language requirement
 slot,,capstone-design,cs,Michigan's Approved CS Capstone course slot
 slot,,first-year-seminar,gened,Penn State's First-Year Seminar slot
 slot,,coop-work-term,eng,"Co-op terms (UC, Northeastern); they have no semester, so the views do not draw them. Before step 14 the views fell back to cs for them"
+subject,,CS-UY,cs,NYU Tandon's computer science
+subject,,MA-UY,math,NYU Tandon's mathematics
+subject,,EG-UY,eng,NYU Tandon's general engineering
+subject,,EXPOS-UA,writing,NYU's Expository Writing Program
+subject,,CSDS,cs,Case Western's Computer and Data Sciences

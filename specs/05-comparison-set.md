@@ -100,6 +100,11 @@ else (track or thread requirements) as `elective_slot` rows that describe the ch
   School of Engineering), USC (BS, Viterbi), NYU (Tandon BS, chosen over the CAS BA by the
   engineering rule), Vanderbilt (BS, School of Engineering; 2025-26 roadmap, no 2026-27
   version posted), and Pitt (BS, School of Computing and Information).
+  Later the same day: **UNC's 2026-27 catalog plan lists courses by year only** (no
+  fall/spring split; no semester version found on the department site), so the user
+  dropped UNC by the same rule. Batch 5 is five schools; NYU and Case Western were built
+  from their 2026-27 bulletins, and both plans start from an intro course with no
+  prerequisite (displayed).
 
 ## Open questions
 

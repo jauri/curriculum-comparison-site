@@ -414,5 +414,37 @@
     "group":"Aspirational",
     "displayed":"true",
     "notes":"Viterbi 2026 guide, four-year plan 'Begin with CSCI 102' (for students without AP credit; user), transcribed from the guide's image grid; the 2026-2027 USC Catalogue (Acalog) gives the college, the 128-unit minimum, and descriptions. Catalogue saved through Chrome (bot challenge). Added in batch 5."
+  },
+  {
+    "school_id":"nyu",
+    "short_name":"NYU",
+    "institution":"New York University",
+    "program":"Computer Science BS",
+    "college":"Tandon School of Engineering",
+    "in_engineering_college":"true",
+    "catalog_year":"2026-27",
+    "credits_min":"128",
+    "credits_max":"128",
+    "credits_source":"*_bs-cs-bulletin.html",
+    "college_source":"*_bs-cs-bulletin.html",
+    "group":"Aspirational",
+    "displayed":"true",
+    "notes":"NYU Bulletins (CourseLeaf), Tandon Computer Science (BS) Sample Plan of Study, eight semesters. Plan starts with CS-UY 1114, for students with limited prior programming. Added in batch 5."
+  },
+  {
+    "school_id":"case",
+    "short_name":"Case Western",
+    "institution":"Case Western Reserve University",
+    "program":"Computer Science BS",
+    "college":"Case School of Engineering",
+    "in_engineering_college":"true",
+    "catalog_year":"2026-27",
+    "credits_min":"122",
+    "credits_max":"122",
+    "credits_source":"*_bs-cs-bulletin.html",
+    "college_source":"*_bs-cs-bulletin.html",
+    "group":"Aspirational",
+    "displayed":"true",
+    "notes":"2026-2027 CWRU General Bulletin (CourseLeaf), Sample Plan of Study. The BS is in the Case School of Engineering (Department of Computer and Data Sciences). Added in batch 5."
   }
 ]

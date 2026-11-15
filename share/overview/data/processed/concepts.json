@@ -504,15 +504,6 @@
   "notes": ""
  },
  {
-  "concept_id": "parallel-algorithms",
-  "name": "Parallel algorithms",
-  "group": "Algorithms",
-  "definition": "Designing and analyzing algorithms whose steps can run at the same time.",
-  "synonyms": "parallel algorithms",
-  "first_seen": "Carnegie Mellon University / 15-210",
-  "notes": ""
- },
- {
   "concept_id": "approximation-algorithms",
   "name": "Approximation and intractability",
   "group": "Algorithms",
@@ -663,15 +654,6 @@
   "definition": "Integers, divisibility, and arithmetic modulo n.",
   "synonyms": "modular arithmetic; GCDs; primality testing",
   "first_seen": "University of California, Berkeley / COMPSCI 70",
-  "notes": ""
- },
- {
-  "concept_id": "game-theory",
-  "name": "Game theory",
-  "group": "Mathematical foundations",
-  "definition": "Mathematical models of strategic decisions among competing players.",
-  "synonyms": "game theory",
-  "first_seen": "Carnegie Mellon University / 15-251",
   "notes": ""
  },
  {

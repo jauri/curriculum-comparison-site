@@ -136,7 +136,8 @@ def fetch(raw_dir: Path, slug: str, url: str, description: str, today: str, ext:
 # program page showed for it, e.g. "COSC 202 - Data Structures". The course code is the
 # subject and number at the start of that text ("COSC 202", "CSE 114", "APMA 1110"),
 # found with a regex because Acalog separates code and title with a non-breaking space.
-ACALOG_CODE = r"^([A-Z]{2,4})\s+(\d{3,4}[A-Z]?)"
+# Subjects run to six letters for Pitt (batch 5: "CMPINF 0401", "ENGCMP 0200").
+ACALOG_CODE = r"^([A-Z]{2,6})\s+(\d{3,4}[A-Z]?)"
 
 
 # Return a function for import_bundle(): program page -> program_name, course entry ->

@@ -1,0 +1,33 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+WRIT 150,first-year-composition,covers,high,Writing and Critical Reasoning.,false,proposed,
+MATH 125,calculus-1,covers,high,Calculus I.,false,proposed,
+CSCI 102,intro-programming,covers,medium,"Introduction to Programming (2 units): algorithmic thinking as a primer to programming, introduction to C++.",true,proposed,Partial: a 2-unit primer; CSCI 103 completes the first programming course.
+GE C: Social Analysis,gen-ed-elective,covers,high,General education slot.,false,proposed,
+ENGR 102,first-year-engineering,covers,medium,"Viterbi First-Year Academy: the engineering profession, its societal impact, team projects.",true,proposed,Partial: a 2-unit introduction to the profession with team projects; no design sequence.
+CSCI 103,intro-programming,covers,high,"Object Oriented Programming: datatypes, control statements, functions, arrays, recursion, dynamic memory, files in C/C++.",false,proposed,"Despite the title, a first full programming course (with CSCI 102)."
+CSCI 170,discrete-math,covers,high,"Discrete Methods: logic, proofs, sets, functions, Big-O, recursion, graphs.",false,proposed,
+MATH 129 or MATH 126 (Calculus II for Engineers and Scientists),calculus-2,covers,high,Both options are Calculus II.,false,proposed,
+GESM: General Education Seminar (GE B),gen-ed-elective,covers,high,General education seminar slot.,false,proposed,
+EE 109,digital-logic,covers,medium,"Introduction to Embedded Systems: information representation, embedded programming, I/O, logic and state-machine design.",true,proposed,Partial: also embedded programming and computer-organization topics.
+CSCI 104,data-structures,covers,high,"Data Structures: linked lists, balanced search trees, heaps, hash tables.",false,proposed,
+MATH 229 or MATH 226 (Calculus III for Engineers and Scientists),calculus-3,covers,high,Both options are Calculus III.,false,proposed,
+CSCI 270,algorithms,covers,high,"Introduction to Algorithms and Theory of Computing: greedy, divide and conquer, dynamic programming, graphs, NP-completeness.",true,proposed,Partial: also undecidability (theory-of-computation).
+CSCI 201,intro-programming-2,covers,medium,"Principles of Software Development: object-oriented programming in Java, threads, web services, SQL, team project.",true,proposed,Partial: also software-development-project content (team client/server project).
+MATH 225 or MATH 235 (Linear Algebra and Linear Differential Equations),linear-algebra,covers,high,Both options are linear algebra.,false,proposed,
+Life Sciences (GE D),lab-science,covers,high,Every option is general biology with laboratory.,false,proposed,
+GE A: The Arts,gen-ed-elective,covers,high,General education slot.,false,proposed,
+Technical Elective I,cs-elective,covers,high,300/400-level CSCI elective slot.,false,proposed,
+CSCI 310 or 353 or 356 or 360,software-engineering,all_of_group,high,"CSCI 310 Software Engineering, one of the four required courses in the group.",false,proposed,
+CSCI 310 or 353 or 356 or 360,computer-networks,all_of_group,high,CSCI 353 Internetworking.,false,proposed,
+CSCI 310 or 353 or 356 or 360,systems-programming,all_of_group,medium,"CSCI 356 Computer Systems: program execution, memory, exceptions, C and assembly.",false,proposed,"Could also be computer-organization (it names computer organization first); a CS:APP-style course like CMU 15-213."
+CSCI 310 or 353 or 356 or 360,artificial-intelligence,all_of_group,high,CSCI 360 Artificial Intelligence.,false,proposed,
+Physical Sciences (GE E),lab-science,covers,high,Every option is general chemistry or introductory physics with laboratory.,false,proposed,
+EE 364,probability-statistics,covers,high,Probability and Statistics for Engineers and Computer Scientists.,false,proposed,
+GE B: Humanistic Inquiry,gen-ed-elective,covers,high,General education slot.,false,proposed,
+WRIT 340,intermediate-composition,covers,high,Advanced Writing and Critical Engagement.,false,proposed,
+Technical Elective II,cs-elective,covers,high,300/400-level CSCI elective slot.,false,proposed,
+Free Elective,free-elective,covers,high,Free elective slot.,false,proposed,
+Technical Elective IV,cs-elective,covers,high,300/400-level CSCI elective slot.,false,proposed,
+CSCI 350,operating-systems,covers,high,"Fundamentals of Operating Systems: concurrency, deadlock, scheduling, memory management.",false,proposed,
+CSCI 401,capstone-design,covers,high,"Capstone: group project with an outside stakeholder building large software systems.",false,proposed,
+Technical Elective III,cs-elective,covers,high,300/400-level CSCI elective slot.,false,proposed,

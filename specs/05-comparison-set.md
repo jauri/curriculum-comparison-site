@@ -83,6 +83,17 @@ else (track or thread requirements) as `elective_slot` rows that describe the ch
   terms (10 terms, not 8). The batch is now 9 schools, all built by 2026-11-14 (matches
   proposed, concept tags not yet written).
 
+- **2026-11-14 (batch 5):** from a top-100 list (U.S. News bands, approximate), the user
+  chose ten: UNC, Indiana, Arizona, Case Western, USC, NYU, UMass Amherst, Boston
+  University, Vanderbilt, and Pitt (all semester calendars, Aspirational group; the
+  group is no longer only publics or engineering colleges). Plan check: **Indiana, UMass
+  Amherst, and BU publish no semester-by-semester CS plan** (requirements only), and
+  **Arizona's only plan is from Fall 2021**; the user dropped all four (Maryland's rule).
+  Batch 5 is six schools: UNC (BS, College of Arts & Sciences), Case Western (BS, Case
+  School of Engineering), USC (BS, Viterbi), NYU (Tandon BS, chosen over the CAS BA by the
+  engineering rule), Vanderbilt (BS, School of Engineering; 2025-26 roadmap, no 2026-27
+  version posted), and Pitt (BS, School of Computing and Information).
+
 ## Open questions
 
 - [x] Track/thread handling: common core = required, rest = electives.

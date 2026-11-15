@@ -1,0 +1,6 @@
+title,description,notes
+General Education Requirement (GER),A general education course chosen by the student from the School of Computing and Information's requirement areas.,Pitt: GER slots in the Sample Plan of Study (note 1); one course must satisfy the Diversity Requirement.
+Elective,A free elective chosen by the student.,Pitt: free elective; may count toward a minor or certificate (note 2).
+CS Upper-Level Elective,An upper-level computer science course (numbered 1500 or higher) chosen by the student.,Pitt: six required (18 credits).
+CS Upper-Level Elective or Elective,"An upper-level computer science course, or a free elective.",Pitt: a seventh upper-level elective counts toward departmental honors (note 4).
+Capstone Experience,"A capstone experience: an approved internship, directed research project, or team software project course, or two co-op rotations.","Choice slot: Pitt's CS 1900, CS 1906, CS 1950, or CS 1980. Official descriptions (except CS 1906, which has none) are in data/raw/pitt/courses/."

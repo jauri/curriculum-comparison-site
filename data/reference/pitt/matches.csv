@@ -1,0 +1,19 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+CMPINF 0401,intro-programming-2,covers,high,"Intermediate, object-oriented programming course taken after prior programming experience.",false,proposed,"The plan assumes an introductory programming course beforehand (CMU precedent: intro-programming-2)."
+MATH 0220,calculus-1,covers,high,Analytic Geometry and Calculus 1.,false,proposed,
+CMPINF 0001,first-year-seminar,covers,high,SCI first-year seminar introducing the school and the university.,false,proposed,
+CMPINF 0010,cs-orientation,covers,medium,"Big Ideas in Computing and Information: introduces the principles and themes across the school's computing and information majors and the work their graduates do.",true,proposed,"Partial: a 4-credit survey course, broader than a short orientation seminar."
+ENGCMP 0200,first-year-composition,covers,high,Seminar in Composition.,false,proposed,
+CS 0445,data-structures,covers,high,"Algorithms and Data Structures 1: stacks, queues, lists, trees, recursion, sorting.",false,proposed,
+MATH 0280,linear-algebra,covers,high,"Intro to Matrices and Linear Algebra.",false,proposed,
+CS 0441,discrete-math,covers,high,Discrete Structures for CS.,false,proposed,
+General Education Requirement (GER),gen-ed-elective,covers,high,General education slot.,false,proposed,
+CS 1503,probability-statistics,covers,medium,"Mathematical Foundations of Machine Learning: probability and statistics with computer science applications.",true,proposed,"Partial: the page calls it the major's probability and statistics course; it is framed around machine learning."
+CS 0447,computer-organization,covers,high,Computer Organization and Assembly Language.,false,proposed,
+Elective,free-elective,covers,high,Free elective slot.,false,proposed,
+CS 0449,systems-programming,covers,high,"Introduction to Systems Software: the hardware-software interface, C, memory, processes, system calls.",false,proposed,
+CS 1501,algorithms,covers,high,"Algorithms and Data Structures 2: searching, compression, graphs, dynamic programming.",false,proposed,
+CS 1502,theory-of-computation,covers,medium,Formal Methods in Computer Science: theory of information and computation.,true,proposed,Partial: also covers logic and formal methods.
+CS Upper-Level Elective,cs-elective,covers,high,Upper-level CS elective slot.,false,proposed,
+Capstone Experience,capstone-design,covers,medium,"Every option is a capstone experience (internship, research, team project, or co-op).",true,proposed,Partial: only CS 1980 is a team design project course.
+CS Upper-Level Elective or Elective,free-elective,covers,medium,A seventh CS elective for honors or a free elective.,false,proposed,

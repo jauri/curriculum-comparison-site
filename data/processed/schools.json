@@ -373,5 +373,50 @@
     "college_source":"*_cs-bs-programs-api.json",
     "group":"Aspirational",
     "notes":"2026-2027 General Catalog (Coursedog), 'Computer Science Sample 4 Year Plan' (the plain CS plan, not an emphasis plan). The college is the John and Marcia Price College of Engineering, written 'EN - J & M Price College of Eng.' in the catalog data (Kahlert School of Computing). Saved through Chrome (page and API return 403 to scripts). Switched from the 2024-25 handbook plan once the 2026-27 plan was found (user). Added in batch 4."
+  },
+  {
+    "school_id":"pitt",
+    "short_name":"Pitt",
+    "institution":"University of Pittsburgh",
+    "program":"Computer Science BS",
+    "college":"School of Computing and Information",
+    "in_engineering_college":"false",
+    "catalog_year":"2026-27",
+    "credits_min":"122",
+    "credits_max":"122",
+    "credits_source":"*_bs-cs-catalog.html",
+    "college_source":"*_bs-cs-catalog.html",
+    "group":"Aspirational",
+    "notes":"2026-2027 Undergraduate Catalog (Acalog), Sample Plan of Study. Saved through Chrome (bot challenge). Added in batch 5."
+  },
+  {
+    "school_id":"vanderbilt",
+    "short_name":"Vanderbilt",
+    "institution":"Vanderbilt University",
+    "program":"Computer Science BS",
+    "college":"School of Engineering",
+    "in_engineering_college":"true",
+    "catalog_year":"2025-26",
+    "credits_min":"120",
+    "credits_max":"120",
+    "credits_source":"*_cs-roadmap-2025-26.pdf",
+    "college_source":"*_cs-major-program.json",
+    "group":"Aspirational",
+    "notes":"Four-Year Roadmap and Checklist, 2025-26 (School of Engineering); no 2026-27 roadmap is posted. The 2026-27 catalog (Kuali) program record verifies the college, and its course records give descriptions. Added in batch 5."
+  },
+  {
+    "school_id":"usc",
+    "short_name":"USC",
+    "institution":"University of Southern California",
+    "program":"Computer Science BS",
+    "college":"Viterbi School of Engineering",
+    "in_engineering_college":"true",
+    "catalog_year":"2026-27",
+    "credits_min":"128",
+    "credits_max":"128",
+    "credits_source":"*_bs-cs-catalogue.html",
+    "college_source":"*_bs-cs-catalogue.html",
+    "group":"Aspirational",
+    "notes":"Viterbi 2026 guide, four-year plan 'Begin with CSCI 102' (for students without AP credit; user), transcribed from the guide's image grid; the 2026-2027 USC Catalogue (Acalog) gives the college, the 128-unit minimum, and descriptions. Catalogue saved through Chrome (bot challenge). Added in batch 5."
   }
 ]

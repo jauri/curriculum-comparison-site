@@ -1,0 +1,27 @@
+match_key,canonical_id,match_role,match_confidence,match_rationale,partial_match,match_status,notes
+Basic Science,lab-science,covers,high,Laboratory natural science slot.,false,proposed,
+MATH 1300,calculus-1,covers,high,"Accelerated Single-Variable Calculus I: limits, differentiation, integration.",false,proposed,
+MATH 1301,calculus-2,covers,high,"Accelerated Single-Variable Calculus II: transcendental functions, integration methods, series.",false,proposed,
+ES 1401,first-year-engineering,covers,high,Introduction to Engineering module 1: engineering analysis and design.,false,proposed,
+ES 1402,first-year-engineering,covers,high,Introduction to Engineering module 2.,false,proposed,
+ES 1403,first-year-engineering,covers,high,Introduction to Engineering module 3.,false,proposed,
+CS 1101,intro-programming,covers,high,"Programming and Problem Solving: algorithm development, modular design, debugging and testing.",false,proposed,
+Open Elective,free-elective,covers,high,Free elective slot.,false,proposed,
+Liberal Arts Core,gen-ed-elective,covers,high,Humanities and social sciences slot.,false,proposed,
+MATH 2300,calculus-3,covers,high,Multivariable Calculus.,false,proposed,
+CS 2201,data-structures,covers,high,"Program Design and Data Structures: elementary data structures and algorithms, multi-module programs.",true,proposed,Partial: also covers intro-programming-2 material (program design and style).
+CS 2281,computer-organization,covers,high,"Computer Architecture from a programmer's perspective: logic, binary representation, the von Neumann instruction set architecture.",false,proposed,
+CS 2281L,computer-organization,covers,high,The laboratory that goes with CS 2281.,false,proposed,
+CS 2212,discrete-math,covers,high,"Discrete Structures: sets, relations, functions, counting, graphs, recurrences, O-notation, Boolean algebra.",false,proposed,
+CS 3251,software-engineering,covers,medium,"Intermediate Software Design: design patterns, reusable components and class libraries, testing.",true,proposed,Partial: object-oriented design and patterns rather than a full software process course.
+CS 1151,computing-ethics,covers,high,Computers and Ethics.,false,proposed,
+MATH 2820,probability-statistics,covers,high,Introduction to Probability and Mathematical Statistics.,false,proposed,
+MATH 2410,linear-algebra,covers,high,Methods of Linear Algebra.,false,proposed,
+CS 3270,programming-languages,covers,high,Programming Languages: design and evaluation of languages; syntax and semantics; comparative study.,false,proposed,
+CS 3250,algorithms,covers,high,"Algorithms: advanced data structures, searching, sorting, graph algorithms, NP-completeness.",false,proposed,
+CS 3281,operating-systems,covers,high,"Principles of Operating Systems I: scheduling, concurrency and synchronization, resource allocation.",false,proposed,
+CS Depth,cs-elective,covers,high,Upper-level CS elective slot.,false,proposed,
+ES 2100W,technical-writing,covers,high,Technical Communications: written and oral communication for a specific audience.,false,proposed,
+CS 4959,senior-seminar,covers,high,"Computer Science Seminar: professional practice, intellectual property, liability, privacy.",true,proposed,Partial: also covers computing-ethics topics.
+Computer Science Project,capstone-design,covers,high,Every option is a project course that designs and builds a substantial system.,false,proposed,
+Technical Elective,technical-elective,covers,high,"Engineering, math, or science elective slot.",false,proposed,

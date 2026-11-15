@@ -1,0 +1,16 @@
+title,description,notes
+GE C: Social Analysis,A general education course in social analysis chosen by the student.,USC general education category C (two courses).
+GESM: General Education Seminar (GE B),A small general education seminar chosen by the student.,USC: taken in category A-D; the grid places it in category B.
+GE A: The Arts,A general education course in the arts chosen by the student.,USC general education category A.
+GE B: Humanistic Inquiry,A general education course in humanistic inquiry chosen by the student.,USC general education category B.
+"MATH 129 or MATH 126 (Calculus II for Engineers and Scientists)","A second calculus course: trigonometric functions, techniques and applications of integration, and series.",Choice slot: USC's MATH 129 (for engineers and scientists) or MATH 126. Official descriptions are in data/raw/usc/courses/.
+"MATH 229 or MATH 226 (Calculus III for Engineers and Scientists)","Multivariable calculus: vectors, vector-valued functions, and differential and integral calculus of several variables.",Choice slot: USC's MATH 229 or MATH 226.
+"MATH 225 or MATH 235 (Linear Algebra and Linear Differential Equations)","Linear algebra: matrices, systems of linear equations, vector spaces, linear transformations, and eigenvalues (MATH 225 adds linear differential equations).",Choice slot: USC's MATH 225 or MATH 235.
+Life Sciences (GE D),"A general biology course with laboratory, which also satisfies the life sciences general education category.","Choice slot: USC's BISC 120, 121, or 220."
+Physical Sciences (GE E),"A general chemistry or introductory physics course with laboratory, which also satisfies the physical sciences general education category.","Choice slot: USC's CHEM 105, CHEM 115, PHYS 151, or PHYS 161."
+Technical Elective I,A 300- or 400-level computer science course chosen by the student.,USC Core Electives: four courses (16 units).
+Technical Elective II,A 300- or 400-level computer science course chosen by the student.,USC Core Electives: four courses (16 units).
+Technical Elective III,A 300- or 400-level computer science course chosen by the student.,USC Core Electives: four courses (16 units).
+Technical Elective IV,A 300- or 400-level computer science course chosen by the student.,USC Core Electives: four courses (16 units).
+CSCI 310 or 353 or 356 or 360,"One of four required upper-division CS courses: software engineering, internetworking, computer systems, or artificial intelligence.","Group slot: USC requires all four, in any order; each cell is one of them. Official descriptions are in data/raw/usc/courses/."
+Free Elective,A free elective chosen by the student.,USC: 4 units.

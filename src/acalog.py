@@ -25,7 +25,8 @@ from bs4 import BeautifulSoup
 # letter suffix ("CS 450G", "CSE 4939W"); Tennessee marks Volunteer Core courses with
 # "*" after the code ("BIOL 101* - ..."), which is skipped. Buffalo appends a component suffix to its
 # codes ("CSE 115LLR" = lecture, lab, recitation); course_key() drops that.
-TITLE = re.compile(r"^([A-Z]{2,4}) (\d{3,4}[A-Z]*)\*? - (.+)$")
+# Pitt's subjects run to six letters ("CMPINF 0401 - INTERMEDIATE PROGRAMMING", batch 5).
+TITLE = re.compile(r"^([A-Z]{2,6}) (\d{3,4}[A-Z]*)\*? - (.+)$")
 # Buffalo's component suffix: the letters after its three-digit course number, which
 # name the class's parts (LEC lecture, LR lecture-recitation, LLB lecture-lab, SR
 # seminar-recitation, MNT ...). Buffalo's plans and lists sometimes drop it, and no
@@ -47,7 +48,9 @@ def clean(text: str) -> str:
 def read_entry(path: Path) -> tuple[str, str, str, str] | None:
     """Return the parts of one Acalog course entry, or None."""
     soup = BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
-    h1 = soup.find("h1", id="course_preview_title")
+    # Pitt's catalog (batch 5) writes the title as a plain <h1> without the id; an entry
+    # page has only one <h1>, so the first one is the title there.
+    h1 = soup.find("h1", id="course_preview_title") or soup.find("h1")
     if h1 is None:
         return None
     m = TITLE.match(clean(h1.get_text(" ")))

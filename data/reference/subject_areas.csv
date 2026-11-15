@@ -73,6 +73,13 @@ subject,,AMS,math,Stony Brook's Applied Mathematics and Statistics
 subject,,APMA,math,UVA's applied mathematics
 subject,,STS,gened,"UVA's Science, Technology and Society (engineering ethics and the SEAS senior thesis)"
 subject,,WRTG,writing,Utah's writing program
+subject,,CMPINF,cs,"Pitt's School of Computing and Information courses (CMPINF 0401 Intermediate Programming, first-year seminar)"
+subject,,ENGCMP,writing,Pitt's English Composition (ENGCMP 0200)
+subject,,ES,eng,Vanderbilt's Engineering Science (ES 1401-1403 Introduction to Engineering)
+subject,,BSCI,science,Vanderbilt's Biological Sciences
+subject,,EES,science,Vanderbilt's Earth and Environmental Sciences
+subject,,MSE,eng,Vanderbilt's Materials Science and Engineering
+subject,,BISC,science,USC's Biological Sciences
 slot,,lab-science,science,
 slot,,gen-ed-elective,gened,
 slot,,free-elective,gened,Free electives share the general-education area

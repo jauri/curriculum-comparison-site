@@ -1,0 +1,41 @@
+semester,year,term,cell,units,cell_kind,notes
+1,1,Fall,WRIT 150,4,required,
+1,1,Fall,MATH 125 (GE F)*,4,required,
+1,1,Fall,CSCI 102,2,required,
+1,1,Fall,GE C,4,required,
+1,1,Fall,ENGR 102,2,required,
+1,1,Fall,OPTIONAL ELECTIVE,2,optional,Yellow cell
+2,1,Spring,CSCI 103L,4,required,
+2,1,Spring,CSCI 170,4,required,
+2,1,Spring,MATH 129 or MATH 126*,4,required,
+2,1,Spring,GESM (GE B)#,4,required,
+2,1,Spring,OPTIONAL ELECTIVE,2,optional,Yellow cell
+3,2,Fall,EE 109L,4,required,
+3,2,Fall,CSCI 104,4,required,
+3,2,Fall,MATH 229 or MATH 226,4,required,
+3,2,Fall,GE C,4,required,
+3,2,Fall,OPTIONAL ELECTIVE,2,optional,Yellow cell
+4,2,Spring,CSCI 270,4,required,
+4,2,Spring,CSCI 201L,4,required,
+4,2,Spring,MATH 225 or MATH 235,4,required,
+4,2,Spring,LIFE SCIENCES (GE D),4,required,
+4,2,Spring,OPTIONAL ELECTIVE,2,optional,Yellow cell
+5,3,Fall,GE A*,4,required,
+5,3,Fall,TECHNICAL ELECTIVE I,4,required,
+5,3,Fall,CSCI 310 or 353 or 356 or 360,4,required,
+5,3,Fall,PHYSICAL SCIENCES (GE E),4,required,
+5,3,Fall,OPTIONAL ELECTIVE,2,optional,Yellow cell
+6,3,Spring,CSCI 310 or 353 or 356 or 360,4,required,
+6,3,Spring,CSCI 310 or 353 or 356 or 360,4,required,
+6,3,Spring,EE 364,4,required,
+6,3,Spring,GE B,4,required,
+6,3,Spring,OPTIONAL ELECTIVE,2,optional,Yellow cell
+7,4,Fall,WRIT 340,4,required,
+7,4,Fall,TECHNICAL ELECTIVE II,4,required,
+7,4,Fall,CSCI 310 or 353 or 356 or 360,4,required,
+7,4,Fall,OPTIONAL ELECTIVE,6,optional,Yellow cell
+8,4,Spring,TECHNICAL ELECTIVE IV,4,required,
+8,4,Spring,CSCI 350,4,required,
+8,4,Spring,CSCI 401 or CSCI 404,4,required,
+8,4,Spring,TECHNICAL ELECTIVE III,4,required,
+8,4,Spring,OPTIONAL ELECTIVE,2,optional,Yellow cell

@@ -1,0 +1,53 @@
+match_key,phrase,reason,notes
+CS 2201,Also listed as ECE 2201,framing,
+CS 2201,Continuation of CS 1101,framing,
+CS 2201,elementary data structures,course-label,
+CS 2201,their associated algorithms and their application in problems,too-general,
+CS 2201,using good data structures,course-label,
+CS 2201,Serves as repeat credit for ECE 2201,framing,
+CS 2201,rigorous development,generic-aim,
+CS 1101,An intensive introduction to algorithm development and problem solving on the computer,generic-aim,
+CS 1101,Running,framing,
+CS 1101,"FALL, SPRING",framing,Terms offered.
+CS 2212,Survey of the mathematical tools necessary for an understanding of computer science,framing,
+CS 2281,Also listed as ECE 2281,framing,
+CS 2281,Introduction to computer architecture from a programmer’s perspective,course-label,
+CS 2281,Fundamentals,framing,
+CS 2281,programmer’s,framing,"From ""programmer’s model of a processor""; the model is tagged as processor-design."
+CS 2281,Serves as repeat credit for ECE 2281,framing,
+CS 2281L,Also listed as ECE 2281L,framing,
+CS 2281L,Laboratory for CS 2281,framing,
+CS 2281L,One three-hour laboratory per week,framing,
+CS 2281L,CS 2281L is not open for students who have earned credit for ECE 2281L without permission,framing,
+CS 2281L,Serves as repeat credit for ECE 2281L,framing,
+CS 3251,Also listed as ECE 3251,framing,
+CS 3251,High quality development,generic-aim,
+CS 3251,Theoretical and practical aspects of developing,framing,
+CS 3251,applying,framing,
+CS 3251,and tools,too-general,
+CS 3251,Serves as repeat credit for ECE 3251,framing,
+CS 3251,No credit for students who have earned credit for CS 5251,framing,
+CS 1151,Analysis and discussion,framing,
+CS 1151,problems pose,framing,
+CS 1151,computer users,too-general,
+CS 1151,life-critical systems,no-concept,Safety-critical systems; the vocabulary has no safety concept (also seen in batch 4).
+CS 1151,"FALL, SPRING",framing,Terms offered.
+CS 3270,"General criteria for design, implementation, and evaluation of programming languages",no-concept,Language design and evaluation; a known vocabulary gap (step 17 revision).
+CS 3270,Comparative studies,framing,
+CS 3270,data control,too-general,
+CS 3270,nesting,too-general,"Nesting of blocks or procedures; part of scope, but too short to tag on its own."
+CS 3270,Problem solving using non-standard languages,too-general,Could mean other paradigms; the text does not name one.
+CS 3281,Resource allocation and control functions of operating systems,too-general,
+CS 3281,Use of parallel processes in designing operating system subsystems,framing,The parallel processes are tagged (threads-and-concurrency).
+CS 3281,Methods of implementing,framing,
+CS 3281,conventional computers,framing,
+CS 3281,Case studies,framing,
+CS 3250,Advanced data structures,too-general,
+CS 3250,systematic study,framing,
+CS 3250,"mathematical, geometrical",no-concept,Geometric (computational geometry) and numerical algorithms; the vocabulary has neither.
+CS 4959,professional education and lifelong learning,generic-aim,
+CS 4959,crowd source software development,no-concept,Crowdsourced development; close to open-source (tagged under intellectual-property).
+CS 4959,soft risk safety,no-concept,Software risk and safety; no safety concept (see CS 1151).
+CS 4959,professional organization,framing,Professional societies such as ACM and IEEE.
+CS 4959,entrepreneurship,no-concept,Also seen in batch 4.
+CS 4959,human computer interaction,no-concept,HCI; the vocabulary has no HCI concept.

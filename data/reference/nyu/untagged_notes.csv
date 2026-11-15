@@ -1,0 +1,41 @@
+match_key,phrase,reason,notes
+CS-UY 1114,This course introduces problem solving and computer programming and is for undergraduate Computer Science and Computer Engineering majors who have limited prior experience in programming in any language,framing,
+CS-UY 1114,fundamentals of computer programming and its underlying principles,course-label,
+CS-UY 1114,programming language,framing,"From ""using the Python programming language""; Python is tagged."
+CS-UY 1114,Concepts and methods introduced in the course are illustrated by examples from various disciplines,framing,
+CS-UY 1134,the implementation and use of standard data structures along with fundamental algorithms,course-label,
+CS-UY 1134,Not open to students who have taken CS-UY 2134,framing,
+CS-UY 1122,This is a breadth-first course that introduces computer-science majors,framing,
+CS-UY 1122,The course is built around the theme that computer science is the study of algorithms and includes much more than programming,framing,
+CS-UY 1122,hardware,too-general,
+CS-UY 1122,"software, applications",too-general,
+CS-UY 2124,This intermediate-level programming course teaches,framing,
+CS-UY 2214,a top-down approach to computer design,framing,
+CS-UY 2214,Computer architecture,course-label,
+CS-UY 2214,Computer organization,course-label,
+CS-UY 2214,logical modules,too-general,Could mean logic circuits; too short to tag.
+CS-UY 2214,timing,too-general,
+CS-UY 2214,Fundamentals of computer networks,too-general,Networks in general; no protocol or programming topic is named.
+CS-UY 2413,fundamental principles of the design and analysis of algorithms,course-label,
+CS-UY 2413,"augmented data structures, advanced data structures",too-general,
+CS-UY 2413,geometric algorithms,no-concept,Computational geometry; the vocabulary has none (see Vanderbilt CS 3250).
+CS-UY 3224,the fundamental concepts and principles of operating systems,course-label,
+CS-UY 3224,"The parts of an operating system are described in terms of their functions, structure and implementation",too-general,
+CS-UY 3224,Basic policies for allocating resources,too-general,
+CS-UY 4513,Focusing on software engineering,course-label,
+CS-UY 4513,techniques to,framing,
+CS-UY 4513,design,too-general,
+CS-UY 4513,Design techniques include information engineering,no-concept,Information engineering (data-centered design method); the vocabulary has none.
+CS-UY 4513,complexity measures,no-concept,Software metrics; the vocabulary has none.
+CS-UY 4513,is presented,framing,
+CS-UY 4513,Student projects involve,framing,
+CS-UY 4513,tracking,too-general,Project tracking; close to project management (tagged).
+CS-UY 4523,work with a faculty member and/or graduate students on a current topic in computer science,framing,
+CS-UY 4523,Each term,framing,
+CS-UY 4523,a project course with a particular theme is offered by the Department of Computer and Information Science,framing,
+CS-UY 4523,A faculty member assigns individual,framing,
+CS-UY 4523,The project course is highly structured and supervised closely by faculty,framing,
+CS-UY 4523,Students are expected to use the design,framing,
+CS-UY 4523,they learned in CS-UY 4513 Software Engineering,prerequisite,
+CS-UY 4523,"Alternatively, students may work with a faculty member on an individual project of mutual interest",framing,
+CS-UY 4523,are required,framing,

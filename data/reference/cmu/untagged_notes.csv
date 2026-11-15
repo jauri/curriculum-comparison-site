@@ -69,3 +69,7 @@ match_key,phrase,reason,notes
 15-451,A variety of other topics may be covered at the discretion of the instructor,framing,
 15-451,geometric algorithms,no-concept,Computational geometry; no concept.
 07-128,The course is designed to,framing,
+15-210,parallel algorithms,no-concept,"Concept parallel-algorithms retired 2026-11-14 (user): used only by CMU, which is hidden."
+15-210,parallel algorithms and analysis,no-concept,"Concept parallel-algorithms retired 2026-11-14 (user): used only by CMU, which is hidden."
+15-251,game theory,no-concept,"Concept game-theory retired 2026-11-14 (user): used only by CMU, which is hidden."
+15-451,parallel algorithms,no-concept,"Concept parallel-algorithms retired 2026-11-14 (user): used only by CMU, which is hidden."

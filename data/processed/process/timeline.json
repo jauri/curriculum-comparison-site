@@ -1,13 +1,13 @@
 {
  "counts": {
-  "sessions": 37,
-  "you": 204,
-  "answers": 149,
-  "claude": 968,
-  "questions": 166,
-  "actions": 2720,
-  "cards": 241,
-  "commits": 53,
+  "sessions": 40,
+  "you": 220,
+  "answers": 161,
+  "claude": 1093,
+  "questions": 179,
+  "actions": 3096,
+  "cards": 265,
+  "commits": 59,
   "hidden": 0,
   "first": "Oct 16, 2026",
   "last": "Nov 14, 2026"
@@ -904,10 +904,154 @@
      {
       "i": 24,
       "you": 1,
-      "claude": 86,
+      "claude": 88,
       "you_min": 2.0,
-      "claude_min": 8.1,
+      "claude_min": 8.6,
       "first": "u-5dd72c62-e2d"
+     },
+     {
+      "i": 25,
+      "you": 1,
+      "claude": 10,
+      "you_min": 2.0,
+      "claude_min": 0.7,
+      "first": "u-a8379c64-732"
+     },
+     {
+      "i": 26,
+      "you": 2,
+      "claude": 26,
+      "you_min": 2.3,
+      "claude_min": 2.7,
+      "first": "u-b9f416ee-9a9"
+     },
+     {
+      "i": 27,
+      "you": 2,
+      "claude": 18,
+      "you_min": 5.0,
+      "claude_min": 2.1,
+      "first": "u-c053c77d-d9c-1"
+     },
+     {
+      "i": 28,
+      "you": 1,
+      "claude": 6,
+      "you_min": 2.0,
+      "claude_min": 0.4,
+      "first": "u-3eb46be0-789-1"
+     },
+     {
+      "i": 29,
+      "you": 0,
+      "claude": 4,
+      "you_min": 0.0,
+      "claude_min": 0.4,
+      "first": "a-b3efaefb-3ba"
+     },
+     {
+      "i": 30,
+      "you": 3,
+      "claude": 31,
+      "you_min": 4.2,
+      "claude_min": 3.5,
+      "first": "u-efad14fa-bc5-1"
+     },
+     {
+      "i": 31,
+      "you": 2,
+      "claude": 5,
+      "you_min": 6.9,
+      "claude_min": 0.4,
+      "first": "u-80d97770-cec"
+     },
+     {
+      "i": 32,
+      "you": 3,
+      "claude": 38,
+      "you_min": 11.1,
+      "claude_min": 4.8,
+      "first": "u-b67663b5-bf8"
+     },
+     {
+      "i": 33,
+      "you": 0,
+      "claude": 25,
+      "you_min": 0.0,
+      "claude_min": 2.7,
+      "first": "c-6d3721b3-173"
+     },
+     {
+      "i": 35,
+      "you": 1,
+      "claude": 4,
+      "you_min": 2.0,
+      "claude_min": 0.6,
+      "first": "u-aceefcac-b0e-1"
+     },
+     {
+      "i": 36,
+      "you": 1,
+      "claude": 18,
+      "you_min": 2.0,
+      "claude_min": 2.1,
+      "first": "u-c8b81f54-7cc"
+     },
+     {
+      "i": 38,
+      "you": 1,
+      "claude": 135,
+      "you_min": 2.0,
+      "claude_min": 14.9,
+      "first": "u-bf3ee23a-6f3-1"
+     },
+     {
+      "i": 39,
+      "you": 1,
+      "claude": 3,
+      "you_min": 2.0,
+      "claude_min": 0.4,
+      "first": "u-42b2b290-a44"
+     },
+     {
+      "i": 41,
+      "you": 4,
+      "claude": 29,
+      "you_min": 6.8,
+      "claude_min": 2.7,
+      "first": "u-71c92b8c-815"
+     },
+     {
+      "i": 42,
+      "you": 1,
+      "claude": 5,
+      "you_min": 0.4,
+      "claude_min": 0.4,
+      "first": "u-bb6d1351-e43"
+     },
+     {
+      "i": 43,
+      "you": 1,
+      "claude": 14,
+      "you_min": 2.0,
+      "claude_min": 1.3,
+      "first": "u-36a429bc-17f"
+     },
+     {
+      "i": 46,
+      "you": 3,
+      "claude": 96,
+      "you_min": 7.0,
+      "claude_min": 9.3,
+      "first": "u-a58bb6eb-304-1"
+     },
+     {
+      "i": 47,
+      "you": 2,
+      "claude": 45,
+      "you_min": 6.4,
+      "claude_min": 4.1,
+      "first": "c-807cc5b0-e10"
      }
     ]
    }
@@ -933,12 +1077,12 @@
    "Workflow": 38
   },
   "answers": {
-   "recommended": 110,
-   "other": 14,
-   "own": 10,
-   "no_rec": 15
+   "recommended": 114,
+   "other": 16,
+   "own": 14,
+   "no_rec": 17
   },
-  "unclassified": 84,
+  "unclassified": 100,
   "reviewed": 0,
   "rows": 120,
   "steps": [
@@ -1296,21 +1440,21 @@
      "Workflow": 4
     },
     "answers": {
-     "recommended": 40,
-     "other": 7,
-     "own": 7,
-     "no_rec": 1
+     "recommended": 44,
+     "other": 9,
+     "own": 11,
+     "no_rec": 3
     }
    }
   ]
  },
  "tokens": {
   "totals": {
-   "replies": 2525,
-   "output": 2304271,
-   "cache_write": 10665928,
-   "input": 5094,
-   "cache_read": 448627965
+   "replies": 2874,
+   "output": 2553789,
+   "cache_write": 11658839,
+   "input": 5828,
+   "cache_read": 511564053
   },
   "steps": [
    {
@@ -1487,11 +1631,11 @@
     "id": "p-21",
     "step": "21",
     "title": "Process page",
-    "replies": 1252,
-    "output": 1078852,
-    "cache_write": 6561598,
-    "input": 2546,
-    "cache_read": 230676602
+    "replies": 1601,
+    "output": 1328370,
+    "cache_write": 7554509,
+    "input": 3280,
+    "cache_read": 293612690
    }
   ]
  },
@@ -34418,9 +34562,14 @@
      "tool": "Bash",
      "label": "Check shared page lists",
      "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Refresh process page; publish site and overview share",
+     "kind": "command"
     }
    ],
-   "summary": "Ran 35 commands · 24 browser steps · published the site",
+   "summary": "Ran 36 commands · 24 browser steps · published the site",
    "iso": "2026-11-14T17:15:31.365000+00:00",
    "label": "12:15 PM",
    "end_label": "12:23 PM"
@@ -34608,12 +34757,237 @@
    "label": "12:23 PM"
   },
   {
+   "kind": "claude",
+   "id": "c-7ce2d108-790",
+   "text": "Done. The local web server worked, all the views check out, and the nine new schools now have proposed concept tags. Every concept check passes for all 25 schools.\n\n**Browser check:** I loaded all eight pages (course plans, both alignment views, timeline, match review, concept vocabulary, tag review, editor). All 25 schools appear with no errors from our code. Two pages still said \"15 schools\" or \"16 schools\" in their text; I fixed those, and the concept vocabulary page now computes the count from the school list.\n\n**Concept tags:** 96 CS courses across the nine schools are tagged, all `proposed`. Every tag quotes its evidence phrases word for word from the catalog description. Every other piece of description text has a note saying why it isn't a concept, so nothing is left unexplained. Across all 25 schools that's 1,508 tag lines and 864 notes.\n- **Labs:** Tennessee's three lab courses have \"no concept\" lines, because their descriptions only say which course they accompany.\n- **Vocabulary gaps:** the notes list topics the concept list doesn't have yet, such as linear programming, disjoint sets, FFT, stochastic processes, system architecture, safety-critical systems, entrepreneurship and leadership, human factors in security, and network management.\n\n**Published:** I republished the public site, including the refreshed process page, and the overview share copy, since the timeline is in that share.\n- Site: https://jauri.github.io/curriculum-comparison-site/web/\n- Overview share: https://jauri.github.io/curriculum-comparison-site/share/overview/web/\n\nNothing is committed yet. Still open for you:\n- Review the nine schools' proposed matches on `review.html` and their tags on `concept_tags_review.html`.\n- Decide how to match the \"systems programming\" courses consistently: right now they're split across operating systems, programming practicum, and computer organization.\n- Say \"commit\" when you're ready.\n\nThe local server is still running in the background; I can stop it whenever you like.",
+   "iso": "2026-11-14T17:24:02.216000+00:00",
+   "label": "12:24 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-a8379c64-732",
+   "text": "commit and save progress and prepare to clear",
+   "iso": "2026-11-14T17:49:24.122000+00:00",
+   "label": "12:49 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-d9414388-0b2",
+   "text": "I'll check what's changed before committing.",
+   "iso": "2026-11-14T17:49:26.729000+00:00",
+   "label": "12:49 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-35f71008-008",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Review working tree before commit",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Stage batch 4 work for commit",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Commit batch 4",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote ~/.claude/projects/(this project) project)/memory/check-catalog-for-plans.md",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add memory index line",
+     "kind": "command"
+    },
+    {
+     "tool": "TaskStop",
+     "label": "TaskStop",
+     "kind": "other"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    }
+   ],
+   "summary": "Ran 4 commands · wrote check-catalog-for-plans.md · 1 browser step · 1 other · committed",
+   "iso": "2026-11-14T17:49:28.345000+00:00",
+   "label": "12:49 PM",
+   "end_label": "12:49 PM"
+  },
+  {
    "kind": "commit",
    "id": "g-e4db232",
    "hash": "e4db232",
    "text": "Batch 4: nine more top public CS programs, with matches and concept tags",
    "iso": "2026-11-14T12:49:45-05:00",
    "label": "12:49 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-7260fd67-587",
+   "text": "Committed as `e4db232` on `step-13-schools`. Next I'll save two lessons for future sessions to memory, then stop the server and close the browser tab.",
+   "iso": "2026-11-14T17:49:50.153000+00:00",
+   "label": "12:49 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-7e693f6f-99e",
+   "text": "Batch 4 is committed and progress is saved, so it's safe to clear.\n\n- **Commit:** `e4db232` on branch `step-13-schools` (not pushed). It has the 9 new schools' scripts, raw sources, reference files, and generated data, plus the web text fixes, the spec 05 change log, and `PROGRESS.md`. I left out the `.gitignore` change, `.claude/`, and `audit/`, which were already uncommitted before this session.\n- **Progress:** `PROGRESS.md` has a \"Batch 4\" section with every decision, the choices I made without asking, and a Next list.\n- **Memory:** I saved one lesson for future sessions: check a catalog's own program page tabs before saying a school has no plan (the Utah mistake). It also notes that you'd rather drop a school with an unusual plan than invent a rule for it.\n- **Cleanup:** I stopped the local server and closed my browser tab. A few catalog tabs from earlier are still open outside my tab group, so you'll need to close those yourself.\n\nNext session, start from the Batch 4 \"Next\" list in `PROGRESS.md`:\n- Review the nine schools' proposed matches and concept tags.\n- Decide how to match \"systems programming\" courses consistently.",
+   "iso": "2026-11-14T17:50:04.059000+00:00",
+   "label": "12:50 PM"
+  },
+  {
+   "kind": "session",
+   "id": "s-38",
+   "n": 38,
+   "label": "Sat Nov 14 · Session 38",
+   "iso": "2026-11-14T18:20:15.537000+00:00"
+  },
+  {
+   "kind": "you",
+   "id": "u-b9f416ee-9a9",
+   "text": "What's next",
+   "iso": "2026-11-14T18:20:15.537000+00:00",
+   "label": "1:20 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-510a2a16-879",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Read project progress and status",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List PROGRESS sections and uncommitted changes",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read batch 4 status and Next section",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 3 commands",
+   "iso": "2026-11-14T18:20:18.984000+00:00",
+   "label": "1:20 PM",
+   "end_label": "1:20 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-cd32c6a7-54d",
+   "text": "Batch 4 is finished and committed. All 25 schools are built, validated, and published. The main next step is your review, since step 18 (the concept coverage table) can't start until you've approved the tags.\n\n**Waiting on you (in priority order):**\n1. **Review batch 4's matches.** Check the proposed canonical matches for the nine new schools in `review.html`. Also look over the choices I made without asking, for example:\n   - Utah's \"CS 4150 or CS 4400\": the 2026-27 requirements sheet requires both, so I treated it as needing both, in any order.\n   - Utah's prerequisite column is blank, because Utah stores prerequisites as structured rules rather than text.\n   - The systems-programming question: whether those courses are being matched the same way across schools.\n2. **Review the concept tags (step 17).** There are 1,496 proposed tags across all 25 schools, none approved yet, in `concept_tags_review.html`. It works on your phone from the public site. The \"Medium or low\" confidence filter is the easiest place to start. You can send decisions in chat, like \"reject UC CS 1100 software-process\", and I'll update the CSVs, rerun the checks, and republish.\n3. **Step 18 coverage table.** Once the tags are approved, I build `concept_coverage` (how much of each concept each school covers).\n\n**Smaller open questions:**\n- **Timeline flags:**\n  - Should there be a ±1-semester dead zone? Four of the five \"late\" flags are only one semester off, which may come from how I compressed UC's co-op years into four.\n  - Should elective and requirement slots get flags too?\n  - Should \"few others\" count schools that only offer the course as one option?\n- **Editor:** the co-op view hasn't been checked at phone width yet.\n- **Co-op as a concept:** should UC's required co-op count as a concept? That would need a new vocabulary entry and a rule for what's in scope.\n\n**Housekeeping:** some changes from your last `/audit` run aren't committed: two new lines in `.gitignore`, plus the untracked `audit/` and `.claude/` folders. Want me to commit them?\n\nIf you want to start the review now, the matches are the smaller task. Open the review page and tell me your decisions school by school.",
+   "iso": "2026-11-14T18:20:40.971000+00:00",
+   "label": "1:20 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-b5e7cd88-2a4",
+   "text": "Save the review and go to the next task",
+   "iso": "2026-11-14T18:21:00.768000+00:00",
+   "label": "1:21 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-fbbbae03-150",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Find how review pages save decisions",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List web files and audit outputs",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List .claude files and check ignore rules",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Summarize audit findings",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check whether high audit findings still apply",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Commit audit tooling and locate site repo",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check whether process excerpts are on the public site",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited publish_site.sh",
+     "kind": "edit"
+    },
+    {
+     "tool": "Bash",
+     "label": "Remove process excerpts from site and republish",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Scan removed excerpts for credentials or emails",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Commit fix and read transcript cleaner",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read timeline write section",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add credential redaction and test it",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Fix overlap, rebuild timeline, inspect redactions",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Update PROGRESS and commit the redaction fix",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 14 commands · edited 1 file · committed · published the site",
+   "iso": "2026-11-14T18:21:05.696000+00:00",
+   "label": "1:21 PM",
+   "end_label": "1:23 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-57c968c1-44f",
+   "text": "Saving the audit now. Then I'll check whether the audit's top finding (private process excerpts going to the public site) is still live.",
+   "iso": "2026-11-14T18:21:37.593000+00:00",
+   "label": "1:21 PM"
   },
   {
    "kind": "commit",
@@ -34624,11 +34998,39 @@
    "label": "1:21 PM"
   },
   {
+   "kind": "claude",
+   "id": "c-4761669d-bc8",
+   "text": "Note: `rsync --delete` doesn't delete files that are excluded, so I'll remove the folder from the site repo myself, then republish.",
+   "iso": "2026-11-14T18:21:57.360000+00:00",
+   "label": "1:21 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-9eabe25b-191",
+   "text": "Removed and pushed. Now checking whether anything sensitive was in what had been public, so you can decide whether the site repo's history needs rewriting:",
+   "iso": "2026-11-14T18:22:11.117000+00:00",
+   "label": "1:22 PM"
+  },
+  {
    "kind": "commit",
    "id": "g-986a344",
    "hash": "986a344",
    "text": "publish_site.sh: never publish data/reference/process/ (session message excerpts)",
    "iso": "2026-11-14T13:22:21-05:00",
+   "label": "1:22 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-cb4cc491-409",
+   "text": "Adding credential redaction to `clean()`, plus a final check that stops the build if any credential-shaped text is left in the output:",
+   "iso": "2026-11-14T18:22:27.201000+00:00",
+   "label": "1:22 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-7bdf5005-f15",
+   "text": "The GitHub-token case came out mangled because two patterns both matched it. Fixing that, then running the real build to make sure ordinary text isn't caught:",
+   "iso": "2026-11-14T18:22:46.513000+00:00",
    "label": "1:22 PM"
   },
   {
@@ -34638,6 +35040,3546 @@
    "text": "Process timeline: redact credentials by rule and refuse to write if any remain; PROGRESS: audit follow-up",
    "iso": "2026-11-14T13:23:09-05:00",
    "label": "1:23 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-d03f3804-82a-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "Your chat excerpts are off the public site now, but they're still in the site repo's git history. I scanned them first and found nothing sensitive. Rewrite that history?",
+     "header": "Site history",
+     "multi": false,
+     "options": [
+      {
+       "label": "Leave it (Recommended)",
+       "description": "Nothing sensitive in it, and rewriting means force-pushing the public repo.",
+       "preview": ""
+      },
+      {
+       "label": "Rewrite history",
+       "description": "Strip data/reference/process/ from every past site commit and force-push the site repo.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 2,
+   "iso": "2026-11-14T18:23:19.279000+00:00",
+   "label": "1:23 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-c053c77d-d9c-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Site history",
+     "answer": "I want to keep putting the chat history on the site but check for security vulnerability first.  Can we do it that way",
+     "notes": "",
+     "class": "own"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-14T18:23:19.279000+00:00",
+   "label": "1:36 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-d03f3804-82a-2",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "What next: the audit's 7 medium findings, or your batch 4 match review?",
+     "header": "Next task",
+     "multi": false,
+     "options": [
+      {
+       "label": "Audit mediums (Recommended)",
+       "description": "I fix them one by one. Examples: a concept merge that can silently duplicate tags, and parsers that write their output before their own checks run.",
+       "preview": ""
+      },
+      {
+       "label": "Batch 4 match review",
+       "description": "I walk you through the nine new schools' matches in chat so you can approve or change each one.",
+       "preview": ""
+      },
+      {
+       "label": "Concept tag review",
+       "description": "Start the step 17 tag review with the medium- or low-confidence tags.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 2,
+   "of": 2,
+   "iso": "2026-11-14T18:23:19.279000+00:00",
+   "label": "1:23 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-c053c77d-d9c-2",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Next task",
+     "answer": "Let's pass on audit steps for now and do the next batch of schools",
+     "notes": "",
+     "class": "own"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-14T18:23:19.279000+00:00",
+   "label": "1:36 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-8348e3b7-c09",
+   "text": "Two things, then: (1) a security check that runs before the chat history is published, and (2) batch 5. Checking how the process page gets published now:",
+   "iso": "2026-11-14T18:36:37.628000+00:00",
+   "label": "1:36 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-a2b9935d-51d",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Read publish script header and site process files",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/check_process_security.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run the security check on local and published timelines",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Show the full flagged strings",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Show the Dropbox link context",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Apply fixes, rebuild timeline, rerun check, test detection",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited publish_site.sh",
+     "kind": "edit"
+    },
+    {
+     "tool": "Bash",
+     "label": "Review pending changes",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find publishing rules in spec 09",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read spec 09 publish section",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Update specs and progress, commit, publish with process page",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read batch 4 selection and school registry",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 10 commands · wrote check_process_security.py · edited 1 file · committed · published the site",
+   "iso": "2026-11-14T18:36:38.829000+00:00",
+   "label": "1:36 PM",
+   "end_label": "1:38 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-1a531879-666",
+   "text": "All six look like URL or file-path pieces. Looking at them in full to make sure:",
+   "iso": "2026-11-14T18:37:14.344000+00:00",
+   "label": "1:37 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-9b8f3ab5-14f",
+   "text": "That's a university's own public link to its 8-semester plan, so it's fine to show. Making the two changes:",
+   "iso": "2026-11-14T18:37:27.289000+00:00",
+   "label": "1:37 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-9bc2e32f-369",
+   "text": "Updating spec 09 and CLAUDE.md to describe the check, then committing and publishing with the process page included, as you asked:",
+   "iso": "2026-11-14T18:37:54.224000+00:00",
+   "label": "1:37 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-1a93190",
+   "hash": "1a93190",
+   "text": "Process page: security check before publishing (credentials, random strings, emails, private paths); redact macOS temp paths",
+   "iso": "2026-11-14T13:38:10-05:00",
+   "label": "1:38 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-73245591-3ed",
+   "text": "Published with the check passing. Now batch 5. Reading how batch 4 was chosen:",
+   "iso": "2026-11-14T18:38:16.469000+00:00",
+   "label": "1:38 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-7f03dc7a-b45-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "What kind of schools should batch 5 focus on? (Batch 4 was ten top publics with CS in engineering. Its backups were Clemson, Delaware, and George Mason, and it dropped NC State, Michigan State, and Arizona State from its proposal.)",
+     "header": "Batch 5",
+     "multi": false,
+     "options": [
+      {
+       "label": "Co-op peers (Recommended)",
+       "description": "Schools with required or strong co-op programs like UC's, such as Drexel, RIT, Kettering, Toledo, and Purdue's co-op track. This tests the co-op normalization against other co-op plans.",
+       "preview": ""
+      },
+      {
+       "label": "More top publics",
+       "description": "Continue batch 4: NC State, Michigan State, Arizona State, Clemson, Delaware, George Mason, and similar.",
+       "preview": ""
+      },
+      {
+       "label": "Ohio and regional peers",
+       "description": "Schools UC's students would weigh it against, such as Miami (OH), Kent State, Toledo, Wright State, Cleveland State, Pitt, and Kentucky (already in).",
+       "preview": ""
+      },
+      {
+       "label": "Remaining top-ranked CS",
+       "description": "Top CS programs not yet included, such as Washington, UCLA, UCSD, Maryland, and Rutgers. Many are on quarters or don't have CS in engineering.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 1,
+   "iso": "2026-11-14T18:38:33.490000+00:00",
+   "label": "1:38 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-3eb46be0-789-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Batch 5",
+     "answer": "Stop doing a new batch and let's finish the batch 4. What's next",
+     "notes": "",
+     "class": "own"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-14T18:38:33.490000+00:00",
+   "label": "2:29 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-d8b21aa6-f04",
+   "text": "Got it, no new batch. Batch 4's only open work is your review, so I'll gather the decisions waiting on you:",
+   "iso": "2026-11-14T19:29:40.241000+00:00",
+   "label": "2:29 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-b3efaefb-3ba",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Read batch 4 group A and B notes",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Look up systems-related canonical courses",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List systems-titled courses and their matches",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Show canonical matches for systems programming courses",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Show descriptions of the five systems courses",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 5 commands",
+   "iso": "2026-11-14T19:29:40.958000+00:00",
+   "label": "2:29 PM",
+   "end_label": "2:30 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-15e5f8c8-edf",
+   "text": "The first open decision affects five schools at once. Checking whether a systems-programming canonical course already exists:",
+   "iso": "2026-11-14T19:29:46.890000+00:00",
+   "label": "2:29 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b697b2ac-5a8",
+   "text": "How the earlier schools matched their systems-programming courses, for comparison:",
+   "iso": "2026-11-14T19:29:52.119000+00:00",
+   "label": "2:29 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-fdbdb734-05f-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "How should the five systems-programming courses (UConn CSE 3100, UT Dallas CS 3377, Tennessee COSC 360/367, Kentucky CS 270, Buffalo CSE 220) be matched?",
+     "header": "Systems prog",
+     "multi": false,
+     "options": [
+      {
+       "label": "Follow precedent (Recommended)",
+       "description": "UConn, UT Dallas, and Tennessee go to operating-systems, like UIC, UIUC, and Purdue. Kentucky and Buffalo go to computer-organization + operating-systems, like CMU 15-213. No new canonical course.",
+       "preview": ""
+      },
+      {
+       "label": "New canonical course",
+       "description": "Add a 'systems-programming' canonical course and rematch all of these, plus the already-approved UIC, UIUC, Purdue, Texas A&M, and VT courses. More precise, but it reopens approved matches and changes the timeline.",
+       "preview": ""
+      },
+      {
+       "label": "Keep as proposed",
+       "description": "Leave the inconsistent matches as they are now.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 2,
+   "iso": "2026-11-14T19:30:22.396000+00:00",
+   "label": "2:30 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-efad14fa-bc5-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Systems prog",
+     "answer": "Can we chat about this, they all sound liken they belong together, can you print the course descriptions of the relevant courses here?",
+     "notes": "",
+     "class": "own"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-14T19:30:22.396000+00:00",
+   "label": "3:02 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-fdbdb734-05f-2",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "How do you want to review the rest of batch 4's proposed matches (nine schools, about 40 flagged 'matches to check')?",
+     "header": "Review mode",
+     "multi": false,
+     "options": [
+      {
+       "label": "In chat, by school (Recommended)",
+       "description": "I show each school's flagged matches with my reasoning; you approve, or tell me what to change.",
+       "preview": ""
+      },
+      {
+       "label": "On review.html",
+       "description": "You look through the review page on your phone and send me decisions.",
+       "preview": ""
+      },
+      {
+       "label": "Approve all",
+       "description": "Accept every proposed batch 4 match as is (systems programming handled as chosen above).",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 2,
+   "of": 2,
+   "iso": "2026-11-14T19:30:22.396000+00:00",
+   "label": "2:30 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-efad14fa-bc5-2",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Review mode",
+     "answer": "On review.html",
+     "notes": "",
+     "class": "other"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-14T19:30:22.396000+00:00",
+   "label": "3:02 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-0e60c27f-a3b",
+   "text": "Here are the full descriptions, the five new courses plus the approved courses they'd be grouped with:",
+   "iso": "2026-11-14T20:02:13.637000+00:00",
+   "label": "3:02 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-470e8392-99e",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Print full descriptions of systems courses",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List each school's courses matched to operating-systems",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 2 commands",
+   "iso": "2026-11-14T20:02:16.342000+00:00",
+   "label": "3:02 PM",
+   "end_label": "3:02 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-21e68a34-010",
+   "text": "You're right that they're one family. Before recommending anything, one fact matters: whether these schools also require a separate operating systems course.",
+   "iso": "2026-11-14T20:02:22.079000+00:00",
+   "label": "3:02 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-4381027e-fbb",
+   "text": "Here's what the descriptions show.\n\n**What they share:** C or UNIX programming at the level of the operating system's interface: processes and threads, system calls, file I/O, inter-process communication (pipes, signals), and usually sockets. That's true of every course except two:\n- **UC CS 2011** is pure assembly and hardware organization, so it's not in this family.\n- **CMU 15-213** is the \"programmer's view\" variant, and Buffalo CSE 220 and Kentucky CS 270 copy that framing. They add machine-level material (data representation, instruction sets, linking) to the systems-interface work.\n\n**Why they got split:** a canonical course needs a home, and we don't have a \"systems programming\" one, so each got the closest neighbor:\n\n| School | Systems course | Separate OS course required? | Current match |\n|---|---|---|---|\n| UIC, UIUC, Purdue, Texas A&M, VT | CS 361 / 341 / 25200 / CSCE 313 / CS 3214 | no | operating-systems (approved) |\n| UConn | CSE 3100 | no | operating-systems |\n| UT Dallas | CS 3377 | **yes** (CS 4348) | programming-practicum |\n| Tennessee | COSC 360/367 | only as one option in a choice | programming-practicum |\n| Kentucky | CS 270 | no | computer-organization |\n| Buffalo | CSE 220 | no | computer-organization |\n| CMU | 15-213 | elective only | comp-org + OS (approved) |\n| UC | CS 4029 \"Operating Systems **and Systems Programming**\" (year 4) | it is the OS course | operating-systems |\n\nMatching to operating-systems worked when the systems course was a school's only OS-like course. It breaks at UT Dallas, which requires both kinds, and at Kentucky and Buffalo, which have no OS course but cover the same ground.\n\n**A new `systems-programming` canonical course** would put all of these on one strip, with UC CS 4029 matching both operating-systems and systems-programming. It would also surface something real: almost every comparison school teaches systems programming in year 2, while UC folds it into the year-4 OS course. Right now the matches hide that. The cost is reopening five approved matches, plus CMU's. The strip would have about 13 schools.",
+   "iso": "2026-11-14T20:02:40.032000+00:00",
+   "label": "3:02 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-15df9ddb-55c-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "Given the descriptions, how should the systems-programming family be handled?",
+     "header": "Systems prog",
+     "multi": false,
+     "options": [
+      {
+       "label": "New canonical course (Recommended)",
+       "description": "Add 'systems-programming'. Rematch all of these to it: approved UIC, UIUC, Purdue, Texas A&M, VT; proposed UConn, UT Dallas, Tennessee, Kentucky, Buffalo. CMU 15-213 and UC CS 4029 get it as a second match. The changed approved matches go back to 'proposed' for your look.",
+       "preview": ""
+      },
+      {
+       "label": "New course, keep OS too",
+       "description": "Same as above, but schools with no separate OS course (UIC, UIUC, Purdue, Texas A&M, VT, UConn, Kentucky, Buffalo) keep operating-systems as a second, partial match, so their OS strips aren't emptied.",
+       "preview": ""
+      },
+      {
+       "label": "No new course",
+       "description": "Follow precedent: map them to operating-systems (Kentucky and Buffalo to comp-org + OS, like CMU). UT Dallas CS 3377 stays programming-practicum.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 1,
+   "iso": "2026-11-14T20:02:43.341000+00:00",
+   "label": "3:02 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-f6b54f50-000-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Systems prog",
+     "answer": "New canonical course (Recommended)",
+     "notes": "",
+     "class": "recommended"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-14T20:02:43.341000+00:00",
+   "label": "3:04 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b0984a64-75f",
+   "text": "New canonical course it is. Checking how the combinatorics split added a canonical course, so I follow the same steps:",
+   "iso": "2026-11-14T20:04:51.757000+00:00",
+   "label": "3:04 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-c6f3f336-2e1",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Read combinatorics precedent and current match rows",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Show matches for other systems-family courses",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Print descriptions of candidate courses",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read canonical course rules",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check Kentucky and Buffalo computer organization matches",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add systems-programming canonical and rematch courses",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Inspect unexpected diff lines",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Redo edits with line-preserving splices",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Rebuild affected schools and combined outputs",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Verify new canonical in processed data",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Search views and scripts for hard-coded canonical ids",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Render timeline headlessly and find the new strip",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read UC flags on the affected strips",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Independently compute UC timing flags",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Update PROGRESS, commit, publish site and share",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 15 commands · committed · published the site",
+   "iso": "2026-11-14T20:04:53.984000+00:00",
+   "label": "3:04 PM",
+   "end_label": "3:07 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-4f37002f-f0c",
+   "text": "The user's choice named specific courses. Checking Tennessee's match key, plus other systems-titled courses that may belong to the family:",
+   "iso": "2026-11-14T20:04:59.891000+00:00",
+   "label": "3:04 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-c54c77d1-58a",
+   "text": "Two more might belong: Stony Brook CSE 320 and Minnesota CSCI 4061, which is known as a systems-programming course despite its OS title. Reading their descriptions:",
+   "iso": "2026-11-14T20:05:05.820000+00:00",
+   "label": "3:05 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-efe5da38-b8c",
+   "text": "Checking whether Kentucky has its own computer organization course, which decides whether CS 270 can give up that match:",
+   "iso": "2026-11-14T20:05:34.925000+00:00",
+   "label": "3:05 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-560e1819-981",
+   "text": "More lines changed than expected in UC, canonical_courses, and VT. That's probably quoting or line-ending differences from rewriting with the csv module. Checking:",
+   "iso": "2026-11-14T20:06:05.699000+00:00",
+   "label": "3:06 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-7447a928-eb9",
+   "text": "The csv module re-quoted unrelated rows. I'll undo and redo it by splicing in only the changed lines, so nothing else in the files moves:",
+   "iso": "2026-11-14T20:06:10.987000+00:00",
+   "label": "3:06 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-3be39177-7a0",
+   "text": "Only the intended lines changed now. Rebuilding the 13 affected schools and the combined tables:",
+   "iso": "2026-11-14T20:06:23.586000+00:00",
+   "label": "3:06 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-4dc5f3bc-dd5",
+   "text": "All checks pass. Confirming the new course shows up in the data the views read, and counting its schools:",
+   "iso": "2026-11-14T20:06:39.470000+00:00",
+   "label": "3:06 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-8b35113c-f18",
+   "text": "Nothing is hard-coded. Loading the timeline in headless Chrome to confirm the new strip renders:",
+   "iso": "2026-11-14T20:06:50.736000+00:00",
+   "label": "3:06 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-5e1db58",
+   "hash": "5e1db58",
+   "text": "New canonical course systems-programming; rematch the systems-programming family (14 matches, proposed)",
+   "iso": "2026-11-14T15:07:29-05:00",
+   "label": "3:07 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-1689586b-3ae",
+   "text": "I added a new canonical course, **Systems Programming**, and rematched the whole family to it. All the changed matches are marked proposed, for you to approve on `review.html`. Everything is committed, and the site and the `overview` share are republished.\n\n**What moved to Systems Programming:**\n- **Previously approved, now proposed again:** UIC CS 361, UIUC CS 341, Purdue CS 25200, Texas A&M CSCE 313, VT CS 3214, and CMU 15-213 (which also keeps computer-organization).\n- **Batch 4:** UConn CSE 3100, UT Dallas CS 3377, Tennessee COSC 360/367, and Buffalo CSE 220.\n- **Added as a second match:** Kentucky CS 270 keeps computer-organization, since it's that school's only computer organization course. UC CS 4029 keeps operating-systems.\n- **Added without asking:** Stony Brook CSE 320. Its description says it covers OS \"from the point of view of the application programmer\", so it's the same family.\n\n**Correction:** before you chose, I said other schools teach this in year 2 and UC in year 4. That was wrong. On the normalized timeline UC is at semester 6, and the other schools' median is 5, so UC is about one and a half semesters later. The timeline now flags UC **▶ 1.5 sem late** on the new strip, which I checked against a separate count. The Operating Systems strip lost its \"1 sem late\" flag, because with these courses gone UC is no longer later than two-thirds of the schools left.\n\n**Three courses for you to look at:**\n- **VT CS 3214** also stresses OS principles like scheduling and deadlock. It might deserve operating-systems as a second match.\n- **Minnesota CSCI 4061 and UVA CS 3130** are borderline. I left both on operating-systems.\n\n**Earlier this session:**\n- **Process page security check:** `PUBLISH_PROCESS=1 ./publish_site.sh` now scans the chat history before publishing and stops if it finds credentials, random-looking strings that could be keys, email addresses, or private paths. The first scan caught a Mac temp-folder path, which is now shortened by rule. The file of excerpts from your messages is never published.\n- **Audit:** I committed the audit tool and fixed its two serious findings: your chat excerpts were being copied to the public site, and the process timeline didn't remove passwords or tokens.\n\nBatch 4's remaining matches and concept tags are ready for your review on `review.html` and `concept_tags_review.html`. Send me your decisions whenever you're ready.",
+   "iso": "2026-11-14T20:07:43.737000+00:00",
+   "label": "3:07 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-80d97770-cec",
+   "text": "Where can I see the",
+   "iso": "2026-11-14T20:31:54.730000+00:00",
+   "label": "3:31 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-cd8c1232-87a",
+   "text": "Your message got cut off. Here are the likely pages; tell me if you meant something else:\n\n- **Matches to review**, including the 14 systems-programming ones (filter to \"proposed\"): https://jauri.github.io/curriculum-comparison-site/web/review.html\n- **Concept tags to review:** https://jauri.github.io/curriculum-comparison-site/web/concept_tags_review.html\n- **Timeline**, with the new Systems Programming strip and UC's ▶ 1.5 sem late flag: https://jauri.github.io/curriculum-comparison-site/web/timeline.html\n- **Process page**, which now passes the security check: https://jauri.github.io/curriculum-comparison-site/web/process.html\n- **Audit report:** this one is only on your Mac, at `audit/report.html` in the project folder. It isn't on the site.\n\nThe site takes a minute or two to update after a publish, and you may need to reload the page.",
+   "iso": "2026-11-14T20:31:59.282000+00:00",
+   "label": "3:31 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-9d417ce3-068",
+   "text": "Let's prepare to clear",
+   "iso": "2026-11-14T20:42:52.818000+00:00",
+   "label": "3:42 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-5f79d651-cf4",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Check working tree and batch 4 Next notes",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Update next steps and commit",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 2 commands · committed · published the site",
+   "iso": "2026-11-14T20:42:56.599000+00:00",
+   "label": "3:42 PM",
+   "end_label": "3:43 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-428f5fa5-bc8",
+   "text": "Everything is committed. I'll update the \"Next\" note so the next session starts in the right place:",
+   "iso": "2026-11-14T20:43:00.017000+00:00",
+   "label": "3:43 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-5ea81da",
+   "hash": "5ea81da",
+   "text": "PROGRESS: next steps for the next session",
+   "iso": "2026-11-14T15:43:05-05:00",
+   "label": "3:43 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-07d3e529-2d7",
+   "text": "You're ready to clear. Everything is committed on `step-13-schools` (latest `5ea81da`), and the site and the `overview` share are published.\n\nPROGRESS.md now tells the next session:\n- **Focus:** finish batch 4 before starting batch 5. Your review of the batch 4 matches on `review.html` is the next step, and it now includes the 14 systems-programming matches.\n- **On hold:** the audit's medium findings.\n- **Publishing:** use `PUBLISH_PROCESS=1 ./publish_site.sh` so the chat history stays on the site. The script runs the security check before it publishes.\n\nThis session's commits haven't been pushed to your private GitHub repo yet; want me to push before you clear?",
+   "iso": "2026-11-14T20:43:10.328000+00:00",
+   "label": "3:43 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-b67663b5-bf8",
+   "text": "Let's commit and push",
+   "iso": "2026-11-14T21:09:59.162000+00:00",
+   "label": "4:09 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-5994cd09-1e8",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Push branch to private repo",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 1 command",
+   "iso": "2026-11-14T21:10:02.192000+00:00",
+   "label": "4:10 PM",
+   "end_label": "4:10 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-8e1ae168-f05",
+   "text": "I pushed `step-13-schools` to your private repo (`jauri/curriculum-comparison`). There was nothing new to commit, so it's the same commits as before. Your local branch and GitHub now match, and you're clear to `/clear`.",
+   "iso": "2026-11-14T21:10:09.644000+00:00",
+   "label": "4:10 PM"
+  },
+  {
+   "kind": "session",
+   "id": "s-39",
+   "n": 39,
+   "label": "Sat Nov 14 · Session 39",
+   "iso": "2026-11-14T21:21:18.451000+00:00"
+  },
+  {
+   "kind": "you",
+   "id": "u-69ffdeca-d25",
+   "text": "Can I see a list of top 100 cs undergraduate programs in the us. I may want to expand the list",
+   "iso": "2026-11-14T21:21:18.451000+00:00",
+   "label": "4:21 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-3a26b6ed-8c7",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Show school registry and comparison-set spec",
+     "kind": "command"
+    },
+    {
+     "tool": "ToolSearch",
+     "label": "ToolSearch",
+     "kind": "other"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: US News best undergraduate computer science programs 2026 ranking list",
+     "kind": "web"
+    },
+    {
+     "tool": "WebFetch",
+     "label": "Fetched https://www.usnews.com/best-colleges/rankings/computer-science-overall",
+     "kind": "web"
+    },
+    {
+     "tool": "WebFetch",
+     "label": "Fetched https://www.cs.utexas.edu/news/2026/ut-computer-science-ranks-no-11-nationally-among-undergraduate-programs",
+     "kind": "web"
+    }
+   ],
+   "summary": "Ran 1 command · 3 web lookups · 1 other",
+   "iso": "2026-11-14T21:21:22.130000+00:00",
+   "label": "4:21 PM",
+   "end_label": "4:22 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-ff27a8cc-5f4",
+   "text": "I couldn't get the official list. U.S. News released its 2027 undergraduate CS rankings on Sept 22, 2026, but its site timed out when I fetched it, and search only turned up news posts from single schools. The list below is from my own knowledge of recent editions and is approximate. U.S. News ranks these programs by peer assessment, so there are many ties and positions move a few places each year. I grouped the schools into rank bands instead of giving exact numbers; check them on usnews.com before relying on any one rank.\n\nKey: **✓** already in the set · **Q** quarter or non-semester calendar, which the semester-only rule excludes · **✗** considered before and dropped\n\n**About 1–12**\nMIT · CMU ✓ · Stanford Q · UC Berkeley ✓ · UIUC ✓ · Georgia Tech ✓ · Cornell · Princeton · U Washington Q · UT Austin ✓ · Caltech Q · Michigan ✓\n\n**About 13–25**\nColumbia · Harvard · UCLA Q · UC San Diego Q · Maryland ✗ (no semester plan) · Wisconsin ✓ · Yale · Penn · Purdue ✓ · Brown · Rice · Johns Hopkins · UChicago Q\n\n**About 26–50**\nNorthwestern Q · Duke · USC · NYU · Ohio State ✓ · UC Irvine Q · Minnesota ✓ · Virginia Tech ✓ · UMass Amherst · Penn State ✓ · UNC · Rutgers · Texas A&M ✓ · UC Davis Q · UC Santa Barbara Q · Northeastern ✓ · Stony Brook ✓ · Arizona State ✗ · Dartmouth Q · UVA ✓ · Boston University · Vanderbilt · NC State ✗ · Utah ✓ · Colorado Boulder ✓ · Pitt · Florida ✗ (summer terms) · Michigan State ✗ · Harvey Mudd\n\n**About 51–75**\nWilliam & Mary · Emory · Notre Dame · WashU St. Louis · RPI · UC Santa Cruz Q · UC Riverside Q · Indiana · Iowa State · Arizona · Case Western · Tufts · Stevens · Iowa · Oregon State Q · Clemson · UIC ✓ · UT Dallas ✓ · Buffalo ✓ · Delaware · George Mason · Rochester · Lehigh · WPI Q · UConn ✓\n\n**About 76–100**\nBrandeis · Syracuse · Washington State · Colorado School of Mines · Drexel Q · Florida State · UCF · Georgia · Kansas · Kentucky ✓ · Tennessee ✓ · Missouri · Nebraska · Oklahoma · Oregon Q · South Carolina · South Florida · Houston · Temple · RIT · Auburn · Alabama · Miami (FL) · NJIT · Binghamton · Michigan Tech · Colorado State · Cincinnati (home)\n\nWithin the top 50, the semester-system schools not yet in the set are:\n- **Private:** MIT, Cornell, Princeton, Columbia, Harvard, Yale, Penn, Brown, Rice, Johns Hopkins, Duke, USC, NYU, Boston University, Vanderbilt, Harvey Mudd\n- **Public:** UMass Amherst, UNC, Rutgers and Pitt (CS outside engineering, which the batch 4 notes left out), plus Maryland (no semester plan)\n\nShould I save this as a CSV (school, band, calendar, in set) in the scratchpad so you can mark the ones to add?\n\nSources:\n- [UT Austin CS: No. 11 in the 2027 U.S. News rankings](https://www.cs.utexas.edu/news/2026/ut-computer-science-ranks-no-11-nationally-among-undergraduate-programs)\n- [Georgia Tech: No. 5 (2026 edition)](https://www.cc.gatech.edu/news/ai-and-cybersecurity-propelling-cs-forward-latest-nationwide-undergraduate-rankings)\n- [Maryland: 16th (2026 edition)](https://www.cs.umd.edu/node/27318)\n- [UMass Amherst: 35th (2026 edition)](https://www.cics.umass.edu/news/2026-us-news-undergraduate-rankings)\n- [William & Mary: 54th](https://cdsp.wm.edu/computerscience/about/news/csci-undergraduate-program-rises-to-54-in-national-rankings.php)",
+   "iso": "2026-11-14T21:23:16.687000+00:00",
+   "label": "4:23 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-c013b858-c4a",
+   "text": "Let's do for batch 5: unc, Indiana, Arizona, case Western, usc, nyu, UMass Amherst Boston University, Vanderbilt, pitt",
+   "iso": "2026-11-14T21:27:21.412000+00:00",
+   "label": "4:27 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-1eb7dc21-048",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Read project progress notes",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List PROGRESS.md section headings",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read batch 4 notes and Next section",
+     "kind": "command"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: UNC Chapel Hill computer science BS catalog 2026-2027 sample plan of study",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: Indiana University Bloomington computer science BS Luddy 2026-2027 four-year plan",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: University of Arizona computer science BS 2026-2027 advising four year plan",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: Case Western Reserve computer science BS 2026-2027 bulletin plan of study",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: USC Viterbi computer science BS 2026-2027 catalogue four-year plan",
+     "kind": "web"
+    },
+    {
+     "tool": "WebFetch",
+     "label": "Fetched https://catalog.unc.edu/undergraduate/programs-study/computer-science-major-bs/",
+     "kind": "web"
+    },
+    {
+     "tool": "WebFetch",
+     "label": "Fetched https://bulletin.case.edu/engineering/computer-data-sciences/computer-science-bs/",
+     "kind": "web"
+    },
+    {
+     "tool": "WebFetch",
+     "label": "Fetched https://bulletins.iu.edu/iub/sice/2026-2027/undergraduate/degree-programs/bs-computer-science/luddy-degree-major-req.shtml",
+     "kind": "web"
+    },
+    {
+     "tool": "WebFetch",
+     "label": "Fetched https://catalog.arizona.edu/programs/COSCBS/program-requirements-a1nCj",
+     "kind": "web"
+    },
+    {
+     "tool": "WebFetch",
+     "label": "Fetched https://viterbiadmission.usc.edu/wp-content/uploads/2026/06/CS_Curriculum_2026.pdf",
+     "kind": "web"
+    },
+    {
+     "tool": "Bash",
+     "label": "Download UNC, Case Western and USC plan pages to the scratchpad",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Fetch the remaining schools' program pages to the scratchpad",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Diagnose catalog connection failure and list plan links",
+     "kind": "command"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: Indiana University Bloomington \"Computer Science\" B.S. degree map \"suggested\" semester plan Luddy",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: University of Arizona Computer Science BS \"advising plan\" OR \"four year plan\" catalog.arizona.edu COSCBS",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: UMass Amherst Manning CICS computer science BS sample four-year plan semester",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: Boston University computer science BA sample four-year plan CDS semester schedule",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: Vanderbilt School of Engineering computer science BS sample four-year plan 2026",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: Pitt School of Computing and Information computer science BS sample four year plan 2026",
+     "kind": "web"
+    },
+    {
+     "tool": "Bash",
+     "label": "Fetch Pitt, Vanderbilt and UMass pages and list plan-like links",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List link texts mentioning plans on three pages",
+     "kind": "command"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: Vanderbilt \"26-27\" Computer Science Roadmap pdf",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: NYU Tandon computer science BS 2026-2027 bulletin \"sample\" plan semester",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: Indiana University Bloomington \"degree map\" computer science BS iu.edu",
+     "kind": "web"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: Boston University bulletin Computer Science BA CAS 2026 requirements \"four-year\" OR \"sample schedule\"",
+     "kind": "web"
+    },
+    {
+     "tool": "Bash",
+     "label": "Fetch UMass flowchart, Vanderbilt roadmap and BU CS undergrad page",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check Vanderbilt roadmap links, UMass flowchart PDF, BU CS links",
+     "kind": "command"
+    },
+    {
+     "tool": "ToolSearch",
+     "label": "ToolSearch",
+     "kind": "other"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_context_mcp",
+     "label": "Browser: tabs_context_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate https://catalog.arizona.edu/programs/COSCBS",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: University of Arizona \"Computer Science\" BS \"major map\" OR \"sample plan\" OR \"four-year plan\" 2025 OR 2026 arizona.edu",
+     "kind": "web"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate https://www.cs.pitt.edu/node/482",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__get_page_text",
+     "label": "Browser: get_page_text",
+     "kind": "browser"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: cs.pitt.edu \"sample plan\" computer science major School of Computing and Information first year fall spring",
+     "kind": "web"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate https://catalog.upp.pitt.edu/search_advanced.php?cur_cat_oid=&search_database=Search&filter%5Bkeyword%5D=computer+science+bs&filter%5B3%5D=1",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate https://catalog.upp.pitt.edu/preview_program.php?catoid=241&poid=79354",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate https://www.google.com/search?q=UMass+Amherst+computer+science+BS+%22sample%22+%22four-year%22+OR+%228-semester%22+OR+%22semester+plan%22+cics",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Download and read two UMass CICS planning PDFs",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List UMass CICS documents about the CS BS",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    }
+   ],
+   "summary": "Ran 12 commands · 22 web lookups · 16 browser steps · 1 other",
+   "iso": "2026-11-14T21:27:24.709000+00:00",
+   "label": "4:27 PM",
+   "end_label": "4:32 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-6d3721b3-173",
+   "text": "Checking the catalog pages that need a browser (Arizona, UMass, Pitt, Indiana, BU) in Chrome, read-only.",
+   "iso": "2026-11-14T21:30:10.044000+00:00",
+   "label": "4:30 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-a97bb415-386",
+   "text": "Still checking: Arizona's catalog has only Overview and Requirements tabs, and the department's only plan is from Fall 2021. Next I'll look at Pitt and UMass in Chrome.",
+   "iso": "2026-11-14T21:30:50.629000+00:00",
+   "label": "4:30 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-e15eef0b-4e0",
+   "text": "Pitt is fine: the 2026-27 catalog has an 8-term \"Sample Plan of Study\". Now checking UMass, Indiana, and BU.",
+   "iso": "2026-11-14T21:31:55.899000+00:00",
+   "label": "4:31 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-27dc1308-884-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "Indiana, UMass Amherst, and BU publish no semester-by-semester plan for CS (requirements only), and Arizona's only plan is from Fall 2021. What should batch 5 do with these four?",
+     "header": "No plan",
+     "multi": false,
+     "options": [
+      {
+       "label": "Drop all four (Recommended)",
+       "description": "Same rule as Maryland: no published semester plan, no school. Batch 5 = UNC, Case Western, USC, NYU, Vanderbilt, Pitt (6). Optionally swap in replacements later.",
+       "preview": ""
+      },
+      {
+       "label": "Drop 3, keep Arizona 2021",
+       "description": "Use Arizona's Fall 2021 sample plan (like UVA's older outline), checked against the 2026-27 requirements; drop Indiana, UMass, BU.",
+       "preview": ""
+      },
+      {
+       "label": "Swap in replacements",
+       "description": "Drop all four and I propose replacements from the top-100 list that do publish semester plans (e.g. Rice, Duke, Northwestern is quarters so no; Rutgers, Johns Hopkins, Vanderbilt-like privates).",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 1,
+   "iso": "2026-11-14T21:32:40.601000+00:00",
+   "label": "4:32 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-aceefcac-b0e-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "No plan",
+     "answer": "Drop all four (Recommended)",
+     "notes": "",
+     "class": "recommended"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-14T21:32:40.601000+00:00",
+   "label": "5:58 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-90cee599-484",
+   "calls": [
+    {
+     "tool": "Edit",
+     "label": "Edited specs/05-comparison-set.md",
+     "kind": "edit"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited PROGRESS.md",
+     "kind": "edit"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check whether the three catalog hosts are reachable again",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 1 command · edited 2 files",
+   "iso": "2026-11-14T22:58:19.767000+00:00",
+   "label": "5:58 PM",
+   "end_label": "5:58 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-995af3e8-c7b",
+   "text": "I've cut batch 5 to six schools. Four are dropped because they publish no current semester-by-semester plan: Indiana, UMass Amherst and BU (requirements only), and Arizona (only a Fall 2021 plan).\n\n| School | Plan | Status |\n|---|---|---|\n| Pitt | 2026-27 catalog \"Sample Plan of Study\", 8 terms, about 121 credits | Read in Chrome |\n| Vanderbilt | 2025-26 Computer Science Roadmap, 8 semesters, 120 hours | Read; no 2026-27 roadmap is posted yet, so it would be a prior-year plan like UVA's |\n| USC | 2026 Viterbi guide, CS four-year grids | Found; the grids are images, so I'd transcribe one by eye |\n| NYU | Tandon CS BS bulletin sample plan | Not read yet |\n| UNC | CS BS catalog page; the catalog says sample plans exist | Not confirmed |\n| Case Western | Bulletin \"Plan of Study\" tab | Not confirmed |\n\nNYU, UNC and Case Western all use the catalog server that was down during the Florida outage, and it is refusing connections again. Their plans come from search results and can't be checked until it's back.\n\nI chose two degrees by the existing rules:\n- **NYU:** Tandon's engineering BS rather than the College of Arts & Science BA (the prefer-engineering rule).\n- **UNC:** the College of Arts & Sciences BS, kept because it is UNC's only CS BS.\n\nI recorded the selection in `specs/05-comparison-set.md` and `PROGRESS.md`. Nothing has been downloaded into `data/raw/` yet.\n\n**Decision for you:** before I collect anything, I'll draft the exact source URLs for you to approve, as in batch 4. Should I start with Pitt, Vanderbilt and USC, which are reachable now, and do NYU, UNC and Case Western once their server is back? For USC, the guide shows two plans: one starting with CSCI 102 and one with CSCI 103. I'd use the CSCI 102 plan, since it's the one for students without AP credit.",
+   "iso": "2026-11-14T22:58:43.097000+00:00",
+   "label": "5:58 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-c8b81f54-7cc",
+   "text": "Yes start with pitt Vanderbilt and usc.  Yes use the one for students with no ap credit",
+   "iso": "2026-11-14T23:23:49.821000+00:00",
+   "label": "6:23 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-21844034-5b1",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "List scripts and batch 4 raw data layout",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read Tennessee/UVA collectors and shared helpers",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find Vanderbilt Kuali catalog embed details",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find the Vanderbilt Kuali catalog id and list public catalogs",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List Vanderbilt 2026-27 catalog programs mentioning computer",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read Vanderbilt CS major entry from the Kuali API",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check Vanderbilt course API and USC catalogue reachability",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check USC catalogue year and find CS BS program id",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find USC catalogue year and Viterbi program list",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find USC 2026-27 Computer Science program links",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Retry USC program list with redirects and longer timeout",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate https://catalogue.usc.edu/search_advanced.php?cur_cat_oid=22&search_database=Search&search_db=Search&ecpage=1&ppage=1&spage=1&tpage=1&location=33&filter%5Bkeyword%5D=Computer+Science&filter%5Bexact_match%5D=1&filter%5B3%5D=1",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate https://catalogue.usc.edu/preview_program.php?catoid=22&poid=32086",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    }
+   ],
+   "summary": "Ran 11 commands · 4 browser steps",
+   "iso": "2026-11-14T23:23:55.319000+00:00",
+   "label": "6:23 PM",
+   "end_label": "6:25 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-a942f7ec-6dc",
+   "text": "Now I'll find the exact catalog pages for Vanderbilt and USC, which give the college, credit totals, and course descriptions.",
+   "iso": "2026-11-14T23:24:03.613000+00:00",
+   "label": "6:24 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-72355474-766",
+   "text": "Vanderbilt's catalog API answers scripts, which means descriptions can be downloaded directly. Now finding USC's 2026-27 catalogue page.",
+   "iso": "2026-11-14T23:24:54.969000+00:00",
+   "label": "6:24 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-9122bb3b-abe-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "Approve these source URLs for Pitt, Vanderbilt, and USC (listed in my message above) so I can download them into data/raw/?",
+     "header": "Sources",
+     "multi": false,
+     "options": [
+      {
+       "label": "Approve all",
+       "description": "Collect all three: Pitt and USC catalog pages through Chrome bundles, Vanderbilt PDFs and Kuali records by script, the USC guide PDF by script.",
+       "preview": ""
+      },
+      {
+       "label": "Approve, but change some",
+       "description": "Tell me which URLs to swap or drop.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 1,
+   "iso": "2026-11-14T23:25:54.069000+00:00",
+   "label": "6:25 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-bf3ee23a-6f3-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Sources",
+     "answer": "Approve all",
+     "notes": "",
+     "class": "no_rec"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-14T23:25:54.069000+00:00",
+   "label": "7:04 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-040a6d48-53d",
+   "text": "Approved. Collecting now, starting with Vanderbilt (by script).",
+   "iso": "2026-11-15T00:04:41.364000+00:00",
+   "label": "7:04 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-ddd9b82f-e7f",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Read load_school and a script-based collector",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check which PDF library the project uses",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Inspect a Vanderbilt course record and the prerequisite sheets",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add the three batch 5 schools to the registry",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/collect_vanderbilt.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited src/collect_vanderbilt.py",
+     "kind": "edit"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited src/collect_vanderbilt.py",
+     "kind": "edit"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run the Vanderbilt collector",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Look for how Chrome bundles were built before",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Search for the bundle-building recipe",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate https://catalog.upp.pitt.edu/preview_program.php?catoid=241&poid=79354",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read Pitt's sample plan text from the bundle",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Replace the broken bundle and read Pitt's plan text",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_create_mcp",
+     "label": "Browser: tabs_create_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate https://catalog.upp.pitt.edu/preview_program.php?catoid=241&poid=79354",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate https://catalog.upp.pitt.edu/preview_program.php?catoid=241&poid=79354",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Widen Acalog subject-code regexes to six letters for Pitt",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/collect_pitt.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Import the Pitt bundle and fix Pitt's credit total",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate https://catalogue.usc.edu/preview_program.php?catoid=22&poid=32086",
+     "kind": "browser"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/collect_usc.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Download USC guide PDF and render its pages to images",
+     "kind": "command"
+    },
+    {
+     "tool": "Read",
+     "label": "Read (temp)",
+     "kind": "read"
+    },
+    {
+     "tool": "Bash",
+     "label": "Render the CSCI 102 grid at higher resolution in two halves",
+     "kind": "command"
+    },
+    {
+     "tool": "Read",
+     "label": "Read (temp)",
+     "kind": "read"
+    },
+    {
+     "tool": "Read",
+     "label": "Read (temp)",
+     "kind": "read"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Import the USC bundle",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read the shared common.py definitions",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read UVA parser and Tennessee descriptions parser as templates",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Inspect Pitt plan table, program text and an entry",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Inspect a Pitt course entry title and body",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited src/acalog.py",
+     "kind": "edit"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/parse_pitt_descriptions.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run Pitt description parser and preview rows",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read Pitt program requirements text",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/parse_pitt.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run the Pitt plan parser and preview rows",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Look at reference file formats and run normalize/describe for Pitt",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List canonical course ids and how slots were matched",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read describe.py rules and UVA generic descriptions",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Write Pitt reference files and run describe and check_canonical",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check canonical definitions and subject-area rule format",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read CMPINF 0010 description and check subject rules",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Rematch CMPINF 0010 to cs-orientation and check subject rules",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add subject-area rules and build and validate Pitt",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Inspect Vanderbilt course records for plan courses",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/parse_vanderbilt_descriptions.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run Vanderbilt description parser and dump roadmap lines",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/parse_vanderbilt.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run the Vanderbilt parser and list rows",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Fix cross-listed code capture and rerun Vanderbilt parser",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read key Vanderbilt course descriptions for matching",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Write Vanderbilt reference files and run the shared steps",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check the CS 1151 cut-off warning",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Strip Vanderbilt credit markers and rebuild",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Inspect USC course entry layout",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Write the USC grid transcription reference file",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read USC catalogue requirements text",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/parse_usc_descriptions.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run the USC description parser and preview",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Handle USC maximum-units lead and rerun",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/parse_usc.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run the USC plan parser and list rows",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Fix USC capstone row, titles and docstring",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read USC CS course descriptions for matching",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read remaining USC descriptions",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "See how all_in_any_order groups were matched",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Write USC reference files and run the shared steps",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Inspect the USC validation failure and Berkeley precedent",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Make USC choice rows slots and rebuild",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Rerun Acalog parsers, check for diffs, build combined table",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run build_concepts and read the publish script",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check whether the local review server is running",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/index.html",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "ToolSearch",
+     "label": "ToolSearch",
+     "kind": "other"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/timeline.html",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find the hard-coded school count in the timeline",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find where the timeline intro text is set",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Look at how the timeline fills the school count",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/review.html?v=b5",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__read_console_messages",
+     "label": "Browser: read_console_messages",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/compare.html?v=b5",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__read_console_messages",
+     "label": "Browser: read_console_messages",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Publish the updated site",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited PROGRESS.md",
+     "kind": "edit"
+    },
+    {
+     "tool": "Bash",
+     "label": "Update PROGRESS header and recheck catalog hosts",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 58 commands · wrote collect_vanderbilt.py, collect_pitt.py, collect_usc.py and 6 more · edited 3 files · read 3 files · 33 browser steps · 1 other · published the site",
+   "iso": "2026-11-15T00:04:42.100000+00:00",
+   "label": "7:04 PM",
+   "end_label": "7:19 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-57e927c2-126",
+   "text": "Now the Vanderbilt collector:",
+   "iso": "2026-11-15T00:05:13.097000+00:00",
+   "label": "7:05 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-e5f5fdf9-119",
+   "text": "Building the Pitt bundle in Chrome: the program page plus its 38 linked course entries. It downloads as one JSON file.",
+   "iso": "2026-11-15T00:07:00.893000+00:00",
+   "label": "7:07 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-9f24cda0-bfa",
+   "text": "Chrome blocks a second download from the same tab, so I'm rebuilding the bundle in a fresh tab.",
+   "iso": "2026-11-15T00:07:36.442000+00:00",
+   "label": "7:07 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-cf46f51c-6cc",
+   "text": "Pitt is collected (program page plus 17 course entries). Now USC: the catalogue bundle in a fresh tab.",
+   "iso": "2026-11-15T00:08:48.014000+00:00",
+   "label": "7:08 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-832954c3-80c",
+   "text": "Before building the USC bundle I need the guide's plan, so any plan courses the catalogue page doesn't link can go in the same bundle. Downloading the guide first.",
+   "iso": "2026-11-15T00:08:53.654000+00:00",
+   "label": "7:08 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-3b8d8593-175",
+   "text": "The CSCI 102 grid's required cells add up to 124 units. Its yellow \"optional elective\" cells hold the catalogue's 4-unit free elective (128 total). Now building the USC catalogue bundle.",
+   "iso": "2026-11-15T00:09:43.580000+00:00",
+   "label": "7:09 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-118c58fc-50b",
+   "text": "The 2026-27 catalogue names only CSCI 401 for the capstone (the guide says \"401 or 404\") and adds ENGR 495 Practicum at 0 units. I'll note both. Building the bundle:",
+   "iso": "2026-11-15T00:10:07.650000+00:00",
+   "label": "7:10 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-3226b523-b44",
+   "text": "All three are collected. Closing the tab, then on to parsing.",
+   "iso": "2026-11-15T00:10:33.256000+00:00",
+   "label": "7:10 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-3870b3f9-fe6",
+   "text": "Starting with Pitt's parser. First, the plan's HTML layout and a course entry's text:",
+   "iso": "2026-11-15T00:10:40.629000+00:00",
+   "label": "7:10 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-96a463a6-1d4",
+   "text": "Pitt's plan parses: 40 rows, 122 credits, every term total matches. Next are the shared steps: normalize, descriptions, and canonical matches.",
+   "iso": "2026-11-15T00:11:52.767000+00:00",
+   "label": "7:11 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-88b7a8e6-13a",
+   "text": "Writing Pitt's reference files (generic slot descriptions, proposed matches):",
+   "iso": "2026-11-15T00:12:05.502000+00:00",
+   "label": "7:12 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-a85fd809-3c6",
+   "text": "Pitt is built and validated (matches proposed, concept tags still to do). Now Vanderbilt's roadmap.",
+   "iso": "2026-11-15T00:12:47.763000+00:00",
+   "label": "7:12 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-e090ec71-382",
+   "text": "Cross-listed codes (\"CS/ECE 2201\") were captured as ECE instead of CS. Fixing the regexes:",
+   "iso": "2026-11-15T00:14:03.771000+00:00",
+   "label": "7:14 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-1da54516-58c",
+   "text": "Vanderbilt parses: 42 rows, 120 hours, all term totals and requirement-group hours match. Writing its reference files:",
+   "iso": "2026-11-15T00:14:13.105000+00:00",
+   "label": "7:14 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-fa846021-f15",
+   "text": "Vanderbilt descriptions end with a bracketed credit marker (\"[3]\"), which trips the cut-off check. I'll strip that marker in the parser; the roadmap already gives the credits.",
+   "iso": "2026-11-15T00:14:40.397000+00:00",
+   "label": "7:14 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-577d77a8-60d",
+   "text": "Vanderbilt is built and validated. Now USC: first a course entry's layout.",
+   "iso": "2026-11-15T00:14:49.448000+00:00",
+   "label": "7:14 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-04b63083-fe9",
+   "text": "Now the USC plan parser:",
+   "iso": "2026-11-15T00:15:53.214000+00:00",
+   "label": "7:15 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-f6fbe8f6-690",
+   "text": "Three small fixes: the capstone cell should be a single CSCI 401 row, \"Ii\"/\"Iv\" title-casing, and a garbled docstring line.",
+   "iso": "2026-11-15T00:16:34.837000+00:00",
+   "label": "7:16 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-e2e146e0-e98",
+   "text": "USC is nearly done. Validation wants choice rows typed as slots (the Berkeley precedent), so I'm fixing that, then rebuilding.",
+   "iso": "2026-11-15T00:17:25.631000+00:00",
+   "label": "7:17 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-842158a5-474",
+   "text": "All three pass. Now checking that the shared Acalog regex changes left the batch 4 schools' outputs unchanged, then rebuilding the combined table:",
+   "iso": "2026-11-15T00:17:32.693000+00:00",
+   "label": "7:17 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-a54e0c82-4c5",
+   "text": "The batch 4 outputs are unchanged, and the combined table now has 28 schools (1105 rows). Checking the concept pipeline and the views:",
+   "iso": "2026-11-15T00:17:46.806000+00:00",
+   "label": "7:17 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b0ce7a49-853",
+   "text": "The three new schools load on the Course Plans page. Now I'm checking the other views for errors.",
+   "iso": "2026-11-15T00:18:09.456000+00:00",
+   "label": "7:18 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-bb9c39fa-d6d",
+   "text": "The \"15\" was an old cached copy of the page; the current file computes the count. Doing a last error check on the alignment and review pages:",
+   "iso": "2026-11-15T00:18:34.947000+00:00",
+   "label": "7:18 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-7aa09f65-a35",
+   "text": "The views load with no errors. Publishing to the public site so you can review on your phone:",
+   "iso": "2026-11-15T00:18:51.243000+00:00",
+   "label": "7:18 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-fef09ddb-b28",
+   "text": "Now updating PROGRESS.md:",
+   "iso": "2026-11-15T00:19:02.972000+00:00",
+   "label": "7:19 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-6f48643b-77c",
+   "text": "Pitt, Vanderbilt and USC are collected, parsed and matched. All three pass the pipeline checks and appear in every view, and the public site is republished. Their canonical matches are all marked `proposed` for your review.\n\n| School | Plan used | Rows | Credits |\n|---|---|---|---|\n| Pitt | 2026-27 catalog Sample Plan of Study | 40 | 122 |\n| Vanderbilt | 2025-26 roadmap (no 2026-27 one is posted) | 42 | 120 |\n| USC | Viterbi 2026 guide, \"Begin with CSCI 102\" grid | 33 | 128 |\n\nThe combined table now has 28 schools. The other views load with the new schools and no errors. I also re-ran the batch 4 schools on the same catalog system after small shared-code changes for Pitt, and their outputs are unchanged.\n\n**Please spot-check USC.** Its four-year grid is an image, so I typed it in by hand to `data/reference/usc/plan_transcription.csv`. It should be checked against page 44 of the guide.\n\nChoices I made without asking (all listed in PROGRESS.md):\n- **Pitt credits:** the catalog page gives no degree total, only 54 credits for the major. I used 122, which is what the plan's terms add up to.\n- **Pitt \"CS UL 7 or Elective\":** treated as a free elective, since a seventh upper-level course only counts toward honors.\n- **Pitt programming prerequisite:** the plan assumes an intro programming course before CMPINF 0401. I added no row for it, just a note on that course.\n- **USC electives:** the grid's yellow optional-elective cells are left out, except the catalogue's 4-unit free elective, which I put in Year 4 Fall. That makes the required 124 plus 4, for the catalogue's 128.\n- **USC four required courses:** the four \"CSCI 310 or 353 or 356 or 360\" cells are one group, because the catalogue requires all four in any order.\n- **USC capstone:** the 2026-27 catalogue lists only CSCI 401, so the plan uses it. The guide's alternative, CSCI 404, is in a note.\n- **USC ENGR 495 Practicum:** it's required but worth 0 units and isn't placed in the grid, so it has no row.\n- **Vanderbilt:** \"ES 1401-1403\" became three 1-credit modules, and the computer architecture course and its lab became separate rows (3 + 1).\n\nMatches I'm least sure of:\n- Pitt CMPINF 0010 (Big Ideas in Computing and Information) → CS orientation (partial).\n- Pitt CS 1503 (Mathematical Foundations of Machine Learning) → probability and statistics (partial).\n- USC CSCI 356 (Computer Systems) → systems programming; it could also be computer organization.\n- USC EE 109 (Introduction to Embedded Systems) → digital logic (partial).\n\nStill to do:\n- **Concept tags** for the three schools; until then they're left out of the concept views.\n- **NYU, UNC, Case Western:** their catalog server is still refusing connections. Once it's back I'll propose their source URLs for your approval.\n- **Commit:** nothing is committed yet; say \"commit\" when you want it.",
+   "iso": "2026-11-15T00:19:31.177000+00:00",
+   "label": "7:19 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-42b2b290-a44",
+   "text": "Let's commit and push so I can look at it",
+   "iso": "2026-11-15T00:59:32.404000+00:00",
+   "label": "7:59 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-db43df1f-acb",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Show working tree changes before committing",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Commit batch 5 group A and push the branch",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 2 commands · committed",
+   "iso": "2026-11-15T00:59:41.266000+00:00",
+   "label": "7:59 PM",
+   "end_label": "7:59 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-11893e8",
+   "hash": "11893e8",
+   "text": "Batch 5 group A: Pitt, Vanderbilt, USC built (matches proposed)",
+   "iso": "2026-11-14T19:59:49-05:00",
+   "label": "7:59 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-d73f7f8f-d62",
+   "text": "I committed the batch 5 work as `11893e8` and pushed it to the `step-13-schools` branch of your private `jauri/curriculum-comparison` repo.\n\nThe public site was already republished with Pitt, Vanderbilt and USC, so you can look at them there now: https://jauri.github.io/curriculum-comparison-site/web/\n\n- **Matches:** `review.html` lists all three schools' proposed matches.\n- **USC check:** compare `data/reference/usc/plan_transcription.csv` with page 44 of the Viterbi guide, since I typed that grid in by hand.\n- **Phone caching:** if a page still shows an old school count, do a hard reload, because the browser may be using a cached copy.",
+   "iso": "2026-11-15T00:59:54.480000+00:00",
+   "label": "7:59 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-71c92b8c-815",
+   "text": "for pitt, could we add a placeholder for that intro course?  Assuming students take it, it should appear in the first semester than shift everything over, right?",
+   "iso": "2026-11-15T01:52:33.709000+00:00",
+   "label": "8:52 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-ecfbe746-611",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Check CMPINF 0401 prerequisites and the CMU precedent",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 1 command",
+   "iso": "2026-11-15T01:52:48.772000+00:00",
+   "label": "8:52 PM",
+   "end_label": "8:52 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-7a0200db-9a5-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "Pitt's plan assumes an intro programming course before CMPINF 0401 (the catalog suggests CS 0007). How should it appear?",
+     "header": "Pitt intro",
+     "multi": false,
+     "options": [
+      {
+       "label": "Add to sem 1, no shift (Recommended)",
+       "description": "Same as CMU's 15-112: a CS 0007 row in Year 1 Fall, marked 'doesn't count toward the total' (it doesn't count toward the major). Everything else stays where Pitt puts it; Fall 1 shows 19 credits.",
+       "preview": "Year 1 Fall (as now + 1 row)\n  CS 0007      Intro to Programming  3  (assumed; not counted)\n  CMPINF 0401  Intermediate Prog.    4\n  MATH 0220    Calculus 1            4\n  CMPINF 0001  First-Year Seminar    1\n  CMPINF 0010  Big Ideas             4\n  ENGCMP 0200  Composition           3\nTotal 122 (unchanged)"
+      },
+      {
+       "label": "Shift the CS sequence",
+       "description": "Put CS 0007 in Fall 1 and move CMPINF 0401 and each later course in its chain back a term. Not Pitt's published plan; the chain's last courses would run past semester 8 or crowd Year 4.",
+       "preview": "Fall 1:   CS 0007\nSpring 1: CMPINF 0401\nFall 2:   CS 0445, CS 0441\nSpring 2: CS 0447, CS 1503\n...\nSpring 4: CS UL 6 + CS UL 7\n(departs from Pitt's plan)"
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 1,
+   "iso": "2026-11-15T01:52:58.699000+00:00",
+   "label": "8:52 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-d46b77da-f3a",
+   "sub": "declined",
+   "text": "[Chose to talk it through instead of answering]",
+   "iso": "2026-11-15T01:54:40.502000+00:00",
+   "label": "8:54 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-77cc5428-666",
+   "text": "What would you like to clarify about how to show Pitt's intro programming course? For example:\n- which course to use (the catalog names CS 0007 as a typical choice)\n- where it should sit in the plan\n- whether its credits should count toward the 122",
+   "iso": "2026-11-15T01:54:43.363000+00:00",
+   "label": "8:54 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-156e5f88-283",
+   "text": "let's remove pitt and cmu from the data displayed in the interface.  this extra semester complicates things, and i want to consistently display the experience for students entering with no prior programming experience, where they start from an intro course.",
+   "iso": "2026-11-15T01:55:42.090000+00:00",
+   "label": "8:55 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b3273435-0b9",
+   "text": "I'll take Pitt and CMU out of the views but keep their files, so it's easy to undo. First, a look at how the views get their school list:",
+   "iso": "2026-11-15T01:55:46.817000+00:00",
+   "label": "8:55 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-0f4db990-cdf",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Find where the school list reaches the web views",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read how schools.json is written and the registry helper",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add a displayed column and read the two combined builders",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Filter hidden schools in builders and rebuild shared view data",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run the all-school concept checks",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read how check_concepts loops over schools",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Make all-school concept checks use displayed schools",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find canonical courses or concepts used only by CMU or Pitt",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Drop unused imports and check web code for hard-coded school ids",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/index.html?v=hide",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited specs/05-comparison-set.md",
+     "kind": "edit"
+    },
+    {
+     "tool": "Bash",
+     "label": "Move the new rule into the Selection rules list",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote ~/.claude/projects/(this project) project)/memory/no-prior-programming-plans.md",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Index the memory, update PROGRESS, publish the site",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 11 commands · wrote no-prior-programming-plans.md · edited 1 file · 4 browser steps · published the site",
+   "iso": "2026-11-15T01:55:48.629000+00:00",
+   "label": "8:55 PM",
+   "end_label": "8:57 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-72364e58-3d4",
+   "text": "Shared data now has 26 schools, without CMU and Pitt. Checking that the concept checks still pass:",
+   "iso": "2026-11-15T01:56:20.648000+00:00",
+   "label": "8:56 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-a6314a4b-3d6",
+   "text": "No web code names CMU or Pitt, so the views follow `schools.json`. A quick check in the browser:",
+   "iso": "2026-11-15T01:56:51.879000+00:00",
+   "label": "8:56 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-4cb8123b-ece",
+   "text": "Now the memory note, PROGRESS, and publishing:",
+   "iso": "2026-11-15T01:57:13.095000+00:00",
+   "label": "8:57 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-5d8facf3-582",
+   "text": "CMU and Pitt no longer appear in any view, and the public site is updated. The views now show 26 schools. Their data is all kept, so this is easy to undo.\n\n- **How it works:** I added a `displayed` column to `data/reference/schools.csv`, set to `false` for CMU and Pitt. The scripts that build the views' school list, combined course table and concept table skip hidden schools. Setting it back to `true` and rebuilding brings a school back.\n- **Rule written down:** spec 05 now says the views show the plan for a student with no programming experience. A school whose only plan assumes an intro course is hidden rather than given an extra row or shifted. I also saved this as a memory, so future batches flag such plans during the plan check.\n- **Checks:** the Course Plans page lists 26 schools with no CMU or Pitt. The concept checks pass for the schools I tested.\n\nOne thing for later: two concepts, `game-theory` and `parallel-algorithms`, were only tagged in CMU's courses. Once Vanderbilt and USC have concept tags, the check that every concept is used somewhere will fail on them. We can either keep them in the vocabulary or retire them; I've noted it in PROGRESS.\n\nThis change isn't committed yet. Should I commit and push it?",
+   "iso": "2026-11-15T01:57:32.914000+00:00",
+   "label": "8:57 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-4f3554e8-6a8",
+   "text": "let's commit and push and prepare to clear",
+   "iso": "2026-11-15T01:57:45.765000+00:00",
+   "label": "8:57 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-fad835b5-487",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Commit the hide change and push",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add next steps to PROGRESS, commit and push",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 2 commands · committed",
+   "iso": "2026-11-15T01:57:49.839000+00:00",
+   "label": "8:57 PM",
+   "end_label": "8:58 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-6cf849a",
+   "hash": "6cf849a",
+   "text": "Hide CMU and Pitt from the views (plans assume intro programming)",
+   "iso": "2026-11-14T20:57:51-05:00",
+   "label": "8:57 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-8d482ea5-8c4",
+   "text": "Committed and pushed as `6cf849a`. To prepare for clearing, I'm putting the next steps at the top of PROGRESS's \"Next\" section so the next session finds them first:",
+   "iso": "2026-11-15T01:57:55.500000+00:00",
+   "label": "8:57 PM"
+  },
+  {
+   "kind": "commit",
+   "id": "g-729cf36",
+   "hash": "729cf36",
+   "text": "PROGRESS: batch 5 next steps for the next session",
+   "iso": "2026-11-14T20:58:01-05:00",
+   "label": "8:58 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-8e2c73c2-ae4",
+   "text": "Both commits are pushed to `step-13-schools`, and the working tree is clean, so it's safe to clear:\n- `6cf849a` hides CMU and Pitt from the views.\n- `729cf36` adds the next steps to PROGRESS.\n\nThe public site already shows the 26-school views.\n\nThe top of PROGRESS's \"Next\" section now opens with a \"Start here\" note for the next session:\n1. **Your review:** spot-check the USC grid I typed in from page 44 of the guide, and look over the proposed matches for Vanderbilt and USC on `review.html`.\n2. **Concept tags** for Vanderbilt and USC. Then decide whether to keep or retire the two concepts only CMU used, `game-theory` and `parallel-algorithms`.\n3. **NYU, UNC and Case Western**, once their catalog server answers. For each I'll check the plan, flag any that assume prior programming, and propose source URLs for your approval.\n\nThe batch 4 review is also still open.",
+   "iso": "2026-11-15T01:58:08.060000+00:00",
+   "label": "8:58 PM"
+  },
+  {
+   "kind": "session",
+   "id": "s-40",
+   "n": 40,
+   "label": "Sat Nov 14 · Session 40",
+   "iso": "2026-11-15T02:00:26.473000+00:00"
+  },
+  {
+   "kind": "you",
+   "id": "u-bb6d1351-e43",
+   "text": "what's next",
+   "iso": "2026-11-15T02:00:26.473000+00:00",
+   "label": "9:00 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-3afdd765-860",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Show next steps section of PROGRESS.md",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List PROGRESS.md headings",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read batch 5 and Next sections",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check whether the three catalog hosts answer",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 4 commands",
+   "iso": "2026-11-15T02:00:29.655000+00:00",
+   "label": "9:00 PM",
+   "end_label": "9:00 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-bcc1b192-3f2",
+   "text": "Here's where things stand on batch 5, from PROGRESS.md. One update since last session: the catalog host that was down all day (UNC, Case Western, NYU) is answering again. I just checked and all three respond.\n\n**Next steps, in order:**\n\n1. **Your review** (whenever you have time, on the public site):\n   - Check the views now that Pitt is hidden, and look over the new Vanderbilt and USC data.\n   - Spot-check my USC grid transcription (`data/reference/usc/plan_transcription.csv`) against page 44 of the Viterbi guide. I read that grid by eye from an image, so it's the part most likely to have mistakes.\n   - Review the proposed matches on review.html. PROGRESS.md lists the uncertain ones, such as USC CSCI 356 → systems-programming and Vanderbilt CS 2201 → data-structures.\n2. **Concept tags for Vanderbilt and USC.** I can do this now. After that, `check_concepts` will flag game-theory and parallel-algorithms, because only CMU used them and CMU is now hidden. You'd decide whether to keep or retire them.\n3. **NYU, UNC and Case Western.** With the host back, I can check each school's sample plan and flag any that assume prior programming (those get hidden under the new rule). Then I'll propose source URLs for your approval before collecting anything.\n\nBatch 4's match and tag review is also still open, along with a few older items like trying the editor and the paused step 17 review.\n\nI'd start with step 3 since the host is up now and it might go down again, then do the Vanderbilt and USC tags. Want me to go ahead?",
+   "iso": "2026-11-15T02:00:48.142000+00:00",
+   "label": "9:00 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-36a429bc-17f",
+   "text": "Let's do step 3",
+   "iso": "2026-11-15T02:40:07.281000+00:00",
+   "label": "9:40 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-4832fa1b-8ac",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Download the three program pages to scratchpad",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Fetch Case page and list tabs in each page",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Outline tabs and tables in each page",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Print the sample plan grids",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Fetch course lists and show first-course descriptions",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Show the first course's description at each school",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Look for precedent on year-only plans",
+     "kind": "command"
+    },
+    {
+     "tool": "ToolSearch",
+     "label": "ToolSearch",
+     "kind": "other"
+    },
+    {
+     "tool": "WebSearch",
+     "label": "Searched the web: UNC Chapel Hill computer science BS four year plan semester by semester COMP 110 COMP 210 fall spring",
+     "kind": "web"
+    }
+   ],
+   "summary": "Ran 7 commands · 1 web lookup · 1 other",
+   "iso": "2026-11-15T02:40:15.243000+00:00",
+   "label": "9:40 PM",
+   "end_label": "9:41 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-0d7a5256-8a1",
+   "text": "All three have a plan grid. Dumping each plan:",
+   "iso": "2026-11-15T02:40:33.666000+00:00",
+   "label": "9:40 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b5099f21-9e5",
+   "text": "All three plans start with a course. Before I call any of them \"no prior programming,\" I'll check the prerequisites on each first course, starting with Case's CSDS 132:",
+   "iso": "2026-11-15T02:40:42.074000+00:00",
+   "label": "9:40 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-9287d6a7-e0e",
+   "text": "UNC's plan is by year, not by semester. Before asking you about that, I'll check whether the department publishes a semester version:",
+   "iso": "2026-11-15T02:41:03.972000+00:00",
+   "label": "9:41 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-9f21260b-0f4-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "UNC's catalog plan lists courses by year (First/Sophomore/Junior/Senior), not by semester. How should UNC be handled?",
+     "header": "UNC plan",
+     "multi": false,
+     "options": [
+      {
+       "label": "Drop UNC (Recommended)",
+       "description": "Same rule as Indiana, UMass, BU, Arizona: no semester plan, not included. Batch 5 ends with 5 schools (2 displayed from catalogs plus Vanderbilt, USC).",
+       "preview": ""
+      },
+      {
+       "label": "Split years by a rule",
+       "description": "Claude assigns each year's courses to fall/spring by prerequisite order and balances credits (e.g. COMP 110 fall, COMP 210 spring). Written rule, marked as derived; semesters are Claude's, not UNC's.",
+       "preview": ""
+      },
+      {
+       "label": "Replace with another school",
+       "description": "Pick a different top-100 school with a semester plan instead of UNC.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 2,
+   "iso": "2026-11-15T02:41:27.280000+00:00",
+   "label": "9:41 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-a58bb6eb-304-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "UNC plan",
+     "answer": "Drop UNC (Recommended)",
+     "notes": "",
+     "class": "recommended"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-15T02:41:27.280000+00:00",
+   "label": "11:14 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-9f21260b-0f4-2",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "Approve these source URLs for NYU and Case Western (catalog program page with its plan tab, plus the catalog course-description pages)?",
+     "header": "Source URLs",
+     "multi": false,
+     "options": [
+      {
+       "label": "Approve both",
+       "description": "NYU: bulletins.nyu.edu/undergraduate/engineering/programs/computer-science-bs/ (#sampleplanofstudy) + course pages per subject. Case: bulletin.case.edu/engineering/computer-data-sciences/computer-science-bs/ (#planofstudy) + course-descriptions pages per subject.",
+       "preview": ""
+      },
+      {
+       "label": "Let me look first",
+       "description": "Hold off on collecting until you've looked at the pages.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 2,
+   "of": 2,
+   "iso": "2026-11-15T02:41:27.280000+00:00",
+   "label": "9:41 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-a58bb6eb-304-2",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "Source URLs",
+     "answer": "Approve both",
+     "notes": "",
+     "class": "no_rec"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-15T02:41:27.280000+00:00",
+   "label": "11:14 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-ea2fc98d-b3f",
+   "text": "UNC is dropped, and NYU and Case are approved. To build them, I'll start by finding an existing CourseLeaf school to use as a template.",
+   "iso": "2026-11-15T04:14:47.933000+00:00",
+   "label": "11:14 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-b46bad0b-544",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "List scripts and find CourseLeaf-based ones",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read the Colorado scripts as a template",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read common.py",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read collect_common and find pipeline order",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read README pipeline and reference file formats",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check fetch signature",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Write collect_nyu.py and collect_case.py",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add registry rows and run both collectors",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check college, year strings and grid HTML structure",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Dump NYU requirement lists and footnotes",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Dump Case requirement lists and footnotes",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Print Case requirements prose around the tables",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check requirement_type values and how \"X or Y\" rows are handled",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "See how existing \"X or Y\" choice rows look and how match_key is defined",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/parse_nyu.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run the NYU parser and show the rows",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Show one course block from each description page",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/parse_nyu_descriptions.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run NYU description parser and check plan courses",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Inspect two NYU descriptions in full",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Fix Brooklyn regex and strip ABET lists, rerun",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/parse_case.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run the Case parser and show rows",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Reset blocks per table and rerun Case parser",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add STAT and OPRE subjects and rerun Case collector",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find the labels on later lines of Case descriptions",
+     "kind": "command"
+    },
+    {
+     "tool": "Write",
+     "label": "Wrote src/parse_case_descriptions.py",
+     "kind": "write"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run Case description parser and check plan courses",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Normalize both schools and check subject-area rules",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Show existing subject rules and canonical course ids",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read canonical definitions and key course descriptions",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check match_role values and dual-match precedent",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read match role rules and find a dual-matched course",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Run describe to see which slots need generic text",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Write generic slot descriptions and run describe",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Write proposed matches and run the canonical checks",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Build outputs and validate both schools",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Rebuild combined and concept tables",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check whether the local web server is running",
+     "kind": "command"
+    },
+    {
+     "tool": "ToolSearch",
+     "label": "ToolSearch",
+     "kind": "other"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_context_mcp",
+     "label": "Browser: tabs_context_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/index.html?nocache=1",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/index.html?school=case",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "List web pages",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__read_console_messages",
+     "label": "Browser: read_console_messages",
+     "kind": "browser"
+    },
+    {
+     "tool": "ToolSearch",
+     "label": "ToolSearch",
+     "kind": "other"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find batch 5 mentions in spec 05 and README",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read the batch 5 section of spec 05",
+     "kind": "command"
+    },
+    {
+     "tool": "Edit",
+     "label": "Edited specs/05-comparison-set.md",
+     "kind": "edit"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read PROGRESS header and locate insertion point",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Record group B in PROGRESS.md",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Publish the public site",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Republish the shared page sets",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 42 commands · wrote parse_nyu.py, parse_nyu_descriptions.py, parse_case.py and 1 more · edited 1 file · 12 browser steps · 2 other · published the site",
+   "iso": "2026-11-15T04:14:48.931000+00:00",
+   "label": "11:14 PM",
+   "end_label": "11:22 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-152a7af9-ed5",
+   "text": "Colorado is the most recent CourseLeaf school built from scratch, so I'll use it as the template:",
+   "iso": "2026-11-15T04:14:51.294000+00:00",
+   "label": "11:14 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-ba94f014-f0e",
+   "text": "Next I'll read the shared helpers and the steps each new school goes through:",
+   "iso": "2026-11-15T04:14:56.257000+00:00",
+   "label": "11:14 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-56dd6fa2-784",
+   "text": "Writing the two collectors, following the Colorado pattern:",
+   "iso": "2026-11-15T04:15:07.380000+00:00",
+   "label": "11:15 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-92df5bc8-aee",
+   "text": "Adding the registry rows, then collecting:",
+   "iso": "2026-11-15T04:15:27.976000+00:00",
+   "label": "11:15 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-14c8dbbd-5df",
+   "text": "Both collected. Before writing the parsers, I'll check the facts the parsers will verify (college, catalog year) and the grid's HTML:",
+   "iso": "2026-11-15T04:15:38.489000+00:00",
+   "label": "11:15 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-8798082b-172",
+   "text": "Now the requirement lists, which give the slot options and the footnotes:",
+   "iso": "2026-11-15T04:15:44.855000+00:00",
+   "label": "11:15 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-4a226f50-aab",
+   "text": "I have the structure of both pages. Now the NYU parser:",
+   "iso": "2026-11-15T04:16:25.489000+00:00",
+   "label": "11:16 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-2bcaf42d-2f9",
+   "text": "NYU's plan parses and all checks pass. Next I'll look at the course block HTML on both schools' description pages:",
+   "iso": "2026-11-15T04:17:04.988000+00:00",
+   "label": "11:17 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-a695b08b-dff",
+   "text": "The two sites use different CourseLeaf templates. Writing both description parsers:",
+   "iso": "2026-11-15T04:17:14.839000+00:00",
+   "label": "11:17 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-0b89c26d-131",
+   "text": "All plan courses found. Spot-checking two edge cases, the \"ABET\" tail on CS-UY 1114 and CS-UY 2413's empty prerequisites:",
+   "iso": "2026-11-15T04:17:34.635000+00:00",
+   "label": "11:17 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-fc0b2699-b91",
+   "text": "Now Case Western's plan parser:",
+   "iso": "2026-11-15T04:17:53.135000+00:00",
+   "label": "11:17 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-5c8adec4-603",
+   "text": "The checks pass, but the options column is far too long. The technical-elective tables have no area header, so their rows get appended to the Statistics block. I'll reset the block at each new table:",
+   "iso": "2026-11-15T04:18:34.137000+00:00",
+   "label": "11:18 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-73cc5e05-6f4",
+   "text": "Case parses correctly now. The statistics slot's options include STAT and OPRE courses, so I'll collect those two subject pages too, then write the Case description parser:",
+   "iso": "2026-11-15T04:18:42.905000+00:00",
+   "label": "11:18 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-69bbaa6e-569",
+   "text": "The trailing labels are \"Offered as\", \"Prereq:\", \"Coreq:\", \"Prereq or Coreq:\", \"Recommended preparation:\", and \"Counts as\". Writing the parser to cut the description at the first of these:",
+   "iso": "2026-11-15T04:18:57.290000+00:00",
+   "label": "11:18 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-5b4b4959-af8",
+   "text": "Both description files cover every plan course and option. Next comes the shared pipeline. Running normalize, then checking which subject rules are missing:",
+   "iso": "2026-11-15T04:19:18.739000+00:00",
+   "label": "11:19 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-46e04bc7-5c0",
+   "text": "The role rules are clear. Before writing the generic descriptions, I'll run describe to see which slots need one:",
+   "iso": "2026-11-15T04:19:57.447000+00:00",
+   "label": "11:19 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-7e254b86-85d",
+   "text": "Describe passes for both. The EXPOS-UA 22 \"possibly cut off\" warning comes from the catalog text itself, which is wrapped in quotation marks; the text is complete. Now the proposed matches:",
+   "iso": "2026-11-15T04:20:13.929000+00:00",
+   "label": "11:20 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-4548a949-1d6",
+   "text": "Both validate. Next, rebuilding the shared tables:",
+   "iso": "2026-11-15T04:20:43.971000+00:00",
+   "label": "11:20 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-79a4b027-12b",
+   "text": "28 schools are in the combined table. Before publishing, I'll check the views in Chrome:",
+   "iso": "2026-11-15T04:20:52.031000+00:00",
+   "label": "11:20 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-772132e0-2c4",
+   "text": "Both schools now appear on the Course Plans page. Next I'll render NYU and look at it, then check the other views.",
+   "iso": "2026-11-15T04:21:20.482000+00:00",
+   "label": "11:21 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-1d46b9cd-60d",
+   "text": "NYU renders correctly. Now the other views (Case plan, alignment, timeline, review), checking each for errors:",
+   "iso": "2026-11-15T04:21:28.074000+00:00",
+   "label": "11:21 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-f15d27ff-575",
+   "text": "The \"Error response\" is a 404 because I guessed the page name. Finding the real one:",
+   "iso": "2026-11-15T04:21:52.139000+00:00",
+   "label": "11:21 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-41b1a5a9-c55",
+   "text": "All views load both schools with no console errors. Closing the tab, then updating the spec and PROGRESS:",
+   "iso": "2026-11-15T04:22:07.193000+00:00",
+   "label": "11:22 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-60c968b4-773",
+   "text": "Publishing the site so you can review it from your phone:",
+   "iso": "2026-11-15T04:22:31.310000+00:00",
+   "label": "11:22 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-e30f9e1b-501",
+   "text": "Shares carry their own copy of the data, so I'll update the `overview` share too:",
+   "iso": "2026-11-15T04:22:42.595000+00:00",
+   "label": "11:22 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-2af65deb-758",
+   "text": "NYU and Case Western are built and on the public site. UNC is dropped, as you chose. Both new schools passed every parse check and validation, and I loaded each view in Chrome with no errors. The combined table now has 28 schools (1,098 rows); NYU and Case are both displayed, since their plans start from an intro course with no prerequisite.\n\n**NYU** (Tandon, 128 credits):\n- **Semester mapping:** the plan only numbers semesters 1–8, so odd semesters became Fall and even ones Spring.\n- **HUSS electives:** one of the four must be an ethics course, but the plan doesn't say which, so all four carry that note.\n- **Dropped text:** I removed the \"ABET competencies: a,b,c…\" lists from the end of NYU's course descriptions. They're accreditation codes, not course content.\n\n**Case Western** (Case School of Engineering, 122 credits):\n- **Math choices:** the three \"MATH X or Y\" lines are choose-one slots.\n- **CS breadth:** the eight \"Computer Science Breadth course\" slots map to CS elective, with the four breadth areas listed in the notes.\n- **Gen-ed slots:** \"Breadth, or Elective course\" means gen-ed breadth, not CS breadth, so those are gen-ed slots.\n\n**Matches worth checking on review.html** (all are proposed):\n- **NYU:**\n  - CS-UY 1122, a 2-credit survey of CS subfields → CS orientation (partial).\n  - EXPOS-UA 22 → intermediate composition, not technical writing; the catalog says so explicitly.\n  - CS-UY 4523 Design Project → capstone (medium confidence, because projects can be individual).\n- **Case:**\n  - CSDS 132 → intro programming, though it also covers much of what a second programming course does.\n  - CSDS 281 → both digital logic and computer organization.\n  - ENGR 399 Impact of Engineering on Society → computing ethics (partial).\n\nI updated spec 05 and PROGRESS.md and republished the site and the `overview` share. Nothing is committed yet.\n\n**Next:** concept tags for Vanderbilt, USC, NYU and Case. After that, you'll need to decide about game-theory and parallel-algorithms, the two concepts only the now-hidden CMU uses.\n\nSources:\n- [UNC CS BS catalog page](https://catalog.unc.edu/undergraduate/programs-study/computer-science-major-bs/)\n- [UNC CS undergraduate FAQ](https://cs.unc.edu/undergraduate/undergraduate-program-faq)",
+   "iso": "2026-11-15T04:22:59.026000+00:00",
+   "label": "11:22 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-8249d39d-f31",
+   "text": "do the concept tags next",
+   "iso": "2026-11-15T04:28:59.995000+00:00",
+   "label": "11:28 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-dd59a89a-59f",
+   "text": "I'll start by checking how concept tags were made for the batch 4 schools:",
+   "iso": "2026-11-15T04:29:01.919000+00:00",
+   "label": "11:29 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-ab5d3a9a-f70",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Read batch 4 concept-tag notes and file formats",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Read the tagging rules in spec 08",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find the in-scope helper in common.py",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Dump in-scope rows for the four schools",
+     "kind": "command"
+    },
+    {
+     "tool": "Read",
+     "label": "Read (temp)",
+     "kind": "read"
+    },
+    {
+     "tool": "Bash",
+     "label": "List the concept vocabulary with synonyms",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Write proposed tags and run the concept checker",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "See no-concept line format and fix the entry",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Write tags and run the concept checker per school",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "List leftover untagged text per school",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add the extra tag evidence and rewrite tags",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Write untagged notes and recheck leftovers",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Add last note and run strict all-school checks",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Rebuild concept tables and show the two CMU-only concepts",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 13 commands · read 1 file",
+   "iso": "2026-11-15T04:29:03.429000+00:00",
+   "label": "11:29 PM",
+   "end_label": "11:32 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-9bce3665-c6f",
+   "text": "Now I'll gather the in-scope rows for the four schools (CS, named, official description):",
+   "iso": "2026-11-15T04:29:09.035000+00:00",
+   "label": "11:29 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-807cc5b0-e10",
+   "text": "I have the 34 in-scope rows (Vanderbilt 11, USC 8, NYU 9, Case 6) and the vocabulary. I'll write the tags with a script, so the CSV quoting is handled by the csv module:",
+   "iso": "2026-11-15T04:30:10.538000+00:00",
+   "label": "11:30 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-427fdf94-813",
+   "text": "The CS 2281L \"no concept\" line has one field too many. Checking how Tennessee formatted its no-concept lines, then fixing:",
+   "iso": "2026-11-15T04:31:04.137000+00:00",
+   "label": "11:31 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-8d86438f-982",
+   "text": "Every evidence phrase checks out. The only failure is the expected one: game-theory and parallel-algorithms, which only hidden CMU used. Next I'll find the leftover untagged text:",
+   "iso": "2026-11-15T04:31:14.340000+00:00",
+   "label": "11:31 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-a260f930-fe5",
+   "text": "Every in-scope fragment is now accounted for: 0 untagged fragments across all displayed schools. Rebuilding the concept tables:",
+   "iso": "2026-11-15T04:32:15.856000+00:00",
+   "label": "11:32 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-8bf6db6e-900",
+   "text": "All four schools are tagged and every check passes except one, which needs your call:",
+   "iso": "2026-11-15T04:32:20.454000+00:00",
+   "label": "11:32 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-83a04629-a00-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "Two concepts, game-theory and parallel-algorithms, are used only by CMU, which is now hidden from the views. The \"every concept is used\" check fails on them. What should happen to them?",
+     "header": "CMU concepts",
+     "multi": false,
+     "options": [
+      {
+       "label": "Keep, relax the check (Recommended)",
+       "description": "Keep both concepts and CMU's tags. The check counts a concept as used if any school, hidden or not, tags it. The views simply show 0 displayed schools for them. Nothing is lost if CMU is shown again.",
+       "preview": ""
+      },
+      {
+       "label": "Keep, hide from views",
+       "description": "Same as above, but also leave concepts with no displayed-school tags out of the concept pages so they don't appear as 0-school rows.",
+       "preview": ""
+      },
+      {
+       "label": "Retire both",
+       "description": "Remove them from concepts.csv and turn CMU's three tags into untagged notes (no-concept). Simplest vocabulary, but CMU would need re-tagging if shown again.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 1,
+   "iso": "2026-11-15T04:32:23.565000+00:00",
+   "label": "11:32 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-68a60b7f-c1d-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "CMU concepts",
+     "answer": "Retire both",
+     "notes": "",
+     "class": "other"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-15T04:32:23.565000+00:00",
+   "label": "11:40 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-af77ddd7-b50",
+   "text": "Retiring both: I'll remove them from concepts.csv and move CMU's three tags into its untagged notes as `no-concept`:",
+   "iso": "2026-11-15T04:40:17.887000+00:00",
+   "label": "11:40 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-db583bd6-4eb",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Retire both concepts and rerun all concept checks",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Rebuild concept tables and count new schools' tags",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/concept_tags_review.html?school=nyu",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__read_console_messages",
+     "label": "Browser: read_console_messages",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/concept_tags_review.html#nyu",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Find the data files the tag review page loads",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Inspect preview_concepts output and the page's data file",
+     "kind": "command"
+    },
+    {
+     "tool": "Bash",
+     "label": "Check which hidden school the orphaned synonyms come from",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 5 commands · 7 browser steps",
+   "iso": "2026-11-15T04:40:23.126000+00:00",
+   "label": "11:40 PM",
+   "end_label": "11:41 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b76d8c30-8d5",
+   "text": "The page selects schools by `#hash` rather than a query parameter. I'll switch it to each new school:",
+   "iso": "2026-11-15T04:40:41.355000+00:00",
+   "label": "11:40 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-212b59b6-08d",
+   "text": "The page shows \"NYU: 0 in-scope courses\". It must read its course list from a file that doesn't have the new schools yet. Checking which one:",
+   "iso": "2026-11-15T04:40:57.443000+00:00",
+   "label": "11:40 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-210dba24-d0c",
+   "text": "`concepts_preview.json` is still from 15:06, so `preview_concepts.py` didn't rewrite it. Checking its full output:",
+   "iso": "2026-11-15T04:41:00.523000+00:00",
+   "label": "11:41 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "q-e2567f5d-a65-1",
+   "sub": "question",
+   "questions": [
+    {
+     "question": "Since CMU was hidden, the concept-tag review page has stopped updating. The script that feeds it refuses to write because 15 synonyms (e.g. \"structural induction\", \"LaTeX\") and one concept's first_seen (web-and-client-server, CMU 15-112) occur only in CMU text. How should this be fixed?",
+     "header": "CMU synonyms",
+     "multi": false,
+     "options": [
+      {
+       "label": "Retire the CMU-only synonyms (Recommended)",
+       "description": "Same as the two concepts: drop the 15 synonyms from concepts.csv, and set web-and-client-server's first_seen to the first displayed school that names it. The vocabulary matches what the views show.",
+       "preview": ""
+      },
+      {
+       "label": "Check against hidden schools too",
+       "description": "Keep the synonyms; change preview_concepts.py so a synonym counts if any school's text has it, including hidden CMU. The vocabulary keeps CMU's wording.",
+       "preview": ""
+      }
+     ]
+    }
+   ],
+   "text": "",
+   "part": 1,
+   "of": 1,
+   "iso": "2026-11-15T04:41:17.946000+00:00",
+   "label": "11:41 PM"
+  },
+  {
+   "kind": "you",
+   "id": "u-b591a246-807-1",
+   "sub": "answer",
+   "answers": [
+    {
+     "question": "CMU synonyms",
+     "answer": "Retire the CMU-only synonyms (Recommended)",
+     "notes": "",
+     "class": "recommended"
+    }
+   ],
+   "text": "",
+   "iso": "2026-11-15T04:41:17.946000+00:00",
+   "label": "11:42 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-1b5f7532-c82",
+   "text": "Retiring them. For web-and-client-server's new `first_seen`, I'll use the first displayed school (in registry order) that has a tag for it:",
+   "iso": "2026-11-15T04:42:45.508000+00:00",
+   "label": "11:42 PM"
+  },
+  {
+   "kind": "actions",
+   "id": "a-0caa79c6-60e",
+   "calls": [
+    {
+     "tool": "Bash",
+     "label": "Retire CMU-only synonyms, fix first_seen, rebuild preview",
+     "kind": "command"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__navigate",
+     "label": "Browser: navigate http://localhost:8765/web/concept_tags_review.html?v=2#nyu",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__javascript_tool",
+     "label": "Browser: javascript_tool javascript_exec",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer key",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__computer",
+     "label": "Browser: computer screenshot",
+     "kind": "browser"
+    },
+    {
+     "tool": "mcp__claude-in-chrome__tabs_close_mcp",
+     "label": "Browser: tabs_close_mcp",
+     "kind": "browser"
+    },
+    {
+     "tool": "Bash",
+     "label": "Record the concept tag work in PROGRESS.md",
+     "kind": "command"
+    }
+   ],
+   "summary": "Ran 2 commands · 7 browser steps",
+   "iso": "2026-11-15T04:42:51.419000+00:00",
+   "label": "11:42 PM",
+   "end_label": "11:43 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-ce5ae1a7-530",
+   "text": "The preview is written again (139 concepts, 272 in-scope rows) and all checks pass. Rechecking the review page:",
+   "iso": "2026-11-15T04:42:56.298000+00:00",
+   "label": "11:42 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-f013bf53-971",
+   "text": "Still 0, probably Chrome's cached copy of the JSON. Checking what the server returns versus the cache:",
+   "iso": "2026-11-15T04:43:04.293000+00:00",
+   "label": "11:43 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-62911774-b4a",
+   "text": "The server returns the new data; the page just had the old file cached. Reloading past the cache:",
+   "iso": "2026-11-15T04:43:07.350000+00:00",
+   "label": "11:43 PM"
+  },
+  {
+   "kind": "claude",
+   "id": "c-b68d5432-46c",
+   "text": "NYU's 9 courses and 43 tags now show on the review page. Closing the tab and recording the work:",
+   "iso": "2026-11-15T04:43:13.195000+00:00",
+   "label": "11:43 PM"
   }
  ]
 }

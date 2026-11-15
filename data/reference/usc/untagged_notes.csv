@@ -1,0 +1,14 @@
+match_key,phrase,reason,notes
+CSCI 102,Fundamental concepts of algorithmic thinking as a primer to programming,generic-aim,
+CSCI 103,Programming in C/C++,framing,The languages are tagged.
+CSCI 170,"series, summations",no-concept,Sums and series; the vocabulary has no summation concept.
+CSCI 104,Data structures including,course-label,
+CSCI 104,applicable to the analysis of,framing,
+CSCI 201,to write,framing,
+CSCI 201,vibe coding with AI tools,no-concept,AI-assisted programming; the vocabulary has no such concept (new candidate).
+CSCI 350,Basic issues in,framing,
+CSCI 350,structured design,too-general,
+CSCI 350,Laboratory experiences,framing,
+CSCI 401,with an outside stakeholder,no-concept,"Client- or sponsor-based projects; close to requirements, but the text names no requirements work."
+CSCI 401,to develop,framing,
+CSCI 401,Topics include software engineering,course-label,

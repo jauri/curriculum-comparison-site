@@ -1,0 +1,26 @@
+match_key,phrase,reason,notes
+CSDS 132,An in-depth survey of modern programming language features,too-general,
+CSDS 132,computer programming and algorithmic problem solving,generic-aim,
+CSDS 132,Computers,too-general,
+CSDS 132,software development,too-general,
+CSDS 132,C#,framing,A comparison language; the vocabulary has no C# concept.
+CSDS 132,Note: Credit given for only one (1) of CSDS 132 or CSDS 134,framing,
+CSDS 233,Different representations of data,course-label,
+CSDS 233,files,too-general,"Listed among data representations, not file I/O."
+CSDS 233,Manipulation of data,framing,
+CSDS 233,Programming assignments can be completed in either,framing,The languages are tagged.
+CSDS 281,Fundamentals of digital systems in terms of both computer organization,course-label,
+CSDS 281,Organization of digital computers,course-label,
+CSDS 281,analysis and synthesis,framing,
+CSDS 281,memory,too-general,
+CSDS 302,A general introduction to basic mathematical terminology and the techniques of abstract mathematics in the context of discrete mathematics,framing,
+CSDS 302,algorithms,too-general,
+CSDS 310,fundamentals in algorithm design and analysis and provides practice in,course-label,
+CSDS 395,Capstone course for computer science seniors,framing,
+CSDS 395,Material from previous and concurrent courses used to solve computer programming problems,framing,
+CSDS 395,Professional engineering topics,framing,
+CSDS 395,engineering design,too-general,
+CSDS 395,Requirements include periodic reporting of progress,framing,
+CSDS 395,plus,framing,
+CSDS 395,Scheduled,framing,
+CSDS 395,during last week of classes,framing,

@@ -122,9 +122,11 @@ Added at the user's request (2026-10-18): a high-level picture of when and how m
 work happened, directly under the page title.
 
 - **One block per day** (every calendar day from the first session to the last, U.S.
-  Eastern, so days off show as empty rows), **two lanes** per day: Author (orange) and
+  Eastern), **two lanes** per day: Author (orange) and
   Claude (blue). Hours run left to right in **half-hour cells** (the user's choice over
   a single continuous strip, dots per message, or mirrored bars).
+- **Days off** (the user's request, 2026-11-16): each run of consecutive days with no
+  activity collapses into one line, "No work for N days", between the days with work.
 - **Activity** (the user's choice): the Author lane counts the author's entries
   (messages, answers, declined questions, interruptions); the Claude lane counts its
   replies and questions plus **each tool call, at the call's own time**.

@@ -62,6 +62,8 @@
     .ov-hours span:first-child { transform: none; }
     .ov-day { grid-column: 1 / -1; font-size: 12px; font-weight: 600; color: var(--ink-2); margin-top: 6px; }
     .ov-lane { font-size: 11px; color: var(--muted); }
+    /* A collapsed run of days off: one muted, italic line spanning the grid. */
+    .ov-gap { grid-column: 1 / -1; font-size: 12px; font-style: italic; color: var(--muted); margin-top: 6px; padding: 2px 0; border-top: 1px dashed var(--axis); border-bottom: 1px dashed var(--axis); text-align: center; }
     .ov-cell { height: 14px; border-radius: 2px; background: var(--hover); cursor: default; }
     .ov-cell.on { cursor: pointer; }
     .ov-cell.sel { outline: 2px solid var(--ink); outline-offset: 0; }
@@ -262,6 +264,7 @@
     <a href="compare.html">Course-level alignment</a>
     <a href="concept_compare.html">Concept alignment</a>
     <a href="timeline.html">Timeline</a>
+    <a href="categories.html">Categories</a>
     <a href="editor.html">Curriculum editor</a>
     <a href="review.html">Canonical matches</a>
     <a href="concepts_review.html">Concept vocabulary</a>

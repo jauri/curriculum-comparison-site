@@ -237,7 +237,15 @@ function renderOverview(act) {
   };
 
   // Lay out every cell once; shade() sets the levels for the current mode.
+  // A run of days with no activity at all (no cells) collapses into one summary line,
+  // "No work for N days", instead of N rows of blank cells (the user's request).
+  // `gap` counts the empty days seen since the last day with work.
+  let gap = 0;
+  const gapLine = () =>
+    `<div class="ov-gap">No work for ${gap} day${gap === 1 ? "" : "s"}</div>`;
   act.days.forEach((d, di) => {
+    if (!d.cells.length) { gap++; return; } // empty day: count it, draw nothing yet
+    if (gap) { html += gapLine(); gap = 0; } // close the run before the next work day
     html += `<div class="ov-day">${esc(d.label)}</div>`;
     OV_LANES.forEach((l, li) => {
       html += `<span class="ov-lane">${l.name}</span>`;

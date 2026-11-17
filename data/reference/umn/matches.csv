@@ -10,8 +10,8 @@ Additional Science Requirement,lab-science,covers,high,A second science course f
 CSCI 1133,intro-programming,covers,high,"Fundamental programming concepts in Python: problem solving, recursion, and an introduction to objects.",false,approved,
 STAT 3021,probability-statistics,covers,high,Elementary probability theory and an introduction to statistical inference.,false,approved,
 CSCI 2011,discrete-math,covers,high,"Sets, functions, logic, proof methods, counting, recurrences, relations, and graphs.",false,approved,
-CSCI 1933,intro-programming-2,covers,medium,"A second programming course in Java (object-oriented programming, inheritance); partial because much of it is data structures.",true,approved,
-CSCI 1933,data-structures,covers,medium,"Implements stacks, queues, linked lists, hash tables, and binary trees, with searching, sorting, and basic analysis; partial because CSCI 4041 continues the topic.",true,approved,
+CSCI 1933,data-structures,covers,medium,"Implements stacks, queues, linked lists, hash tables, and binary trees, with searching, sorting, and basic analysis; partial because CSCI 4041 continues the topic.",true,approved,Moved from intro-programming-2 to data-structures + algorithms at the user's request (2026-11-16).
+CSCI 1933,algorithms,covers,medium,Searching and sorting algorithms with basic algorithmic analysis; partial because the course is mainly data structures and CSCI 4041 is the full algorithms course.,true,approved,Moved from intro-programming-2 to data-structures + algorithms at the user's request (2026-11-16).
 CSCI 2021,computer-organization,covers,high,"Data representation, machine-level programs, instruction sets, processor organization, and the memory hierarchy.",false,approved,
 CSCI 2033,linear-algebra,covers,high,"Matrices, vector spaces, linear systems, eigenvalues, and singular values, with computation in MATLAB.",false,approved,
 CSCI 2041,programming-languages,covers,medium,"Functional programming, symbolic data, evaluation strategies, and types; partial because it is a programming principles course rather than a survey of language design.",true,approved,

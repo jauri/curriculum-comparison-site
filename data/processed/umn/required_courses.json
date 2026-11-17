@@ -602,7 +602,7 @@
     "description":"Advanced object oriented programming to implement abstract data types (stacks, queues, linked lists, hash tables, binary trees) using Java language. Inheritance. Searching\/sorting algorithms. Basic algorithmic analysis. Use of software development tools. Weekly lab.",
     "description_source":"official",
     "description_url":"https:\/\/umtc.catalog.prod.coursedog.com\/courses\/8103461",
-    "canonical_ids":"intro-programming-2; data-structures",
+    "canonical_ids":"data-structures; algorithms",
     "match_status":"approved",
     "notes":"",
     "plan":"Computer Science Four-Year Plan (revised 03\/2026), College of Science and Engineering",
@@ -619,22 +619,22 @@
     "subject_area":"cs",
     "matches":[
       {
-        "canonical_id":"intro-programming-2",
-        "match_role":"covers",
-        "match_confidence":"medium",
-        "match_rationale":"A second programming course in Java (object-oriented programming, inheritance); partial because much of it is data structures.",
-        "partial_match":true,
-        "match_status":"approved",
-        "notes":""
-      },
-      {
         "canonical_id":"data-structures",
         "match_role":"covers",
         "match_confidence":"medium",
         "match_rationale":"Implements stacks, queues, linked lists, hash tables, and binary trees, with searching, sorting, and basic analysis; partial because CSCI 4041 continues the topic.",
         "partial_match":true,
         "match_status":"approved",
-        "notes":""
+        "notes":"Moved from intro-programming-2 to data-structures + algorithms at the user's request (2026-11-16)."
+      },
+      {
+        "canonical_id":"algorithms",
+        "match_role":"covers",
+        "match_confidence":"medium",
+        "match_rationale":"Searching and sorting algorithms with basic algorithmic analysis; partial because the course is mainly data structures and CSCI 4041 is the full algorithms course.",
+        "partial_match":true,
+        "match_status":"approved",
+        "notes":"Moved from intro-programming-2 to data-structures + algorithms at the user's request (2026-11-16)."
       }
     ]
   },

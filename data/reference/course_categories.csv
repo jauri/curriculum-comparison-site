@@ -1,0 +1,7 @@
+category_id,name,order,description,notes
+fundamentals,Computing Fundamentals,1,"Learning to program: orientation to the major, the intro programming sequence, programming practice, additional languages, and programming languages.","Programming Languages is here, not under Theory (the user's choice, 2026-11-16)."
+dsa,Data Structures & Algorithms,2,"Data structures and the design and analysis of algorithms.",
+theory,Theory & Discrete Math,3,"Discrete mathematics, proofs, and formal models of computation.",
+systems,Systems,4,"How computers and systems software work, from logic and circuits through organization, systems programming, operating systems, and networks.",
+software,Software Development,5,"Building software in teams: software engineering, project courses, and the senior capstone.",
+specialty,CS Specialty Areas,6,"Subject-area courses such as databases, AI, graphics, security, and data science, where schools differ most.","Named by the user (2026-11-16)."

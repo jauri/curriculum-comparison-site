@@ -1,0 +1,72 @@
+[
+  {
+    "category_id": "fundamentals",
+    "name": "Computing Fundamentals",
+    "description": "Learning to program: orientation to the major, the intro programming sequence, programming practice, additional languages, and programming languages.",
+    "canonical_ids": [
+      "cs-orientation",
+      "intro-programming",
+      "intro-programming-2",
+      "programming-practicum",
+      "python-programming",
+      "functional-programming",
+      "computational-problem-solving",
+      "programming-languages"
+    ]
+  },
+  {
+    "category_id": "dsa",
+    "name": "Data Structures & Algorithms",
+    "description": "Data structures and the design and analysis of algorithms.",
+    "canonical_ids": [
+      "data-structures",
+      "algorithms"
+    ]
+  },
+  {
+    "category_id": "theory",
+    "name": "Theory & Discrete Math",
+    "description": "Discrete mathematics, proofs, and formal models of computation.",
+    "canonical_ids": [
+      "discrete-math",
+      "intro-to-proofs",
+      "theory-of-computation"
+    ]
+  },
+  {
+    "category_id": "systems",
+    "name": "Systems",
+    "description": "How computers and systems software work, from logic and circuits through organization, systems programming, operating systems, and networks.",
+    "canonical_ids": [
+      "digital-logic",
+      "electronics",
+      "computer-organization",
+      "systems-programming",
+      "operating-systems",
+      "computer-networks"
+    ]
+  },
+  {
+    "category_id": "software",
+    "name": "Software Development",
+    "description": "Building software in teams: software engineering, project courses, and the senior capstone.",
+    "canonical_ids": [
+      "software-engineering",
+      "software-development-project",
+      "capstone-design"
+    ]
+  },
+  {
+    "category_id": "specialty",
+    "name": "CS Specialty Areas",
+    "description": "Subject-area courses such as databases, AI, graphics, security, and data science, where schools differ most.",
+    "canonical_ids": [
+      "databases",
+      "artificial-intelligence",
+      "computer-graphics",
+      "information-security",
+      "data-science-foundations",
+      "numerical-methods"
+    ]
+  }
+]

@@ -1,0 +1,29 @@
+canonical_id,category_id,notes
+cs-orientation,fundamentals,
+intro-programming,fundamentals,
+intro-programming-2,fundamentals,
+programming-practicum,fundamentals,
+python-programming,fundamentals,
+functional-programming,fundamentals,A paradigm-focused programming course; placed with programming-languages.
+computational-problem-solving,fundamentals,
+programming-languages,fundamentals,The user's choice (2026-11-16).
+data-structures,dsa,
+algorithms,dsa,
+discrete-math,theory,
+intro-to-proofs,theory,A math-department proofs course; grouped with discrete math.
+theory-of-computation,theory,
+digital-logic,systems,
+electronics,systems,
+computer-organization,systems,
+systems-programming,systems,
+operating-systems,systems,
+computer-networks,systems,
+software-engineering,software,
+software-development-project,software,
+capstone-design,software,
+databases,specialty,
+artificial-intelligence,specialty,
+computer-graphics,specialty,
+information-security,specialty,
+data-science-foundations,specialty,
+numerical-methods,specialty,Not in the first draft list; a computing-area course placed with the specialty areas.

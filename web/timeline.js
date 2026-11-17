@@ -266,26 +266,7 @@ function drawSection(svgId, section) {
     return;
   }
 
-  // Heads: "Year 1" over each pair of semester columns, the semester numbers under it,
-  // and the bin's title.
-  const head = svg.append("g");
-  for (let y = 1; y <= 4; y++) {
-    head.append("text").attr("class", "year-head").attr("x", semX(2 * y - 1) + COL_W).attr("y", 15)
-      .attr("text-anchor", "middle").text(`Year ${y}`);
-  }
-  for (let k = 1; k <= 8; k++) {
-    head.append("text").attr("class", "sem-head").attr("x", semX(k) + COL_W / 2).attr("y", 31)
-      .attr("text-anchor", "middle").text(`Sem ${k}`);
-  }
-  // The bin's title is on two lines ("Course not" / "required"): one line is wider than
-  // the column. Each <tspan> with x and dy starts a new line under the previous one.
-  const binHead = head.append("text").attr("class", "year-head").attr("y", 15).attr("text-anchor", "middle");
-  binHead.append("tspan").attr("x", BIN_X + BIN_W / 2).text("Course not");
-  binHead.append("tspan").attr("x", BIN_X + BIN_W / 2).attr("dy", 14).text("required");
-  // The UC flag column's title, on two lines like the bin's.
-  const flagHead = head.append("text").attr("class", "year-head").attr("y", 15);
-  flagHead.append("tspan").attr("x", FLAG_X + 6).text("UC vs. most");
-  flagHead.append("tspan").attr("x", FLAG_X + 6).attr("dy", 14).text("other schools");
+  drawHeads(svg);
 
   let y = HEAD_H;
   let lastGroup = null;
@@ -306,6 +287,30 @@ function drawSection(svgId, section) {
   }
   svg.attr("width", CHART_W).attr("height", y + 8).attr("viewBox", `0 0 ${CHART_W} ${y + 8}`);
   applyFollow();
+}
+
+// Heads at the top of a chart: "Year 1" over each pair of semester columns, the
+// semester numbers under it, and the titles of the bin and the UC flag column. Shared
+// with the category view (categories.js), which draws the same columns.
+function drawHeads(svg) {
+  const head = svg.append("g");
+  for (let y = 1; y <= 4; y++) {
+    head.append("text").attr("class", "year-head").attr("x", semX(2 * y - 1) + COL_W).attr("y", 15)
+      .attr("text-anchor", "middle").text(`Year ${y}`);
+  }
+  for (let k = 1; k <= 8; k++) {
+    head.append("text").attr("class", "sem-head").attr("x", semX(k) + COL_W / 2).attr("y", 31)
+      .attr("text-anchor", "middle").text(`Sem ${k}`);
+  }
+  // The bin's title is on two lines ("Course not" / "required"): one line is wider than
+  // the column. Each <tspan> with x and dy starts a new line under the previous one.
+  const binHead = head.append("text").attr("class", "year-head").attr("y", 15).attr("text-anchor", "middle");
+  binHead.append("tspan").attr("x", BIN_X + BIN_W / 2).text("Course not");
+  binHead.append("tspan").attr("x", BIN_X + BIN_W / 2).attr("dy", 14).text("required");
+  // The UC flag column's title, on two lines like the bin's.
+  const flagHead = head.append("text").attr("class", "year-head").attr("y", 15);
+  flagHead.append("tspan").attr("x", FLAG_X + 6).text("UC vs. most");
+  flagHead.append("tspan").attr("x", FLAG_X + 6).attr("dy", 14).text("other schools");
 }
 
 // The heading a strip falls under in the current sort: its area in the area sort, its
@@ -485,11 +490,15 @@ function fitText(textEl, str, maxWidth) {
   d3.select(textEl).append("title").text(str); // full name on hover
 }
 
+// The charts that fade other schools' dots while one school is followed: the
+// timeline's two, and the category view's one (categories.js).
+const FOLLOW_CHARTS = "#chart-courses, #chart-slots, #chart-categories";
+
 // Light up the followed school's dots in both charts and fade the rest. The hovered
 // school wins over the pinned one while the pointer is on a dot.
 function applyFollow() {
   const id = state.hover ?? state.pinned; // ?? : the pinned school when nothing is hovered
-  d3.selectAll("#chart-courses, #chart-slots").classed("following", id != null);
+  d3.selectAll(FOLLOW_CHARTS).classed("following", id != null);
   d3.selectAll(".dot").classed("on", function () { return this.dataset.school === id; });
 }
 
@@ -550,7 +559,13 @@ function setupControls() {
   toggles.append("span").text((a) => a.button);
 
   d3.select("#sort").on("change", (event) => { state.sort = event.target.value; draw(); });
+  setupFollowAndLegend();
+}
 
+// The "Follow school" picker, the legend, and the ways to unpin (Escape, a click on
+// empty chart space). Shared with the category view (categories.js), which has the same
+// dots and flags but no area buttons or sort.
+function setupFollowAndLegend() {
   const follow = d3.select("#follow");
   follow.append("option").attr("value", "").text("None");
   follow.selectAll("option.school").data(data.schools).join("option").attr("class", "school")
@@ -591,20 +606,24 @@ function setupControls() {
   // because they are handled on the dot, and stopPropagation is not needed: the target
   // check below ignores them).
   document.addEventListener("keydown", (event) => { if (event.key === "Escape") togglePin(null); });
-  d3.selectAll("#chart-courses, #chart-slots").on("click", (event) => {
+  d3.selectAll(FOLLOW_CHARTS).on("click", (event) => {
     if (!event.target.closest(".dot")) togglePin(null);
   });
 }
 
-// Entry point: load the data, build the strips, then the controls, and draw.
-loadTimelineData()
-  .then((loaded) => {
-    data = loaded;
-    const { built, undrawn } = buildStrips();
-    strips = built;
-    const names = undrawn.filter((u) => SHOWN_KEYS.has(u.area)).map((u) => u.canon.name);
-    if (names.length) d3.select("#undrawn").text(` (${names.join(", ")})`);
-    setupControls();
-    draw();
-  })
-  .catch((err) => showLoadError("main", err));
+// Entry point: load the data, build the strips, then the controls, and draw. A function
+// called from timeline.html (not run on load) so the category view can load this file
+// for its shared pieces without starting the timeline page.
+function initTimeline() {
+  loadTimelineData()
+    .then((loaded) => {
+      data = loaded;
+      const { built, undrawn } = buildStrips();
+      strips = built;
+      const names = undrawn.filter((u) => SHOWN_KEYS.has(u.area)).map((u) => u.canon.name);
+      if (names.length) d3.select("#undrawn").text(` (${names.join(", ")})`);
+      setupControls();
+      draw();
+    })
+    .catch((err) => showLoadError("main", err));
+}

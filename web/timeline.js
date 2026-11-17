@@ -355,6 +355,13 @@ function drawStrip(g, s, h) {
     const flag = g.append("text").attr("class", "uc-flag").attr("x", FLAG_X + 6).attr("y", 17)
       .text(flagText(s.flags));
     flag.append("title").text(s.flags.map((f) => f.why).join(". "));
+  } else if (!s.definite.has("uc") && !s.possible.has("uc")) {
+    // UC doesn't require the course, but too few others do for the ✕ missing flag. Muted
+    // text with no glyph (the user's choice, 2026-11-16), so the column still says UC
+    // lacks it while the bold ✕ keeps marking the gaps most schools agree on.
+    const note = g.append("text").attr("class", "uc-none-note").attr("x", FLAG_X + 6).attr("y", 17)
+      .text("not in UC plan");
+    note.append("title").text(`UC doesn't require it; ${otherShare(s).text}`);
   }
   // Second line: a small bar of how common the course is among the other schools, its
   // percent, and UC's placement.
@@ -601,6 +608,10 @@ function setupFollowAndLegend() {
     item.append("span").attr("class", "uc-flag").attr("aria-hidden", true).text(FLAG_GLYPHS[kind].glyph);
     item.append("span").text(text);
   }
+  // The quiet note for courses UC lacks that fewer than two thirds of the others require.
+  const note = legend.append("span");
+  note.append("span").attr("class", "uc-none-note").text("not in UC plan");
+  note.append("span").text("UC doesn't require it; fewer than two thirds do");
 
   // Escape unpins; a click on empty chart space unpins too (dot clicks don't reach it
   // because they are handled on the dot, and stopPropagation is not needed: the target

@@ -44,7 +44,8 @@ require, when, how common each is, and where UC is missing, early, or late.
   category name and a summary ("8 courses · UC requires 4 · 3 UC flags").
 - **One sub-band per canonical course** in the band: the timeline strip, with its share
   bar and percent of the other schools, UC's placement, the "course not required" bin,
-  and UC's flag (missing / early / late / few others, same rules as spec 07).
+  and UC's flag (missing / early / late / few others, same rules as spec 07), or the gray
+  "not in UC plan" note when UC lacks a course without a ✕ flag.
 - Within a band, courses are ordered by typical semester (median of each school's
   earliest full-match semester), then by share of other schools, then by the order in
   `category_members.csv`. Canonical courses no school requires are left out.

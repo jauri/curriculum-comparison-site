@@ -34,6 +34,9 @@
     /* UC flags (early, late, missing): bold ink, so they read as a remark about UC
        without taking UC's accent color from its dots. */
     .uc-flag { fill: var(--ink); color: var(--ink); font-weight: 700; font-size: 11px; }
+    /* "not in UC plan": UC lacks the course but most others don't require it either, so
+       it reads as a quiet note, not a flag. */
+    .uc-none-note { fill: var(--muted); color: var(--muted); font-size: 11px; }
     .strip-sub .pct { fill: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 
     /* Dots. Every school but UC is one neutral color; UC uses the accent color and a

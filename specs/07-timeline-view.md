@@ -96,7 +96,7 @@ percentile rule, with two thirds as "most").
   preview): when UC doesn't require the course (not even as an option) and it carries no
   ✕ missing flag, the column shows gray "not in UC plan" with no glyph, so every course UC
   lacks is named while the bold ✕ still marks the gaps most schools agree on. It is a note,
-  not a flag: the category view's "UC flags" count leaves it out.
+  not a flag.
 - **Where:** in its own column at the far right, after the "course not required" bin,
   headed "UC vs. most other schools", on the name's line (moved there from the label
   at the user's request, 2026-10-24).

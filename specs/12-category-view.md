@@ -41,7 +41,8 @@ require, when, how common each is, and where UC is missing, early, or late.
   legend setup), so dots, share bars, UC flags, and the tooltip are the timeline's.
 - **One shaded band per category** (the user's choice: bands with sub-bands only, no
   combined category row and no collapsing), in the CSV's order, under a heading with the
-  category name and a summary ("8 courses · UC requires 4 · 3 UC flags").
+  category name only (a summary, "8 courses · UC requires 4 · 3 UC flags", was built and
+  then removed at the user's request, 2026-11-16).
 - **One sub-band per canonical course** in the band: the timeline strip, with its share
   bar and percent of the other schools, UC's placement, the "course not required" bin,
   and UC's flag (missing / early / late / few others, same rules as spec 07), or the gray

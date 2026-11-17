@@ -39,18 +39,6 @@ function groupStrips(catList) {
   return { groups, left };
 }
 
-// A one-line summary for a category heading, e.g. "6 courses · UC requires 5 · 2 UC flags".
-// "Requires" counts full matches only, like the share bar; a flag is any glyph in the
-// right-hand column.
-function bandSummary(g) {
-  const n = g.strips.length;
-  const ucHas = g.strips.filter((s) => s.definite.has("uc")).length;
-  const flagged = g.strips.filter((s) => s.flags.length).length;
-  const parts = [`${n} course${n === 1 ? "" : "s"}`, `UC requires ${ucHas}`];
-  if (flagged) parts.push(`${flagged} UC flag${flagged === 1 ? "" : "s"}`);
-  return parts.join(" · ");
-}
-
 // Draw the chart: the column heads, then for each category a heading row and a shaded
 // band holding one strip (sub-band) per canonical course. The band's shading goes in
 // first so the strips' rules and dots draw on top of it.
@@ -62,8 +50,6 @@ function drawCategories() {
   let y = HEAD_H;
   for (const g of categories) {
     svg.append("text").attr("class", "area-head").attr("x", 12).attr("y", y + 30).text(g.category.name);
-    // The summary starts where the semester columns do, so it lines up across bands.
-    svg.append("text").attr("class", "band-summary").attr("x", LABEL_W).attr("y", y + 30).text(bandSummary(g));
     y += BAND_HEAD_H;
     const top = y;
     y += BAND_PAD;

@@ -33,15 +33,18 @@ function areaCredits(rows) {
 
 // Build one record per school: its registry entry, its per-area sums, and its degree
 // total (the sum over areas, which equals the stated total in schools.csv).
-function buildSchools({ schools, rows }) {
+// Each record also keeps the school's rows and its sources.json entry, which the
+// evidence box reads.
+function buildSchools({ schools, rows }, sources) {
   // d3.group: Map school_id -> that school's rows. The per-school JSON rows carry no
   // school_id of their own; loadAllSchools() tags each with its registry entry as
   // `school`, so the id is read from there.
   const bySchool = d3.group(rows, (r) => r.school.school_id);
   return schools.map((s) => {
-    const areas = areaCredits(bySchool.get(s.school_id) ?? []);
+    const schoolRows = bySchool.get(s.school_id) ?? [];
+    const areas = areaCredits(schoolRows);
     const total = { lo: d3.sum([...areas.values()], (a) => a.lo), hi: d3.sum([...areas.values()], (a) => a.hi) };
-    return { school: s, isUc: s.school_id === "uc", areas, total };
+    return { school: s, isUc: s.school_id === "uc", areas, total, rows: schoolRows, sources: sources[s.school_id] };
   });
 }
 
@@ -166,7 +169,135 @@ function drawAreaChart(area, recs) {
     ]);
   })
     .on("mousemove", moveTooltip)
-    .on("mouseleave blur", hideTooltip);
+    .on("mouseleave blur", hideTooltip)
+    // Click, tap, Enter, or Space opens the evidence for this school and area.
+    .on("click", (event, r) => showEvidence(area, r))
+    .on("keydown", (event, r) => {
+      if (event.key === "Enter" || event.key === " ") { event.preventDefault(); showEvidence(area, r); }
+    });
+
+  // The evidence box sits under the chart, empty and hidden until a column is chosen.
+  // Its id lets the table's cells find it. aria-live announces the new content.
+  section.append("div").attr("class", "evidence").attr("id", `evidence-${area.key}`)
+    .attr("aria-live", "polite").property("hidden", true);
+  // The chart's columns are kept on the section's node so showEvidence can mark the
+  // chosen one.
+  section.node().__cols = cols;
+}
+
+// ---- Evidence (specs/13-credits-view.md, "Evidence") ----
+
+// Only http(s) links are drawn as links; anything else in the data shows as plain text,
+// so a malformed sources.csv entry can never become a javascript: link.
+const safeUrl = (u) => (/^https?:\/\//.test(u ?? "") ? u : null);
+
+// Append a link to one source file's page, with its description and retrieval date.
+// Links open in a new tab; rel="noopener" stops the opened page from reaching back
+// into this one through window.opener.
+function appendSource(sel, rec) {
+  const url = safeUrl(rec?.url);
+  const a = url ? sel.append("a").attr("href", url).attr("target", "_blank").attr("rel", "noopener noreferrer")
+    : sel.append("span");
+  a.text(rec?.description || "source");
+  if (rec?.retrieved_date) sel.append("span").attr("class", "muted").text(` (retrieved ${rec.retrieved_date})`);
+}
+
+// Merge identical rows (same code, title, and kind) into one line with a count, so six
+// "Technical Elective" slots read as one line "×6" instead of six. Order of first
+// appearance is kept, which is the plan's own order.
+function mergeRows(rows) {
+  const lines = new Map();
+  for (const r of rows) {
+    const k = [r.course_code, r.title, r.requirement_type].join("|");
+    const line = lines.get(k) ?? { row: r, count: 0, lo: 0, hi: 0 };
+    line.count += 1; line.lo += r.credits_min; line.hi += r.credits_max;
+    lines.set(k, line);
+  }
+  return [...lines.values()];
+}
+
+// Words for a row's kind in the evidence list.
+const KIND_TEXT = { required: "required course", elective_slot: "elective / choice slot", gen_ed: "gen-ed slot" };
+
+// Fill an area's evidence box for one school: where the plan came from, how the count
+// is made, and every row behind it with its credits.
+function showEvidence(area, rec) {
+  const box = d3.select(`#evidence-${area.key}`).property("hidden", false);
+  box.selectAll("*").remove();
+  // Mark the chosen column in this chart (and clear the mark from the others).
+  const section = box.node().parentNode;
+  section.__cols.classed("chosen", (r) => r === rec);
+
+  const v = valueIn(rec, area.key);
+  const s = rec.school;
+  const src = rec.sources ?? { files: {}, plan_files: [] };
+  const inArea = rec.rows.filter((r) => r.subject_area === area.key && !r.is_coop);
+  const counted = inArea.filter((r) => r.counts_toward_total !== false);
+  const notCounted = inArea.filter((r) => r.counts_toward_total === false);
+
+  const head = box.append("div").attr("class", "ev-head");
+  head.append("strong").text(`${s.institution} · ${area.label}: ${rangeText(v)} credits`);
+  head.append("button").attr("class", "ev-close").attr("aria-label", "Close evidence").text("×")
+    .on("click", () => { box.property("hidden", true); section.__cols.classed("chosen", false); });
+
+  // Sources: the plan file(s) these rows were read from, and the page that states the
+  // degree total (often the same page).
+  const dl = box.append("dl");
+  const planFiles = [...new Set(counted.map((r) => r.source_file.split("/").pop()))];
+  dl.append("dt").text(planFiles.length > 1 ? "Plan sources" : "Plan source");
+  for (const f of planFiles.length ? planFiles : src.plan_files) appendSource(dl.append("dd"), src.files[f]);
+  dl.append("dt").text("Degree total");
+  const totalDd = dl.append("dd");
+  // schools.json carries the stated total as text, so + converts it to a number.
+  const stated = `${rangeText({ lo: +s.credits_min, hi: +s.credits_max })} credits, stated in `;
+  if (planFiles.length === 1 && planFiles[0] === src.total_file) {
+    totalDd.text(stated + "the same plan."); // one page gives both; don't repeat the link
+  } else {
+    totalDd.append("span").text(stated);
+    appendSource(totalDd, src.files[src.total_file]);
+  }
+  dl.append("dt").text("Program");
+  dl.append("dd").text(`${s.program}, ${s.catalog_year} catalog${s.notes ? `. ${s.notes}` : ""}`);
+
+  // How the count is made, in one sentence, then the rows themselves.
+  const pct = rec.total.lo ? Math.round((100 * v.lo) / rec.total.lo) : 0;
+  box.append("p").attr("class", "ev-reason").text(counted.length
+    ? `${rangeText(v)} = the sum of the ${counted.length} row${counted.length === 1 ? "" : "s"} below: every course and requirement slot in ${s.short_name}'s plan that falls in ${area.label.toLowerCase()} and counts toward the degree total, at the credits the plan gives it. That is ${pct}% of the degree's ${rangeText(rec.total)} credits.`
+    : `0: ${s.short_name}'s plan has no row in ${area.label.toLowerCase()}.`);
+
+  if (counted.length) {
+    const table = box.append("div").attr("class", "table-wrap").append("table").attr("class", "ev-rows");
+    const hr = table.append("thead").append("tr");
+    for (const h of ["Course or slot", "Kind", "Credits"]) hr.append("th").attr("class", h === "Credits" ? "num" : null).text(h);
+    const tb = table.append("tbody");
+    for (const line of mergeRows(counted)) {
+      const r = line.row;
+      const tr = tb.append("tr");
+      const td = tr.append("td");
+      td.append("span").text([r.course_code, r.title].filter(Boolean).join(" ") + (line.count > 1 ? ` ×${line.count}` : ""));
+      // The plan's own detail: the options of a choice slot, or the row's note.
+      const detail = r.options ? `Options: ${r.options.split("; ").join(", ")}` : r.notes;
+      if (detail) td.append("div").attr("class", "muted ev-note").text(detail);
+      tr.append("td").text(KIND_TEXT[r.requirement_type] ?? r.requirement_type);
+      tr.append("td").attr("class", "num").text(rangeText({ lo: line.lo, hi: line.hi }));
+    }
+    const tf = table.append("tfoot").append("tr");
+    tf.append("td").attr("colspan", 2).text("Total");
+    tf.append("td").attr("class", "num").text(rangeText(v));
+  }
+
+  // Rows in this area the plan lists but the stated total leaves out (e.g. a course
+  // students can place out of), named so the gap between plan and count is visible.
+  for (const r of notCounted) {
+    box.append("p").attr("class", "muted").text(
+      `Not counted: ${[r.course_code, r.title].filter(Boolean).join(" ")} (${rangeText({ lo: r.credits_min, hi: r.credits_max })}), which is not part of the stated total. ${r.notes}`);
+  }
+
+  // The area rule, so a reader can see why a course sits in this area.
+  const rule = box.append("p").attr("class", "muted");
+  rule.append("span").text("Courses are placed in areas by subject code and title, by the written rules in ");
+  rule.append("a").attr("href", "../data/reference/subject_areas.csv").attr("target", "_blank").attr("rel", "noopener").text("subject_areas.csv");
+  rule.append("span").text(".");
 }
 
 // The table under the charts: one row per school (UC first, then alphabetical by
@@ -182,16 +313,24 @@ function renderTable(recs) {
   for (const r of sorted) {
     const tr = body.append("tr");
     tr.append("td").append(r.isUc ? "strong" : "span").text(r.school.short_name);
-    for (const a of AREAS) tr.append("td").attr("class", "num").text(rangeText(valueIn(r, a.key)));
+    // Each cell is a button that opens that area's evidence box for this school and
+    // scrolls to it, so every number in the table can be checked too.
+    for (const a of AREAS) {
+      tr.append("td").attr("class", "num").append("button").attr("class", "cell-link")
+        .attr("aria-label", `${r.school.short_name}, ${a.label}: ${rangeText(valueIn(r, a.key))} credits. Show evidence.`)
+        .text(rangeText(valueIn(r, a.key)))
+        .on("click", () => { showEvidence(a, r); document.getElementById(`evidence-${a.key}`).scrollIntoView({ behavior: "smooth", block: "nearest" }); });
+    }
     tr.append("td").attr("class", "num").text(rangeText(r.total));
   }
 }
 
 // Entry point: load every displayed school, sum credits per area, and draw one chart
 // per area in AREAS order, then the table.
-loadAllSchools()
-  .then((loaded) => {
-    const recs = buildSchools(loaded);
+// sources.json (from src/build_sources.py) gives each plan file's URL for the evidence.
+Promise.all([loadAllSchools(), d3.json(DATA_DIR + "sources.json")])
+  .then(([loaded, sources]) => {
+    const recs = buildSchools(loaded, sources);
     for (const area of AREAS) drawAreaChart(area, recs);
     renderTable(recs);
   })

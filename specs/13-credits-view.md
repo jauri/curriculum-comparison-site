@@ -41,3 +41,24 @@ sits in each.
   the number of rows (courses and slots) behind it.
 - A table under the charts gives every number: one row per school (UC first, then
   alphabetical), one column per area, plus the degree total.
+
+## Evidence (added 2026-11-20, chosen with the user)
+
+The user asked for evidence behind every count: a link to the program and a reason.
+
+- **Data:** `src/build_sources.py` copies, for each displayed school, the source records
+  (URL, description, retrieval date from `data/raw/<id>/sources.csv`) of the files its
+  plan rows cite (`source_file`) and of the file that states the degree total
+  (`credits_source`, newest snapshot). Writes `data/processed/sources.json`; fails if
+  any of those files has no URL. Run it after any school's `build_outputs.py`.
+- **Layout (the user's choice over a per-school section):** clicking, tapping, or
+  pressing Enter on a column opens an evidence box under that chart; each number in
+  the table is a button that opens the same box. The chosen column keeps an outline.
+- **The box shows:** the plan source link(s); the stated degree total and where it is
+  stated ("the same plan" when one page gives both); program, catalog year, and the
+  school's `schools.csv` note; one sentence giving the reason ("N = the sum of the K
+  rows below ... counted at the credits the plan gives it", with the share of the
+  degree); a table of those rows (identical slots merged with ×count; a choice slot's
+  options or the row's note under it) with a total line; any rows in the area left out
+  of the stated total, with their note; and a link to `subject_areas.csv` for why a
+  course sits in an area. Only http(s) URLs become links.

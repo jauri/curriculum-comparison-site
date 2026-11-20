@@ -1,0 +1,386 @@
+{
+  "uc": {
+    "files": {
+      "2026-10-17_cs-bs-majormap-class2031-sec1.html": {
+        "url": "https://webapps2.uc.edu/ecurriculum/DegreePrograms/Home/MajorMap/11017",
+        "description": "Plan of study, Class of 2031 Section I (canonical plan)",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_cs-bs-majormap-class2031-sec1.html"
+    ],
+    "total_file": "2026-10-17_cs-bs-majormap-class2031-sec1.html"
+  },
+  "osu": {
+    "files": {
+      "2026-10-17_bs-cse-curriculum-sheet-2025-07.docx": {
+        "url": "https://cse.osu.edu/media/document/2025-08-27/cse_curriculum_sheet_with_sample_schedule_july2025accessibleread-only_0.docx",
+        "description": "BS CSE curriculum sheet with sample schedule, July 2025, effective AU24, Individualized option (canonical plan)",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_bs-cse-curriculum-sheet-2025-07.docx"
+    ],
+    "total_file": "2026-10-17_bs-cse-curriculum-sheet-2025-07.docx"
+  },
+  "uic": {
+    "files": {
+      "2026-10-17_bs-cs-catalog.html": {
+        "url": "https://catalog.uic.edu/ucat/colleges-depts/engineering/cs/bs-cs/",
+        "description": "BS in Computer Science, 2026-2027 catalog: requirements, sample schedule, science list, college (canonical plan)",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_bs-cs-catalog.html"
+    ],
+    "total_file": "2026-10-17_bs-cs-catalog.html"
+  },
+  "utaustin": {
+    "files": {
+      "2026-10-17_bscompsci-cs-option-catalog.html": {
+        "url": "https://catalog.utexas.edu/undergraduate/programs/computer-science-computer-science-option-bscompsci/",
+        "description": "BS in Computer Science, Computer Science Option, 2026-2028 catalog: requirements, plan of study, college (canonical plan)",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_bscompsci-cs-option-catalog.html"
+    ],
+    "total_file": "2026-10-17_bscompsci-cs-option-catalog.html"
+  },
+  "tamu": {
+    "files": {
+      "2026-10-17_bs-cs-catalog.html": {
+        "url": "https://catalog.tamu.edu/undergraduate/engineering/computer-science/bs/",
+        "description": "BS in Computer Science, 2026-2027 catalog: requirements, plan of study, total hours, college (canonical plan)",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_bs-cs-catalog.html"
+    ],
+    "total_file": "2026-10-17_bs-cs-catalog.html"
+  },
+  "neu": {
+    "files": {
+      "2026-10-17_bscs-catalog-2025-26.html": {
+        "url": "https://catalog.northeastern.edu/archive/2025-2026/undergraduate/computer-information-science/computer-science/bscs/",
+        "description": "BSCS (Boston), archived 2025-2026 catalog: requirements and sample plans of study (canonical plan)",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_bscs-catalog-2025-26.html"
+    ],
+    "total_file": "2026-10-17_bscs-catalog-2025-26.html"
+  },
+  "ucb": {
+    "files": {
+      "2026-10-17_eecs-major-program.html": {
+        "url": "https://engineering.berkeley.edu/academics/undergraduate-programs/electrical-engineering-computer-sciences/",
+        "description": "EECS major program page, Berkeley Engineering Undergraduate Guide: 2026-2027 freshman program table, notes, 120-unit minimum (canonical plan). Saved through Chrome (same-origin fetch, unchanged bytes) because the site returns 403 to scripts.",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_eecs-major-program.html"
+    ],
+    "total_file": "2026-10-17_eecs-major-program.html"
+  },
+  "uiuc": {
+    "files": {
+      "2026-10-17_bs-cs-catalog.html": {
+        "url": "https://catalog.illinois.edu/undergraduate/engineering/computer-science-bs/",
+        "description": "Computer Science BS, 2026-2027 catalog: requirements, sample sequence, total hours, college (canonical plan)",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_bs-cs-catalog.html"
+    ],
+    "total_file": "2026-10-17_bs-cs-catalog.html"
+  },
+  "wisc": {
+    "files": {
+      "2026-10-17_bs-cs-guide.html": {
+        "url": "https://guide.wisc.edu/undergraduate/letters-science/computer-sciences/computer-sciences-bs/",
+        "description": "Computer Sciences BS, 2026-2027 Guide: requirements, four-year plan, total credits, college (canonical plan)",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_bs-cs-guide.html"
+    ],
+    "total_file": "2026-10-17_bs-cs-guide.html"
+  },
+  "umn": {
+    "files": {
+      "2026-10-17_cs-four-year-plan.html": {
+        "url": "https://cse.umn.edu/college/four-year-plans/computer-science-four-year-plan",
+        "description": "Computer Science Four-Year Plan (B.S.), College of Science and Engineering, revised 03/2026 (canonical plan)",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_cs-four-year-plan.html"
+    ],
+    "total_file": "2026-10-17_cs-four-year-plan.html"
+  },
+  "umich": {
+    "files": {
+      "2026-10-17_cs-eng-sample-schedule-fa26.pdf": {
+        "url": "https://bulletin.engin.umich.edu/wp-content/uploads/sites/306/2026/05/FA26-CS-Eng-Sample-Schedule_5.7.26.pdf",
+        "description": "FA26 CS-Eng Sample Schedule (B.S.E. in Computer Science), College of Engineering Bulletin: eight-term plan, 128 credits, notes (canonical plan)",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_cs-eng-sample-schedule-fa26.pdf"
+    ],
+    "total_file": "2026-10-17_cs-eng-sample-schedule-fa26.pdf"
+  },
+  "gatech": {
+    "files": {
+      "2026-10-17_8-semester-plan-25-26.xlsx": {
+        "url": "https://www.dropbox.com/scl/fi/2035d1itol9yldwtewwrq/8-Semester-Plan-25-26.xlsx?rlkey=woui7t7ytv206q1exzzt2mzk5&st=ocxfxg1p&dl=1",
+        "description": "General 8 Semester Plan, No Threads, 2025-26 academic year (College of Computing credit sheet, Excel; canonical plan)",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_8-semester-plan-25-26.xlsx"
+    ],
+    "total_file": "2026-10-17_8-semester-plan-25-26.xlsx"
+  },
+  "vt": {
+    "files": {
+      "2026-10-17_bs-cs-catalog.html": {
+        "url": "https://catalog.vt.edu/undergraduate/college-engineering/computer-science/computer-science-bs/",
+        "description": "Computer Science Major, 2026-2027 Academic Catalog (College of Engineering): program curriculum, 123 credits, Roadmap plan of study (canonical plan). Saved through Chrome (same-origin fetch, unchanged bytes, bundle vt_bundle.json saved 2026-10-17).",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_bs-cs-catalog.html"
+    ],
+    "total_file": "2026-10-17_bs-cs-catalog.html"
+  },
+  "psu": {
+    "files": {
+      "2026-10-17_bs-cs-bulletin.html": {
+        "url": "https://bulletins.psu.edu/undergraduate/colleges/engineering/computer-science-bs/",
+        "description": "Computer Science, B.S. (Engineering), 2026-2027 Undergraduate Bulletin: requirements and suggested academic plans by campus; University Park plan is canonical",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_bs-cs-bulletin.html"
+    ],
+    "total_file": "2026-10-17_bs-cs-bulletin.html"
+  },
+  "purdue": {
+    "files": {
+      "2026-10-17_program-software-engineering.html": {
+        "url": "https://catalog.purdue.edu/preview_program.php?catoid=19&poid=36007",
+        "description": "Computer Science: Software Engineering, BS, 2026-2027 University Catalog: requirements and eight-semester plan of study (one of nine track plans combined into the canonical plan). Saved through Chrome (same-origin fetch, unchanged bytes, bundle purdue_bundle_programs.json saved 2026-10-17).",
+        "retrieved_date": "2026-10-17"
+      },
+      "2026-10-17_dept-cs-catalog.html": {
+        "url": "https://catalog.purdue.edu/preview_entity.php?catoid=19&ent_oid=5667",
+        "description": "Department of Computer Science, 2026-2027 University Catalog (College of Science): lists the nine CS BS track programs. Saved through Chrome (same-origin fetch, unchanged bytes, bundle purdue_bundle_programs.json saved 2026-10-17).",
+        "retrieved_date": "2026-10-17"
+      }
+    },
+    "plan_files": [
+      "2026-10-17_program-software-engineering.html"
+    ],
+    "total_file": "2026-10-17_dept-cs-catalog.html"
+  },
+  "colorado": {
+    "files": {
+      "2026-11-13_bs-cs-catalog.html": {
+        "url": "https://catalog.colorado.edu/undergraduate/colleges-schools/engineering-applied-science/programs-study/computer-science/computer-science-bachelor-science-bs/",
+        "description": "Computer Science BS, College of Engineering and Applied Science, Undergraduate Catalog: requirements, total credits, Recommended Four-Year Plan of Study (canonical plan)",
+        "retrieved_date": "2026-11-13"
+      }
+    },
+    "plan_files": [
+      "2026-11-13_bs-cs-catalog.html"
+    ],
+    "total_file": "2026-11-13_bs-cs-catalog.html"
+  },
+  "utd": {
+    "files": {
+      "2026-11-13_bs-cs-four-year.html": {
+        "url": "https://catalog.utdallas.edu/2026/undergraduate/programs/ecs/computer-science/four-year",
+        "description": "Computer Science (BS) 4-Year Plan Example, 2026 Undergraduate Catalog (canonical plan)",
+        "retrieved_date": "2026-11-13"
+      },
+      "2026-11-13_bs-cs-program.html": {
+        "url": "https://catalog.utdallas.edu/2026/undergraduate/programs/ecs/computer-science",
+        "description": "Computer Science (BS) degree requirements, 2026 Undergraduate Catalog: Erik Jonsson School of Engineering and Computer Science, 124 semester credit hours",
+        "retrieved_date": "2026-11-13"
+      }
+    },
+    "plan_files": [
+      "2026-11-13_bs-cs-four-year.html"
+    ],
+    "total_file": "2026-11-13_bs-cs-program.html"
+  },
+  "uconn": {
+    "files": {
+      "2026-11-13_cs-common-map-26-27.pdf": {
+        "url": "https://advising-engineering.media.uconn.edu/wp-content/uploads/sites/3638/2026/05/CS-26-27-Common-Map.pdf",
+        "description": "Computer Science (BS) common map, Catalog Year 2026-2027, Storrs (College of Engineering advising): eight semesters, 120 credits (canonical plan)",
+        "retrieved_date": "2026-11-13"
+      }
+    },
+    "plan_files": [
+      "2026-11-13_cs-common-map-26-27.pdf"
+    ],
+    "total_file": "2026-11-13_cs-common-map-26-27.pdf"
+  },
+  "utk": {
+    "files": {
+      "2026-11-14_bs-cs-catalog.html": {
+        "url": "https://catalog.utk.edu/preview_program.php?catoid=56&poid=35734",
+        "description": "Computer Science Major, BS in Computer Science, 2026-2027 Undergraduate Catalog (Tickle College of Engineering): requirements and Academic Map (canonical plan). Saved through Chrome (same-origin fetch, unchanged bytes, bundle utk_bundle.json saved 2026-11-14).",
+        "retrieved_date": "2026-11-14"
+      }
+    },
+    "plan_files": [
+      "2026-11-14_bs-cs-catalog.html"
+    ],
+    "total_file": "2026-11-14_bs-cs-catalog.html"
+  },
+  "uky": {
+    "files": {
+      "2026-11-14_bs-cs-catalog.html": {
+        "url": "https://catalogs.uky.edu/preview_program.php?catoid=22&poid=11580",
+        "description": "Computer Science, B.S., 2026-2027 Undergraduate Catalog (Pigman College of Engineering): requirements, 128 hours, eight-semester Curriculum (canonical plan). Saved through Chrome (same-origin fetch, unchanged bytes, bundle uky_bundle.json saved 2026-11-14).",
+        "retrieved_date": "2026-11-14"
+      }
+    },
+    "plan_files": [
+      "2026-11-14_bs-cs-catalog.html"
+    ],
+    "total_file": "2026-11-14_bs-cs-catalog.html"
+  },
+  "ub": {
+    "files": {
+      "2026-11-14_bs-cs-catalog.html": {
+        "url": "https://catalogs.buffalo.edu/preview_program.php?catoid=21&poid=7950",
+        "description": "Computer Science BS, 2026-2027 Undergraduate Catalog: requirements, 120 credits, Curricular Plan (canonical plan). Saved through Chrome (same-origin fetch, unchanged bytes, bundle ub_bundle.json saved 2026-11-14).",
+        "retrieved_date": "2026-11-14"
+      }
+    },
+    "plan_files": [
+      "2026-11-14_bs-cs-catalog.html"
+    ],
+    "total_file": "2026-11-14_bs-cs-catalog.html"
+  },
+  "sbu": {
+    "files": {
+      "2026-11-14_bs-cs-catalog.html": {
+        "url": "https://catalog.stonybrook.edu/preview_program.php?catoid=11&poid=1411",
+        "description": "Computer Science, BS, Fall 2026 Undergraduate Catalog (College of Engineering and Applied Sciences): requirements and Sample Course Sequence (canonical plan). Saved through Chrome (same-origin fetch, unchanged bytes, bundle sbu_bundle.json saved 2026-11-14).",
+        "retrieved_date": "2026-11-14"
+      }
+    },
+    "plan_files": [
+      "2026-11-14_bs-cs-catalog.html"
+    ],
+    "total_file": "2026-11-14_bs-cs-catalog.html"
+  },
+  "uva": {
+    "files": {
+      "2026-11-14_bscs-example-schedule-2024-25.pdf": {
+        "url": "https://uvacsadvising.org/materials/bscs-example-schedule.pdf",
+        "description": "Example BSCS Semester Outline - 2024-2025 Academic Year (UVA CS advising): eight semesters, 126 credits (canonical plan)",
+        "retrieved_date": "2026-11-14"
+      },
+      "2026-11-14_bs-cs-record.html": {
+        "url": "https://records.ureg.virginia.edu/preview_program.php?catoid=72&poid=11700",
+        "description": "Computer Science, B.S., Undergraduate Record 2026-2027 (School of Engineering and Applied Science): requirements, 126 credits (college and credits source). Saved through Chrome (same-origin fetch, unchanged bytes, bundle uva_bundle.json saved 2026-11-14).",
+        "retrieved_date": "2026-11-14"
+      }
+    },
+    "plan_files": [
+      "2026-11-14_bscs-example-schedule-2024-25.pdf"
+    ],
+    "total_file": "2026-11-14_bs-cs-record.html"
+  },
+  "utah": {
+    "files": {
+      "2026-11-14_cs-bs-programs-api.json": {
+        "url": "https://app.coursedog.com/api/v1/cm/utah_peoplesoft/programs?programGroupIds=CPSCBS&effectiveDatesRange=2027-05-03%2C2027-05-03&doNotDisplayAllMappedRevisionsAsDependencies=true&formatDependents=true&includeMappedDocumentItems=true",
+        "description": "Coursedog catalog API, program CPSCBS (effective 2026-08-17): degree maps including the 'Computer Science Sample 4 Year Plan' (canonical plan), college. Saved through Chrome (same-origin fetch, unchanged bytes, bundle utah_bundle.json saved 2026-11-14).",
+        "retrieved_date": "2026-11-14"
+      }
+    },
+    "plan_files": [
+      "2026-11-14_cs-bs-programs-api.json"
+    ],
+    "total_file": "2026-11-14_cs-bs-programs-api.json"
+  },
+  "vanderbilt": {
+    "files": {
+      "2026-11-14_cs-roadmap-2025-26.pdf": {
+        "url": "https://cdn.vanderbilt.edu/vu-sub/wp-content/uploads/sites/282/2025/09/23152312/25-26-Computer-Science-Roadmap.pdf",
+        "description": "Four-Year Roadmap and Checklist, Computer Science, 2025-26 (School of Engineering): eight semesters, 120 hours (canonical plan)",
+        "retrieved_date": "2026-11-14"
+      }
+    },
+    "plan_files": [
+      "2026-11-14_cs-roadmap-2025-26.pdf"
+    ],
+    "total_file": "2026-11-14_cs-roadmap-2025-26.pdf"
+  },
+  "usc": {
+    "files": {
+      "2026-11-14_cs-curriculum-2026.pdf": {
+        "url": "https://viterbiadmission.usc.edu/wp-content/uploads/2026/06/CS_Curriculum_2026.pdf",
+        "description": "Viterbi 2026 guide, Computer Science curriculum pages: course tracks and four-year grids 'Begin with CSCI 102' (canonical plan, no AP credit) and 'Begin with CSCI 103'",
+        "retrieved_date": "2026-11-14"
+      },
+      "2026-11-14_bs-cs-catalogue.html": {
+        "url": "https://catalogue.usc.edu/preview_program.php?catoid=22&poid=32086",
+        "description": "Computer Science (BS), USC Catalogue 2026-2027 (Viterbi School of Engineering): requirements, 128 units (college and credits source). Saved through Chrome (same-origin fetch, unchanged bytes, bundle usc_bundle.json saved 2026-11-15).",
+        "retrieved_date": "2026-11-14"
+      }
+    },
+    "plan_files": [
+      "2026-11-14_cs-curriculum-2026.pdf"
+    ],
+    "total_file": "2026-11-14_bs-cs-catalogue.html"
+  },
+  "nyu": {
+    "files": {
+      "2026-11-14_bs-cs-bulletin.html": {
+        "url": "https://bulletins.nyu.edu/undergraduate/engineering/programs/computer-science-bs/",
+        "description": "Computer Science (BS), Tandon School of Engineering, NYU Bulletins: curriculum, total credits, Sample Plan of Study (canonical plan)",
+        "retrieved_date": "2026-11-14"
+      }
+    },
+    "plan_files": [
+      "2026-11-14_bs-cs-bulletin.html"
+    ],
+    "total_file": "2026-11-14_bs-cs-bulletin.html"
+  },
+  "case": {
+    "files": {
+      "2026-11-14_bs-cs-bulletin.html": {
+        "url": "https://bulletin.case.edu/engineering/computer-data-sciences/computer-science-bs/",
+        "description": "Computer Science, BS, Case School of Engineering, CWRU General Bulletin: program requirements, total credit hours, Sample Plan of Study (canonical plan)",
+        "retrieved_date": "2026-11-14"
+      }
+    },
+    "plan_files": [
+      "2026-11-14_bs-cs-bulletin.html"
+    ],
+    "total_file": "2026-11-14_bs-cs-bulletin.html"
+  }
+}

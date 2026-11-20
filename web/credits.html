@@ -32,6 +32,30 @@
     /* Median of the other schools: dashed ink line with its value at the right end. */
     .median { stroke: var(--ink-2); stroke-width: 1.25; stroke-dasharray: 5 4; }
     .median-label { fill: var(--ink-2); font-size: 11px; }
+
+    /* The chosen column (its evidence is open) keeps a visible outline. */
+    .col { cursor: pointer; }
+    .col.chosen .hit { fill: var(--hover); stroke: var(--ink-2); stroke-width: 1; }
+
+    /* Evidence box under a chart: sources, the reason for the count, and its rows. */
+    .evidence { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; margin: 0 0 24px; font-size: 14px; }
+    .evidence[hidden] { display: none; }
+    .ev-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+    .ev-close { background: none; border: 0; color: var(--ink-2); font-size: 20px; line-height: 1; cursor: pointer; padding: 0 4px; }
+    .evidence dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 12px; margin: 10px 0; }
+    .evidence dt { color: var(--ink-2); }
+    .evidence dd { margin: 0; overflow-wrap: anywhere; }
+    .evidence a { color: var(--accent); }
+    .ev-reason { margin: 10px 0; }
+    .ev-rows { width: 100%; }
+    .ev-rows tfoot td { font-weight: 600; border-top: 1px solid var(--axis); }
+    .ev-note { font-size: 12px; margin-top: 2px; }
+    /* On a phone the label column stacks above its value. */
+    @media (max-width: 560px) { .evidence dl { grid-template-columns: 1fr; } .evidence dd { margin-bottom: 6px; } }
+
+    /* Table cells are buttons that open the evidence; they look like plain numbers
+       with a link underline so the table still reads as a table. */
+    .cell-link { background: none; border: 0; padding: 0; font: inherit; color: var(--accent); text-decoration: underline dotted; cursor: pointer; font-variant-numeric: tabular-nums; }
   </style>
 </head>
 <body>
@@ -58,7 +82,9 @@
     column</strong>; the other schools follow from most credits to fewest. The dashed line is
     the median of the other schools. A lighter cap on a column means the plan gives a range
     (for example, a 4–5 credit science course). Each chart has its own scale. Hover a column
-    for details; every number is also in the table at the bottom.
+    for details. <strong>Click or tap a column</strong> (or any number in the table at the
+    bottom) to see the evidence: a link to the school's published plan, the page that
+    states its degree total, and every course and slot that adds up to the count.
   </div>
   <div class="note">
     <strong>What's counted.</strong> Every row of the plan that counts toward the degree

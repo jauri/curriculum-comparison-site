@@ -36,6 +36,14 @@
     /* "Click on a column" hint above each chart: accent color so it reads as an action. */
     .hint { color: var(--accent); font-size: 14px; font-weight: 600; margin: 4px 0 8px; }
 
+    /* Course list in the hover tooltip: name on the left (cut with … if long, so each
+       course stays one line), credits right-aligned in a fixed column. */
+    .tip-courses { margin-top: 6px; border-top: 1px solid var(--border); padding-top: 4px; }
+    .tip-courses > div { display: flex; justify-content: space-between; gap: 10px; }
+    .tc-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tc-cr { flex: none; font-variant-numeric: tabular-nums; color: var(--ink-2); }
+    .tip-courses .tip-more { margin-top: 4px; color: var(--muted); font-style: italic; }
+
     /* The chosen column (its evidence is open) keeps a visible outline. */
     .col { cursor: pointer; }
     .col.chosen .hit { fill: var(--hover); stroke: var(--ink-2); stroke-width: 1; }

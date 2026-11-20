@@ -33,6 +33,9 @@
     .median { stroke: var(--ink-2); stroke-width: 1.25; stroke-dasharray: 5 4; }
     .median-label { fill: var(--ink-2); font-size: 11px; }
 
+    /* "Click on a column" hint above each chart: accent color so it reads as an action. */
+    .hint { color: var(--accent); font-size: 14px; font-weight: 600; margin: 4px 0 8px; }
+
     /* The chosen column (its evidence is open) keeps a visible outline. */
     .col { cursor: pointer; }
     .col.chosen .hit { fill: var(--hover); stroke: var(--ink-2); stroke-width: 1; }

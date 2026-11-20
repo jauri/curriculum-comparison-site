@@ -90,6 +90,8 @@ function drawAreaChart(area, recs) {
   const uc = order.find((r) => r.isUc);
   section.append("p").attr("class", "muted").text(
     `UC: ${rangeText(valueIn(uc, area.key))} credits. Median of the other ${others.length} schools: ${median}.`);
+  // The hint sits on every chart, so a reader who scrolls straight to one still sees it.
+  section.append("p").attr("class", "hint").text("Click on a column to see evidence and details.");
 
   const svg = section.append("div").attr("class", "chart-wrap").append("svg")
     .attr("width", width).attr("height", height)

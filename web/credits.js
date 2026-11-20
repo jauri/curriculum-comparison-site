@@ -34,8 +34,10 @@ function areaCredits(rows) {
 // Build one record per school: its registry entry, its per-area sums, and its degree
 // total (the sum over areas, which equals the stated total in schools.csv).
 function buildSchools({ schools, rows }) {
-  // d3.group: Map school_id -> that school's rows.
-  const bySchool = d3.group(rows, (r) => r.school_id);
+  // d3.group: Map school_id -> that school's rows. The per-school JSON rows carry no
+  // school_id of their own; loadAllSchools() tags each with its registry entry as
+  // `school`, so the id is read from there.
+  const bySchool = d3.group(rows, (r) => r.school.school_id);
   return schools.map((s) => {
     const areas = areaCredits(bySchool.get(s.school_id) ?? []);
     const total = { lo: d3.sum([...areas.values()], (a) => a.lo), hi: d3.sum([...areas.values()], (a) => a.hi) };

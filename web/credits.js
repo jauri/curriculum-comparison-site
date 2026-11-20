@@ -169,21 +169,6 @@ function drawAreaChart(area, recs) {
       `${pct}% of the degree's ${rangeText(r.total)} credits`,
       `${v.n} course${v.n === 1 ? "" : "s"} and slots in the plan`,
     ]);
-    // The courses and slots behind the column, one line each with its credits (the
-    // user's request: see which courses count, e.g. for UC's computing). Same rows and
-    // merging as the evidence box; d3 .text() keeps catalog text from being read as HTML.
-    const counted = r.rows.filter((x) => x.subject_area === area.key && !x.is_coop && x.counts_toward_total !== false);
-    if (counted.length) {
-      const list = d3.select("#tooltip").append("div").attr("class", "tip-courses");
-      for (const line of mergeRows(counted)) {
-        const row = list.append("div");
-        row.append("span").attr("class", "tc-name")
-          .text([line.row.course_code, line.row.title].filter(Boolean).join(" ") + (line.count > 1 ? ` ×${line.count}` : ""));
-        row.append("span").attr("class", "tc-cr").text(rangeText({ lo: line.lo, hi: line.hi }));
-      }
-      list.append("div").attr("class", "tip-more").text("Click for sources and details");
-      moveTooltip(event); // the list made the tooltip taller; re-place it on screen
-    }
   })
     .on("mousemove", moveTooltip)
     .on("mouseleave blur", hideTooltip)

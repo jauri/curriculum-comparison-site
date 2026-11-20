@@ -37,11 +37,8 @@ sits in each.
 - A dashed line marks the **median of the other schools** (low end), labeled with its
   value, so UC can be read against the typical school.
 - Each chart has its own y scale (computing runs to ~75 credits, writing to ~12).
-- Hover (or focus) a column: school, credits, share of the school's degree total, the
-  number of rows (courses and slots) behind it, and (added 2026-11-20 at the user's
-  request) the list of those courses and slots, one line each with its credits
-  (identical slots merged with ×count, long names cut with …), ending "Click for
-  sources and details".
+- Hover (or focus) a column: school, credits, share of the school's degree total, and
+  the number of rows (courses and slots) behind it.
 - A table under the charts gives every number: one row per school (UC first, then
   alphabetical), one column per area, plus the degree total.
 
